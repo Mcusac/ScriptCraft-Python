@@ -22,7 +22,7 @@ def _load_plugins() -> None:
         # from . import date_plugin
     except ImportError as e:
         # Plugins are optional - if they fail to import, continue
-        print(f"Warning: Failed to load plugins: {e}")
+        # Silently continue - plugins are optional
         pass
 
 # Load plugins immediately

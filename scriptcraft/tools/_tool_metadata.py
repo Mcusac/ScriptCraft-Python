@@ -157,24 +157,23 @@ def update_tool_metadata(tool_name: str, **updates) -> bool:
     """
     Helper to suggest metadata updates (for development use).
     
-    This doesn't actually update files, but prints what should be added.
+    This doesn't actually update files, but returns what should be added.
     """
     metadata = discover_tool_metadata(tool_name)
     if not metadata:
-        print(f"Tool {tool_name} not found")
         return False
     
-    print(f"\n# Suggested metadata additions for {tool_name}/__init__.py:")
+    suggestions = []
     for key, value in updates.items():
         attr_name = f"__{key}__"
         current_value = getattr(metadata, key, None)
         if current_value != value:
             if isinstance(value, list):
-                print(f'{attr_name} = {value}')
+                suggestions.append(f'{attr_name} = {value}')
             else:
-                print(f'{attr_name} = "{value}"')
+                suggestions.append(f'{attr_name} = "{value}"')
     
-    return True
+    return len(suggestions) > 0
 
 def generate_metadata_summary() -> str:
     """Generate a summary of all tool metadata."""

@@ -20,7 +20,7 @@ else:
     long_description = "ScriptCraft - Data processing and quality control workspace for research data"
 
 setup(
-    name="scriptcraft",
+    name="scriptcraft-python",
     version=__version__,
     description="Data processing and quality control tools for research workflows",
     long_description=long_description,
