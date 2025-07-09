@@ -16,21 +16,8 @@ from typing import List, Tuple, Union, Optional, Dict, Any
 from pathlib import Path
 import pandas as pd
 
-# Try to import common utilities with fallback
-try:
-    from scriptcraft.common.io import load_data as common_load_data
-except ImportError:
-    try:
-        from common.io import load_data as common_load_data
-    except ImportError:
-        # Fallback to basic pandas loading
-        def common_load_data(file_path, **kwargs):
-            if str(file_path).endswith('.csv'):
-                return pd.read_csv(file_path, **kwargs)
-            elif str(file_path).endswith(('.xlsx', '.xls')):
-                return pd.read_excel(file_path, **kwargs)
-            else:
-                raise ValueError(f"Unsupported file format: {file_path}")
+# Import common utilities using the cu pattern
+from ...common import cu
 
 SETS_PER_PAGE = 8  # Number of ID sets per label sheet
 
@@ -84,11 +71,6 @@ def fill_full_page(template_doc: Document, id_pairs: List[Tuple[str, str, str]])
                     replace_placeholders(cell.paragraphs, rid, mid, visit, idx)
 
     return page
-
-
-def load_data(input_path: Union[str, Path], **kwargs: Any) -> pd.DataFrame:
-    """Load data from input file."""
-    return common_load_data(input_path, **kwargs)
 
 
 def apply_labeling_rules(data: pd.DataFrame, rules: Optional[Dict[str, Any]] = None, domain: Optional[str] = None) -> pd.DataFrame:
@@ -145,4 +127,4 @@ def save_labeled_data(data: pd.DataFrame, output_path: Union[str, Path], format:
 
 def process_data(input_path: Union[str, Path], **kwargs: Any) -> pd.DataFrame:
     """Process input data file."""
-    return load_data(input_path, **kwargs)
+    return cu.load_data(input_path, **kwargs)

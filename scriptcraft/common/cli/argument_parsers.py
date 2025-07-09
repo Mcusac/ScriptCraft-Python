@@ -73,12 +73,31 @@ class ArgumentGroups:
                           help="List available options and exit")
     
     @staticmethod
-    def add_tool_io_args(parser: argparse.ArgumentParser) -> None:
-        """Add standard tool input/output arguments."""
-        parser.add_argument("--input-paths", nargs='+', required=True,
-                          help="Input file paths to process.")
-        parser.add_argument("--output-dir", default="output",
-                          help="Output directory (default: output).")
+    def add_tool_io_args(parser: argparse.ArgumentParser, input_paths_required: bool = True) -> None:
+        """Add tool I/O specific arguments."""
+        if input_paths_required:
+            parser.add_argument("input_paths", nargs='+',
+                              help="Input file paths.")
+        else:
+            parser.add_argument("--input-paths", nargs='+',
+                              help="Input file paths (optional for some modes).")
+        
+        # Try to get config-based default output directory
+        default_output_dir = "data/output"  # Default fallback
+        try:
+            import scriptcraft.common as cu
+            config = cu.get_config()
+            if config:
+                workspace_config = config.get_workspace_config()
+                if workspace_config and hasattr(workspace_config, 'paths'):
+                    workspace_paths = workspace_config.paths
+                    if isinstance(workspace_paths, dict) and 'output_dir' in workspace_paths:
+                        default_output_dir = workspace_paths['output_dir']
+        except Exception:
+            pass  # Use fallback if config loading fails
+        
+        parser.add_argument("--output-dir", default=default_output_dir,
+                          help=f"Output directory (default: {default_output_dir}).")
         parser.add_argument("--domain",
                           help="Domain name (e.g., Clinical, Biomarkers).")
         parser.add_argument("--output-filename",
@@ -139,12 +158,12 @@ class ParserFactory:
         return parser
     
     @staticmethod
-    def create_standard_tool_parser(tool_name: str, description: Optional[str] = None) -> argparse.ArgumentParser:
+    def create_standard_tool_parser(tool_name: str, description: Optional[str] = None, input_paths_required: bool = True) -> argparse.ArgumentParser:
         """Create a standard parser for tools with common I/O patterns."""
         desc = description or f"{tool_name} Tool"
         parser = argparse.ArgumentParser(description=f"🛠️ {desc}")
         
-        ArgumentGroups.add_tool_io_args(parser)
+        ArgumentGroups.add_tool_io_args(parser, input_paths_required=input_paths_required)
         
         return parser
     
@@ -252,9 +271,9 @@ def parse_tool_args(tool_name: str, description: Optional[str] = None) -> argpar
     return parser.parse_args()
 
 
-def parse_standard_tool_args(tool_name: str, description: Optional[str] = None) -> argparse.Namespace:
+def parse_standard_tool_args(tool_name: str, description: Optional[str] = None, input_paths_required: bool = True) -> argparse.Namespace:
     """Parse arguments for standard tool operations."""
-    parser = ParserFactory.create_standard_tool_parser(tool_name, description)
+    parser = ParserFactory.create_standard_tool_parser(tool_name, description, input_paths_required=input_paths_required)
     return parser.parse_args()
 
 

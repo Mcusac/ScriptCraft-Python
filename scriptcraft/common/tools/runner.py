@@ -5,7 +5,7 @@ from pathlib import Path
 from typing import Optional, Callable, Any, List
 from ..logging import setup_logging_with_timestamp, log_and_print
 from ..io import get_project_root, resolve_path, ensure_output_dir
-from ..io.paths import get_config
+from ..io.paths import get_legacy_config
 
 def run_tool(logic_func: Callable, args: Optional[List[str]] = None) -> None:
     """
@@ -29,7 +29,7 @@ def run_tool(logic_func: Callable, args: Optional[List[str]] = None) -> None:
     else:
         parsed_args = parser.parse_args(args)
     
-    config = get_config()
+    config = get_legacy_config()
     project_root = get_project_root()
     input_dir = resolve_path(parsed_args.input_dir, project_root)
     output_dir = ensure_output_dir(resolve_path(parsed_args.output_dir, project_root))

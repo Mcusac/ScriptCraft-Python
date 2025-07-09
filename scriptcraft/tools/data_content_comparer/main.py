@@ -52,6 +52,38 @@ class DataContentComparer(cu.BaseTool):
             description="📊 Compares content between datasets and generates detailed reports",
             tool_name="data_content_comparer"
         )
+        
+        # Set up file logging
+        self._setup_logging()
+    
+    def _setup_logging(self):
+        """Set up file logging for the tool."""
+        try:
+            if self.config:
+                # Get log directory from config
+                workspace_config = self.config.get_workspace_config()
+                if workspace_config and hasattr(workspace_config, 'logging'):
+                    log_config = workspace_config.logging
+                    if isinstance(log_config, dict) and 'log_dir' in log_config:
+                        log_dir = Path(log_config['log_dir'])
+                    else:
+                        log_dir = Path("data/logs")
+                else:
+                    log_dir = Path("data/logs")
+            else:
+                log_dir = Path("data/logs")
+            
+            # Ensure log directory exists
+            log_dir.mkdir(parents=True, exist_ok=True)
+            
+            # Set up logging with timestamp
+            from scriptcraft.common.logging import setup_logging_with_timestamp
+            log_file = setup_logging_with_timestamp(log_dir, mode="data_content_comparer")
+            
+            cu.log_and_print(f"📝 Logging to: {log_file}")
+            
+        except Exception as e:
+            cu.log_and_print(f"⚠️ Could not set up file logging: {e}", level="warning")
     
     def run(self,
             mode: Optional[str] = None,
@@ -64,7 +96,7 @@ class DataContentComparer(cu.BaseTool):
         Run the data content comparison.
         
         Args:
-            mode: Comparison mode (e.g., 'full', 'quick', 'rhq_mode', 'standard_mode')
+            mode: Comparison mode (e.g., 'standard', 'rhq', 'domain', 'release_consistency', 'release')
             input_paths: List containing paths to the datasets to compare
             output_dir: Directory to save comparison reports
             domain: Optional domain to filter comparison
@@ -72,63 +104,55 @@ class DataContentComparer(cu.BaseTool):
             **kwargs: Additional arguments:
                 - comparison_type: Type of comparison to perform
                 - output_format: Format for the output report
+                - debug: Enable debug mode (for release_consistency mode)
         """
         self.log_start()
         
         try:
-            # Validate inputs using DRY method
-            if not self.validate_input_files(input_paths or [], required_count=2):
-                raise ValueError("❌ Need at least two input files to compare")
-            
             # Resolve output directory using DRY method
             output_path = self.resolve_output_directory(output_dir or self.default_output_dir)
             
-            # Get comparison settings
-            comparison_type = kwargs.get('comparison_type', 'full')
-            output_format = kwargs.get('output_format', 'excel')
+            # Load and run the appropriate plugin
+            from .plugins import get_plugin, list_plugins
             
-            # Load datasets using DRY method
-            cu.log_and_print("📂 Loading datasets...")
-            df1 = self.load_data_file(input_paths[0])
-            df2 = self.load_data_file(input_paths[1])
+            # Set default mode if not specified
+            if not mode:
+                mode = "standard"
             
-            # Use base class comparison method for basic analysis
-            basic_comparison = self.compare_dataframes(df1, df2)
+            # Get the plugin function
+            plugin_func = get_plugin(mode)
             
-            # Perform detailed comparison using tool-specific logic
-            cu.log_and_print("🔍 Performing detailed comparison...")
-            detailed_comparison = compare_datasets(
-                df1,
-                df2,
-                comparison_type=comparison_type,
-                domain=domain
+            if not plugin_func:
+                available_modes = list_plugins()
+                raise ValueError(f"❌ Unknown mode '{mode}'. Available modes: {available_modes}")
+            
+            # For release_consistency mode, we don't require exactly 2 input files
+            if mode in ["release_consistency", "release"]:
+                # Release consistency mode can work with domain-only or manual files
+                if input_paths and len(input_paths) >= 2:
+                    # Manual file comparison mode
+                    cu.log_and_print(f"📁 Manual file comparison mode with {len(input_paths)} files")
+                elif domain:
+                    # Domain-based comparison mode
+                    cu.log_and_print(f"📊 Domain-based comparison for: {domain}")
+                else:
+                    # Default to all domains
+                    cu.log_and_print("📊 Processing all available domains")
+            else:
+                # For other modes, validate input files
+                if not self.validate_input_files(input_paths or [], required_count=2):
+                    raise ValueError("❌ Need at least two input files to compare")
+            
+            # Run the plugin
+            cu.log_and_print(f"🔧 Running {mode} mode...")
+            plugin_func(
+                input_paths=input_paths or [],
+                output_dir=output_path,
+                domain=domain,
+                **kwargs
             )
             
-            # Combine results
-            comparison_results = {
-                **basic_comparison,
-                'detailed_analysis': detailed_comparison
-            }
-            
-            # Generate output filename using DRY method
-            if not output_filename:
-                output_filename = self.get_output_filename(
-                    input_paths[0], 
-                    suffix=f"vs_{Path(input_paths[1]).stem}_comparison",
-                    extension=f".{output_format}"
-                )
-            
-            report_path = output_path / output_filename
-            
-            # Generate report
-            cu.log_and_print("📄 Generating comparison report...")
-            generate_report(
-                comparison_results,
-                report_path,
-                format=output_format
-            )
-            
-            self.log_completion(report_path)
+            self.log_completion(output_path)
             
         except Exception as e:
             self.log_error(f"Comparison failed: {e}")
@@ -137,8 +161,17 @@ class DataContentComparer(cu.BaseTool):
 
 def main():
     """Main entry point for the data content comparer tool."""
-    args = cu.parse_tool_args("📊 Compares content between datasets and generates detailed reports")
+    import sys
+    # For release_consistency mode, input_paths is optional (can use domain-based discovery)
+    # Check if release_consistency mode is being used
+    release_consistency_mode = "--mode" in sys.argv and ("release_consistency" in sys.argv or "release" in sys.argv)
+    input_paths_required = not release_consistency_mode
     
+    args = cu.parse_standard_tool_args(
+        "data_content_comparer",
+        "📊 Compares content between datasets and generates detailed reports",
+        input_paths_required=input_paths_required
+    )
     # Create and run the tool
     tool = DataContentComparer()
     tool.run(

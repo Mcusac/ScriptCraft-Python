@@ -49,20 +49,9 @@ setup(
         # Web automation tools (RHQ Form Autofiller)
         "web": ["selenium>=4.0.0"],
         
-        # Development tools
-        "dev": [
-            "pytest>=6.2.5", 
-            "pytest-cov>=2.12.1",
-            "black>=21.12b0",
-            "mypy>=0.910",
-            "flake8>=3.9.0",
-        ],
-        
         # Full installation with all optional dependencies
         "all": [
             "selenium>=4.0.0",
-            "pytest>=6.2.5", 
-            "pytest-cov>=2.12.1",
         ],
     },
     entry_points={
@@ -81,7 +70,6 @@ setup(
         "scriptcraft": [
             "*.yaml", "*.yml", "*.json",
             "templates/**/*",
-            "tests/**/*",
         ],
     },
     classifiers=[

@@ -46,7 +46,6 @@ from .rhq_form_autofiller import *
 from .data_content_comparer import *
 from .schema_detector import *
 from .dictionary_driven_checker import *
-from .release_consistency_checker import *
 from .score_totals_checker import *
 from .feature_change_checker import *
 from .dictionary_validator import *

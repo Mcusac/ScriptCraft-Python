@@ -78,15 +78,23 @@ class BaseTool(ABC):
         """Get default output directory from config or use fallback."""
         if self.config:
             try:
+                # Try to get workspace-specific output directory first
+                workspace_config = self.config.get_workspace_config()
+                if workspace_config and hasattr(workspace_config, 'paths'):
+                    workspace_paths = workspace_config.paths
+                    if isinstance(workspace_paths, dict) and 'output_dir' in workspace_paths:
+                        return workspace_paths['output_dir']
+                
+                # Fallback to template config
                 template_config = self.config.get_template_config()
                 package_structure = template_config.get("package_structure", {})
                 if isinstance(package_structure, dict):
-                    default_dir = package_structure.get("default_output_dir", "output")
+                    default_dir = package_structure.get("default_output_dir", "data/output")
                     if isinstance(default_dir, str):
                         return default_dir
             except Exception:
                 pass
-        return "output"
+        return "data/output"
     
     def get_tool_config(self) -> Dict[str, Any]:
         """Get tool-specific configuration."""
@@ -151,14 +159,40 @@ class BaseTool(ABC):
         """Resolve output directory path for both environments."""
         if output_dir:
             output_path = Path(output_dir)
-        elif self.is_distributable_environment():
-            current_dir = Path.cwd()
-            if current_dir.name == 'scripts':
-                output_path = current_dir.parent / "output"
-            else:
-                output_path = current_dir / "output"
+        elif self.config:
+            try:
+                # Try to get workspace-specific output directory
+                workspace_config = self.config.get_workspace_config()
+                if workspace_config and hasattr(workspace_config, 'paths'):
+                    workspace_paths = workspace_config.paths
+                    if isinstance(workspace_paths, dict) and 'output_dir' in workspace_paths:
+                        output_path = Path(workspace_paths['output_dir'])
+                    else:
+                        # Fallback to default
+                        output_path = Path("data/output")
+                else:
+                    # Fallback to default
+                    output_path = Path("data/output")
+            except Exception:
+                # Fallback to environment-based defaults
+                if self.is_distributable_environment():
+                    current_dir = Path.cwd()
+                    if current_dir.name == 'scripts':
+                        output_path = current_dir.parent / "output"
+                    else:
+                        output_path = current_dir / "output"
+                else:
+                    output_path = Path("data/output")
         else:
-            output_path = Path("output")
+            # No config available, use environment-based defaults
+            if self.is_distributable_environment():
+                current_dir = Path.cwd()
+                if current_dir.name == 'scripts':
+                    output_path = current_dir.parent / "output"
+                else:
+                    output_path = current_dir / "output"
+            else:
+                output_path = Path("data/output")
         
         ensure_output_dir(output_path)
         return output_path

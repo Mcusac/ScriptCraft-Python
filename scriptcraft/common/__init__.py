@@ -36,3 +36,8 @@ from .tools import *
 
 # ===== PLUGINS SYSTEM =====
 from .plugins import *
+
+# ===== CONVENIENCE ALIAS =====
+# Create cu alias for backward compatibility and convenience
+import sys
+cu = sys.modules[__name__]

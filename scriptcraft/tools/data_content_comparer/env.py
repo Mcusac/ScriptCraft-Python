@@ -118,6 +118,20 @@ def get_input_directory() -> Path:
     Returns:
         Path to input directory
     """
+    try:
+        # Try to get from config first
+        import scriptcraft.common as cu
+        config = cu.get_config()
+        if config:
+            workspace_config = config.get_workspace_config()
+            if workspace_config and hasattr(workspace_config, 'paths'):
+                workspace_paths = workspace_config.paths
+                if isinstance(workspace_paths, dict) and 'input_dir' in workspace_paths:
+                    return Path(workspace_paths['input_dir'])
+    except Exception:
+        pass
+    
+    # Fallback to environment-based paths
     if is_distributable_environment():
         current_dir = Path.cwd()
         if current_dir.name == 'scripts':
@@ -125,7 +139,7 @@ def get_input_directory() -> Path:
         else:
             return current_dir / "input"
     else:
-        return Path("input")
+        return Path("data/input")
 
 
 def get_output_directory() -> Path:
@@ -135,6 +149,20 @@ def get_output_directory() -> Path:
     Returns:
         Path to output directory
     """
+    try:
+        # Try to get from config first
+        import scriptcraft.common as cu
+        config = cu.get_config()
+        if config:
+            workspace_config = config.get_workspace_config()
+            if workspace_config and hasattr(workspace_config, 'paths'):
+                workspace_paths = workspace_config.paths
+                if isinstance(workspace_paths, dict) and 'output_dir' in workspace_paths:
+                    return Path(workspace_paths['output_dir'])
+    except Exception:
+        pass
+    
+    # Fallback to environment-based paths
     if is_distributable_environment():
         current_dir = Path.cwd()
         if current_dir.name == 'scripts':
@@ -142,7 +170,7 @@ def get_output_directory() -> Path:
         else:
             return current_dir / "output"
     else:
-        return Path("output")
+        return Path("data/output")
 
 
 def get_logs_directory() -> Path:
@@ -152,6 +180,20 @@ def get_logs_directory() -> Path:
     Returns:
         Path to logs directory
     """
+    try:
+        # Try to get from config first
+        import scriptcraft.common as cu
+        config = cu.get_config()
+        if config:
+            workspace_config = config.get_workspace_config()
+            if workspace_config and hasattr(workspace_config, 'logging'):
+                log_config = workspace_config.logging
+                if isinstance(log_config, dict) and 'log_dir' in log_config:
+                    return Path(log_config['log_dir'])
+    except Exception:
+        pass
+    
+    # Fallback to environment-based paths
     if is_distributable_environment():
         current_dir = Path.cwd()
         if current_dir.name == 'scripts':
@@ -159,7 +201,7 @@ def get_logs_directory() -> Path:
         else:
             return current_dir / "logs"
     else:
-        return Path("logs")
+        return Path("data/logs")
 
 
 def setup_environment() -> bool:

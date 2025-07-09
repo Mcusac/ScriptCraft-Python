@@ -5,17 +5,7 @@ import importlib.util
 from typing import List, Union, Optional, Dict, Any
 import pandas as pd
 
-# Import based on environment (this will be handled by the main.py file)
-# For now, we'll use the development import pattern
-try:
-    import scriptcraft.common as cu
-    from scriptcraft.common.io import load_data
-    from scriptcraft.common.data import compare_dataframes
-except ImportError:
-    # Fallback for distributable environment
-    import common as cu
-    from common.io import load_data
-    from common.data import compare_dataframes
+import scriptcraft.common as cu
 
 def load_mode(mode_name: str) -> None:
     """Dynamically load a mode plugin from the plugins/ directory relative to this script."""
@@ -92,7 +82,7 @@ def load_datasets_as_list(input_paths: List[Union[str, Path]]) -> List[pd.DataFr
     datasets = []
     for path in input_paths:
         try:
-            df = load_data(path)
+            df = cu.load_data(path)
             if df is not None:
                 datasets.append(df)
             else:
@@ -121,7 +111,7 @@ def compare_datasets(df1: pd.DataFrame, df2: pd.DataFrame, comparison_type: str 
         df2 = df2[df2['Domain'] == domain].copy()
     
     # Perform comparison using common utils
-    comparison_results = compare_dataframes(df1, df2)
+    comparison_results = cu.compare_dataframes(df1, df2)
     
     return comparison_results
 

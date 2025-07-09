@@ -61,9 +61,9 @@ else:
     }
 
 
-def get_config(key: Any = None, default: Any = None) -> Any:
+def get_legacy_config(key: Any = None, default: Any = None) -> Any:
     """
-    Get configuration values from the loaded YAML config.
+    Get configuration values from the loaded YAML config (legacy function).
     
     Args:
         key: Optional key to retrieve specific config value

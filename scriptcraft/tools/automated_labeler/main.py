@@ -32,13 +32,13 @@ else:
 # Import utils (same in both environments since it's local)
 try:
     from .utils import (
-        fill_full_page, load_data, apply_labeling_rules, 
+        fill_full_page, apply_labeling_rules, 
         save_labeled_data, process_data
     )
 except ImportError:
     # If utils import fails, try current directory
     from .utils import (
-        fill_full_page, load_data, apply_labeling_rules, 
+        fill_full_page, apply_labeling_rules, 
         save_labeled_data, process_data
     )
 

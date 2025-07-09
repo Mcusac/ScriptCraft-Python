@@ -51,42 +51,58 @@ class LogConfig:
     log_file: Optional[str] = None  # Optional log file path
 
 @dataclass
-class Config:
-    """Configuration class for managing project settings."""
-    
-    # General configuration
+class FrameworkConfig:
+    """Framework-level configuration."""
+    version: str = field(default_factory=get_version)
+    active_workspace: str = "data"
+    workspace_base_path: str = "."
+    available_workspaces: List[str] = field(default_factory=lambda: ["data"])
+    packaging: Dict[str, Any] = field(default_factory=dict)
+    paths: Dict[str, Any] = field(default_factory=dict)
+
+@dataclass
+class WorkspaceConfig:
+    """Workspace-specific configuration."""
     study_name: str = "HABS"
     default_pipeline: str = "test"
     log_level: str = "INFO"
     id_columns: List[str] = field(default_factory=lambda: ["Med_ID", "Visit_ID"])
-    
-    # Paths
-    paths: PathConfig = field(default_factory=PathConfig)
-    
-    # Domains
-    domains: List[str] = field(default_factory=list)
-    
-    # Dictionary checker configuration
+    paths: Dict[str, Any] = field(default_factory=dict)
+    domains: List[str] = field(default_factory=lambda: ["Clinical", "Biomarkers", "Genomics", "Imaging"])
+    logging: Dict[str, Any] = field(default_factory=dict)
+    template: Dict[str, Any] = field(default_factory=dict)
     dictionary_checker: Dict[str, Any] = field(default_factory=dict)
     
-    # Build and packaging (workspace-level overrides only)
-    # NOTE: Framework-level packaging config is in framework config.yaml
+@dataclass
+class Config:
+    """Configuration class for managing project settings."""
     
-    # Tool-specific configuration
+    # Framework configuration
+    framework: FrameworkConfig = field(default_factory=FrameworkConfig)
+    
+    # Workspace configuration
+    workspace: WorkspaceConfig = field(default_factory=WorkspaceConfig)
+    
+    # Shared configurations
     tools: Dict[str, Dict[str, Any]] = field(default_factory=dict)
-    
-    # Pipeline steps definitions
     pipelines: Dict[str, Dict[str, Any]] = field(default_factory=dict)
+    environments: Dict[str, Dict[str, Any]] = field(default_factory=dict)
+    tool_configs: Dict[str, Dict[str, Any]] = field(default_factory=dict)
+    
+    # Legacy compatibility fields (deprecated, use workspace.* instead)
+    study_name: str = field(default="HABS", init=False)
+    default_pipeline: str = field(default="test", init=False)
+    log_level: str = field(default="INFO", init=False)
+    id_columns: List[str] = field(default_factory=lambda: ["Med_ID", "Visit_ID"], init=False)
+    paths: PathConfig = field(default_factory=PathConfig, init=False)
+    domains: List[str] = field(default_factory=list, init=False)
+    dictionary_checker: Dict[str, Any] = field(default_factory=dict, init=False)
+    logging: LogConfig = field(default_factory=LogConfig, init=False)
+    template: Dict[str, Any] = field(default_factory=dict, init=False)
     
     # Project configuration
     project_name: str = "Release Workspace"
     version: str = field(default_factory=get_version)
-    
-    # Logging configuration
-    logging: LogConfig = field(default_factory=LogConfig)
-    
-    # Template system configuration
-    template: Dict[str, Any] = field(default_factory=dict)
     
     # Workspace context (not serialized, set during loading)
     workspace_root: Optional[Path] = field(default=None, init=False)
@@ -94,9 +110,28 @@ class Config:
     # Path resolver (dependency injection)
     _path_resolver: Optional[PathResolver] = field(default=None, init=False)
     
+    def __post_init__(self):
+        """Set up legacy compatibility fields after initialization."""
+        # Legacy compatibility - map workspace config to old fields
+        self.study_name = self.workspace.study_name
+        self.default_pipeline = self.workspace.default_pipeline
+        self.log_level = self.workspace.log_level
+        self.id_columns = self.workspace.id_columns
+        self.domains = self.workspace.domains
+        self.dictionary_checker = self.workspace.dictionary_checker
+        self.template = self.workspace.template
+        
+        # Convert workspace paths to PathConfig for legacy compatibility
+        if self.workspace.paths:
+            self.paths = PathConfig(**self.workspace.paths)
+        
+        # Convert workspace logging to LogConfig for legacy compatibility
+        if self.workspace.logging:
+            self.logging = LogConfig(**self.workspace.logging)
+    
     @classmethod
     def from_yaml(cls, config_path: Union[str, Path]) -> 'Config':
-        """Load configuration from a YAML file with environment variable fallback."""
+        """Load configuration from a YAML file with unified structure support."""
         config_path = Path(config_path)
         
         if config_path.exists():
@@ -104,61 +139,151 @@ class Config:
             with open(config_path, 'r', encoding='utf-8') as f:
                 config_data = yaml.safe_load(f)
             
-            # Handle framework-level config (has active_workspace, packaging, etc.)
-            if 'active_workspace' in config_data:
-                # This is a framework config, not a workspace config
-                # Extract only the parts we need for workspace config
-                workspace_config = {}
-                
-                # Copy tools configuration
-                if 'tools' in config_data:
-                    workspace_config['tools'] = config_data['tools']
-                
-                # Copy pipelines configuration
-                if 'pipelines' in config_data:
-                    workspace_config['pipelines'] = config_data['pipelines']
-                
-                # Set default domains if not present
-                if 'domains' not in workspace_config:
-                    workspace_config['domains'] = ['Clinical', 'Biomarkers', 'Genomics', 'Imaging']
-                
-                # Set default study name
-                if 'study_name' not in workspace_config:
-                    workspace_config['study_name'] = 'HABS'
-                
-                config_data = workspace_config
-            
-            # Convert paths to PathConfig
-            if 'paths' in config_data:
-                paths_data = config_data.pop('paths')
-                # Filter to only fields that PathConfig accepts
-                valid_path_fields = {
-                    'scripts_dir', 'common_dir', 'tools_dir', 'templates_dir', 
-                    'export_dir', 'output_dir', 'input_dir', 'qc_output_dir'
-                }
-                filtered_paths = {k: v for k, v in paths_data.items() if k in valid_path_fields}
-                config_data['paths'] = PathConfig(**filtered_paths)
-                
-            # Convert logging to LogConfig
-            if 'logging' in config_data:
-                logging_data = config_data.pop('logging')
-                config_data['logging'] = LogConfig(**logging_data)
-                
-            # Create config instance
-            config = cls(**config_data)
-            
-            # Set workspace root based on config file location
-            config.workspace_root = config_path.parent.resolve()
-            
-            # Create path resolver with dependency injection
-            config._path_resolver = WorkspacePathResolver(config.workspace_root)
-            
-            return config
+            # Handle unified config structure
+            if 'framework' in config_data:
+                # This is a unified config (new structure)
+                return cls._load_unified_config(config_data, config_path)
+            else:
+                # This is a legacy config (old structure)
+                return cls._load_legacy_config(config_data, config_path)
         else:
             # Fallback to environment variables (distributable environment)
             log_and_print(f"Config file not found: {config_path}", level="warning")
             log_and_print("📦 No config.yaml found. Using config.bat environment variables.", level="info")
             return cls._from_environment()
+    
+    @classmethod
+    def _load_unified_config(cls, config_data: Dict[str, Any], config_path: Path) -> 'Config':
+        """Load unified configuration with framework, workspace, and environment support."""
+        # Extract framework configuration
+        framework_data = config_data.get('framework', {})
+        framework_config = FrameworkConfig(**framework_data)
+        
+        # Get active workspace
+        active_workspace = framework_config.active_workspace
+        
+        # Extract workspace configuration
+        workspaces_data = config_data.get('workspaces', {})
+        workspace_data = workspaces_data.get(active_workspace, {})
+        workspace_config = WorkspaceConfig(**workspace_data)
+        
+        # Apply environment-specific overrides
+        environment = cls._detect_environment()
+        environments_data = config_data.get('environments', {})
+        env_data = environments_data.get(environment, {})
+        
+        # Merge environment overrides into workspace config
+        if env_data:
+            workspace_config = cls._merge_configs(workspace_config, env_data)
+                
+        # Extract shared configurations
+        tools = config_data.get('tools', {})
+        pipelines = config_data.get('pipelines', {})
+        environments = config_data.get('environments', {})
+        tool_configs = config_data.get('tool_configs', {})
+                
+        # Create config instance
+        config = cls(
+            framework=framework_config,
+            workspace=workspace_config,
+            tools=tools,
+            pipelines=pipelines,
+            environments=environments,
+            tool_configs=tool_configs
+        )
+            
+        # Set workspace root based on config file location
+        config.workspace_root = config_path.parent.resolve()
+            
+        # Create path resolver with dependency injection
+        config._path_resolver = WorkspacePathResolver(config.workspace_root)
+            
+        return config
+    
+    @classmethod
+    def _load_legacy_config(cls, config_data: Dict[str, Any], config_path: Path) -> 'Config':
+        """Load legacy configuration (backward compatibility)."""
+        # Handle legacy framework config (has active_workspace, packaging, etc.)
+        if 'active_workspace' in config_data:
+            # This is a legacy framework config
+            framework_config = FrameworkConfig(
+                active_workspace=config_data.get('active_workspace', 'data'),
+                workspace_base_path=config_data.get('workspace_base_path', '.'),
+                available_workspaces=config_data.get('workspaces', ['data']),
+                packaging=config_data.get('packaging', {}),
+                paths=config_data.get('paths', {})
+            )
+            
+            # Create default workspace config
+            workspace_config = WorkspaceConfig()
+            
+            # Extract tools and pipelines
+            tools = config_data.get('tools', {})
+            pipelines = config_data.get('pipelines', {})
+            tool_configs = config_data.get('tool_configs', {})
+            
+            config = cls(
+                framework=framework_config,
+                workspace=workspace_config,
+                tools=tools,
+                pipelines=pipelines,
+                tool_configs=tool_configs
+            )
+        else:
+            # This is a legacy workspace config
+            framework_config = FrameworkConfig()
+            workspace_config = WorkspaceConfig(**config_data)
+            
+            config = cls(
+                framework=framework_config,
+                workspace=workspace_config,
+                tools=config_data.get('tools', {}),
+                pipelines=config_data.get('pipelines', {}),
+                tool_configs=config_data.get('tool_configs', {})
+            )
+        
+        # Set workspace root and path resolver
+        config.workspace_root = config_path.parent.resolve()
+        config._path_resolver = WorkspacePathResolver(config.workspace_root)
+        
+        return config
+    
+    @classmethod
+    def _detect_environment(cls) -> str:
+        """Detect the current environment."""
+        # Check for environment variables
+        if os.environ.get('SCRIPTCRAFT_ENV'):
+            return os.environ.get('SCRIPTCRAFT_ENV')
+        
+        # Check for development indicators
+        if os.path.exists('config.yaml') and os.path.exists('implementations/'):
+            return 'development'
+        
+        # Default to production for distributables
+        return 'production'
+    
+    @classmethod
+    def _merge_configs(cls, base_config: WorkspaceConfig, override_data: Dict[str, Any]) -> WorkspaceConfig:
+        """Merge environment overrides into workspace config."""
+        # Create a copy of the base config
+        merged_data = {
+            'study_name': base_config.study_name,
+            'default_pipeline': base_config.default_pipeline,
+            'log_level': base_config.log_level,
+            'id_columns': base_config.id_columns,
+            'paths': base_config.paths,
+            'domains': base_config.domains,
+            'logging': base_config.logging,
+            'template': base_config.template,
+            'dictionary_checker': base_config.dictionary_checker
+        }
+        
+        # Apply overrides
+        for key, value in override_data.items():
+            if key in merged_data:
+                merged_data[key] = value
+        
+        return WorkspaceConfig(**merged_data)
     
     @classmethod
     def _from_environment(cls) -> 'Config':
@@ -169,7 +294,6 @@ class Config:
         tool_name = os.environ.get("TOOL_NAME", "unknown_tool")
         
         # Build tool configuration from environment variables
-        # Look for tool-specific environment variables
         tool_config = {}
         
         # Map common tool settings from environment variables
@@ -233,21 +357,25 @@ class Config:
         
         return self._path_resolver
     
+    def get_framework_config(self) -> FrameworkConfig:
+        """Get framework configuration."""
+        return self.framework
+    
+    def get_workspace_config(self) -> WorkspaceConfig:
+        """Get workspace configuration."""
+        return self.workspace
+    
+    def get_active_workspace(self) -> str:
+        """Get the active workspace name."""
+        return self.framework.active_workspace
+    
+    def get_environment(self) -> str:
+        """Get the current environment."""
+        return self._detect_environment()
+    
     def discover_and_merge_tools(self) -> None:
         """Discover available tools and merge with existing config tools."""
         try:
-            # Load tools from framework config if available
-            framework_config_path = Path("config.yaml")
-            if framework_config_path.exists():
-                with open(framework_config_path, 'r', encoding='utf-8') as f:
-                    framework_data = yaml.safe_load(f)
-                    framework_tools = framework_data.get('tools', {})
-                    
-                    # Merge framework tools that aren't already in workspace config
-                    for tool_name, tool_config in framework_tools.items():
-                        if tool_name not in self.tools:
-                            self.tools[tool_name] = tool_config
-            
             # Import tool discovery from tools package
             from ...tools import get_available_tools, discover_tool_metadata
             
@@ -276,11 +404,11 @@ class Config:
     def validate(self) -> bool:
         """Validate the configuration."""
         # Basic validation - check that required fields are present
-        if not self.study_name:
+        if not self.workspace.study_name:
             log_and_print("Study name is required", level="error")
             return False
         
-        if not self.domains:
+        if not self.workspace.domains:
             log_and_print("At least one domain must be configured", level="warning")
         
         return True

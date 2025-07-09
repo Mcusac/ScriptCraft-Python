@@ -23,51 +23,143 @@ data_content_comparer/
 │   ├── __init__.py    # Plugin registry
 │   ├── standard_mode.py
 │   ├── rhq_mode.py
-│   └── domain_old_vs_new_mode.py
+│   ├── domain_old_vs_new_mode.py
+│   └── release_consistency_mode.py
 └── README.md         # This documentation
 ```
 
 ---
 
-## 🚀 Usage (Development)
+## 🚀 Usage Examples
 
-### Command Line
+### Command Line Usage
+
+#### 1. All Domains Comparison (Recommended)
+Compare all available domains in one run:
+
 ```bash
-python -m scriptcraft.tools.data_content_comparer --old-file old_data.csv --new-file new_data.csv --output-dir output
+# Compare all domains (Biomarkers, Clinical, Genomics, Imaging)
+python -m implementations.python-package.scriptcraft.tools.data_content_comparer.main --mode release_consistency
 ```
 
-### Python API
-```python
-from scriptcraft.tools.data_content_comparer import DataContentComparer
+#### 2. Individual Domain Comparison
+Compare specific domains:
 
+```bash
+# Compare Clinical domain
+python -m implementations.python-package.scriptcraft.tools.data_content_comparer.main --mode release_consistency --domain Clinical
+
+# Compare Biomarkers domain
+python -m implementations.python-package.scriptcraft.tools.data_content_comparer.main --mode release_consistency --domain Biomarkers
+
+# Compare Genomics domain
+python -m implementations.python-package.scriptcraft.tools.data_content_comparer.main --mode release_consistency --domain Genomics
+
+# Compare Imaging domain
+python -m implementations.python-package.scriptcraft.tools.data_content_comparer.main --mode release_consistency --domain Imaging
+```
+
+#### 3. Manual File Comparison
+Compare specific files you place in the input directory:
+
+```bash
+# Basic manual file comparison
+python -m implementations.python-package.scriptcraft.tools.data_content_comparer.main --mode release_consistency --input-paths data/input/file1.csv data/input/file2.csv
+
+# With custom output directory
+python -m implementations.python-package.scriptcraft.tools.data_content_comparer.main --mode release_consistency --input-paths data/input/old_data.csv data/input/new_data.csv --output-dir data/output
+```
+
+#### 4. Pipeline Mode (Using run_all.py)
+Use the pipeline system for orchestrated workflows:
+
+```bash
+# Run via pipeline system
+python run_all.py --tool data_content_comparer --mode release_consistency --domain Clinical
+
+# Run with pipeline configuration
+python run_all.py --pipeline release_management
+```
+
+#### 5. Other Comparison Modes
+
+```bash
+# Standard comparison mode
+python -m implementations.python-package.scriptcraft.tools.data_content_comparer.main --mode standard --input-paths file1.csv file2.csv
+
+# RHQ mode for residential history forms
+python -m implementations.python-package.scriptcraft.tools.data_content_comparer.main --mode rhq_mode --input-paths rhq_old.xlsx rhq_new.xlsx
+
+# Domain old vs new mode
+python -m implementations.python-package.scriptcraft.tools.data_content_comparer.main --mode domain_old_vs_new --domain Clinical
+```
+
+### Python API Usage
+
+```python
+from implementations.python-package.scriptcraft.tools.data_content_comparer.main import DataContentComparer
+
+# Create tool instance
 comparer = DataContentComparer()
+
+# All domains comparison
 comparer.run(
-    old_file="old_data.csv",
-    new_file="new_data.csv",
-    output_dir="output"
+    mode="release_consistency"
+)
+
+# Individual domain comparison
+comparer.run(
+    mode="release_consistency",
+    domain="Clinical"
+)
+
+# Manual file comparison
+comparer.run(
+    mode="release_consistency",
+    input_paths=["data/input/old_data.csv", "data/input/new_data.csv"]
+)
+
+# With additional options
+comparer.run(
+    mode="release_consistency",
+    domain="Biomarkers",
+    output_dir="data/output",
+    output_filename="biomarkers_comparison.xlsx"
 )
 ```
 
-Arguments:
-- `--old-file`: Path to old/reference data file
-- `--new-file`: Path to new/comparison data file
+### Available Modes
+
+- **`standard`**: Basic file-to-file comparison
+- **`rhq_mode`**: Specialized for RHQ residential history forms
+- **`domain_old_vs_new`**: Domain-specific old vs new comparison
+- **`release_consistency`**: Release-to-release comparison (R5 vs R6)
+- **`release`**: Alias for release_consistency mode
+
+### Arguments
+
+- `--mode`: Comparison mode (required)
+- `--input-paths`: List of files to compare (for manual mode)
 - `--output-dir`: Output directory for comparison reports
-- `--mode`: Comparison mode (standard, rhq, domain_old_vs_new)
-- `--strict`: Enable strict comparison mode
-- `--include-metadata`: Include metadata in comparison
+- `--domain`: Domain name (e.g., "Clinical", "Biomarkers")
+- `--output-filename`: Custom output filename
+- `--debug`: Enable debug mode for detailed logging
 
 ---
 
 ## ⚙️ Features
 
-- 🔍 Data content comparison
-- 📊 Difference detection and analysis
-- 🔄 Multiple comparison modes
-- 📋 Comprehensive comparison reports
-- 🛡️ Error handling and validation
-- 📈 Performance metrics
-- 🎯 Plugin-based architecture
-- 📊 Visualization support
+- 🔍 **Dynamic Release Comparison** - Automatically extracts release numbers from filenames (e.g., "Release_6 vs Release_7")
+- 📊 **Multi-Domain Support** - Process all domains (Biomarkers, Clinical, Genomics, Imaging) in one run
+- 🔄 **Plugin-based Architecture** - Extensible comparison modes (standard, rhq_mode, release_consistency)
+- 📋 **Comprehensive Reports** - Detailed change detection with filtered results
+- 🛡️ **Config-Driven** - Uses centralized config.yaml for all settings
+- 📈 **Performance Optimized** - Handles large datasets efficiently
+- 🎯 **Domain-Specific Configurations** - Tailored settings for each domain
+- 📊 **Column Change Analysis** - Tracks added/removed columns between releases
+- 🌐 **Flexible Input** - Supports both domain-based and manual file comparison
+- 📝 **Comprehensive Logging** - Both console and file logging with timestamps
+- 🎨 **Emoji-Enhanced Output** - Clear, readable status messages
 
 ---
 
@@ -79,6 +171,8 @@ Arguments:
 - Review comparison reports for accuracy and completeness
 - Use strict mode for critical data validation
 - Customize comparison thresholds based on requirements
+- Enable debug mode for detailed dtype and processing information
+- Use the appropriate mode for your use case (manual vs domain-based)
 
 ---
 
@@ -107,7 +201,10 @@ Example files needed:
 
 Required packages:
 - pandas >= 1.3.0
+- numpy >= 1.20.0
 - openpyxl >= 3.0.0
+- python-dateutil >= 2.8.0
+- pytz >= 2021.1
 - Python >= 3.8
 
 System requirements:
@@ -129,6 +226,12 @@ Common errors and solutions:
 3. **Plugin Error**
    - Cause: Comparison plugin not found or incompatible
    - Solution: Check plugin installation and compatibility
+4. **Missing Files Error**
+   - Cause: Expected domain files not found
+   - Solution: Verify R5/R6 files exist in domain directories
+5. **Mode Error**
+   - Cause: Unsupported comparison mode
+   - Solution: Check available modes with `--help`
 
 ---
 
@@ -144,6 +247,7 @@ Optimization tips:
 - Process files in chunks
 - Enable parallel processing for multiple files
 - Optimize comparison algorithms
+- Use domain-based mode for structured data
 
 ---
 
@@ -201,105 +305,31 @@ Optimization tips:
 - [x] Chunked processing
 - [x] Performance metrics
 
-### 7. Configuration ✅
-- [x] Command-line arguments
-- [x] Configuration validation
-- [x] Environment variables
-- [x] Default settings
-- [x] Documentation
+---
 
-### 8. Packaging ✅
-- [x] Dependencies specified
-- [x] Version information
-- [x] Package structure
-- [x] Installation tested
-- [x] Distribution tested
+## 🔄 Plugin Architecture
+
+The tool uses a plugin-based architecture for different comparison modes:
+
+- **Standard Mode**: Basic file-to-file comparison
+- **RHQ Mode**: Specialized for residential history forms
+- **Domain Old vs New Mode**: Domain-specific comparisons
+- **Release Consistency Mode**: Release-to-release comparison (consolidated from release_consistency_checker)
+
+To add a new comparison mode:
+1. Create a new plugin file in `plugins/`
+2. Implement the required interface
+3. Register the plugin in `plugins/__init__.py`
+4. Update this documentation
 
 ---
 
-## 📋 Current Status and Future Improvements
+## 📝 Release Notes
 
-### ✅ Completed Items
-1. **Core Implementation**
-   - Data content comparison
-   - Multiple comparison modes
-   - Plugin-based architecture
-   - Comprehensive reporting
-   - Error handling
-
-2. **Documentation**
-   - Main README structure
-   - Usage examples
-   - Error handling guide
-   - Performance metrics
-
-3. **Infrastructure**
-   - Environment detection
-   - CLI integration
-   - Error handling
-   - Configuration management
-
-### 🔄 Partially Complete
-1. **Testing**
-   - ✅ Basic structure
-   - ❌ Need comprehensive test suite
-   - ❌ Need integration tests
-   - ❌ Need performance tests
-
-2. **Features**
-   - ✅ Basic comparison functionality
-   - ❌ Need advanced comparison algorithms
-   - ❌ Need enhanced visualization
-   - ❌ Need enhanced reporting
-
-### 🎯 Prioritized Improvements
-
-#### High Priority
-1. **Testing Enhancement**
-   - Add comprehensive test suite
-   - Create integration tests
-   - Add performance benchmarks
-   - Improve error case coverage
-
-2. **Feature Enhancement**
-   - Add advanced comparison algorithms
-   - Implement enhanced visualization
-   - Add enhanced reporting
-   - Improve comparison accuracy
-
-#### Medium Priority
-3. **Documentation**
-   - Add detailed API docs
-   - Create troubleshooting guide
-   - Add performance tuning guide
-   - Document common patterns
-
-4. **User Experience**
-   - Add progress tracking
-   - Improve error messages
-   - Add configuration validation
-   - Create interactive mode
-
-#### Low Priority
-5. **Advanced Features**
-   - Add ML-based comparison
-   - Support more data formats
-   - Add comparison learning
-   - Create comparison summaries
-
-6. **Development Tools**
-   - Add development utilities
-   - Create debugging helpers
-   - Add profiling support
-   - Improve error messages
-
----
-
-## 🤝 Contributing
-
-1. Branch naming: `feature/data-content-comparer-[feature]`
-2. Required for all changes:
-   - Unit tests
-   - Documentation updates
-   - Checklist review
-3. Code review process in CONTRIBUTING.md 
+### Current Version (2.0.0)
+- ✅ Consolidated release_consistency_checker functionality
+- ✅ Added support for both manual and domain-based comparison modes
+- ✅ Enhanced plugin architecture
+- ✅ Improved error handling and validation
+- ✅ Better performance for large datasets
+- ✅ Comprehensive usage examples and documentation 
