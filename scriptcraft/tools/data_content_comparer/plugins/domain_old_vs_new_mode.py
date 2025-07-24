@@ -5,7 +5,7 @@ import pandas as pd
 from ....common import cu
 
 
-def run_mode(input_paths, output_dir, domain=None) -> None:
+def run_mode(input_paths, output_dir, domain=None, **kwargs) -> None:
     """Domain-based old vs new content comparison."""
     domain_paths = cu.get_domain_paths(cu.get_project_root())
 

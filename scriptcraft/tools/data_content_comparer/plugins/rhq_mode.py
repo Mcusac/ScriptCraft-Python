@@ -4,7 +4,7 @@ from ....common import cu
 
 import pandas as pd
 
-def run_mode(input_paths, output_dir, domain=None) -> None:
+def run_mode(input_paths, output_dir, domain=None, **kwargs) -> None:
     """RHQ-specific comparison using Med_ID and AgePeriod keys."""
     if not input_paths:
         raise ValueError("RHQ mode requires two input files provided via --input.")

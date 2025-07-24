@@ -12,7 +12,11 @@ from dataclasses import dataclass, field
 
 from ..logging import log_and_print
 from ..io.path_resolver import PathResolver, WorkspacePathResolver, create_path_resolver
-from ..._version import get_version
+try:
+    from ..._version import get_version
+except ImportError:
+    def get_version():
+        return "unknown"
 
 
 # ===== CONVENIENCE FUNCTIONS =====

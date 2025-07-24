@@ -82,9 +82,12 @@ def dispatch_tool(tool_name: str, args: Any) -> None:
             else:
                 input_paths = args.input
         
-        # Use the unified tool runner
-        run_tool(
-            tool_name,
+        # Get the tool class
+        tool_class = registry.get_tool(tool_name)
+        if tool_class is None:
+            raise ValueError(f"Tool '{tool_name}' not found.")
+        tool_instance = tool_class()  # Instantiate the tool
+        tool_instance.run(
             mode=getattr(args, "mode", None),
             input_paths=input_paths,
             output_dir=getattr(args, "output", "output"),
@@ -92,5 +95,5 @@ def dispatch_tool(tool_name: str, args: Any) -> None:
             output_filename=getattr(args, "output_filename", None)
         )
     except Exception as e:
-        cu.log_and_print(f"❌ Error running tool '{tool_name}': {e}")
+        cu.log_and_print(f"\u274c Error running tool '{tool_name}': {e}")
         raise

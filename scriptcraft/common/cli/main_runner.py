@@ -33,7 +33,7 @@ class ToolRunner(ABC):
         pass
     
     @abstractmethod
-    def run_tool(self, args: argparse.Namespace) -> bool:
+    def run_tool(self, args: argparse.Namespace, **kwargs) -> bool:
         """Run the tool with the given arguments."""
         pass
 
@@ -56,21 +56,21 @@ class StandardToolRunner(ToolRunner):
         
         return parser
     
-    def run_tool(self, args: argparse.Namespace) -> bool:
+    def run_tool(self, args: argparse.Namespace, **kwargs) -> bool:
         """Run the tool with standard BaseTool interface."""
         try:
             # Create tool instance with required arguments
             tool = self.tool_class(name=self.tool_name, description=self.description)
             
             # Convert args to kwargs for tool.run()
-            kwargs: Dict[str, Any] = vars(args)
+            tool_kwargs: Dict[str, Any] = vars(args)
             
             # Handle special cases
             if hasattr(args, 'input_paths') and args.input_paths:
-                kwargs['input_paths'] = args.input_paths
+                tool_kwargs['input_paths'] = args.input_paths
             
             # Run the tool
-            tool.run(**kwargs)
+            tool.run(**tool_kwargs, **kwargs)
             return True
             
         except Exception as e:
@@ -90,10 +90,10 @@ class CustomToolRunner(ToolRunner):
         """Create parser using the provided function."""
         return self.create_parser_func()
     
-    def run_tool(self, args: argparse.Namespace) -> bool:
+    def run_tool(self, args: argparse.Namespace, **kwargs) -> bool:
         """Run tool using the provided function."""
         try:
-            return self.run_func(args)
+            return self.run_func(args, **kwargs)
         except Exception as e:
             log_and_print(f"❌ Tool failed: {e}", level="error")
             return False
@@ -102,7 +102,8 @@ class CustomToolRunner(ToolRunner):
 def run_tool_main(tool_name: str, description: str, 
                   tool_class: Optional[Type[BaseTool]] = None,
                   create_parser_func: Optional[Callable[[], argparse.ArgumentParser]] = None,
-                  run_func: Optional[Callable[[argparse.Namespace], bool]] = None) -> int:
+                  run_func: Optional[Callable[[argparse.Namespace], bool]] = None,
+                  **kwargs) -> int:
     """
     Main entry point for tool execution.
     
@@ -112,7 +113,8 @@ def run_tool_main(tool_name: str, description: str,
         tool_class: BaseTool subclass (for standard tools)
         create_parser_func: Function to create custom parser
         run_func: Function to run custom tool logic
-        
+        **kwargs: Extra arguments to forward to tool.run()
+    
     Returns:
         Exit code (0 for success, 1 for failure)
     """
@@ -133,8 +135,8 @@ def run_tool_main(tool_name: str, description: str,
         logger = setup_logger(tool_name)
         log_and_print(f"🚀 Starting {tool_name}...")
         
-        # Run the tool
-        success = runner.run_tool(args)
+        # Run the tool (pass extra kwargs)
+        success = runner.run_tool(args, **kwargs)
         
         if success:
             log_and_print(f"✅ {tool_name} completed successfully")

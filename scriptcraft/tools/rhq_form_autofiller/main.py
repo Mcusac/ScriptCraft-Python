@@ -12,6 +12,8 @@ Usage:
 """
 
 import sys
+import os
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import time
 import argparse
 from pathlib import Path
@@ -19,7 +21,10 @@ from typing import Any, Dict, List, Optional, Union, Tuple
 
 # === Environment Detection & Import Setup ===
 # Import the environment detection module
-from .env import setup_environment
+try:
+    from .env import setup_environment
+except ImportError:
+    from env import setup_environment
 
 # Set up environment and get imports
 IS_DISTRIBUTABLE = setup_environment()

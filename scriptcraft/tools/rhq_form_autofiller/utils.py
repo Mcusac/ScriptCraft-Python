@@ -50,6 +50,7 @@ FIELD_LABEL_MAPS = {
     'es': {
         "StreetNumber": "Número de la Calle",
         "Street Name": "Nombre de la Calle",
+        "Additional Address": "Dirección adicional (colonia, barrio, número de apartamento)",
         "City/Town/Municipality": "Municipalidad/Ciudad/Pueblo",
         "State/Province": "Estado/Provincia/Departamento",
         "Zip Code": "Código Postal",
@@ -59,7 +60,7 @@ FIELD_LABEL_MAPS = {
         "Comments": "Comentarios",
         "Questionable Validity": "Questionable Validity",
         "Admin Notes": "Admin Notes",
-        "Additional Address": "Agrega otra dirección",
+        "Add Another Address": "Agrega otra dirección",
     }
 }
 
@@ -126,7 +127,7 @@ def detect_form_language(driver, logger=None) -> str:
         return 'en'
 
 BLOCK_COLUMNS = [
-    "StreetNumber", "Street Name", #"Additional Address",
+    "StreetNumber", "Street Name", "Additional Address",
     "City/Town/Municipality", "State/Province", "Zip Code",
     "Country", "From Date", "To Date", "Comments",
     "Questionable Validity", "Admin Notes"
@@ -329,7 +330,7 @@ def ensure_address_blocks(driver, panel, required_blocks: int, form_language: st
         # Try to find the "Add Another Address" button based on language
         try:
             # First try: Use the language-specific text
-            button_text = FIELD_LABEL_MAPS[form_language].get("Additional Address", "Add Another Address")
+            button_text = FIELD_LABEL_MAPS[form_language].get("Add Another Address")
             add_button = panel.find_element(By.XPATH, f".//button[.//span[contains(text(), '{button_text}')]]")
         except:
             try:

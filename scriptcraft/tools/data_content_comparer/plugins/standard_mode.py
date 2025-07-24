@@ -3,7 +3,7 @@
 from ....common import cu
 
 
-def run_mode(input_paths, output_dir, domain=None) -> None:
+def run_mode(input_paths, output_dir, domain=None, **kwargs) -> None:
     """Standard row-wise content comparison without special logic."""
     if not input_paths:
         raise ValueError("Standard mode requires two input files provided via --input.")

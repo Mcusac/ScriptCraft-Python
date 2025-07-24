@@ -7,7 +7,7 @@ from ..logging import setup_logging_with_timestamp, log_and_print
 from ..io import get_project_root, resolve_path, ensure_output_dir
 from ..io.paths import get_legacy_config
 
-def run_tool(logic_func: Callable, args: Optional[List[str]] = None) -> None:
+def run_tool(logic_func: Callable, args: Optional[List[str]] = None, **kwargs) -> None:
     """
     🏁 Standard runner for tools that require input/output/log setup.
     
@@ -46,7 +46,8 @@ def run_tool(logic_func: Callable, args: Optional[List[str]] = None) -> None:
         log_dir=log_dir,
         input_file=parsed_args.input,
         med_id=parsed_args.med_id,
-        config=config
+        config=config,
+        **kwargs
     )
 
     log_and_print("✅ Tool completed.")
