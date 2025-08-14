@@ -253,6 +253,27 @@ def main():
     
     mode = sys.argv[1].lower()
     
+    # Handle help flags
+    if mode in ['--help', '-h', 'help']:
+        print("🎯 ScriptCraft Release Manager Tool")
+        print("Usage: python -m scriptcraft.tools.release_manager.main <mode> [args]")
+        print("\nAvailable modes:")
+        
+        # Create tool instance to list modes
+        tool = ReleaseManager()
+        for mode in tool.list_available_modes():
+            plugin_info = tool.get_plugin_info(mode)
+            if plugin_info:
+                print(f"  {mode}: {plugin_info.get('description', 'No description')}")
+            else:
+                print(f"  {mode}")
+        
+        print("\nExample: python -m scriptcraft.tools.release_manager.main python_package minor")
+        print("Example: python -m scriptcraft.tools.release_manager.main workspace --push")
+        print("\nFor detailed help on a specific mode:")
+        print("  python -m scriptcraft.tools.release_manager.main <mode> --help")
+        return
+    
     # Create and run the tool
     tool = ReleaseManager()
     
@@ -290,9 +311,6 @@ def main():
         kwargs['force'] = True
     if 'skip_pypi' in kwargs:
         kwargs['skip_pypi'] = True
-    
-    # Debug: print what we're passing
-    print(f"🔍 Debug: kwargs = {kwargs}")
     
     # Run the tool
     tool.run(**kwargs)

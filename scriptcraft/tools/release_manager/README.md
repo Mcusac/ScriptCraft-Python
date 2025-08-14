@@ -147,6 +147,35 @@ python -m scriptcraft.tools.release_manager.main pypi
 
 **Arguments**: None required
 
+### 4. Workspace Sync Plugin (`workspace_sync`)
+**Purpose**: Synchronize workspace and submodule repositories (replaces PowerShell scripts)
+
+**Features**:
+- ✅ Submodule repository updates
+- ✅ Main workspace synchronization
+- ✅ Git submodule reference management
+- ✅ Cross-platform compatibility (replaces PowerShell)
+
+**Usage**:
+```bash
+# Full workspace synchronization
+python -m scriptcraft.tools.release_manager.main workspace_sync sync
+
+# Update only submodule
+python -m scriptcraft.tools.release_manager.main workspace_sync submodule_update
+
+# With custom commit messages
+python -m scriptcraft.tools.release_manager.main workspace_sync sync --commit-message "Update package" --workspace-commit-message "Sync submodule"
+```
+
+**Arguments**:
+- `--commit-message`: Optional. Commit message for submodule changes
+- `--workspace-commit-message`: Optional. Commit message for workspace changes
+
+**Operations**:
+- `sync` / `workspace_sync`: Full workspace synchronization (submodule + main repo)
+- `submodule_update`: Update only the submodule repository
+
 ---
 
 ## 🔧 Plugin Development
@@ -279,6 +308,57 @@ def run_mode(
 
 ---
 
+## 🔄 Migration from PowerShell Scripts
+
+### Replacing the `releasing/` Folder
+
+The new `ReleaseManager` tool with the `workspace_sync` plugin replaces the PowerShell scripts in the `releasing/` folder:
+
+| PowerShell Script | ReleaseManager Equivalent | Status |
+|------------------|---------------------------|---------|
+| `github_push.ps1` | `workspace_sync sync` | ✅ Replaced |
+| `pypi.ps1` | `python_package` plugin | ✅ Replaced |
+| `release_all.ps1` | `python_package` + `workspace_sync` | ✅ Replaced |
+
+### Migration Steps
+
+1. **Install the new tool**:
+   ```bash
+   pip install scriptcraft
+   ```
+
+2. **Replace PowerShell workflows**:
+   ```bash
+   # Old: & "releasing\github_push.ps1"
+   # New:
+   python -m scriptcraft.tools.release_manager.main workspace_sync sync
+   
+   # Old: & "releasing\pypi.ps1"
+   # New:
+   python -m scriptcraft.tools.release_manager.main python_package --version-type patch
+   
+   # Old: & "releasing\release_all.ps1"
+   # New:
+   python -m scriptcraft.tools.release_manager.main python_package --version-type patch
+   python -m scriptcraft.tools.release_manager.main workspace_sync sync
+   ```
+
+3. **Benefits of migration**:
+   - ✅ Cross-platform compatibility (Windows, macOS, Linux)
+   - ✅ Python-based (consistent with ScriptCraft ecosystem)
+   - ✅ Plugin architecture for extensibility
+   - ✅ Better error handling and logging
+   - ✅ Integration with ScriptCraft common utilities
+
+### When to Keep the `releasing/` Folder
+
+You can **safely delete the `releasing/` folder** after:
+- ✅ Testing the new `ReleaseManager` tool
+- ✅ Verifying all workflows work as expected
+- ✅ Updating any CI/CD pipelines or automation scripts
+
+**Note**: The `releasing/` folder is no longer needed for ScriptCraft releases.
+
 ## 🔄 Integration
 
 ### With ScriptCraft Pipeline System
@@ -312,6 +392,7 @@ The release manager can be integrated with:
 - ✅ PyPI upload support
 - ✅ Git integration
 - ✅ Comprehensive error handling
+- ✅ Workspace sync plugin (replaces PowerShell scripts)
 
 ### Future Enhancements
 - 🔄 Multi-repository support

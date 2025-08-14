@@ -8,6 +8,7 @@ from .registry import PluginRegistry
 from .python_package_plugin import run_mode as python_package_mode
 from .workspace_plugin import run_mode as workspace_mode
 from .pypi_plugin import run_mode as pypi_mode
+from .workspace_sync_plugin import WorkspaceSyncPlugin
 
 # Plugin registry instance
 _plugin_registry = PluginRegistry()
@@ -47,6 +48,19 @@ def load_builtin_plugins(registry: PluginRegistry) -> None:
             "version_types": [],
             "supports_pypi": True,
             "supports_git": False
+        }
+    )
+    
+    # Workspace sync plugin (replaces PowerShell scripts)
+    from .workspace_sync_plugin import run_mode as workspace_sync_mode
+    registry.register_plugin(
+        "workspace_sync",
+        workspace_sync_mode,
+        {
+            "description": "Synchronize workspace and submodule repositories",
+            "operations": ["sync", "workspace_sync", "submodule_update"],
+            "supports_pypi": False,
+            "supports_git": True
         }
     )
 
