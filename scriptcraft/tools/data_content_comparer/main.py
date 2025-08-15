@@ -22,13 +22,21 @@ from .env import setup_environment
 # Set up environment and get imports
 IS_DISTRIBUTABLE = setup_environment()
 
-# Import based on environment
-if IS_DISTRIBUTABLE:
-    # Distributable imports - use cu pattern for consistency
-    import common as cu
-else:
-    # Development imports - use cu pattern for consistency
-    import scriptcraft.common as cu
+# Import based on environment with fallback
+try:
+    if IS_DISTRIBUTABLE:
+        # Distributable imports - use cu pattern for consistency
+        import common as cu
+    else:
+        # Development imports - use cu pattern for consistency
+        import scriptcraft.common as cu
+except ImportError:
+    # Fallback: try scriptcraft.common in both environments
+    try:
+        import scriptcraft.common as cu
+    except ImportError:
+        # Last resort: try relative import
+        from .. import common as cu
 
 # Import utils (same in both environments since it's local)
 try:

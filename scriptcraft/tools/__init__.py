@@ -41,19 +41,49 @@ def run_tool(tool_name: str, **kwargs) -> None:
     """Run a tool by name with the given arguments."""
     registry.run_tool(tool_name, **kwargs)
 
-# === WILDCARD IMPORTS FOR SCALABILITY ===
-from .rhq_form_autofiller import *
-from .data_content_comparer import *
-from .schema_detector import *
-from .dictionary_driven_checker import *
-from .score_totals_checker import *
-from .feature_change_checker import *
-from .dictionary_validator import *
-from .medvisit_integrity_validator import *
-from .dictionary_cleaner import *
-from .date_format_standardizer import *
-from .automated_labeler import *
-from .dictionary_workflow import *
+# === LAZY IMPORTS FOR ROBUSTNESS ===
+# Import tools lazily to prevent one broken tool from breaking the entire package
+def _lazy_import_tools():
+    """Import tools lazily with error handling."""
+    tools = {}
+    
+    # Define tool modules to import
+    tool_modules = [
+        ('rhq_form_autofiller', 'RHQFormAutofiller'),
+        ('data_content_comparer', 'DataContentComparer'),
+        ('schema_detector', 'SchemaDetector'),
+        ('dictionary_driven_checker', 'DictionaryDrivenChecker'),
+        ('score_totals_checker', 'ScoreTotalsChecker'),
+        ('feature_change_checker', 'FeatureChangeChecker'),
+        ('dictionary_validator', 'DictionaryValidator'),
+        ('medvisit_integrity_validator', 'MedVisitIntegrityValidator'),
+        ('dictionary_cleaner', 'DictionaryCleaner'),
+        ('date_format_standardizer', 'DateFormatStandardizer'),
+        ('automated_labeler', 'AutomatedLabeler'),
+        ('dictionary_workflow', 'DictionaryWorkflow'),
+    ]
+    
+    # Import each tool with error handling
+    for module_name, class_name in tool_modules:
+        try:
+            module = __import__(f'.{module_name}', fromlist=[class_name], level=1)
+            if hasattr(module, class_name):
+                tools[class_name] = getattr(module, class_name)
+                # Also add to globals for backward compatibility
+                globals()[class_name] = getattr(module, class_name)
+        except ImportError as e:
+            # Log the error but don't fail the entire package
+            import sys
+            print(f"⚠️ Warning: Could not import {class_name} from {module_name}: {e}", file=sys.stderr)
+        except Exception as e:
+            # Log any other errors
+            import sys
+            print(f"⚠️ Warning: Error importing {class_name}: {e}", file=sys.stderr)
+    
+    return tools
+
+# Import tools lazily
+_available_tools = _lazy_import_tools()
 
 # === FUTURE API CONTROL (COMMENTED) ===
 # Uncomment and populate when you want to control public API

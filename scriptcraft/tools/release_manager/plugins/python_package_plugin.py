@@ -34,7 +34,7 @@ def run_command(command: str, description: str, cwd: Optional[Path] = None) -> O
 def get_current_version() -> Optional[str]:
     """Get current version from _version.py file."""
     try:
-        version_file = Path("scriptcraft/_version.py")
+        version_file = Path("implementations/python-package/scriptcraft/_version.py")
         with open(version_file, 'r', encoding='utf-8') as f:
             content = f.read()
             match = re.search(r'__version__ = "([^"]+)"', content)
@@ -70,7 +70,7 @@ def bump_version(current_version: str, version_type: str) -> Optional[str]:
 def update_version_file(new_version: str) -> bool:
     """Update the _version.py file."""
     try:
-        version_file = Path("scriptcraft/_version.py")
+        version_file = Path("implementations/python-package/scriptcraft/_version.py")
         with open(version_file, 'r', encoding='utf-8') as f:
             content = f.read()
         
@@ -94,7 +94,7 @@ def update_version_file(new_version: str) -> bool:
 def clean_build_artifacts() -> None:
     """Clean old build artifacts."""
     cu.log_and_print("🧹 Cleaning build artifacts...")
-    artifacts = ["dist", "build", "*.egg-info"]
+    artifacts = ["implementations/python-package/dist", "implementations/python-package/build", "implementations/python-package/*.egg-info"]
     for artifact in artifacts:
         artifact_path = Path(artifact)
         if artifact_path.exists():
@@ -108,12 +108,12 @@ def clean_build_artifacts() -> None:
 
 def build_package() -> bool:
     """Build the Python package."""
-    return run_command("python -m build", "Building package") is not None
+    return run_command("python -m build", "Building package", cwd=Path("implementations/python-package")) is not None
 
 
 def upload_to_pypi() -> bool:
     """Upload package to PyPI."""
-    return run_command("python -m twine upload dist/*", "Uploading to PyPI") is not None
+    return run_command("python -m twine upload dist/*", "Uploading to PyPI", cwd=Path("implementations/python-package")) is not None
 
 
 def get_commit_message(new_version: str, version_type: str) -> str:
