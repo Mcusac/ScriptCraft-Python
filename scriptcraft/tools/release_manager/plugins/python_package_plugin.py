@@ -40,6 +40,36 @@ def run_command(command: str, description: str, cwd: Optional[Path] = None) -> O
         return None
 
 
+def _get_workspace_version_strategy() -> str:
+    """Determine workspace versioning strategy: mirror | independent | none.
+
+    Priority: ENV WORKSPACE_VERSION_STRATEGY > config.framework.packaging.workspace_version_strategy > 'mirror'
+    """
+    import os
+
+    # 1) Environment override
+    env_value = os.environ.get("WORKSPACE_VERSION_STRATEGY")
+    if env_value:
+        return env_value.strip().lower()
+
+    # 2) Config value if available
+    try:
+        config = cu.get_config()
+        if config is not None:
+            framework_cfg = config.get_framework_config() if hasattr(config, 'get_framework_config') else None
+            packaging = getattr(framework_cfg, 'packaging', None)
+            if isinstance(packaging, dict):
+                value = packaging.get('workspace_version_strategy')
+                if isinstance(value, str) and value.strip():
+                    return value.strip().lower()
+    except Exception:
+        # Fallback below on any issue
+        pass
+
+    # 3) Default
+    return 'mirror'
+
+
 def get_current_version() -> Optional[str]:
     """Get current version from _version.py file."""
     try:
@@ -278,6 +308,31 @@ def run_mode(input_paths: List[Path], output_dir: Path, domain: Optional[str] = 
             main_push = run_command("git push origin main", "Pushing main workspace changes")
             if main_push is None:
                 cu.log_and_print("⚠️ Failed to push main workspace changes", level="warning")
+
+    # Workspace versioning strategy handling
+    strategy = _get_workspace_version_strategy()
+    cu.log_and_print(f"🧭 Workspace version strategy: {strategy}")
+    if strategy == 'mirror':
+        # Write VERSION file, commit, tag, and push (if requested)
+        try:
+            Path("VERSION").write_text(f"{new_version}\n", encoding='utf-8')
+            staged = run_command("git add VERSION", "Staging workspace VERSION file")
+            if staged is None:
+                cu.log_and_print("⚠️ Failed to stage VERSION file", level="warning")
+            else:
+                committed = run_command(f'git commit -m " Workspace v{new_version} (mirror python-package)"', "Committing workspace VERSION")
+                # Create tag if it doesn't exist
+                existing_ws_tag = run_command(f"git tag -l v{new_version}", f"Checking workspace tag v{new_version}")
+                if not existing_ws_tag:
+                    _ = run_command(f"git tag v{new_version}", f"Creating workspace tag v{new_version}")
+                # Push if requested
+                if auto_push:
+                    _ = run_command("git push origin main", "Pushing workspace VERSION commit")
+                    _ = run_command(f"git push origin v{new_version}", f"Pushing workspace tag v{new_version}")
+        except Exception as e:
+            cu.log_and_print(f"⚠️ Workspace mirroring failed: {e}", level="warning")
+    elif strategy in ('independent', 'none'):
+        cu.log_and_print("ℹ️ Skipping workspace version mirroring (strategy independent/none)")
     
     # Success!
     cu.log_and_print("=" * 50)
