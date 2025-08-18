@@ -303,7 +303,7 @@ class Config:
         # Map common tool settings from environment variables
         if tool_name == "rhq_form_autofiller":
             tool_config = {
-                "url_template": os.environ.get("RHQ_URL_TEMPLATE", ""),
+                "url_template": os.environ.get("URL_TEMPLATE", ""),
                 "browser_timeout": int(os.environ.get("RHQ_BROWSER_TIMEOUT", "60")),
                 "form_wait_time": int(os.environ.get("RHQ_FORM_WAIT_TIME", "10")),
                 "auto_login": os.environ.get("RHQ_AUTO_LOGIN", "true").lower() == "true",

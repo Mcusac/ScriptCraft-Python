@@ -396,7 +396,7 @@ def attempt_automatic_login(driver: webdriver.Remote, logger: Optional[Any] = No
 
 def main():
     """Main entry point for the RHQ form autofiller tool."""
-    args = cu.parse_tool_args("🏥 Automates filling of RHQ forms with address data from Excel files")
+    args = cu.parse_standard_tool_args("rhq_form_autofiller", "🏥 Automates filling of RHQ forms with address data from Excel files")
     
     # Create and run the tool
     tool = RHQFormAutofiller()
