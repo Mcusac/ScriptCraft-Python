@@ -20,13 +20,22 @@ def run_command(command: str, description: str, cwd: Optional[Path] = None) -> O
     try:
         result = subprocess.run(
             command, shell=True, capture_output=True, text=True, 
-            check=True, encoding='utf-8', cwd=cwd
+            check=True, encoding='utf-8', errors='replace', cwd=cwd
         )
         cu.log_and_print(f"✅ {description} completed")
         return result.stdout.strip() if result.stdout else ""
     except subprocess.CalledProcessError as e:
         cu.log_and_print(f"❌ {description} failed: {e}", level="error")
-        cu.log_and_print(f"Error output: {e.stderr}", level="error")
+        if e.stderr:
+            # Handle potential encoding issues in stderr
+            try:
+                error_output = e.stderr
+            except UnicodeDecodeError:
+                error_output = e.stderr.encode('utf-8', errors='replace').decode('utf-8')
+            cu.log_and_print(f"Error output: {error_output}", level="error")
+        return None
+    except UnicodeDecodeError as e:
+        cu.log_and_print(f"❌ {description} failed due to encoding issue: {e}", level="error")
         return None
 
 

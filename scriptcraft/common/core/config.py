@@ -294,8 +294,8 @@ class Config:
         """Create configuration from environment variables (distributable mode)."""
         import os
         
-        # Get tool name from environment
-        tool_name = os.environ.get("TOOL_NAME", "unknown_tool")
+        # Get tool name from environment (config.bat sets TOOL_TO_SHIP)
+        tool_name = os.environ.get("TOOL_TO_SHIP", os.environ.get("TOOL_NAME", "unknown_tool"))
         
         # Build tool configuration from environment variables
         tool_config = {}

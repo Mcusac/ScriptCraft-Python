@@ -21,13 +21,22 @@ def run_command(command: str, description: str, cwd: Optional[Path] = None) -> O
     try:
         result = subprocess.run(
             command, shell=True, capture_output=True, text=True, 
-            check=True, encoding='utf-8', cwd=cwd
+            check=True, encoding='utf-8', errors='replace', cwd=cwd
         )
         cu.log_and_print(f"✅ {description} completed")
         return result.stdout.strip() if result.stdout else ""
     except subprocess.CalledProcessError as e:
         cu.log_and_print(f"❌ {description} failed: {e}", level="error")
-        cu.log_and_print(f"Error output: {e.stderr}", level="error")
+        if e.stderr:
+            # Handle potential encoding issues in stderr
+            try:
+                error_output = e.stderr
+            except UnicodeDecodeError:
+                error_output = e.stderr.encode('utf-8', errors='replace').decode('utf-8')
+            cu.log_and_print(f"Error output: {error_output}", level="error")
+        return None
+    except UnicodeDecodeError as e:
+        cu.log_and_print(f"❌ {description} failed due to encoding issue: {e}", level="error")
         return None
 
 
@@ -194,27 +203,38 @@ def run_mode(input_paths: List[Path], output_dir: Path, domain: Optional[str] = 
     else:
         cu.log_and_print("⏭️ Skipping PyPI upload (--skip-pypi flag)")
     
-    # Step 5: Stage all changes
+    # Step 5: Handle submodule changes first
+    submodule_status = run_command("git status --porcelain", "Checking for submodule changes")
+    if submodule_status and "implementations/python-package" in submodule_status:
+        cu.log_and_print("📦 Detected submodule changes, handling submodule...")
+        
+        # Add the submodule changes to the main repo
+        submodule_add = run_command("git add implementations/python-package", "Adding submodule changes")
+        if submodule_add is None:
+            cu.log_and_print("⚠️ Failed to add submodule changes, but continuing with release", level="warning")
+    
+    # Step 6: Stage all changes
     staging_result = run_command("git add .", "Staging all changes")
     if staging_result is None:
         cu.log_and_print("❌ Failed to stage changes. Aborting release.", level="error")
         return
     
-    # Step 6: Check if there are changes to commit
+    # Step 7: Check if there are changes to commit
     status = run_command("git status --porcelain", "Checking git status")
     if not status and not force:
         cu.log_and_print("⚠️ No changes to commit. Did you make any changes?", level="warning")
         cu.log_and_print("💡 Use --force flag to continue anyway", level="warning")
         return
     
-    # Step 7: Commit with proper message
+    # Step 8: Commit with proper message
     commit_message = custom_message if custom_message else get_commit_message(new_version, version_type)
     commit_result = run_command(f'git commit -m "{commit_message}"', "Creating commit")
     if commit_result is None:
         cu.log_and_print("❌ Failed to create commit. Aborting release.", level="error")
+        cu.log_and_print("💡 Check git status and ensure changes are staged", level="error")
         return
     
-    # Step 8: Create git tag (check if it already exists)
+    # Step 9: Create git tag (check if it already exists)
     existing_tag = run_command(f"git tag -l v{new_version}", f"Checking if tag v{new_version} exists")
     if existing_tag:
         cu.log_and_print(f"⚠️ Tag v{new_version} already exists. Skipping tag creation.", level="warning")
@@ -224,11 +244,11 @@ def run_mode(input_paths: List[Path], output_dir: Path, domain: Optional[str] = 
             cu.log_and_print("❌ Failed to create tag. Aborting release.", level="error")
             return
     
-    # Step 9: Push to remote (if requested)
+    # Step 10: Push to remote (if requested)
     if auto_push:
         cu.log_and_print("=" * 50)
         cu.log_and_print("🚀 Pushing to remote repository...")
-        push_commits = run_command("git push origin master", "Pushing commits")
+        push_commits = run_command("git push origin main", "Pushing commits")
         push_tags = run_command(f"git push origin v{new_version}", f"Pushing tag v{new_version}")
         if push_commits is None or push_tags is None:
             cu.log_and_print("⚠️ Failed to push to remote, but release was successful locally", level="warning")
@@ -255,7 +275,7 @@ def run_mode(input_paths: List[Path], output_dir: Path, domain: Optional[str] = 
     cu.log_and_print("\n📝 Next steps:")
     if not auto_push:
         cu.log_and_print("   1. Push to remote repository:")
-        cu.log_and_print(f"      git push origin master")
+        cu.log_and_print(f"      git push origin main")
         cu.log_and_print(f"      git push origin v{new_version}")
     cu.log_and_print("   2. Test the new package:")
     cu.log_and_print(f"      pip install scriptcraft-python=={new_version}")

@@ -22,13 +22,22 @@ def run_command(command: str, description: str, cwd: Optional[Path] = None) -> O
     try:
         result = subprocess.run(
             command, shell=True, capture_output=True, text=True, 
-            check=True, encoding='utf-8', cwd=cwd
+            check=True, encoding='utf-8', errors='replace', cwd=cwd
         )
         cu.log_and_print(f"✅ {description} completed")
         return result.stdout.strip() if result.stdout else ""
     except subprocess.CalledProcessError as e:
         cu.log_and_print(f"❌ {description} failed: {e}", level="error")
-        cu.log_and_print(f"Error output: {e.stderr}", level="error")
+        if e.stderr:
+            # Handle potential encoding issues in stderr
+            try:
+                error_output = e.stderr
+            except UnicodeDecodeError:
+                error_output = e.stderr.encode('utf-8', errors='replace').decode('utf-8')
+            cu.log_and_print(f"Error output: {error_output}", level="error")
+        return None
+    except UnicodeDecodeError as e:
+        cu.log_and_print(f"❌ {description} failed due to encoding issue: {e}", level="error")
         return None
 
 
@@ -252,7 +261,7 @@ def run_mode(input_paths: List[Path], output_dir: Path, domain: Optional[str] = 
     if auto_push:
         cu.log_and_print("=" * 50)
         cu.log_and_print("🚀 Pushing to remote repository...")
-        push_commits = run_command("git push origin master", "Pushing commits")
+        push_commits = run_command("git push origin main", "Pushing commits")
         push_tags = run_command(f"git push origin v{new_version}", f"Pushing tag v{new_version}")
         if push_commits is None or push_tags is None:
             cu.log_and_print("⚠️ Failed to push to remote, but release was successful locally", level="warning")
@@ -278,7 +287,7 @@ def run_mode(input_paths: List[Path], output_dir: Path, domain: Optional[str] = 
     cu.log_and_print("   1. Edit CHANGELOG.md to add actual changes for this release")
     if not auto_push:
         cu.log_and_print("   2. Push to remote repository:")
-        cu.log_and_print(f"      git push origin master")
+        cu.log_and_print(f"      git push origin main")
         cu.log_and_print(f"      git push origin v{new_version}")
     cu.log_and_print("   3. Create release on GitHub/GitLab (if using)")
     

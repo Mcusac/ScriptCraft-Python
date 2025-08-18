@@ -82,8 +82,15 @@ def _lazy_import_tools():
     
     return tools
 
-# Import tools lazily
-_available_tools = _lazy_import_tools()
+# Import tools lazily (only when needed)
+_available_tools = None
+
+def _get_available_tools():
+    """Get available tools, importing them lazily if needed."""
+    global _available_tools
+    if _available_tools is None:
+        _available_tools = _lazy_import_tools()
+    return _available_tools
 
 # === FUTURE API CONTROL (COMMENTED) ===
 # Uncomment and populate when you want to control public API

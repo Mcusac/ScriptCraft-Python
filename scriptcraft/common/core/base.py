@@ -60,15 +60,17 @@ class BaseTool(ABC):
             Config object or None if loading fails
         """
         try:
-            # Determine config path based on environment
             if self.is_distributable_environment():
-                config_path = "../config.yaml"
+                # In distributable environment, use environment variables from config.bat
+                config = Config._from_environment()
+                self.log_message("📋 Configuration loaded from environment variables (distributable mode)")
+                return config
             else:
+                # In development environment, load from config.yaml
                 config_path = "config.yaml"
-            
-            config = Config.from_yaml(config_path)
-            self.log_message(f"📋 Configuration loaded from: {config_path}")
-            return config
+                config = Config.from_yaml(config_path)
+                self.log_message(f"📋 Configuration loaded from: {config_path}")
+                return config
             
         except Exception as e:
             self.log_message(f"⚠️ Config loading failed, using defaults: {e}", level="warning")

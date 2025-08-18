@@ -91,7 +91,7 @@ def _update_submodule(**kwargs):
         # Check git status
         result = subprocess.run(
             ["git", "status", "--porcelain"],
-            capture_output=True, text=True, check=True
+            capture_output=True, text=True, encoding='utf-8', errors='replace', check=True
         )
         
         if result.stdout.strip():
@@ -146,7 +146,7 @@ def _update_workspace_reference(**kwargs):
         # Check if submodule was updated
         result = subprocess.run(
             ["git", "status", "--porcelain"],
-            capture_output=True, text=True, check=True
+            capture_output=True, text=True, encoding='utf-8', errors='replace', check=True
         )
         
         if "implementations/python-package" in result.stdout:
