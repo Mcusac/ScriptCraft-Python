@@ -5,7 +5,7 @@ This is the single source of truth for version information.
 All other files should import from here to maintain DRY principles.
 """
 
-__version__ = "1.5.7"
+__version__ = "1.5.9"
 __author__ = "ScriptCraft Team"
 
 # Parse version components from the version string

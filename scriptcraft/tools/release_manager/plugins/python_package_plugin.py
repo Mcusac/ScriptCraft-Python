@@ -43,7 +43,7 @@ def run_command(command: str, description: str, cwd: Optional[Path] = None) -> O
 def get_current_version() -> Optional[str]:
     """Get current version from _version.py file."""
     try:
-        version_file = Path("implementations/python-package/scriptcraft/_version.py")
+        version_file = Path("scriptcraft/_version.py")
         with open(version_file, 'r', encoding='utf-8') as f:
             content = f.read()
             match = re.search(r'__version__ = "([^"]+)"', content)
@@ -79,7 +79,7 @@ def bump_version(current_version: str, version_type: str) -> Optional[str]:
 def update_version_file(new_version: str) -> bool:
     """Update the _version.py file."""
     try:
-        version_file = Path("implementations/python-package/scriptcraft/_version.py")
+        version_file = Path("scriptcraft/_version.py")
         with open(version_file, 'r', encoding='utf-8') as f:
             content = f.read()
         
@@ -103,7 +103,7 @@ def update_version_file(new_version: str) -> bool:
 def clean_build_artifacts() -> None:
     """Clean old build artifacts."""
     cu.log_and_print("🧹 Cleaning build artifacts...")
-    artifacts = ["implementations/python-package/dist", "implementations/python-package/build", "implementations/python-package/*.egg-info"]
+    artifacts = ["dist", "build", "*.egg-info"]
     for artifact in artifacts:
         artifact_path = Path(artifact)
         if artifact_path.exists():
@@ -117,12 +117,12 @@ def clean_build_artifacts() -> None:
 
 def build_package() -> bool:
     """Build the Python package."""
-    return run_command("python -m build", "Building package", cwd=Path("implementations/python-package")) is not None
+    return run_command("python -m build", "Building package") is not None
 
 
 def upload_to_pypi() -> bool:
     """Upload package to PyPI."""
-    return run_command("python -m twine upload dist/*", "Uploading to PyPI", cwd=Path("implementations/python-package")) is not None
+    return run_command("python -m twine upload dist/*", "Uploading to PyPI") is not None
 
 
 def get_commit_message(new_version: str, version_type: str) -> str:
@@ -168,7 +168,18 @@ def run_mode(input_paths: List[Path], output_dir: Path, domain: Optional[str] = 
         cu.log_and_print("Use: major, minor, or patch", level="error")
         return
     
-    # Get current version
+    cu.log_and_print(f"🔧 ScriptCraft Python Package Release Process")
+    cu.log_and_print("=" * 50)
+    
+    # Store original directory for later restoration
+    import os
+    original_cwd = os.getcwd()
+    submodule_dir = Path("implementations/python-package")
+    
+    cu.log_and_print(f"📁 Working in submodule directory: {submodule_dir}")
+    os.chdir(submodule_dir)
+    
+    # Get current version (now that we're in the submodule directory)
     current_version = get_current_version()
     if not current_version:
         return
@@ -178,9 +189,7 @@ def run_mode(input_paths: List[Path], output_dir: Path, domain: Optional[str] = 
     if not new_version:
         return
     
-    cu.log_and_print(f"🔧 ScriptCraft Python Package Release Process")
     cu.log_and_print(f"🔄 Updating from {current_version} to {new_version}")
-    cu.log_and_print("=" * 50)
     
     # Step 1: Update version file
     if not update_version_file(new_version):
@@ -203,30 +212,20 @@ def run_mode(input_paths: List[Path], output_dir: Path, domain: Optional[str] = 
     else:
         cu.log_and_print("⏭️ Skipping PyPI upload (--skip-pypi flag)")
     
-    # Step 5: Handle submodule changes first
-    submodule_status = run_command("git status --porcelain", "Checking for submodule changes")
-    if submodule_status and "implementations/python-package" in submodule_status:
-        cu.log_and_print("📦 Detected submodule changes, handling submodule...")
-        
-        # Add the submodule changes to the main repo
-        submodule_add = run_command("git add implementations/python-package", "Adding submodule changes")
-        if submodule_add is None:
-            cu.log_and_print("⚠️ Failed to add submodule changes, but continuing with release", level="warning")
-    
-    # Step 6: Stage all changes
+    # Step 5: Stage all changes (we're now in the submodule directory)
     staging_result = run_command("git add .", "Staging all changes")
     if staging_result is None:
         cu.log_and_print("❌ Failed to stage changes. Aborting release.", level="error")
         return
     
-    # Step 7: Check if there are changes to commit
+    # Step 6: Check if there are changes to commit
     status = run_command("git status --porcelain", "Checking git status")
     if not status and not force:
         cu.log_and_print("⚠️ No changes to commit. Did you make any changes?", level="warning")
         cu.log_and_print("💡 Use --force flag to continue anyway", level="warning")
         return
     
-    # Step 8: Commit with proper message
+    # Step 7: Commit with proper message
     commit_message = custom_message if custom_message else get_commit_message(new_version, version_type)
     commit_result = run_command(f'git commit -m "{commit_message}"', "Creating commit")
     if commit_result is None:
@@ -234,7 +233,7 @@ def run_mode(input_paths: List[Path], output_dir: Path, domain: Optional[str] = 
         cu.log_and_print("💡 Check git status and ensure changes are staged", level="error")
         return
     
-    # Step 9: Create git tag (check if it already exists)
+    # Step 8: Create git tag (check if it already exists)
     existing_tag = run_command(f"git tag -l v{new_version}", f"Checking if tag v{new_version} exists")
     if existing_tag:
         cu.log_and_print(f"⚠️ Tag v{new_version} already exists. Skipping tag creation.", level="warning")
@@ -244,7 +243,7 @@ def run_mode(input_paths: List[Path], output_dir: Path, domain: Optional[str] = 
             cu.log_and_print("❌ Failed to create tag. Aborting release.", level="error")
             return
     
-    # Step 10: Push to remote (if requested)
+    # Step 9: Push to remote (if requested)
     if auto_push:
         cu.log_and_print("=" * 50)
         cu.log_and_print("🚀 Pushing to remote repository...")
@@ -254,6 +253,31 @@ def run_mode(input_paths: List[Path], output_dir: Path, domain: Optional[str] = 
             cu.log_and_print("⚠️ Failed to push to remote, but release was successful locally", level="warning")
         else:
             cu.log_and_print("✅ Successfully pushed to remote repository!")
+    
+    # Step 10: Return to original directory and update main workspace
+    cu.log_and_print("📁 Returning to main workspace...")
+    os.chdir(original_cwd)
+    
+    # Update the submodule reference in the main workspace
+    cu.log_and_print("🔄 Updating submodule reference in main workspace...")
+    submodule_update = run_command("git submodule update --remote implementations/python-package", "Updating submodule reference")
+    if submodule_update is None:
+        cu.log_and_print("⚠️ Failed to update submodule reference", level="warning")
+    
+    # Stage and commit the submodule update in main workspace
+    main_staging = run_command("git add implementations/python-package", "Staging submodule update")
+    if main_staging is None:
+        cu.log_and_print("⚠️ Failed to stage submodule update", level="warning")
+    else:
+        main_commit = run_command(f'git commit -m "📦 Update python-package submodule to v{new_version}"', "Committing submodule update")
+        if main_commit is None:
+            cu.log_and_print("⚠️ Failed to commit submodule update", level="warning")
+        
+        # Push main workspace changes if auto_push is enabled
+        if auto_push:
+            main_push = run_command("git push origin main", "Pushing main workspace changes")
+            if main_push is None:
+                cu.log_and_print("⚠️ Failed to push main workspace changes", level="warning")
     
     # Success!
     cu.log_and_print("=" * 50)
