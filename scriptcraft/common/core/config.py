@@ -263,8 +263,21 @@ class Config:
         if os.path.exists('config.yaml') and os.path.exists('implementations/'):
             return 'development'
         
-        # Default to production for distributables
-        return 'production'
+        # Check for distributable indicators
+        current_dir = Path('.')
+        distributable_indicators = [
+            (current_dir / 'embed_py311').exists(),  # Embedded Python
+            (current_dir / 'config.bat').exists(),   # Config bat file
+            (current_dir / 'run.bat').exists(),      # Run script
+            os.environ.get('TOOL_TO_SHIP') is not None,  # Environment variable
+            current_dir.name.endswith('_distributable')  # Directory name
+        ]
+        
+        if any(distributable_indicators):
+            return 'production'
+        
+        # Default to development
+        return 'development'
     
     @classmethod
     def _merge_configs(cls, base_config: WorkspaceConfig, override_data: Dict[str, Any]) -> WorkspaceConfig:
@@ -297,24 +310,31 @@ class Config:
         # Get tool name from environment (config.bat sets TOOL_TO_SHIP)
         tool_name = os.environ.get("TOOL_TO_SHIP", os.environ.get("TOOL_NAME", "unknown_tool"))
         
-        # Build tool configuration from environment variables
-        tool_config = {}
+        # Build generic tool configuration from environment variables
+        tool_config = {
+            "tool_name": tool_name,
+            "description": os.environ.get("TOOL_DESCRIPTION", f"🔧 {tool_name.replace('_', ' ').title()}"),
+            "entry_command": os.environ.get("ENTRY_COMMAND", "main.py"),
+            "packages": os.environ.get("TOOL_PACKAGES", "").split() if os.environ.get("TOOL_PACKAGES") else []
+        }
         
-        # Map common tool settings from environment variables
+        # Add tool-specific settings
         if tool_name == "rhq_form_autofiller":
-            tool_config = {
+            tool_config.update({
                 "url_template": os.environ.get("URL_TEMPLATE", ""),
                 "browser_timeout": int(os.environ.get("RHQ_BROWSER_TIMEOUT", "60")),
                 "form_wait_time": int(os.environ.get("RHQ_FORM_WAIT_TIME", "10")),
-                "auto_login": os.environ.get("RHQ_AUTO_LOGIN", "true").lower() == "true",
-                "tool_name": tool_name,
-                "entry_command": os.environ.get("ENTRY_COMMAND", "main.py")
-            }
+                "auto_login": os.environ.get("RHQ_AUTO_LOGIN", "true").lower() == "true"
+            })
         
         # Create default configuration with environment-based tools config
         config = cls()
         config.tools[tool_name] = tool_config
         
+        # Set workspace root to current directory for distributables
+        config.workspace_root = Path.cwd()
+        
+        log_and_print(f"✅ Configuration loaded from environment for tool: {tool_name}", level="info")
         return config
     
     def get_tool_config(self, tool_name: str) -> Dict[str, Any]:

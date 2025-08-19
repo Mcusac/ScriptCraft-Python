@@ -8,6 +8,7 @@ No artificial distinctions. No organizational cruft. Just functionality.
 """
 
 import logging
+import os
 import sys
 from abc import ABC, abstractmethod
 from pathlib import Path
@@ -135,8 +136,26 @@ class BaseTool(ABC):
     def is_distributable_environment() -> bool:
         """Detect if we're running in a distributable environment."""
         current_dir = Path.cwd()
-        return (current_dir.name == 'scripts' or 
-                'distributable' in str(current_dir).lower())
+        
+        # Check for distributable indicators
+        distributable_indicators = [
+            # Classic distributable structure
+            current_dir.name == 'scripts',
+            'distributable' in str(current_dir).lower(),
+            
+            # New PyPI-based structure indicators
+            (current_dir / 'embed_py311').exists(),  # Embedded Python
+            (current_dir / 'config.bat').exists(),   # Config bat file
+            (current_dir / 'run.bat').exists(),      # Run script
+            
+            # Environment variable set by config.bat
+            os.environ.get('TOOL_TO_SHIP') is not None,
+            
+            # Check if we're in a tool_distributable directory
+            current_dir.name.endswith('_distributable')
+        ]
+        
+        return any(distributable_indicators)
     
     def resolve_input_directory(self, input_dir: Optional[Union[str, Path]] = None, 
                                config: Optional[Any] = None) -> Path:

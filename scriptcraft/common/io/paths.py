@@ -14,43 +14,48 @@ from typing import List, Dict, FrozenSet, Any, Optional
 import yaml
 
 # ==== 📄 Configuration Loading ====
+# Note: This is a fallback configuration loader for legacy compatibility.
+# The primary config loading happens through scriptcraft.common.core.config.Config
 
-CONFIG_PATH_YAML = Path(__file__).resolve().parents[3] / "config.yaml"
-CONFIG_PATH_BAT = Path(__file__).resolve().parents[3] / "config.bat"
 _CONFIG = {}
 
-if CONFIG_PATH_YAML.exists():
-    try:
-        with open(CONFIG_PATH_YAML, "r", encoding="utf-8") as f:
-            _CONFIG = yaml.safe_load(f)
-        print(f"📄 Loaded config.yaml from {CONFIG_PATH_YAML}")
-    except Exception as e:
-        print(f"⚠️ Failed to load config.yaml from {CONFIG_PATH_YAML}. Reason: {e}", file=sys.stderr)
-        _CONFIG = {}
-elif CONFIG_PATH_BAT.exists():
-    # Set UTF-8 encoding for console output
-    if sys.platform == "win32":
-        import codecs
-        sys.stdout = codecs.getwriter('utf-8')(sys.stdout.buffer, 'strict')
-        sys.stderr = codecs.getwriter('utf-8')(sys.stderr.buffer, 'strict')
+def _load_legacy_config():
+    """Load legacy configuration with fallback behavior."""
+    global _CONFIG
     
-    print(f"📦 No config.yaml found. Using config.bat environment variables.")
-    _CONFIG = {
-        "study_name": os.environ.get("STUDY_NAME", "DEFAULT_STUDY"),
-        "id_columns": os.environ.get("ID_COLUMNS", "Med_ID,Visit_ID").split(","),
-        "output_dir": os.environ.get("OUTPUT_DIR", "output"),
-        "log_level": os.environ.get("LOG_LEVEL", "INFO"),
-        "domains": os.environ.get("DOMAINS", "").split(","),
-        "folder_structure": {}
-    }
-else:
-    # Check if we're in a workspace environment before warning
-    workspaces_dir = Path(__file__).resolve().parents[3] / "workspaces"
-    has_workspaces = workspaces_dir.exists() and any(workspaces_dir.iterdir())
+    # Try different potential config locations
+    potential_paths = [
+        # Development workspace root
+        Path(__file__).resolve().parents[5] / "config.yaml",  # From package to workspace root
+        Path(__file__).resolve().parents[4] / "config.yaml",  # Alternative path
+        Path(__file__).resolve().parents[3] / "config.yaml",  # Current approach
+        Path.cwd() / "config.yaml",                           # Current working directory
+    ]
     
-    if not has_workspaces:
-        print(f"⚠️ No config.yaml or config.bat found. Using fallback hardcoded defaults.", file=sys.stderr)
+    # First try to find config.yaml
+    for config_path in potential_paths:
+        if config_path.exists():
+            try:
+                with open(config_path, "r", encoding="utf-8") as f:
+                    _CONFIG = yaml.safe_load(f)
+                # Silently succeed - main config system will handle logging
+                return
+            except Exception:
+                continue
     
+    # Try config.bat environment variables (distributable mode)
+    if os.environ.get('TOOL_TO_SHIP') or os.environ.get('STUDY_NAME'):
+        _CONFIG = {
+            "study_name": os.environ.get("STUDY_NAME", "DEFAULT_STUDY"),
+            "id_columns": os.environ.get("ID_COLUMNS", "Med_ID,Visit_ID").split(","),
+            "output_dir": os.environ.get("OUTPUT_DIR", "output"),
+            "log_level": os.environ.get("LOG_LEVEL", "INFO"),
+            "domains": os.environ.get("DOMAINS", "").split(",") if os.environ.get("DOMAINS") else [],
+            "folder_structure": {}
+        }
+        return
+    
+    # Fallback to defaults (silently - this is expected for many use cases)
     _CONFIG = {
         "study_name": "DEFAULT_STUDY",
         "id_columns": ["Med_ID", "Visit_ID"],
@@ -59,6 +64,9 @@ else:
         "domains": [],
         "folder_structure": {}
     }
+
+# Load config once when module is imported
+_load_legacy_config()
 
 
 def get_legacy_config(key: Any = None, default: Any = None) -> Any:

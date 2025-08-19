@@ -15,16 +15,16 @@ Features:
 Author: ScriptCraft Team
 """
 
-# === WILDCARD IMPORTS FOR SCALABILITY ===
-from .main import *
-from .plugins import *
+# === EXPLICIT IMPORTS TO AVOID CIRCULAR IMPORT ===
+# Import main classes without wildcard to prevent circular import when running as module
+from .main import ReleaseManager
+from .plugins import PluginRegistry
 
-# === FUTURE API CONTROL (COMMENTED) ===
-# Uncomment and populate when you want to control public API
-# __all__ = [
-#     'ReleaseManager',
-#     'PluginRegistry'
-# ]
+# === PUBLIC API ===
+__all__ = [
+    'ReleaseManager',
+    'PluginRegistry'
+]
 
 # Tool metadata
 __description__ = "🚀 Automated release management for Python packages with plugin-based workflows"
