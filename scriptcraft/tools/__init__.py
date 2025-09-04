@@ -61,6 +61,7 @@ def _lazy_import_tools():
         ('date_format_standardizer', 'DateFormatStandardizer'),
         ('automated_labeler', 'AutomatedLabeler'),
         ('dictionary_workflow', 'DictionaryWorkflow'),
+        ('function_auditor', 'FunctionAuditorTool'),
     ]
     
     # Import each tool with error handling

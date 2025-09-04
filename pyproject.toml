@@ -75,6 +75,7 @@ scriptcraft = "scriptcraft.common.cli:main"
 rhq-autofiller = "scriptcraft.tools.rhq_form_autofiller:main"
 data-comparer = "scriptcraft.tools.data_content_comparer:main"
 auto-labeler = "scriptcraft.tools.automated_labeler:main"
+function-auditor = "scriptcraft.tools.function_auditor:main"
 
 [tool.setuptools.dynamic]
 version = {attr = "scriptcraft._version.__version__"}
