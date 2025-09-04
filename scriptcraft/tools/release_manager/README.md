@@ -29,6 +29,17 @@ release_manager/
 
 ---
 
+## ⚡ Quick Reference
+
+| What you want to do | Command |
+|---------------------|---------|
+| **Re-upload existing version** | `python -m scriptcraft.tools.release_manager.main pypi` |
+| **Create new version + upload** | `python -m scriptcraft.tools.release_manager.main python_package --version-type minor` |
+| **Sync workspace after release** | `python -m scriptcraft.tools.release_manager.main workspace_sync sync` |
+| **Full release workflow** | `python_package` → `workspace_sync` |
+
+---
+
 ## 🚀 Usage
 
 ### Command Line
@@ -48,6 +59,12 @@ python -m scriptcraft.tools.release_manager.main python_package --version-type p
 
 # Release with auto-push
 python -m scriptcraft.tools.release_manager.main python_package --version-type major --auto-push
+```
+
+#### PyPI Upload Only (Re-upload existing version)
+```bash
+# Upload existing package to PyPI without version changes
+python -m scriptcraft.tools.release_manager.main pypi
 ```
 
 #### Workspace Release
@@ -84,6 +101,31 @@ tool.run(
     auto_push=True
 )
 ```
+
+---
+
+## 🎯 When to Use Each Plugin
+
+### **Use `pypi` plugin when:**
+- ✅ You want to re-upload an existing version to PyPI
+- ✅ You've already built the package and just need to upload
+- ✅ You want to upload without any version changes
+- ✅ You're testing PyPI uploads
+
+### **Use `python_package` plugin when:**
+- ✅ You want to create a new version (major/minor/patch)
+- ✅ You want to bump version, build, and upload in one step
+- ✅ You're doing a full release workflow
+
+### **Use `workspace_sync` plugin when:**
+- ✅ You need to sync submodule changes to main workspace
+- ✅ You want to update git references after a package release
+- ✅ You're doing the final step of a release workflow
+
+### **Use `workspace` plugin when:**
+- ✅ You want to release the workspace itself (not the Python package)
+- ✅ You want to update VERSION file and CHANGELOG.md
+- ✅ You're doing workspace-level versioning
 
 ---
 
