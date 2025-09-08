@@ -1,32 +1,30 @@
 """
-scripts/pipelines/__init__.py
+ScriptCraft Pipelines Package
 
-📦 Pipeline package for managing data processing workflows.
+This package provides domain-specific pipeline implementations that use
+the consolidated ScriptCraft pipeline system from scriptcraft.common.pipeline.
 
-This package now imports from the consolidated common.pipeline module
-and re-exports for backward compatibility. Domain-specific pipeline
-implementations can be added here as separate modules.
+Available pipelines:
+- release_pipelines.py: Release and deployment pipelines
+- git_pipelines.py: Git operation pipelines
+
+All pipelines follow ScriptCraft patterns and use the centralized
+pipeline infrastructure for consistency and DRY compliance.
 """
 
-# === WILDCARD IMPORTS FOR SCALABILITY ===
-from ..common.pipeline import *
+# Import domain-specific pipelines
+from . import release_pipelines
+from . import git_pipelines
 
-# Legacy alias for backward compatibility
-PipelineStepTuple = PipelineStep
+# Re-export the consolidated pipeline system for convenience
+from scriptcraft.common.pipeline import *
 
 # === FUTURE API CONTROL (COMMENTED) ===
 # Uncomment and populate when you want to control public API
 # __all__ = [
-#     # Base Pipeline
-#     'BasePipeline', 'PipelineStep', 'PipelineStepTuple',
-#     # Factory functionality
-#     'PipelineFactory', 'build_step', 'import_function', 'get_pipeline_steps',
-#     # Execution utilities
-#     'PipelineExecutor', 'run_pipeline_step', 'run_pipeline_steps',
-#     'create_pipeline_step', 'validate_pipeline_steps',
-#     # Pipeline Utilities
-#     'make_step', 'validate_pipelines', 'add_supplement_steps',
-#     'run_qc_for_each_domain', 'run_qc_for_single_domain', 'run_qc_single_step',
-#     'run_global_tool', 'run_pipeline_from_steps', 'timed_pipeline',
-#     'list_pipelines', 'preview_pipeline', 'run_pipeline',
+#     # Domain-specific pipelines
+#     'release_pipelines', 'git_pipelines',
+#     # Consolidated pipeline system
+#     'BasePipeline', 'PipelineStep', 'PipelineFactory',
+#     'make_step', 'validate_pipelines', 'run_pipeline'
 # ]

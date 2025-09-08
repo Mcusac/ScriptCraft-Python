@@ -1,0 +1,71 @@
+2025-09-08 10:59:40,663 - root - INFO - 🚀 Logger 'root' initialized with level INFO
+2025-09-08 10:59:40,666 - root - INFO - 📝 Log file: data\logs\data_content_comparer_20250908_105940.log
+2025-09-08 10:59:40,667 - root - INFO - 📝 Logging to: data\logs\data_content_comparer_20250908_105940.log
+2025-09-08 10:59:40,668 - root - WARNING - ⚠️ Config file not found: config.yaml
+2025-09-08 10:59:40,669 - root - INFO - 📝 📦 No config.yaml found. Using config.bat environment variables.
+2025-09-08 10:59:40,670 - root - INFO - ✅ Configuration loaded from environment for tool: unknown_tool
+2025-09-08 10:59:40,671 - root - INFO - 📝 📋 Configuration loaded from: config.yaml
+2025-09-08 10:59:40,673 - root - WARNING - ⚠️ Config file not found: config.yaml
+2025-09-08 10:59:40,673 - root - INFO - 📝 📦 No config.yaml found. Using config.bat environment variables.
+2025-09-08 10:59:40,674 - root - INFO - ✅ Configuration loaded from environment for tool: unknown_tool
+2025-09-08 10:59:40,674 - root - INFO - 📝 📋 Configuration loaded from: config.yaml
+2025-09-08 10:59:40,676 - root - WARNING - ⚠️ Config file not found: config.yaml
+2025-09-08 10:59:40,676 - root - INFO - 📝 📦 No config.yaml found. Using config.bat environment variables.
+2025-09-08 10:59:40,676 - root - INFO - ✅ Configuration loaded from environment for tool: unknown_tool
+2025-09-08 10:59:40,677 - root - INFO - 📝 📋 Configuration loaded from: config.yaml
+2025-09-08 10:59:40,678 - root - WARNING - ⚠️ Config file not found: config.yaml
+2025-09-08 10:59:40,678 - root - INFO - 📝 📦 No config.yaml found. Using config.bat environment variables.
+2025-09-08 10:59:40,678 - root - INFO - ✅ Configuration loaded from environment for tool: unknown_tool
+2025-09-08 10:59:40,679 - root - INFO - 📝 📋 Configuration loaded from: config.yaml
+2025-09-08 10:59:40,680 - root - WARNING - ⚠️ Config file not found: config.yaml
+2025-09-08 10:59:40,682 - root - INFO - 📝 📦 No config.yaml found. Using config.bat environment variables.
+2025-09-08 10:59:40,686 - root - INFO - ✅ Configuration loaded from environment for tool: unknown_tool
+2025-09-08 10:59:40,688 - root - INFO - 📝 📋 Configuration loaded from: config.yaml
+2025-09-08 10:59:40,689 - root - WARNING - ⚠️ Config file not found: config.yaml
+2025-09-08 10:59:40,689 - root - INFO - 📝 📦 No config.yaml found. Using config.bat environment variables.
+2025-09-08 10:59:40,690 - root - INFO - ✅ Configuration loaded from environment for tool: unknown_tool
+2025-09-08 10:59:40,690 - root - INFO - 📝 📋 Configuration loaded from: config.yaml
+2025-09-08 10:59:40,692 - root - WARNING - ⚠️ Config file not found: config.yaml
+2025-09-08 10:59:40,693 - root - INFO - 📝 📦 No config.yaml found. Using config.bat environment variables.
+2025-09-08 10:59:40,694 - root - INFO - ✅ Configuration loaded from environment for tool: unknown_tool
+2025-09-08 10:59:40,695 - root - INFO - 📝 📋 Configuration loaded from: config.yaml
+2025-09-08 10:59:40,698 - root - WARNING - ⚠️ Config file not found: config.yaml
+2025-09-08 10:59:40,698 - root - INFO - 📝 📦 No config.yaml found. Using config.bat environment variables.
+2025-09-08 10:59:40,699 - root - INFO - ✅ Configuration loaded from environment for tool: unknown_tool
+2025-09-08 10:59:40,700 - root - INFO - 📝 📋 Configuration loaded from: config.yaml
+2025-09-08 10:59:40,704 - root - WARNING - ⚠️ Config file not found: config.yaml
+2025-09-08 10:59:40,706 - root - INFO - 📝 📦 No config.yaml found. Using config.bat environment variables.
+2025-09-08 10:59:40,709 - root - INFO - ✅ Configuration loaded from environment for tool: unknown_tool
+2025-09-08 10:59:40,709 - root - INFO - 📝 📋 Configuration loaded from: config.yaml
+2025-09-08 10:59:40,711 - root - WARNING - ⚠️ Config file not found: config.yaml
+2025-09-08 10:59:40,711 - root - INFO - 📝 📦 No config.yaml found. Using config.bat environment variables.
+2025-09-08 10:59:40,711 - root - INFO - ✅ Configuration loaded from environment for tool: unknown_tool
+2025-09-08 10:59:40,712 - root - INFO - 📝 📋 Configuration loaded from: config.yaml
+2025-09-08 10:59:40,713 - root - WARNING - ⚠️ Config file not found: config.yaml
+2025-09-08 10:59:40,714 - root - INFO - 📝 📦 No config.yaml found. Using config.bat environment variables.
+2025-09-08 10:59:40,715 - root - INFO - ✅ Configuration loaded from environment for tool: unknown_tool
+2025-09-08 10:59:40,715 - root - INFO - 📝 📋 Configuration loaded from: config.yaml
+2025-09-08 10:59:40,716 - root - WARNING - ⚠️ Config file not found: config.yaml
+2025-09-08 10:59:40,716 - root - INFO - 📝 📦 No config.yaml found. Using config.bat environment variables.
+2025-09-08 10:59:40,716 - root - INFO - ✅ Configuration loaded from environment for tool: unknown_tool
+2025-09-08 10:59:40,716 - root - INFO - 📝 📋 Configuration loaded from: config.yaml
+2025-09-08 10:59:40,717 - root - WARNING - ⚠️ Config file not found: config.yaml
+2025-09-08 10:59:40,718 - root - INFO - 📝 📦 No config.yaml found. Using config.bat environment variables.
+2025-09-08 10:59:40,719 - root - INFO - ✅ Configuration loaded from environment for tool: unknown_tool
+2025-09-08 10:59:40,719 - root - INFO - 📝 📋 Configuration loaded from: config.yaml
+2025-09-08 10:59:40,728 - root - WARNING - ⚠️ Config file not found: config.yaml
+2025-09-08 10:59:40,730 - root - INFO - 📝 📦 No config.yaml found. Using config.bat environment variables.
+2025-09-08 10:59:40,732 - root - INFO - ✅ Configuration loaded from environment for tool: unknown_tool
+2025-09-08 10:59:40,733 - root - INFO - 📝 📋 Configuration loaded from: config.yaml
+2025-09-08 10:59:40,734 - root - WARNING - ⚠️ Config file not found: config.yaml
+2025-09-08 10:59:40,735 - root - INFO - 📝 📦 No config.yaml found. Using config.bat environment variables.
+2025-09-08 10:59:40,736 - root - INFO - ✅ Configuration loaded from environment for tool: unknown_tool
+2025-09-08 10:59:40,737 - root - INFO - 📝 📋 Configuration loaded from: config.yaml
+2025-09-08 10:59:40,739 - root - WARNING - ⚠️ Config file not found: config.yaml
+2025-09-08 10:59:40,740 - root - INFO - 📝 📦 No config.yaml found. Using config.bat environment variables.
+2025-09-08 10:59:40,741 - root - INFO - ✅ Configuration loaded from environment for tool: unknown_tool
+2025-09-08 10:59:40,741 - root - INFO - 📝 📋 Configuration loaded from: config.yaml
+2025-09-08 10:59:40,742 - root - INFO - 🚀 Running tool: rhq_form_autofiller
+2025-09-08 10:59:40,742 - root - INFO - 🚀 Starting RHQ Form Autofiller...
+2025-09-08 10:59:40,746 - root - ERROR - ❌ Error: No Excel files found in input directory
+2025-09-08 10:59:40,746 - root - ERROR - ❌ Error running tool 'rhq_form_autofiller': No Excel files found in input directory

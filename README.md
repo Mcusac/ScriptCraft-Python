@@ -7,6 +7,8 @@ A comprehensive Python package for data processing and quality control tools des
 - **Data Processing Tools**: Automated data cleaning, validation, and transformation
 - **Quality Control**: Comprehensive validation frameworks with plugin support
 - **Research Workflows**: Specialized tools for clinical and biomarker data
+- **Release Management**: Automated PyPI and Git release workflows
+- **Pipeline Orchestration**: Multi-step workflow automation
 - **Extensible Architecture**: Plugin-based system for custom validations
 - **Cross-Platform**: Works on Windows, macOS, and Linux
 
@@ -32,42 +34,77 @@ cu.log_and_print("✅ Data loaded successfully")
 ### Using Tools
 
 ```python
-from scriptcraft.tools import AutomatedLabeler, DataContentComparer
+# Import tools directly
+from scriptcraft.tools.automated_labeler import AutomatedLabeler
+from scriptcraft.tools.data_content_comparer import DataContentComparer
 
 # Create and use tools
 labeler = AutomatedLabeler()
 comparer = DataContentComparer()
 
-# Process your data
-results = labeler.process(data)
+# Run tools with arguments
+labeler.run(
+    input_paths=["data.csv"],
+    output_dir="output",
+    mode="labeling"
+)
 ```
 
 ### CLI Usage
 
 ```bash
-# List available tools
-scriptcraft
+# List available tools and pipelines
+scriptcraft list
 
 # Run specific tools
-scriptcraft run automated-labeler
-scriptcraft run data-comparer
+scriptcraft rhq_form_autofiller
+scriptcraft data_content_comparer
+
+# Run pipelines
+scriptcraft data_quality
+scriptcraft dictionary_pipeline
+
+# Use release management CLI
+scriptcraft-release pypi-test
+scriptcraft-release git-sync
+scriptcraft-release full-release
+
+# Run specific tools via console scripts
+rhq-autofiller --help
+data-comparer --help
+auto-labeler --help
+function-auditor --help
+
+# Or run tools directly
+python -m scriptcraft.tools.rhq_form_autofiller --help
+python -m scriptcraft.tools.data_content_comparer --help
 ```
 
 ## 🧰 Available Tools
 
+### Data Processing
 - **AutomatedLabeler**: Automated data labeling and classification
 - **DataContentComparer**: Compare datasets for consistency
-- **DictionaryDrivenChecker**: Validation using predefined dictionaries
-- **ReleaseConsistencyChecker**: Ensure data release consistency
 - **SchemaDetector**: Automatic schema detection and validation
-- **RHQFormAutofiller**: Automated form filling for research questionnaires
 - **DateFormatStandardizer**: Standardize date formats across datasets
 - **DictionaryCleaner**: Clean and validate dictionary files
+
+### Quality Control
+- **DictionaryDrivenChecker**: Validation using predefined dictionaries
 - **DictionaryValidator**: Validate dictionary structures
-- **FeatureChangeChecker**: Detect changes in data features
 - **MedVisitIntegrityValidator**: Validate medical visit data integrity
 - **ScoreTotalsChecker**: Validate score calculations
+- **FeatureChangeChecker**: Detect changes in data features
+
+### Automation
+- **RHQFormAutofiller**: Automated form filling for research questionnaires
 - **DictionaryWorkflow**: Complete dictionary processing workflows
+
+### Release Management
+- **PyPIReleaseTool**: Automated PyPI package testing and release
+- **GitWorkspaceTool**: Git repository management and operations
+- **GitSubmoduleTool**: Git submodule synchronization and management
+- **GenericReleaseTool**: Flexible release workflow orchestration
 
 ## 🔧 Development
 

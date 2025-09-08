@@ -204,10 +204,23 @@ def run_mode(input_paths: List[Path], output_dir: Path, domain: Optional[str] = 
     # Store original directory for later restoration
     import os
     original_cwd = os.getcwd()
-    submodule_dir = Path("implementations/python-package")
     
-    cu.log_and_print(f"📁 Working in submodule directory: {submodule_dir}")
-    os.chdir(submodule_dir)
+    # Determine the correct submodule directory
+    # If we're already in the python-package directory, use current directory
+    if os.path.basename(original_cwd) == "python-package":
+        submodule_dir = original_cwd
+        cu.log_and_print(f"📁 Already in python-package directory: {submodule_dir}")
+    else:
+        # Otherwise, try to find the submodule directory
+        submodule_dir = Path("implementations/python-package")
+        if not submodule_dir.exists():
+            # Try relative to current directory
+            submodule_dir = Path(original_cwd) / "implementations/python-package"
+            if not submodule_dir.exists():
+                cu.log_and_print(f"❌ Cannot find python-package directory", level="error")
+                return
+        cu.log_and_print(f"📁 Working in submodule directory: {submodule_dir}")
+        os.chdir(submodule_dir)
     
     # Get current version (now that we're in the submodule directory)
     current_version = get_current_version()

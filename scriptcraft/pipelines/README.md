@@ -15,16 +15,23 @@ For reproducibility and support, always refer to this date when sharing logs or 
 
 ```
 pipelines/
-├── __init__.py         # Package interface and version info
-├── base_pipeline.py    # Core pipeline implementation
-├── pipeline_utils.py   # Helper functions and utilities
-├── pipeline_steps.py   # Step definitions and factories
-├── tests/             # Test suite
+├── __init__.py           # Package interface and consolidated imports
+├── release_pipelines.py  # Release and deployment pipelines
+├── git_pipelines.py      # Git operation pipelines
+├── tests/               # Test suite
 │   ├── __init__.py
 │   ├── test_integration.py
 │   └── test_pipeline.py
-└── README.md         # This documentation
+└── README.md           # This documentation
 ```
+
+**Note**: This package uses the consolidated pipeline system from `scriptcraft.common.pipeline` for all core functionality, ensuring DRY compliance and consistency across ScriptCraft.
+
+### 🎯 **DRY Architecture**
+- **Single Source of Truth**: All pipeline functionality in `scriptcraft.common.pipeline`
+- **No Duplication**: Removed duplicate `base_pipeline.py`, `pipeline_utils.py`, `pipeline_steps.py`
+- **Consistent Patterns**: All pipelines use the same base system
+- **Easy Maintenance**: Changes made in one place affect all pipelines
 
 ---
 
@@ -32,8 +39,7 @@ pipelines/
 
 ### Basic Pipeline Creation
 ```python
-from scripts.pipelines.base_pipeline import BasePipeline
-from scripts.pipelines.pipeline_utils import make_step
+from scriptcraft.common.pipeline import BasePipeline, make_step
 
 # Create a pipeline
 pipeline = BasePipeline(
@@ -52,6 +58,20 @@ pipeline.add_step(make_step(
 
 # Run pipeline
 pipeline.run()
+```
+
+### Using Pre-built Pipelines
+```python
+from scriptcraft.pipelines.git_pipelines import create_pypi_test_pipeline
+from scriptcraft.pipelines.release_pipelines import create_python_package_pipeline
+
+# Create and run PyPI test pipeline
+pipeline = create_pypi_test_pipeline()
+pipeline.run()
+
+# Create and run Python package release pipeline
+release_pipeline = create_python_package_pipeline()
+release_pipeline.run()
 ```
 
 ### Pipeline with Multiple Domains
