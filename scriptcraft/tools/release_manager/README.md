@@ -33,11 +33,18 @@ release_manager/
 
 | What you want to do | Command |
 |---------------------|---------|
+| **Git sync (most common)** | `scriptcraft-release git-sync` |
+| **Test PyPI upload** | `scriptcraft-release pypi-test` |
+| **Release to PyPI** | `scriptcraft-release pypi-release` |
+| **Full release workflow** | `scriptcraft-release full-release` |
+| **Check git status** | `scriptcraft-release git-status` |
+
+### Legacy Commands (Still Supported)
+| What you want to do | Command |
+|---------------------|---------|
 | **Re-upload existing version** | `python -m scriptcraft.tools.release_manager.main pypi` |
 | **Create new version + upload + push** | `python -m scriptcraft.tools.release_manager.main python_package --version-type patch --auto-push` |
 | **Git-only release (no PyPI)** | `python -m scriptcraft.tools.release_manager.main python_package --version-type minor --skip-pypi --auto-push` |
-| **Sync workspace after release** | `python -m scriptcraft.tools.release_manager.main workspace_sync sync` |
-| **Full release workflow** | `python_package --auto-push` → `workspace_sync` |
 
 > **⚠️ Important**: Always use `--auto-push` to automatically push commits and tags to the remote repository. Without this flag, changes will only be committed locally.
 

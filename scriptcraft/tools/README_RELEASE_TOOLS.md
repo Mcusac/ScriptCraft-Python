@@ -100,25 +100,25 @@ pipeline = create_pypi_test_pipeline()
 pipeline.run()
 ```
 
-## 📋 CLI Commands
+## 📋 CLI Commands (INDUSTRY STANDARD)
 
 ### scriptcraft-release
-Simple command-line interface for release operations.
+**Primary interface for all release operations. Use these commands in any project.**
 
 ```bash
+# Git operations (MOST COMMON)
+scriptcraft-release git-status             # Check Git status
+scriptcraft-release git-sync               # Fully automated git sync
+
 # PyPI operations
 scriptcraft-release pypi-test              # Test PyPI upload
 scriptcraft-release pypi-release           # Release to PyPI
 
-# Git operations
-scriptcraft-release git-sync               # Sync Git repository
-scriptcraft-release git-status             # Check Git status
-
 # Full workflow
 scriptcraft-release full-release           # Complete release workflow
 
-# Use pipelines instead of individual tools
-scriptcraft-release pypi-test --pipeline   # Use pipeline
+# Advanced options
+scriptcraft-release pypi-test --pipeline   # Use pipeline instead of tool
 ```
 
 ### Available Commands
@@ -133,33 +133,39 @@ scriptcraft-release git-sync --help
 
 ## 🎯 Workflow Examples
 
-### Simple PyPI Release
+### Simple Git Sync (MOST COMMON)
+```bash
+# Works in any git repository
+scriptcraft-release git-sync
+```
+
+### PyPI Release Workflow
+```bash
+# Test first (recommended)
+scriptcraft-release pypi-test
+
+# Then release
+scriptcraft-release pypi-release
+```
+
+### Full Release Workflow
+```bash
+# Complete automated release
+scriptcraft-release full-release
+```
+
+### Python API (For Custom Scripts)
 ```python
+from scriptcraft.tools.git_workspace_tool import GitWorkspaceTool
 from scriptcraft.tools.pypi_release_tool import PyPIReleaseTool
 
-tool = PyPIReleaseTool()
-success = tool.run(operation="release")
-```
+# Git operations
+git_tool = GitWorkspaceTool()
+git_tool.run(operation="sync")
 
-### Git Sync Workflow
-```python
-from scriptcraft.tools.git_submodule_tool import GitSubmoduleTool
-from scriptcraft.tools.git_workspace_tool import GitWorkspaceTool
-
-# Sync submodules first
-submodule_tool = GitSubmoduleTool()
-if submodule_tool.run(operation="sync"):
-    # Then push workspace
-    workspace_tool = GitWorkspaceTool()
-    workspace_tool.run(operation="push")
-```
-
-### Pipeline Workflow
-```python
-from scriptcraft.pipelines.git_pipelines import create_full_git_sync_pipeline
-
-pipeline = create_full_git_sync_pipeline()
-pipeline.run()
+# PyPI operations
+pypi_tool = PyPIReleaseTool()
+pypi_tool.run(operation="test")
 ```
 
 ### Custom Workflow
@@ -237,19 +243,18 @@ These tools integrate seamlessly with:
 
 ## 📚 Usage Examples
 
-### Simple CLI Usage
+### Simple CLI Usage (INDUSTRY STANDARD)
 ```bash
-# Test PyPI upload
-scriptcraft-release pypi-test
+# Git operations (most common)
+scriptcraft-release git-status             # Check status
+scriptcraft-release git-sync               # Automated sync
 
-# Release to PyPI  
-scriptcraft-release pypi-release
+# PyPI operations
+scriptcraft-release pypi-test              # Test upload
+scriptcraft-release pypi-release           # Release to PyPI
 
-# Sync Git repository
-scriptcraft-release git-sync
-
-# Full release workflow
-scriptcraft-release full-release
+# Full workflow
+scriptcraft-release full-release           # Complete release
 ```
 
 ### Python API Usage
