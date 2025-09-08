@@ -69,6 +69,9 @@ scriptcraft-release pypi-test
 scriptcraft-release git-sync
 scriptcraft-release full-release
 
+# Use release manager directly (RECOMMENDED for version bumps)
+python -c "from scriptcraft.tools.release_manager import ReleaseManager; ReleaseManager().run(mode='python_package', version_type='patch', auto_push=True)"
+
 # Run specific tools via console scripts
 rhq-autofiller --help
 data-comparer --help

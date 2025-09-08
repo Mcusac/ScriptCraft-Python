@@ -34,9 +34,12 @@ release_manager/
 | What you want to do | Command |
 |---------------------|---------|
 | **Re-upload existing version** | `python -m scriptcraft.tools.release_manager.main pypi` |
-| **Create new version + upload** | `python -m scriptcraft.tools.release_manager.main python_package --version-type minor` |
+| **Create new version + upload + push** | `python -m scriptcraft.tools.release_manager.main python_package --version-type patch --auto-push` |
+| **Git-only release (no PyPI)** | `python -m scriptcraft.tools.release_manager.main python_package --version-type minor --skip-pypi --auto-push` |
 | **Sync workspace after release** | `python -m scriptcraft.tools.release_manager.main workspace_sync sync` |
-| **Full release workflow** | `python_package` → `workspace_sync` |
+| **Full release workflow** | `python_package --auto-push` → `workspace_sync` |
+
+> **⚠️ Important**: Always use `--auto-push` to automatically push commits and tags to the remote repository. Without this flag, changes will only be committed locally.
 
 ---
 
@@ -51,14 +54,14 @@ python -m scriptcraft.tools.release_manager.main
 
 #### Python Package Release
 ```bash
-# Release with version bump and PyPI upload
-python -m scriptcraft.tools.release_manager.main python_package --version-type minor
+# Release with version bump and PyPI upload (RECOMMENDED)
+python -m scriptcraft.tools.release_manager.main python_package --version-type patch --auto-push
 
-# Release without PyPI upload
-python -m scriptcraft.tools.release_manager.main python_package --version-type patch --skip-pypi
+# Release without PyPI upload (git-only)
+python -m scriptcraft.tools.release_manager.main python_package --version-type minor --skip-pypi --auto-push
 
-# Release with auto-push
-python -m scriptcraft.tools.release_manager.main python_package --version-type major --auto-push
+# Release with custom commit message
+python -m scriptcraft.tools.release_manager.main python_package --version-type major --auto-push --custom-message "🚀 Major Release: New features and improvements"
 ```
 
 #### PyPI Upload Only (Re-upload existing version)
@@ -94,11 +97,27 @@ tool = ReleaseManager()
 modes = tool.list_available_modes()
 print(f"Available modes: {modes}")
 
-# Run Python package release
+# Run Python package release (RECOMMENDED - includes auto-push)
+tool.run(
+    mode="python_package",
+    version_type="patch",
+    auto_push=True
+)
+
+# Run with custom commit message
 tool.run(
     mode="python_package",
     version_type="minor",
-    auto_push=True
+    auto_push=True,
+    custom_message="🔧 Minor Release: Bug fixes and improvements"
+)
+
+# Git-only release (skip PyPI)
+tool.run(
+    mode="python_package",
+    version_type="patch",
+    auto_push=True,
+    skip_pypi=True
 )
 ```
 

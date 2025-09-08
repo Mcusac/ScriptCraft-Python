@@ -303,6 +303,15 @@ def run_mode(input_paths: List[Path], output_dir: Path, domain: Optional[str] = 
     
     # Update the submodule reference in the main workspace
     cu.log_and_print("🔄 Updating submodule reference in main workspace...")
+    
+    # Check if we're in a submodule (python-package directory)
+    if os.path.basename(original_cwd) == "python-package":
+        # We're in the submodule, need to go to workspace root
+        workspace_root = Path(original_cwd).parent.parent
+        cu.log_and_print(f"📁 Switching to workspace root: {workspace_root}")
+        os.chdir(workspace_root)
+    
+    # Now update the submodule reference
     submodule_update = run_command("git submodule update --remote implementations/python-package", "Updating submodule reference")
     if submodule_update is None:
         cu.log_and_print("⚠️ Failed to update submodule reference", level="warning")
