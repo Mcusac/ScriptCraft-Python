@@ -69,16 +69,23 @@ def git_sync(args):
         pipeline = create_full_git_sync_pipeline()
         success = pipeline.run()
     else:
-        # Use individual tools
+        # Use individual tools with full automation
         submodule_tool = GitSubmoduleTool()
         workspace_tool = GitWorkspaceTool()
         
-        # Sync submodules first
-        if submodule_tool.run(operation="sync"):
-            # Then push workspace
-            success = workspace_tool.run(operation="push")
-        else:
-            success = False
+        # Step 1: Sync submodules
+        cu.log_and_print("📦 Syncing submodules...")
+        submodule_success = submodule_tool.run(operation="sync")
+        
+        # Step 2: Commit any uncommitted changes
+        cu.log_and_print("💾 Committing any uncommitted changes...")
+        commit_success = workspace_tool.run(operation="commit", message="🤖 Auto-commit: Automated sync")
+        
+        # Step 3: Push workspace
+        cu.log_and_print("📤 Pushing workspace...")
+        push_success = workspace_tool.run(operation="push")
+        
+        success = submodule_success and commit_success and push_success
     
     if success:
         cu.log_and_print("✅ Git sync completed successfully")
