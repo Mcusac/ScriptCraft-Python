@@ -35,3 +35,5 @@ venv/
 
 # Cursor (repo-local)
 # Keep `.cursor/` tracked for repo-specific rules/commands/agents.
+.cursor/audit-results/
+.cursor/audit-results/**
