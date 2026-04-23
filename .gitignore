@@ -8,6 +8,14 @@ build/
 dist/
 *.egg-info/
 
+# Local configuration (may contain secrets / machine-specific settings)
+config.yaml
+
+# Embedded Python / distributable build artifacts (generated)
+py_embed_setup/embed_py311/
+py_embed_setup/embed_py311.zip
+templates/**/embed_py311/
+
 # Unit test / coverage reports
 htmlcov/
 .tox/
@@ -24,3 +32,6 @@ pip-delete-this-directory.txt
 .venv
 env/
 venv/
+
+# Cursor (repo-local)
+# Keep `.cursor/` tracked for repo-specific rules/commands/agents.
