@@ -1,0 +1,69 @@
+name: Code Health Check
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  schedule:
+    - cron: '0 0 * * 1'
+
+concurrency:
+  group: health-check-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  # Same value local devs should pass to --run-id for one-off parity checks, or use a new id per run.
+  PIPELINE_RUN_ID: ci-${{ github.run_id }}-${{ github.run_attempt }}
+
+jobs:
+  health-check:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+        cache: 'pip'
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+
+    - name: CI runner (pipeline + scans + health + thresholds)
+      working-directory: scripts
+      run: |
+        python -m layers.layer_2_devtools.level_1_impl.level_2.ci_runner \
+          --workspace-root ".." \
+          --run-id "${{ env.PIPELINE_RUN_ID }}" \
+          --strict \
+          --fail-on-skipped \
+          --github-summary
+
+    - name: Upload health report artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: health-report
+        path: |
+          health_report.json
+          health_report_pretty.json
+        if-no-files-found: error
+        compression-level: 6
+
+    - name: Upload code audit manifest
+      if: success() || failure()
+      uses: actions/upload-artifact@v4
+      with:
+        name: code-audit-manifest
+        path: .cursor/audit-results/general/summaries/machine_runs/${{ env.PIPELINE_RUN_ID }}/
+        if-no-files-found: warn
+        compression-level: 6
+
+    - name: Publish summary
+      if: always()
+      run: |
+        echo "CI runner writes job summary via --github-summary." >> $GITHUB_STEP_SUMMARY

@@ -8,6 +8,19 @@ build/
 dist/
 *.egg-info/
 
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.pytest_cache/
+.mypy_cache/
+
+# Environments
+.env
+.venv
+env/
+venv/
+
 # Local configuration (may contain secrets / machine-specific settings)
 config.yaml
 
@@ -16,24 +29,33 @@ py_embed_setup/embed_py311/
 py_embed_setup/embed_py311.zip
 templates/**/embed_py311/
 
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.coverage
-.pytest_cache/
-.mypy_cache/
-
 # Installer logs
 pip-log.txt
 pip-delete-this-directory.txt
 
-# Environments
-.env
-.venv
-env/
-venv/
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
 
 # Cursor (repo-local)
 # Keep `.cursor/` tracked for repo-specific rules/commands/agents.
 .cursor/audit-results/
 .cursor/audit-results/**
+
+# Kaggle/ML workflow outputs (directories only; avoid blanket file-type ignores)
+data/
+output/
+outputs/
+logs/
+cache/
+submissions/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Legacy: path_bootstrap no longer creates scripts/level_C/ junctions. Remove any
+# leftover directory manually if it still exists from an older checkout.
