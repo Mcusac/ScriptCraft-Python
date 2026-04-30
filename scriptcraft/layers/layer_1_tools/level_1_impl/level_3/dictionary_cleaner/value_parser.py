@@ -4,17 +4,17 @@ from typing import Union
 
 import pandas as pd
 
-from layers.layer_1_pypi.level_0_infra.level_0.logging_core import log_and_print
-from layers.layer_1_pypi.level_0_infra.level_1.cleaning import (
+from layers.layer_1_tools.level_0_infra.level_0.logging_core import log_and_print
+from layers.layer_1_tools.level_0_infra.level_1.cleaning import (
     fix_numeric_dash_inside_braces,
     fix_word_number_dash_inside_braces,
     parse_missing_unit,
     prevent_pipe_inside_braces,
 )
 
-from layers.layer_1_pypi.level_1_impl.level_0.dictionary_cleaner.fix_counts import FixCounter
-from layers.layer_1_pypi.level_1_impl.level_1.dictionary_cleaner.numeric_keys import convert_numeric_keys_to_ints
-from layers.layer_1_pypi.level_1_impl.level_2.dictionary_cleaner.language_blocks import fix_language_blocks
+from layers.layer_1_tools.level_1_impl.level_0.dictionary_cleaner.fix_counts import FixCounter
+from layers.layer_1_tools.level_1_impl.level_1.dictionary_cleaner.numeric_keys import convert_numeric_keys_to_ints
+from layers.layer_1_tools.level_1_impl.level_2.dictionary_cleaner.language_blocks import fix_language_blocks
 
 
 def parse_values(value: Union[str, float, None], *, filename: str, counter: FixCounter) -> Union[str, float, None]:

@@ -7,16 +7,16 @@ from datetime import datetime
 from pathlib import Path
 from typing import Callable, Dict, Optional
 
-from layers.layer_1_pypi.level_0_infra.level_0.logging_core import log_and_print
-from layers.layer_1_pypi.level_0_infra.level_6.base_tool import BaseTool
+from layers.layer_1_tools.level_0_infra.level_0.logging_core import log_and_print
+from layers.layer_1_tools.level_0_infra.level_6.base_tool import BaseTool
 
-from layers.layer_1_pypi.level_1_impl.level_1.generic_release_tool.pipelines import (
+from layers.layer_1_tools.level_1_impl.level_1.generic_release_tool.pipelines import (
     create_docs_pipeline,
     create_full_pipeline,
     create_git_repo_pipeline,
     create_python_package_pipeline,
 )
-from layers.layer_1_pypi.level_1_impl.level_1.generic_release_tool.version_resolver import detect_repo_root, resolve_version
+from layers.layer_1_tools.level_1_impl.level_1.generic_release_tool.version_resolver import detect_repo_root, resolve_version
 
 
 @dataclass(frozen=True)

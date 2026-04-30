@@ -2,7 +2,7 @@
 from pathlib import Path
 from typing import Any
 
-from layers.layer_1_pypi.level_0_infra.level_0.logging_core import log_and_print
+from layers.layer_1_tools.level_0_infra.level_0.logging_core import log_and_print
 
 
 def log_workflow_summary(results: dict[str, Any], output_path: Path) -> None:

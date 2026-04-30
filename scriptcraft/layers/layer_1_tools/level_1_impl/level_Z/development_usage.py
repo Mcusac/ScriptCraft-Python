@@ -13,13 +13,13 @@ from pathlib import Path
 # Add the package to path (only needed for development)
 sys.path.insert(0, str(Path(__file__).parent.parent / "implementations" / "python-package"))
 
-from layers.layer_1_pypi.level_0_infra.level_0.logging_core import log_and_print
+from layers.layer_1_tools.level_0_infra.level_0.logging_core import log_and_print
 
-from layers.layer_1_pypi.level_0_infra.level_Z.git_pipelines import (
+from layers.layer_1_tools.level_0_infra.level_Z.git_pipelines import (
     create_pypi_test_pipeline,
 )
 
-from layers.layer_1_pypi.tools.pypi_release_tool.main import PyPIReleaseTool
+from layers.layer_1_tools.tools.pypi_release_tool.main import PyPIReleaseTool
 
 def example_1_cli_approach():
     """

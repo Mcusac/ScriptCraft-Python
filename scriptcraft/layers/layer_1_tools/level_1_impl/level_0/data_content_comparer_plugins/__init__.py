@@ -10,7 +10,7 @@ import importlib
 from collections.abc import Callable
 from typing import Optional
 
-from layers.layer_1_pypi.level_0_infra.level_7.registry import unified_registry
+from layers.layer_1_tools.level_0_infra.level_7.registry import unified_registry
 
 _PLUGIN_TYPE = "data_content_comparer_mode"
 

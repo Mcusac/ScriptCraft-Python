@@ -34,8 +34,14 @@ class PathResolver(ABC):
     def get_domain_paths(self, domain: str) -> Dict[str, Path]: ...
 
 
-def _build_domain_paths(domain_base: Path) -> Dict[str, Path]:
-    """Return the standard subdirectory layout for a single domain."""
+def build_domain_paths(domain_base: Path) -> Dict[str, Path]:
+    """
+    Return the standard subdirectory layout for a single domain.
+
+    This is the single source of truth for domain directory keys across
+    the entire project. Any code that constructs domain path dicts should
+    call this function rather than building the dict inline.
+    """
     return {
         "root":           domain_base,
         "raw_data":       domain_base / "raw_data",
@@ -52,21 +58,17 @@ class WorkspacePathResolver(PathResolver):
     """
     Path resolver for the multi-workspace project layout.
 
-    Does NOT create directories on construction.  Call
+    Does NOT create directories on construction. Call
     ``ensure_workspace_dirs()`` explicitly when directory creation is needed.
     """
 
     def __init__(self, workspace_root: Path) -> None:
         self.workspace_root = Path(workspace_root).resolve()
 
-    # ── Optional setup ──────────────────────────────────────────────────────
-
     def ensure_workspace_dirs(self) -> None:
         """Create the standard top-level workspace directories if absent."""
         for name in ("input", "output", "logs"):
             (self.workspace_root / name).mkdir(parents=True, exist_ok=True)
-
-    # ── PathResolver interface ───────────────────────────────────────────────
 
     def get_workspace_root(self) -> Path:
         return self.workspace_root
@@ -87,9 +89,7 @@ class WorkspacePathResolver(PathResolver):
         return self.workspace_root / "qc_output"
 
     def get_domain_paths(self, domain: str) -> Dict[str, Path]:
-        return _build_domain_paths(self.get_domains_dir() / domain)
-
-    # ── Convenience ─────────────────────────────────────────────────────────
+        return build_domain_paths(self.get_domains_dir() / domain)
 
     def get_all_domain_paths(self) -> Dict[str, Dict[str, Path]]:
         """Return path dicts for every domain directory that exists."""
@@ -155,7 +155,7 @@ class LegacyPathResolver(PathResolver):
         return self.project_root / "qc_output"
 
     def get_domain_paths(self, domain: str) -> Dict[str, Path]:
-        return _build_domain_paths(self.get_domains_dir() / domain)
+        return build_domain_paths(self.get_domains_dir() / domain)
 
 
 def create_path_resolver(
@@ -167,10 +167,8 @@ def create_path_resolver(
     Factory: return a resolver for the given root.
 
     Args:
-        workspace_root: Explicit root directory; caller is responsible for
-                        determining the correct path.
-        legacy:         If True, return a ``LegacyPathResolver``; otherwise
-                        return a ``WorkspacePathResolver``.
+        workspace_root: Explicit root directory.
+        legacy:         If True, return a ``LegacyPathResolver``.
     """
     if legacy:
         return LegacyPathResolver(workspace_root)

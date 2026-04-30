@@ -3,15 +3,15 @@
 from pathlib import Path
 from typing import Any, Optional, Union
 
-from layers.layer_1_pypi.level_0_infra.level_0.logging_core import log_and_print
-from layers.layer_1_pypi.level_0_infra.level_0.paths import OutlierMethod
-from layers.layer_1_pypi.level_0_infra.level_6.base_tool import BaseTool
+from layers.layer_1_tools.level_0_infra.level_0.logging_core import log_and_print
+from layers.layer_1_tools.level_0_infra.level_0.paths import OutlierMethod
+from layers.layer_1_tools.level_0_infra.level_6.base_tool import BaseTool
 
-from layers.layer_1_pypi.level_1_impl.level_0.plugins import initialize_plugins
-from layers.layer_1_pypi.level_1_impl.level_0.dictionary_driven_checker import run_dictionary_checker
+from layers.layer_1_tools.level_1_impl.level_0.plugins import initialize_plugins
+from layers.layer_1_tools.level_1_impl.level_0.dictionary_driven_checker import run_dictionary_checker
 
-from layers.layer_1_pypi.level_1_impl.level_0.dictionary_driven_checker import find_dictionary_file, InputPaths
-from layers.layer_1_pypi.level_1_impl.level_6.dictionary_driven_checker.normalization import ensure_dataframe, normalize_dataset_columns, normalize_dictionary_df
+from layers.layer_1_tools.level_1_impl.level_0.dictionary_driven_checker import find_dictionary_file, InputPaths
+from layers.layer_1_tools.level_1_impl.level_6.dictionary_driven_checker.normalization import ensure_dataframe, normalize_dataset_columns, normalize_dictionary_df
 
 
 class DictionaryDrivenChecker(BaseTool):

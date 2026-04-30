@@ -1,8 +1,8 @@
 """CLI/pipeline entrypoint for the date format standardizer tool."""
 
-from layers.layer_1_pypi.level_1_impl.level_0.main_common import create_entrypoint_main
+from layers.layer_1_tools.level_1_impl.level_0.main_common import create_entrypoint_main
 
-from layers.layer_1_pypi.level_1_impl.level_0.date_format_standardizer.tool import DateFormatStandardizer
+from layers.layer_1_tools.level_1_impl.level_0.date_format_standardizer.tool import DateFormatStandardizer
 
 main = create_entrypoint_main(
     DateFormatStandardizer,

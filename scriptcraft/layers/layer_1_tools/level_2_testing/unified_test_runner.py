@@ -116,7 +116,7 @@ class UnifiedTestRunner:
         
         # Test tool discovery
         try:
-            from layers.layer_1_pypi.level_1_impl import get_available_tools
+            from layers.layer_1_tools.level_1_impl import get_available_tools
             tools = get_available_tools()
             tool_count = len(tools)
             self.log(f"✅ Discovered {tool_count} tools")

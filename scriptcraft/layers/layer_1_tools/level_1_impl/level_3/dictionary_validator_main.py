@@ -6,13 +6,13 @@ Validates consistency between dataset columns and dictionary columns.
 
 from pathlib import Path
 
-from layers.layer_1_pypi.level_0_infra.level_0.logging_core import log_and_print
-from layers.layer_1_pypi.level_0_infra.level_1.data_loading import load_dataset_columns, load_dictionary_columns
-from layers.layer_1_pypi.level_0_infra.level_6.base_tool import BaseTool
+from layers.layer_1_tools.level_0_infra.level_0.logging_core import log_and_print
+from layers.layer_1_tools.level_0_infra.level_1.data_loading import load_dataset_columns, load_dictionary_columns
+from layers.layer_1_tools.level_0_infra.level_6.base_tool import BaseTool
 
-from layers.layer_1_pypi.level_1_impl.level_0.compare_columns import compare_columns
-from layers.layer_1_pypi.level_1_impl.level_0.main_common import create_entrypoint_main
-from layers.layer_1_pypi.level_1_impl.level_2.runtime_loops import run_process_domain_for_single_pair
+from layers.layer_1_tools.level_1_impl.level_0.compare_columns import compare_columns
+from layers.layer_1_tools.level_1_impl.level_0.main_common import create_entrypoint_main
+from layers.layer_1_tools.level_1_impl.level_2.runtime_loops import run_process_domain_for_single_pair
 
 
 class DictionaryValidator(BaseTool):

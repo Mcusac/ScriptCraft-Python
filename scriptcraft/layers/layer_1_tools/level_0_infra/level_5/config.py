@@ -10,10 +10,10 @@ Focused responsibilities:
 from pathlib import Path
 from typing import Union
 
-from layers.layer_1_pypi.level_0_infra.level_0.path_resolver import WorkspacePathResolver
-from layers.layer_1_pypi.level_0_infra.level_1.tool_discovery import discover_and_merge_tools
-from layers.layer_1_pypi.level_0_infra.level_2.root_schema import Config
-from layers.layer_1_pypi.level_0_infra.level_4.yaml_loader import load_config_from_yaml
+from layers.layer_1_tools.level_0_infra.level_0.path_resolver import WorkspacePathResolver
+from layers.layer_1_tools.level_0_infra.level_1.tool_discovery import discover_and_merge_tools
+from layers.layer_1_tools.level_0_infra.level_2.root_schema import Config
+from layers.layer_1_tools.level_0_infra.level_4.yaml_loader import load_config_from_yaml
 
 # ===== CONVENIENCE FUNCTIONS =====
 

@@ -2,7 +2,7 @@
 import argparse
 from typing import Sequence
 
-from layers.layer_1_pypi.level_1_impl.level_3.git_submodule_tool.tool import GitSubmoduleTool
+from layers.layer_1_tools.level_1_impl.level_3.git_submodule_tool.tool import GitSubmoduleTool
 
 
 def build_parser() -> argparse.ArgumentParser:

@@ -11,10 +11,10 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-from layers.layer_1_pypi.level_0_infra.level_0.logging_core import log_and_print
+from layers.layer_1_tools.level_0_infra.level_0.logging_core import log_and_print
 
-from layers.layer_1_pypi.level_1_impl.level_0.rhq.waits import wait_until_not_on_login
-from layers.layer_1_pypi.level_1_impl.level_1.rhq_login_actions import try_click_initial_login_button
+from layers.layer_1_tools.level_1_impl.level_0.rhq.waits import wait_until_not_on_login
+from layers.layer_1_tools.level_1_impl.level_1.rhq_login_actions import try_click_initial_login_button
 
 def handle_login(
     driver: Any,

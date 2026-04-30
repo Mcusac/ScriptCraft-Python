@@ -1,6 +1,6 @@
 from typing import Dict, Any
 
-from layers.layer_1_pypi.level_0_infra.level_0.workspace_schema import WorkspaceConfig
+from layers.layer_1_tools.level_0_infra.level_0.workspace_schema import WorkspaceConfig
 
 
 def merge_workspace_config(

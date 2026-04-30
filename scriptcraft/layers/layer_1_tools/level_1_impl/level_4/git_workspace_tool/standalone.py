@@ -4,7 +4,7 @@ Standalone entrypoint for the Git Workspace Tool.
 
 Supports running from the repository without installing the package.
 """
-from layers.layer_1_pypi.level_1_impl.level_3.git_workspace_tool.cli import main as cli_main
+from layers.layer_1_tools.level_1_impl.level_3.git_workspace_tool.cli import main as cli_main
 
 
 def main() -> None:

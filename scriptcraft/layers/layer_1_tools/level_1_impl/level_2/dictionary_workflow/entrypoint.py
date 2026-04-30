@@ -2,8 +2,8 @@
 
 from typing import Any
 
-from layers.layer_1_pypi.level_1_impl.level_0.main_common import create_entrypoint_main
-from layers.layer_1_pypi.level_1_impl.level_1.dictionary_workflow.tool import DictionaryWorkflow
+from layers.layer_1_tools.level_1_impl.level_0.main_common import create_entrypoint_main
+from layers.layer_1_tools.level_1_impl.level_1.dictionary_workflow.tool import DictionaryWorkflow
 
 
 def _workflow_run_kwargs(args) -> dict[str, Any]:

@@ -2,9 +2,9 @@
 import re
 from typing import List
 
-from layers.layer_1_pypi.level_0_infra.level_0.logging_core import log_and_print
+from layers.layer_1_tools.level_0_infra.level_0.logging_core import log_and_print
 
-from layers.layer_1_pypi.level_1_impl.level_0.dictionary_cleaner.fix_counts import FixCounter
+from layers.layer_1_tools.level_1_impl.level_0.dictionary_cleaner.fix_counts import FixCounter
 
 
 def convert_numeric_keys_to_ints(text: str, *, counter: FixCounter) -> str:

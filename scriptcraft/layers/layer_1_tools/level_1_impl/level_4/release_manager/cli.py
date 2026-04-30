@@ -1,9 +1,9 @@
 
 from typing import Sequence
 
-from layers.layer_1_pypi.level_1_impl.level_0.release_manager.argv_compat import parse_release_manager_argv
-from layers.layer_1_pypi.level_1_impl.level_2.release_manager.tool import ReleaseManager
-from layers.layer_1_pypi.level_1_impl.level_3.release_manager.help_text import print_release_manager_help
+from layers.layer_1_tools.level_1_impl.level_0.release_manager.argv_compat import parse_release_manager_argv
+from layers.layer_1_tools.level_1_impl.level_2.release_manager.tool import ReleaseManager
+from layers.layer_1_tools.level_1_impl.level_3.release_manager.help_text import print_release_manager_help
 
 
 def main(argv: Sequence[str] | None = None) -> int:

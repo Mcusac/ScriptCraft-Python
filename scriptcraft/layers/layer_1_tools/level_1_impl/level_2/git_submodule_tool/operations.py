@@ -1,11 +1,11 @@
 from dataclasses import dataclass
 from typing import Callable, Optional
 
-from layers.layer_1_pypi.level_0_infra.level_0.logging_core import log_and_print
+from layers.layer_1_tools.level_0_infra.level_0.logging_core import log_and_print
 
-from layers.layer_1_pypi.level_1_impl.level_0.subprocess.runner import run_ok
-from layers.layer_1_pypi.level_1_impl.level_0.git_submodule_tool.submodules import list_submodules
-from layers.layer_1_pypi.level_1_impl.level_1.git.probes import (
+from layers.layer_1_tools.level_1_impl.level_0.subprocess.runner import run_ok
+from layers.layer_1_tools.level_1_impl.level_0.git_submodule_tool.submodules import list_submodules
+from layers.layer_1_tools.level_1_impl.level_1.git.probes import (
     has_submodules,
     is_git_repo,
 )

@@ -4,7 +4,7 @@ from pathlib import Path
 from typing import Union
 
 
-from layers.layer_1_pypi.level_0_infra.level_1.timepoint import (
+from layers.layer_1_tools.level_0_infra.level_1.timepoint import (
     clean_sequence_ids,
     compare_entity_changes_over_sequence,
 )

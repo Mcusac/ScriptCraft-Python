@@ -8,8 +8,6 @@ This module lives at `level_0` so higher infra levels can share the same
 lookup behavior without introducing cross-level import violations.
 """
 
-from __future__ import annotations
-
 from typing import Mapping, Optional, TypeVar
 
 _T = TypeVar("_T")

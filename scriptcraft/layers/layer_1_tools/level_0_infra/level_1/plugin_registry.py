@@ -8,8 +8,8 @@ It consolidates all plugin-related code from the old plugins system.
 from typing import Dict, List, Optional, Callable, Any, Type
 from abc import ABC, abstractmethod
 
-from layers.layer_1_pypi.level_0_infra.level_0.logging_core import log_and_print
-from layers.layer_1_pypi.level_0_infra.level_0.typed_plugin_store import get_typed_plugin
+from layers.layer_1_tools.level_0_infra.level_0.logging_core import log_and_print
+from layers.layer_1_tools.level_0_infra.level_0.typed_plugin_store import get_typed_plugin
 
 
 class PluginBase(ABC):

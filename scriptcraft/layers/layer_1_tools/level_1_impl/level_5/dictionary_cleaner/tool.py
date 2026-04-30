@@ -3,8 +3,8 @@
 from pathlib import Path
 from typing import Any, Optional, Union
 
-from layers.layer_1_pypi.level_0_infra.level_0.logging_core import log_and_print
-from layers.layer_1_pypi.level_0_infra.level_6.base_tool import BaseTool
+from layers.layer_1_tools.level_0_infra.level_0.logging_core import log_and_print
+from layers.layer_1_tools.level_0_infra.level_6.base_tool import BaseTool
 
 from .normalizer import clean_dictionary
 from .types import InputPaths

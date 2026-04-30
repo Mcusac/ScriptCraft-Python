@@ -2,7 +2,7 @@
 from pathlib import Path
 from typing import Any, Optional
 
-from layers.layer_1_pypi.level_1_impl.level_0.function_auditor.auditor import FunctionAuditor
+from layers.layer_1_tools.level_1_impl.level_0.function_auditor.auditor import FunctionAuditor
 
 
 class BatchFunctionAuditor:

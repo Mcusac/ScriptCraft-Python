@@ -2,10 +2,10 @@
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Union
 
-from layers.layer_1_pypi.level_0_infra.level_0.logging_core import log_and_print
+from layers.layer_1_tools.level_0_infra.level_0.logging_core import log_and_print
 
-from layers.layer_1_pypi.level_1_impl.level_0.dictionary_workflow.enhance import enhance_dictionaries
-from layers.layer_1_pypi.level_1_impl.level_0.dictionary_workflow.supplements import prepare_supplements, split_supplements_by_domain
+from layers.layer_1_tools.level_1_impl.level_0.dictionary_workflow.enhance import enhance_dictionaries
+from layers.layer_1_tools.level_1_impl.level_0.dictionary_workflow.supplements import prepare_supplements, split_supplements_by_domain
 
 
 def run_complete_workflow(

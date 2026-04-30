@@ -5,11 +5,11 @@ Pipeline factories for the Generic Release Tool.
 from pathlib import Path
 from typing import Callable
 
-from layers.layer_1_pypi.level_0_infra.level_2.pipeline_base import BasePipeline, PipelineStep
+from layers.layer_1_tools.level_0_infra.level_2.pipeline_base import BasePipeline, PipelineStep
 
-from layers.layer_1_pypi.level_1_impl.level_0.generic_release_tool.steps_docs import build_docs, deploy_docs
-from layers.layer_1_pypi.level_1_impl.level_0.generic_release_tool.steps_git import check_git_status, create_git_tag, push_to_remote
-from layers.layer_1_pypi.level_1_impl.level_0.generic_release_tool.steps_python_package import build_package, run_tests, upload_to_pypi, validate_package
+from layers.layer_1_tools.level_1_impl.level_0.generic_release_tool.steps_docs import build_docs, deploy_docs
+from layers.layer_1_tools.level_1_impl.level_0.generic_release_tool.steps_git import check_git_status, create_git_tag, push_to_remote
+from layers.layer_1_tools.level_1_impl.level_0.generic_release_tool.steps_python_package import build_package, run_tests, upload_to_pypi, validate_package
 
 
 StepCallable = Callable[..., None]

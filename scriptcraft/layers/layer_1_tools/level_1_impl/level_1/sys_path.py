@@ -7,7 +7,7 @@ import sys
 from pathlib import Path
 from typing import Optional
 
-from layers.layer_1_pypi.level_1_impl.level_0.env.layout import resolve_distributable_base_dir
+from layers.layer_1_tools.level_1_impl.level_0.env.layout import resolve_distributable_base_dir
 
 
 def ensure_sys_path(path: Path) -> None:

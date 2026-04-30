@@ -8,8 +8,8 @@ instantiation so we have a single, testable place where construction happens.
 from dataclasses import dataclass
 from typing import Dict, Optional, Protocol, Type
 
-from layers.layer_1_pypi.level_0_infra.level_6.base_tool import BaseTool
-from layers.layer_1_pypi.level_0_infra.level_7.registry import get_available_tools
+from layers.layer_1_tools.level_0_infra.level_6.base_tool import BaseTool
+from layers.layer_1_tools.level_0_infra.level_7.registry import get_available_tools
 
 
 class ToolLookup(Protocol):

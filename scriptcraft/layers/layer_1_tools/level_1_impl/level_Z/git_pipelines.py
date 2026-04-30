@@ -8,12 +8,12 @@ Follows DRY principles and integrates with existing infrastructure.
 
 from typing import Any
 
-from scriptcraft.layers.layer_1_pypi.level_2.pipeline_base import BasePipeline, PipelineStep
-from scriptcraft.layers.layer_1_pypi.level_2.root_schema import Config
+from layers.layer_1_tools.level_2.pipeline_base import BasePipeline, PipelineStep
+from layers.layer_1_tools.level_2.root_schema import Config
 
-from scriptcraft.layers.layer_1_pypi.tools.git_submodule_tool.main import GitSubmoduleTool
-from scriptcraft.layers.layer_1_pypi.tools.git_workspace_tool.main import GitWorkspaceTool
-from scriptcraft.layers.layer_1_pypi.tools.pypi_release_tool.main import PyPIReleaseTool
+from layers.layer_1_tools.tools.git_submodule_tool.main import GitSubmoduleTool
+from layers.layer_1_tools.tools.git_workspace_tool.main import GitWorkspaceTool
+from layers.layer_1_tools.tools.pypi_release_tool.main import PyPIReleaseTool
 
 
 class GitPipelineFactory:

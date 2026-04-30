@@ -24,7 +24,7 @@ Tool Discovery:
 """
 
 # Import the unified registry system from the infra layer.
-from layers.layer_1_pypi.level_0_infra.level_7.registry import (  # noqa: F401
+from layers.layer_1_tools.level_0_infra.level_7.registry import (  # noqa: F401
     discover_tool_metadata,
     get_available_tools,
     list_tools_by_category,

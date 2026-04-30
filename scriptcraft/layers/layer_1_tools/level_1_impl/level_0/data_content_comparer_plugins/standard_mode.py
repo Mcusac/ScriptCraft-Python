@@ -1,7 +1,7 @@
 
-from layers.layer_1_pypi.level_0_infra.level_0.logging_core import log_and_print
-from layers.layer_1_pypi.level_0_infra.level_1.data_loading import load_comparison_datasets
-from layers.layer_1_pypi.level_0_infra.level_1.comparison import compare_dataframes
+from layers.layer_1_tools.level_0_infra.level_0.logging_core import log_and_print
+from layers.layer_1_tools.level_0_infra.level_1.data_loading import load_comparison_datasets
+from layers.layer_1_tools.level_0_infra.level_1.comparison import compare_dataframes
 
 
 def run_mode(input_paths, output_dir, domain=None, **kwargs) -> None:

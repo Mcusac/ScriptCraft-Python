@@ -5,13 +5,13 @@ from pathlib import Path
 from typing import List, Optional, Tuple
 from docx import Document
 
-from layers.layer_1_pypi.level_0_infra.level_0.logging_core import log_and_print
+from layers.layer_1_tools.level_0_infra.level_0.logging_core import log_and_print
 
-from layers.layer_1_pypi.level_1_impl.level_0.automated_labeler.paths import resolve_output_file
-from layers.layer_1_pypi.level_1_impl.level_0.automated_labeler.docx_template import (
+from layers.layer_1_tools.level_1_impl.level_0.automated_labeler.paths import resolve_output_file
+from layers.layer_1_tools.level_1_impl.level_0.automated_labeler.docx_template import (
     fill_full_page,
 )
-from layers.layer_1_pypi.level_1_impl.level_0.automated_labeler.types import InputPaths, LoaderSaver
+from layers.layer_1_tools.level_1_impl.level_0.automated_labeler.types import InputPaths, LoaderSaver
 
 
 ID_COLUMNS = ("RID", "MID", "Visit_ID")

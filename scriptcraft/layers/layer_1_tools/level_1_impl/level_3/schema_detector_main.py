@@ -10,12 +10,12 @@ import sys
 from pathlib import Path
 from typing import Optional, List
 
-from layers.layer_1_pypi.level_0_infra.level_0.logging_core import setup_logger, log_and_print
-from layers.layer_1_pypi.level_0_infra.level_6.argument_parsers import ParserFactory
-from layers.layer_1_pypi.level_0_infra.level_6.base_tool import BaseTool
+from layers.layer_1_tools.level_0_infra.level_0.logging_core import setup_logger, log_and_print
+from layers.layer_1_tools.level_0_infra.level_6.argument_parsers import ParserFactory
+from layers.layer_1_tools.level_0_infra.level_6.base_tool import BaseTool
 
-from layers.layer_1_pypi.level_1_impl.level_0.schema_detector import SchemaDetector
-from layers.layer_1_pypi.level_1_impl.level_2.runtime_loops import run_process_domain_over_input_paths
+from layers.layer_1_tools.level_1_impl.level_0.schema_detector import SchemaDetector
+from layers.layer_1_tools.level_1_impl.level_2.runtime_loops import run_process_domain_over_input_paths
 
 
 class SchemaDetectorTool(BaseTool):

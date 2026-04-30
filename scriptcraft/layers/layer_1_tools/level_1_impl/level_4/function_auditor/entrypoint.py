@@ -1,8 +1,8 @@
 """CLI/pipeline entrypoint for the function auditor tool."""
 
-from layers.layer_1_pypi.level_1_impl.level_0.main_common import create_entrypoint_main
+from layers.layer_1_tools.level_1_impl.level_0.main_common import create_entrypoint_main
 
-from layers.layer_1_pypi.level_1_impl.level_3.function_auditor.tool import FunctionAuditorTool
+from layers.layer_1_tools.level_1_impl.level_3.function_auditor.tool import FunctionAuditorTool
 
 
 main = create_entrypoint_main(

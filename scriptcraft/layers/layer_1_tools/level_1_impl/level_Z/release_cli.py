@@ -9,15 +9,15 @@ Provides easy access to release workflows for end users.
 import argparse
 import sys
 
-from scriptcraft.layers.layer_1_pypi import common as cu
-from scriptcraft.layers.layer_1_pypi.pipelines.git_pipelines import (
+from layers.layer_1_tools import common as cu
+from layers.layer_1_tools.pipelines.git_pipelines import (
     create_pypi_test_pipeline,
     create_pypi_release_pipeline,
     create_full_git_sync_pipeline
 )
-from scriptcraft.layers.layer_1_pypi.tools.pypi_release_tool.main import PyPIReleaseTool
-from scriptcraft.layers.layer_1_pypi.tools.git_workspace_tool.main import GitWorkspaceTool
-from scriptcraft.layers.layer_1_pypi.tools.git_submodule_tool.main import GitSubmoduleTool
+from layers.layer_1_tools.tools.pypi_release_tool.main import PyPIReleaseTool
+from layers.layer_1_tools.tools.git_workspace_tool.main import GitWorkspaceTool
+from layers.layer_1_tools.tools.git_submodule_tool.main import GitSubmoduleTool
 
 def pypi_test(args):
     """Run PyPI test workflow."""

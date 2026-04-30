@@ -1,8 +1,8 @@
 
 import re
 
-from layers.layer_1_pypi.level_1_impl.level_0.dictionary_cleaner.fix_counts import FixCounter
-from layers.layer_1_pypi.level_1_impl.level_1.dictionary_cleaner.numeric_keys import convert_numeric_keys_to_ints
+from layers.layer_1_tools.level_1_impl.level_0.dictionary_cleaner.fix_counts import FixCounter
+from layers.layer_1_tools.level_1_impl.level_1.dictionary_cleaner.numeric_keys import convert_numeric_keys_to_ints
 
 
 def fix_language_blocks(text: str, counter: FixCounter) -> str:

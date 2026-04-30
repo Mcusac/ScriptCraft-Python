@@ -6,13 +6,13 @@ Centralized CLI utilities for consistent command-line interfaces.
 import argparse
 import sys
 
-from layers.layer_1_pypi.level_0_infra.level_0._version import get_version
-from layers.layer_1_pypi.level_0_infra.level_0.logging_core import log_and_print
-from layers.layer_1_pypi.level_0_infra.level_2.root_schema import Config
-from layers.layer_1_pypi.level_0_infra.level_2.pipeline_base import BasePipeline
-from layers.layer_1_pypi.level_0_infra.level_6.argument_parsers import *
-from layers.layer_1_pypi.level_0_infra.level_7.main_runner import *
-from layers.layer_1_pypi.level_0_infra.level_7.registry import get_available_tool_instances
+from layers.layer_1_tools.level_0_infra.level_0.version import get_version
+from layers.layer_1_tools.level_0_infra.level_0.logging_core import log_and_print
+from layers.layer_1_tools.level_0_infra.level_2.root_schema import Config
+from layers.layer_1_tools.level_0_infra.level_2.pipeline_base import BasePipeline
+from layers.layer_1_tools.level_0_infra.level_6.argument_parsers import *
+from layers.layer_1_tools.level_0_infra.level_7.main_runner import *
+from layers.layer_1_tools.level_0_infra.level_7.registry import get_available_tool_instances
 
 
 def main() -> None:

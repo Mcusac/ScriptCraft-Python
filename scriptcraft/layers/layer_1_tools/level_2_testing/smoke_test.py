@@ -51,7 +51,7 @@ def test_tool_imports():
     print("\n🔧 Testing tool imports...")
     
     try:
-        from layers.layer_1_pypi.level_1_impl import get_available_tools
+        from layers.layer_1_tools.level_1_impl import get_available_tools
         tools = get_available_tools()
     except Exception as e:
         print(f"  ❌ Failed to get available tools: {e}")
@@ -81,7 +81,7 @@ def test_base_functionality():
     
     # Test logging core import + call
     try:
-        from layers.layer_1_pypi.level_0_infra.level_0.logging_core import log_and_print
+        from layers.layer_1_tools.level_0_infra.level_0.logging_core import log_and_print
 
         log_and_print("✅ Logging core import OK")
         print("  ✅ Logging core")

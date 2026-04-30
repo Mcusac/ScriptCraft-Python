@@ -10,9 +10,9 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-from layers.layer_1_pypi.level_0_infra.level_0.logging_core import log_and_print
+from layers.layer_1_tools.level_0_infra.level_0.logging_core import log_and_print
 
-from layers.layer_1_pypi.level_1_impl.level_0.rhq.credentials_io import load_credentials
+from layers.layer_1_tools.level_1_impl.level_0.rhq.credentials_io import load_credentials
 
 
 def try_click_initial_login_button(driver: Any, *, timeout_s: int = 10) -> bool:

@@ -14,7 +14,7 @@ from typing import Dict, List, Optional
 from dataclasses import dataclass
 from enum import Enum
 
-from layers.layer_1_pypi.level_0_infra.level_0_infra.level_0._version import __version__
+from layers.layer_1_tools.level_0_infra.level_0.version import __version__
 
 class ToolMaturity(Enum):
     """Tool maturity levels."""

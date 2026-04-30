@@ -1,8 +1,8 @@
 """CLI/pipeline entrypoint for the automated labeler tool."""
 
-from layers.layer_1_pypi.level_1_impl.level_0.main_common import create_entrypoint_main
+from layers.layer_1_tools.level_1_impl.level_0.main_common import create_entrypoint_main
 
-from layers.layer_1_pypi.level_1_impl.level_2.automated_labeler.tool import AutomatedLabeler
+from layers.layer_1_tools.level_1_impl.level_2.automated_labeler.tool import AutomatedLabeler
 
 
 main = create_entrypoint_main(

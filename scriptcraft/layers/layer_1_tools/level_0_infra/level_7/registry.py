@@ -21,10 +21,10 @@ from typing import Dict, List, Optional, Any, Type, Callable, Union
 from dataclasses import dataclass, field
 from enum import Enum
 
-from layers.layer_1_pypi.level_0_infra.level_0.logging_core import log_and_print
-from layers.layer_1_pypi.level_0_infra.level_0._version import __version__
-from layers.layer_1_pypi.level_0_infra.level_0.typed_plugin_store import get_typed_plugin
-from layers.layer_1_pypi.level_0_infra.level_6.base_tool import BaseTool
+from layers.layer_1_tools.level_0_infra.level_0.logging_core import log_and_print
+from layers.layer_1_tools.level_0_infra.level_0.version import __version__
+from layers.layer_1_tools.level_0_infra.level_0.typed_plugin_store import get_typed_plugin
+from layers.layer_1_tools.level_0_infra.level_6.base_tool import BaseTool
 
 logger = logging.getLogger(__name__)
 

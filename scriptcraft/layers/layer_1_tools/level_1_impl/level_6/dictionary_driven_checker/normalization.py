@@ -4,7 +4,7 @@ import pandas as pd
 
 from typing import Any
 
-from layers.layer_1_pypi.level_1_impl.level_5.dictionary_cleaner.normalizer import clean_dictionary
+from layers.layer_1_tools.level_1_impl.level_5.dictionary_cleaner.normalizer import clean_dictionary
 
 
 def normalize_dataset_columns(df: pd.DataFrame) -> pd.DataFrame:

@@ -4,7 +4,7 @@ Semver helpers used by release tooling.
 
 from typing import Optional
 
-from layers.layer_1_pypi.level_0_infra.level_0.logging_core import log_and_print
+from layers.layer_1_tools.level_0_infra.level_0.logging_core import log_and_print
 
 
 def bump_version(current_version: str, version_type: str) -> Optional[str]:

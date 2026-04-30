@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from typing import Literal
 
-from layers.layer_1_pypi.level_0_infra.level_0.logging_core import log_and_print
-from layers.layer_1_pypi.level_0_infra.level_6.base_tool import BaseTool
+from layers.layer_1_tools.level_0_infra.level_0.logging_core import log_and_print
+from layers.layer_1_tools.level_0_infra.level_6.base_tool import BaseTool
 
 from .ops_build import build_package
 from .ops_upload import upload_pypi, upload_testpypi

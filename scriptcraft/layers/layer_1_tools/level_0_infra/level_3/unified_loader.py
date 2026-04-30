@@ -1,11 +1,11 @@
 from pathlib import Path
 from typing import Any, Dict
 
-from layers.layer_1_pypi.level_0_infra.level_0.environment import detect_environment
-from layers.layer_1_pypi.level_0_infra.level_0.workspace_schema import WorkspaceConfig
-from layers.layer_1_pypi.level_0_infra.level_1.merger import merge_workspace_config
-from layers.layer_1_pypi.level_0_infra.level_1.framework_schema import FrameworkConfig
-from layers.layer_1_pypi.level_0_infra.level_2.root_schema import Config
+from layers.layer_1_tools.level_0_infra.level_0.environment import detect_environment
+from layers.layer_1_tools.level_0_infra.level_0.workspace_schema import WorkspaceConfig
+from layers.layer_1_tools.level_0_infra.level_1.merger import merge_workspace_config
+from layers.layer_1_tools.level_0_infra.level_1.framework_schema import FrameworkConfig
+from layers.layer_1_tools.level_0_infra.level_2.root_schema import Config
 
 
 def load_unified_config(data: Dict[str, Any], path: Path) -> "Config":

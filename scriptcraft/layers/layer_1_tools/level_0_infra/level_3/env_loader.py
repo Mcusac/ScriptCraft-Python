@@ -2,7 +2,7 @@ import os
 
 from pathlib import Path
 
-from layers.layer_1_pypi.level_0_infra.level_2.root_schema import Config
+from layers.layer_1_tools.level_0_infra.level_2.root_schema import Config
 
 
 def load_from_environment() -> Config:

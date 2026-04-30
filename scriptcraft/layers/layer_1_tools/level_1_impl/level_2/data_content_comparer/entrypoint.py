@@ -1,7 +1,7 @@
 """CLI/pipeline entrypoint for the data content comparer tool."""
 
-from layers.layer_1_pypi.level_1_impl.level_0.main_common import create_entrypoint_main
-from layers.layer_1_pypi.level_1_impl.level_1.data_content_comparer.tool import DataContentComparer
+from layers.layer_1_tools.level_1_impl.level_0.main_common import create_entrypoint_main
+from layers.layer_1_tools.level_1_impl.level_1.data_content_comparer.tool import DataContentComparer
 
 
 def _detect_input_paths_required(argv: list[str]) -> bool:

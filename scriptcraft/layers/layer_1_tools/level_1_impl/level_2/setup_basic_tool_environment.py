@@ -7,9 +7,9 @@ These helpers keep the env modules thin by wiring the shared primitives from
 
 from pathlib import Path
 
-from layers.layer_1_pypi.level_1_impl.level_0.env.cwd_indicators import cwd_indicators_basic, is_distributable_from_cwd
-from layers.layer_1_pypi.level_1_impl.level_0.env.layout import dev_project_root_from_file, get_environment_type_from_bool
-from layers.layer_1_pypi.level_1_impl.level_1.sys_path import setup_import_paths_common
+from layers.layer_1_tools.level_1_impl.level_0.env.cwd_indicators import cwd_indicators_basic, is_distributable_from_cwd
+from layers.layer_1_tools.level_1_impl.level_0.env.layout import dev_project_root_from_file, get_environment_type_from_bool
+from layers.layer_1_tools.level_1_impl.level_1.sys_path import setup_import_paths_common
 
 
 def setup_basic_tool_environment(

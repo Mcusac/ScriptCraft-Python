@@ -10,10 +10,10 @@ Responsibilities:
 
 from typing import Any, Optional
 
-from layers.layer_1_pypi.level_0_infra.level_0.logging_core import log_and_print
+from layers.layer_1_tools.level_0_infra.level_0.logging_core import log_and_print
 
-from layers.layer_1_pypi.level_1_impl.level_0.tooling.arg_mapping import build_run_kwargs_from_args
-from layers.layer_1_pypi.level_1_impl.level_0.tooling.tool_lookup import InfraRegistryToolLookup, ToolLookup
+from layers.layer_1_tools.level_1_impl.level_0.tooling.arg_mapping import build_run_kwargs_from_args
+from layers.layer_1_tools.level_1_impl.level_0.tooling.tool_lookup import InfraRegistryToolLookup, ToolLookup
 
 
 def dispatch_tool(tool_name: str, args: Any, *, lookup: Optional[ToolLookup] = None) -> None:

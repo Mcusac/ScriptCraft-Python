@@ -4,7 +4,7 @@ CLI for the Generic Release Tool.
 
 import argparse
 
-from layers.layer_1_pypi.level_1_impl.level_2.generic_release_tool.tool import GenericReleaseTool
+from layers.layer_1_tools.level_1_impl.level_2.generic_release_tool.tool import GenericReleaseTool
 
 
 def build_parser() -> argparse.ArgumentParser:

@@ -1,9 +1,7 @@
-from __future__ import annotations
-
 from pathlib import Path
 from typing import Any, Dict
 
-from layers.layer_1_pypi.level_0_infra.level_0.path_resolver import create_path_resolver
+from layers.layer_1_tools.level_0_infra.level_0.path_resolver import create_path_resolver
 
 
 def get_tool_config(config: Any, name: str) -> Dict[str, Any]:

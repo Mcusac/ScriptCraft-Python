@@ -1,4 +1,4 @@
-from layers.layer_1_pypi.level_1_impl.level_2.release_manager.tool import ReleaseManager
+from layers.layer_1_tools.level_1_impl.level_2.release_manager.tool import ReleaseManager
 
 
 def print_release_manager_help() -> None:

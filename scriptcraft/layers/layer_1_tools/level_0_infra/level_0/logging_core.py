@@ -8,13 +8,14 @@ level_0_infra module to avoid circular dependencies.
 import logging
 import sys
 import datetime
+
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Union
 
 
 # ── UTF-8-safe formatter ─────────────────────────────────────────────────────
 
-class _Utf8Formatter(logging.Formatter):
+class Utf8Formatter(logging.Formatter):
     """Formatter that replaces un-encodable characters instead of raising."""
 
     def format(self, record: logging.LogRecord) -> str:
@@ -35,10 +36,6 @@ def _rotate_log(log_file: Path) -> None:
         log_file.rename(backup)
     except OSError:
         pass  # Non-fatal; proceed without rotation.
-
-
-def _make_formatter(log_format: str) -> _Utf8Formatter:
-    return _Utf8Formatter(log_format)
 
 
 def _add_file_handler(
@@ -159,7 +156,7 @@ def setup_logger(
     if clear_handlers:
         logger.handlers.clear()
 
-    formatter = _make_formatter(log_format)
+    formatter = Utf8Formatter(log_format)
 
     if log_file and not _has_handler_type(logger, logging.FileHandler):
         _add_file_handler(logger, Path(log_file), level, formatter, rotate_logs)

@@ -6,7 +6,7 @@ This exists to support running the tool directly from the repository without
 installing the package, while keeping `generic_release_tool_main.py` deleted.
 """
 
-from layers.layer_1_pypi.level_1_impl.level_3.generic_release_tool.cli import main as cli_main
+from layers.layer_1_tools.level_1_impl.level_3.generic_release_tool.cli import main as cli_main
 
 
 def main() -> None:

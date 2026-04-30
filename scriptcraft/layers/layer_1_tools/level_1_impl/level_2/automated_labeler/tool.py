@@ -3,11 +3,11 @@
 from pathlib import Path
 from typing import Any, Optional, Union
 
-from layers.layer_1_pypi.level_0_infra.level_6.base_tool import BaseTool
+from layers.layer_1_tools.level_0_infra.level_6.base_tool import BaseTool
 
-from layers.layer_1_pypi.level_1_impl.level_0.automated_labeler.types import InputPaths, LabelingRules
-from layers.layer_1_pypi.level_1_impl.level_1.automated_labeler.labeling_mode import run_labeling_mode
-from layers.layer_1_pypi.level_1_impl.level_1.automated_labeler.template_mode import run_template_mode
+from layers.layer_1_tools.level_1_impl.level_0.automated_labeler.types import InputPaths, LabelingRules
+from layers.layer_1_tools.level_1_impl.level_1.automated_labeler.labeling_mode import run_labeling_mode
+from layers.layer_1_tools.level_1_impl.level_1.automated_labeler.template_mode import run_template_mode
 
 
 class AutomatedLabeler(BaseTool):

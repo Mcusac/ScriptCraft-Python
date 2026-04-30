@@ -1,5 +1,5 @@
-from layers.layer_1_pypi.level_1_impl.level_0.function_auditor.auditor import FunctionAuditor
-from layers.layer_1_pypi.level_1_impl.level_1.function_auditor.batch import BatchFunctionAuditor
+from layers.layer_1_tools.level_1_impl.level_0.function_auditor.auditor import FunctionAuditor
+from layers.layer_1_tools.level_1_impl.level_1.function_auditor.batch import BatchFunctionAuditor
 
 
 def example_single_file_audit() -> None:
