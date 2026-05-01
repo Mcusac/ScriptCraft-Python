@@ -1,6 +1,13 @@
-"""Placement and level-suggestion primitives."""
+"""Auto-generated package exports."""
 
-from .file_level_suggestions import Evidence, FileLevelSuggestionRow, LevelPolicy, suggest_levels
+
+from .file_level_suggestions import (
+    Evidence,
+    FileLevelSuggestionRow,
+    LevelPolicy,
+    suggest_levels,
+)
+
 from .promotion_demotion_suggestions import (
     DemotionSuggestionRow,
     HeavyReusePolicy,
@@ -11,15 +18,14 @@ from .promotion_demotion_suggestions import (
 )
 
 __all__ = [
+    "DemotionSuggestionRow",
     "Evidence",
     "FileLevelSuggestionRow",
-    "LevelPolicy",
     "HeavyReusePolicy",
-    "UsageEvidence",
+    "LevelPolicy",
     "PromotionSuggestionRow",
-    "DemotionSuggestionRow",
+    "UsageEvidence",
+    "suggest_demotions",
     "suggest_levels",
     "suggest_promotions",
-    "suggest_demotions",
 ]
-

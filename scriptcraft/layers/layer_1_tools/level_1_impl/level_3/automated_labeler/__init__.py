@@ -1,10 +1,3 @@
-"""Level 1 automated labeler tool entrypoint + public API."""
+"""Auto-generated package exports (empty)."""
 
-from .entrypoint import main
-from .tool import AutomatedLabeler
-
-__all__ = [
-    "AutomatedLabeler",
-    "main",
-]
-
+__all__: list[str] = []

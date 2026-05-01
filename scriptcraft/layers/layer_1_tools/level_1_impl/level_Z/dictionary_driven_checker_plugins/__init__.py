@@ -1,18 +1,50 @@
-"""Plugin system for dictionary-driven validation."""
-
-# === WILDCARD IMPORTS FOR SCALABILITY ===
-# Expose the common plugin registry as `registry` so plugins can do:
-#   from . import registry
-from scriptcraft.common.plugins import registry
+"""Auto-generated package exports."""
 
 
-def _load_plugins() -> None:
-    """Load all plugins after registry is initialized."""
-    try:
-        from . import validators  # noqa: F401
-    except ImportError:
-        # Plugins are optional; if they fail to import, continue.
-        pass
+from .date_plugin import (
+    DateValidationError,
+    DateValidator,
+    config,
+    date_config,
+)
 
+from .numeric_plugin import (
+    NumericValidationError,
+    NumericValidator,
+    checker_config,
+    config,
+)
 
-_load_plugins()
+from .text_plugin import (
+    TextValidationError,
+    TextValidator,
+    config,
+    text_config,
+)
+
+from .validators import (
+    CalculatedFieldValidator,
+    CodedValueValidator,
+    DateValidator,
+    MultiCategoricalValidator,
+    NumericOutlierValidator,
+    PatternValidator,
+)
+
+__all__ = [
+    "CalculatedFieldValidator",
+    "CodedValueValidator",
+    "DateValidationError",
+    "DateValidator",
+    "MultiCategoricalValidator",
+    "NumericOutlierValidator",
+    "NumericValidationError",
+    "NumericValidator",
+    "PatternValidator",
+    "TextValidationError",
+    "TextValidator",
+    "checker_config",
+    "config",
+    "date_config",
+    "text_config",
+]

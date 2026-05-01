@@ -1,16 +1,8 @@
-"""
-Git workspace tool package.
+"""Auto-generated package exports."""
 
-Public API:
-- GitWorkspaceTool: programmatic entrypoint
-- main: CLI entrypoint (raises SystemExit)
-"""
 
-from .cli import main
-from .tool import GitWorkspaceTool
+from .cli import build_parser
 
 __all__ = [
-    "GitWorkspaceTool",
-    "main",
+    "build_parser",
 ]
-

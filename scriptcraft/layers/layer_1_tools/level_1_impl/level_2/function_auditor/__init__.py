@@ -1,13 +1,25 @@
-"""
-Function auditor (level_0).
+"""Auto-generated package exports."""
 
-Public surface:
-- FunctionAuditor: audit a single file for unused functions
-- BatchFunctionAuditor: audit many files and generate reports
-"""
 
-from .auditor import FunctionAuditor
-from .batch import BatchFunctionAuditor
+from .batch_mode import run_batch_mode
 
-__all__ = ["FunctionAuditor", "BatchFunctionAuditor"]
+from .cli import build_parser
 
+from .examples import (
+    example_batch_audit,
+    example_custom_project,
+    example_get_unused_functions,
+    example_single_file_audit,
+)
+
+from .single_file_mode import run_single_file_mode
+
+__all__ = [
+    "build_parser",
+    "example_batch_audit",
+    "example_custom_project",
+    "example_get_unused_functions",
+    "example_single_file_audit",
+    "run_batch_mode",
+    "run_single_file_mode",
+]

@@ -1,15 +1,8 @@
-"""
-Generic Release Tool package.
+"""Auto-generated package exports."""
 
-This package contains a workspace-agnostic release tool that can be executed
-directly (via its CLI) or imported as a tool class.
-"""
 
-from .cli import main
-from .tool import GenericReleaseTool
+from .cli import build_parser
 
 __all__ = [
-    "GenericReleaseTool",
-    "main",
+    "build_parser",
 ]
-

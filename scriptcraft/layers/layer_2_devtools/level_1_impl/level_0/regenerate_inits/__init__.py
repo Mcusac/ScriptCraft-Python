@@ -12,6 +12,7 @@ from .apply import (
 
 from .public_symbols import (
     DEFAULT_EXCLUDED_SYMBOLS,
+    is_public_symbol,
     public_symbols_from_file,
     public_symbols_from_module,
 )
@@ -34,6 +35,7 @@ from .walk import (
 )
 
 __all__ = [
+    "DEFAULT_EXCLUDED_SYMBOLS",
     "Drift",
     "PackageContents",
     "RenderedInit",
@@ -45,7 +47,7 @@ __all__ = [
     "compute_drift",
     "expected_init_for_package",
     "is_package_dir",
-    "DEFAULT_EXCLUDED_SYMBOLS",
+    "is_public_symbol",
     "public_symbols_from_file",
     "public_symbols_from_module",
     "read_package_contents",

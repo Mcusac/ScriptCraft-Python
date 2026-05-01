@@ -1,11 +1,24 @@
-"""Schema detector package (DRY, cohesive modules)."""
+"""Auto-generated package exports."""
 
-from .models import ColumnInfo, TableSchema
+
 from .detector import SchemaDetector
+
+from .models import (
+    ColumnInfo,
+    TableSchema,
+)
+
+from .outputs import (
+    generate_documentation,
+    save_outputs,
+    schema_to_dict,
+)
 
 __all__ = [
     "ColumnInfo",
-    "TableSchema",
     "SchemaDetector",
+    "TableSchema",
+    "generate_documentation",
+    "save_outputs",
+    "schema_to_dict",
 ]
-

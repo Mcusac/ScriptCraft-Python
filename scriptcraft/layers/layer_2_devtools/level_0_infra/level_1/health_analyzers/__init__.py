@@ -7,11 +7,16 @@ from .complexity import ComplexityAnalyzer
 
 from .dead_code_finder import DeadCodeFinder
 
+from .deep_nesting import DeepNestingAnalyzer
+
 from .dependency_rule_analyzer import DependencyRuleAnalyzer
 
 from .duplication_detector import DuplicationDetector
 
-from .deep_nesting import DeepNestingAnalyzer
+from .file_level_suggestion_analyzer import (
+    FileLevelSuggestionAnalyzer,
+    ScopeConfig,
+)
 
 from .file_metrics import FileMetricsAnalyzer
 
@@ -19,9 +24,10 @@ from .import_analyzer import ImportAnalyzer
 
 from .import_path_validator import ImportPathValidator
 
-from .import_surface_validator import ImportSurfaceValidator
-
-from .file_level_suggestion_analyzer import FileLevelSuggestionAnalyzer, ScopeConfig
+from .import_surface_validator import (
+    ImportSurfaceValidator,
+    ImportViolation,
+)
 
 from .promotion_demotion_suggestion_analyzer import (
     PromotionDemotionScopeConfig,
@@ -47,10 +53,11 @@ __all__ = [
     "ImportAnalyzer",
     "ImportPathValidator",
     "ImportSurfaceValidator",
-    "ScopeConfig",
+    "ImportViolation",
     "PromotionDemotionScopeConfig",
     "PromotionDemotionSuggestionAnalyzer",
     "SOLIDChecker",
+    "ScopeConfig",
     "TYPE_ANNOTATIONS",
     "TypeAnnotationChecker",
 ]

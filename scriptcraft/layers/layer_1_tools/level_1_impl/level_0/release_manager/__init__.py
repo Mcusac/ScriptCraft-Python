@@ -1,16 +1,12 @@
-"""
-Release manager tool package.
+"""Auto-generated package exports."""
 
-Public API:
-- ReleaseManager: programmatic entrypoint
-- main: CLI entrypoint (exit code as int)
-"""
 
-from .cli import main
-from .tool import ReleaseManager
+from .argv_compat import (
+    ParsedCli,
+    parse_release_manager_argv,
+)
 
 __all__ = [
-    "ReleaseManager",
-    "main",
+    "ParsedCli",
+    "parse_release_manager_argv",
 ]
-

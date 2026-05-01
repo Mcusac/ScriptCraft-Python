@@ -1,10 +1,14 @@
-"""Level 1 dictionary-driven checker tool entrypoint + public API."""
+"""Auto-generated package exports."""
 
-from .entrypoint import main
-from .tool import DictionaryDrivenChecker
+
+from .normalization import (
+    ensure_dataframe,
+    normalize_dataset_columns,
+    normalize_dictionary_df,
+)
 
 __all__ = [
-    "DictionaryDrivenChecker",
-    "main",
+    "ensure_dataframe",
+    "normalize_dataset_columns",
+    "normalize_dictionary_df",
 ]
-

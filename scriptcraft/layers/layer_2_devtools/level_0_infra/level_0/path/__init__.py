@@ -28,6 +28,7 @@ from .python_modules import (
     is_internal_module,
     is_third_party_module,
     module_exists,
+    module_to_file_path,
 )
 
 from .workspace import (
@@ -40,13 +41,13 @@ from .workspace import (
 __all__ = [
     "SKIP_DIRS",
     "SKIP_FILES_RE",
+    "architecture_score_json_path",
+    "architecture_scorecard_markdown_path",
     "collect_python_files",
     "contest_tier_from_path",
     "current_package",
     "discover_modules_in_package",
     "discover_packages",
-    "architecture_score_json_path",
-    "architecture_scorecard_markdown_path",
     "file_level_from_path",
     "file_to_module",
     "find_layer_0_core_ancestor",
@@ -57,6 +58,7 @@ __all__ = [
     "is_third_party_module",
     "mirror_files_to_run_snapshot",
     "module_exists",
+    "module_to_file_path",
     "precheck_summary_json_path",
     "resolve_audit_artifact_root",
     "resolve_workspace_root",

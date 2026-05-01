@@ -1,16 +1,8 @@
-"""
-Git submodule tool package.
+"""Auto-generated package exports."""
 
-Public API:
-- GitSubmoduleTool: programmatic entrypoint
-- main: CLI entrypoint (exit code as int)
-"""
 
-from .cli import main
-from .tool import GitSubmoduleTool
+from .submodules import list_submodules
 
 __all__ = [
-    "GitSubmoduleTool",
-    "main",
+    "list_submodules",
 ]
-

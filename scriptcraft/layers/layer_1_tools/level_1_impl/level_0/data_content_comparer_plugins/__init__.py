@@ -1,69 +1,44 @@
-"""Mode plugin registry for the data content comparer tool (level_0).
-
-This package owns the comparer modes and registers them into the unified registry.
-"""
-
-from __future__ import annotations
-
-import importlib
-
-from collections.abc import Callable
-from typing import Optional
-
-from layers.layer_1_tools.level_0_infra.level_7.registry import unified_registry
-
-_PLUGIN_TYPE = "data_content_comparer_mode"
+"""Auto-generated package exports."""
 
 
-def _register() -> None:
-    """
-    Register mode plugins into the unified registry.
+from .domain_old_vs_new_mode import run_mode
 
-    This is defensive/lazy: one broken mode must not break tool imports.
-    """
+from .release_consistency_mode import (
+    RELEASE_1,
+    RELEASE_2,
+    align_dtypes,
+    analyze_column_changes,
+    compare_datasets,
+    compare_datasets_filtered,
+    extract_release_labels,
+    find_highest_release_file,
+    find_newest_file,
+    get_domain_config,
+    get_release_consistency_config,
+    monitor_changes,
+    run_domain_comparison,
+    run_manual_comparison,
+    run_mode,
+)
 
-    modes: dict[str, tuple[str, str, dict]] = {
-        "standard": (".standard_mode", "run_mode", {"description": "Standard comparison mode"}),
-        "rhq": (".rhq_mode", "run_mode", {"description": "RHQ comparison mode"}),
-        "domain": (".domain_old_vs_new_mode", "run_mode", {"description": "Domain old vs new comparison mode"}),
-        "release_consistency": (
-            ".release_consistency_mode",
-            "run_mode",
-            {"description": "Release consistency comparison mode"},
-        ),
-        "release": (
-            ".release_consistency_mode",
-            "run_mode",
-            {"description": "Alias of release_consistency"},
-        ),
-    }
+from .rhq_mode import run_mode
 
-    for mode_name, (module_rel, func_name, meta) in modes.items():
-        try:
-            module = importlib.import_module(module_rel, package=__name__)
-            plugin = getattr(module, func_name)
-            unified_registry.register_plugin(_PLUGIN_TYPE, mode_name, plugin, meta)
-        except Exception:
-            # Intentionally silent: registry consumers will simply not see the mode.
-            continue
-
-
-_register()
-
-
-def get_plugin(mode: str) -> Optional[Callable]:
-    """Return the mode handler for `mode` or None if unknown."""
-    return unified_registry.get_plugin(_PLUGIN_TYPE, mode)
-
-
-def list_plugins() -> list[str]:
-    """List available mode names."""
-    listing = unified_registry.list_plugins(_PLUGIN_TYPE)
-    return listing.get(_PLUGIN_TYPE, [])
-
+from .standard_mode import run_mode
 
 __all__ = [
-    "get_plugin",
-    "list_plugins",
+    "RELEASE_1",
+    "RELEASE_2",
+    "align_dtypes",
+    "analyze_column_changes",
+    "compare_datasets",
+    "compare_datasets_filtered",
+    "extract_release_labels",
+    "find_highest_release_file",
+    "find_newest_file",
+    "get_domain_config",
+    "get_release_consistency_config",
+    "monitor_changes",
+    "run_domain_comparison",
+    "run_manual_comparison",
+    "run_mode",
 ]
-

@@ -1,10 +1,3 @@
-"""
-PyPI Release Tool
+"""Auto-generated package exports (empty)."""
 
-Handles PyPI testing and release operations.
-Follows ScriptCraft tool patterns for reusability.
-"""
-
-from .main import PyPIReleaseTool
-
-__all__ = ["PyPIReleaseTool"]
+__all__: list[str] = []

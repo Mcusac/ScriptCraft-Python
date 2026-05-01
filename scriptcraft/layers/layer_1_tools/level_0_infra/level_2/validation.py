@@ -13,7 +13,7 @@ from typing import Union, Tuple, List, Any, Optional
 from dataclasses import dataclass
 from abc import abstractmethod
 
-from layers.layer_1_tools.level_0_infra.level_0.logging_core import log_and_print
+from layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
 from layers.layer_1_tools.level_0_infra.level_1.plugin_registry import PluginBase
 
 

@@ -1,1 +1,3 @@
-"""Integration tests for the UNT Data Tools project."""
+"""Auto-generated package exports (empty)."""
+
+__all__: list[str] = []

@@ -1,16 +1,3 @@
-"""
-Release manager tool package.
+"""Auto-generated package exports (empty)."""
 
-Public API:
-- ReleaseManager: programmatic entrypoint
-- main: CLI entrypoint (exit code as int)
-"""
-
-from .cli import main
-from .tool import ReleaseManager
-
-__all__ = [
-    "ReleaseManager",
-    "main",
-]
-
+__all__: list[str] = []

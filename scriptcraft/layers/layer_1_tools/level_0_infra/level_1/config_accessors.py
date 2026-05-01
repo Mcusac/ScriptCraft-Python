@@ -1,7 +1,7 @@
 from pathlib import Path
 from typing import Any, Dict
 
-from layers.layer_1_tools.level_0_infra.level_0.path_resolver import create_path_resolver
+from layers.layer_1_tools.level_0_infra.level_0.path_resolver import WorkspacePathResolver
 
 
 def get_tool_config(config: Any, name: str) -> Dict[str, Any]:
@@ -39,7 +39,7 @@ def get_path_resolver(config: Any):
         return resolver
 
     root = get_workspace_root(config)
-    resolver = create_path_resolver(root)
+    resolver = WorkspacePathResolver(root)
     setattr(config, "_path_resolver", resolver)
     return resolver
 

@@ -12,7 +12,7 @@ from enum import Enum
 from pathlib import Path
 from typing import Union, Set, Tuple, List, Dict
 
-from layers.layer_1_tools.level_0_infra.level_0.logging_core import log_and_print
+from layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
 
 # ==== 📚 Configuration & Constants ====
 

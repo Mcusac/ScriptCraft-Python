@@ -15,7 +15,28 @@ from .ast_utils import (
     resolve_relative_import,
 )
 
+from .public_symbols import (
+    DEFAULT_EXCLUDED_SYMBOLS,
+    is_public_symbol,
+    public_symbols_from_module,
+)
+
+from .symbol_definition_index import (
+    DefinitionIndexBuilder,
+    DefinitionIndexOptions,
+)
+
+from .symbol_reference_index import (
+    ReferenceIndexBuilder,
+    ReferenceIndexOptions,
+)
+
 __all__ = [
+    "DEFAULT_EXCLUDED_SYMBOLS",
+    "DefinitionIndexBuilder",
+    "DefinitionIndexOptions",
+    "ReferenceIndexBuilder",
+    "ReferenceIndexOptions",
     "count_class_nodes",
     "count_function_nodes",
     "count_lines_in_node",
@@ -25,6 +46,8 @@ __all__ = [
     "get_imports_from_ast",
     "get_imports_from_file",
     "get_relative_imports_from_ast",
+    "is_public_symbol",
     "parse_file",
+    "public_symbols_from_module",
     "resolve_relative_import",
 ]

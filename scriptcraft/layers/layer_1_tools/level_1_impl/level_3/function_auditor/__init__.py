@@ -1,9 +1,8 @@
-"""Level 1 function auditor tool entrypoint + public API."""
+"""Auto-generated package exports."""
 
-from .entrypoint import main
+
 from .tool import FunctionAuditorTool
 
 __all__ = [
     "FunctionAuditorTool",
-    "main",
 ]

@@ -1,15 +1,27 @@
-"""
-Generic Release Tool package.
+"""Auto-generated package exports."""
 
-This package contains a workspace-agnostic release tool that can be executed
-directly (via its CLI) or imported as a tool class.
-"""
 
-from .cli import main
-from .tool import GenericReleaseTool
+from .pipelines import (
+    StepCallable,
+    create_docs_pipeline,
+    create_full_pipeline,
+    create_git_repo_pipeline,
+    create_python_package_pipeline,
+)
+
+from .version_resolver import (
+    VersionResolution,
+    detect_repo_root,
+    resolve_version,
+)
 
 __all__ = [
-    "GenericReleaseTool",
-    "main",
+    "StepCallable",
+    "VersionResolution",
+    "create_docs_pipeline",
+    "create_full_pipeline",
+    "create_git_repo_pipeline",
+    "create_python_package_pipeline",
+    "detect_repo_root",
+    "resolve_version",
 ]
-

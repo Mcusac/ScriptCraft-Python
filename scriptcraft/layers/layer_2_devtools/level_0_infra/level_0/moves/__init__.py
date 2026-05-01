@@ -1,4 +1,5 @@
-"""Safe file move planning utilities (no I/O)."""
+"""Auto-generated package exports."""
+
 
 from .move_plan import (
     MovePlan,
@@ -13,4 +14,3 @@ __all__ = [
     "MoveSpec",
     "compute_move_plan",
 ]
-

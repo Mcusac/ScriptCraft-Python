@@ -1,10 +1,13 @@
 """Auto-generated mixed exports."""
 
 
-from . import import_rules
+from . import (
+    boundaries,
+    import_rules,
+)
 
-from .import_rules import *
 from .boundaries import *
+from .import_rules import *
 
 from .init_all_concat import (
     collect_init_all_concat_violations,
@@ -13,14 +16,8 @@ from .init_all_concat import (
 )
 
 __all__ = (
-    list(import_rules.__all__)
-    + [
-        "BoundaryClassifyResult",
-        "BoundaryDecision",
-        "BoundaryNode",
-        "PackageBoundarySpec",
-        "classify_module_to_boundary",
-    ]
+    list(boundaries.__all__)
+    + list(import_rules.__all__)
     + [
         "collect_init_all_concat_violations",
         "find_scripts_root",

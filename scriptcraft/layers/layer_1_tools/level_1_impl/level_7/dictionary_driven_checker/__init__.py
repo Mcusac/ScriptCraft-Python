@@ -1,10 +1,8 @@
-"""Level 1 dictionary-driven checker tool entrypoint + public API."""
+"""Auto-generated package exports."""
 
-from .entrypoint import main
+
 from .tool import DictionaryDrivenChecker
 
 __all__ = [
     "DictionaryDrivenChecker",
-    "main",
 ]
-

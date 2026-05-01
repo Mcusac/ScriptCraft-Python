@@ -1,12 +1,14 @@
-"""
-Runtime scaffolding helpers for tools.
-"""
+"""Auto-generated package exports."""
 
-from .loops import (  # noqa: F401
-    run_domains,
-    run_process_domain_for_single_pair,
-    run_process_domain_over_input_paths,
+
+from .protocols import (
+    DomainLoopTool,
+    PathLike,
+    ProcessDomainTool,
 )
-from .normalize import normalize_list  # noqa: F401
-from .protocols import DomainLoopTool, ProcessDomainTool  # noqa: F401
 
+__all__ = [
+    "DomainLoopTool",
+    "PathLike",
+    "ProcessDomainTool",
+]

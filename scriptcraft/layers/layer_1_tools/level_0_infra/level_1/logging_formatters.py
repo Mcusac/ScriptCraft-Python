@@ -8,7 +8,7 @@ unicode-unsafe characters are replaced rather than raising at emit time.
 import logging
 from typing import Optional
 
-from layers.layer_1_tools.level_0_infra.level_0.logging_core import Utf8Formatter
+from layers.layer_1_tools.level_0_infra.level_0.formatter import Utf8Formatter
 
 
 class QCFormatter(Utf8Formatter):

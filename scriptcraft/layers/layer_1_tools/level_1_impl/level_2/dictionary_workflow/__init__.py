@@ -1,10 +1,3 @@
-"""Level 1 dictionary workflow tool entrypoint + public API."""
+"""Auto-generated package exports (empty)."""
 
-from .entrypoint import main
-from .tool import DictionaryWorkflow
-
-__all__ = [
-    "DictionaryWorkflow",
-    "main",
-]
-
+__all__: list[str] = []

@@ -1,9 +1,15 @@
-"""
-Tool dispatch helpers (lookup, arg mapping, dispatch execution).
+"""Auto-generated package exports."""
 
-This package exists to keep `tool_dispatcher.py` thin and backward compatible.
-"""
 
-from .dispatcher import dispatch_tool  # noqa: F401
-from .tool_lookup import ToolLookup, InfraRegistryToolLookup  # noqa: F401
+from .arg_mapping import build_run_kwargs_from_args
 
+from .tool_lookup import (
+    InfraRegistryToolLookup,
+    ToolLookup,
+)
+
+__all__ = [
+    "InfraRegistryToolLookup",
+    "ToolLookup",
+    "build_run_kwargs_from_args",
+]

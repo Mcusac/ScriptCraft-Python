@@ -1,10 +1,3 @@
-"""
-Generic Release Tool
+"""Auto-generated package exports (empty)."""
 
-A workspace-agnostic release tool that can be used anywhere.
-Uses the pipeline system for flexible, composable release workflows.
-"""
-
-from .main import GenericReleaseTool
-
-__all__ = ["GenericReleaseTool"]
+__all__: list[str] = []

@@ -16,7 +16,6 @@ from .rewrite_layer0core_imports import (
     FileChange,
     IMPORT_LEVEL_RE,
     LAYER0CORE_REL,
-    main,
     rewrite_tree,
 )
 
@@ -29,7 +28,6 @@ __all__ = (
         "FileChange",
         "IMPORT_LEVEL_RE",
         "LAYER0CORE_REL",
-        "main",
         "rewrite_tree",
     ]
 )

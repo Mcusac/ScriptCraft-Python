@@ -1,10 +1,3 @@
-"""Auto-generated package exports."""
+"""Auto-generated package exports (empty)."""
 
-
-from .cli import main
-
-from .dump_level import main
-
-__all__ = [
-    "main",
-]
+__all__: list[str] = []

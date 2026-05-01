@@ -1,13 +1,18 @@
-"""Dictionary workflow utilities split into cohesive modules."""
+"""Auto-generated package exports."""
 
-from .supplements import prepare_supplements, split_supplements_by_domain
+
 from .enhance import enhance_dictionaries
-from .workflow import run_complete_workflow
+
+from .summary import log_workflow_summary
+
+from .supplements import (
+    prepare_supplements,
+    split_supplements_by_domain,
+)
 
 __all__ = [
+    "enhance_dictionaries",
+    "log_workflow_summary",
     "prepare_supplements",
     "split_supplements_by_domain",
-    "enhance_dictionaries",
-    "run_complete_workflow",
 ]
-

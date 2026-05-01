@@ -4,7 +4,7 @@ import argparse
 
 from typing import Optional, Callable, List
 
-from layers.layer_1_tools.level_0_infra.level_0.logging_core import  log_and_print
+from layers.layer_1_tools.level_0_infra.level_0.emitter import  log_and_print
 from layers.layer_1_tools.level_0_infra.level_1.paths import get_project_root, resolve_path, ensure_output_dir, get_legacy_config
 from layers.layer_1_tools.level_0_infra.level_3.logging_utils import setup_logging_with_timestamp
 

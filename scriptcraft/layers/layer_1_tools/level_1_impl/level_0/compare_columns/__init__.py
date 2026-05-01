@@ -1,12 +1,11 @@
-"""
-Column set comparison utilities.
+"""Auto-generated package exports."""
 
-Public API:
-- compare_columns()
-"""
 
-from .api import compare_columns
+from .core import compute_case_mismatches
+
 from .types import CompareColumnsResult
 
-__all__ = ["CompareColumnsResult", "compare_columns"]
-
+__all__ = [
+    "CompareColumnsResult",
+    "compute_case_mismatches",
+]

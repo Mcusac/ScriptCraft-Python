@@ -6,8 +6,9 @@ from .audit_models import (
     Violation,
 )
 
-from .dead_symbol_config import DeadSymbolConfig
 from .dead_file_config import DeadFileConfig
+
+from .dead_symbol_config import DeadSymbolConfig
 
 from .precheck_json_contract import (
     ALLOWED_PRECHECK_STATUSES,

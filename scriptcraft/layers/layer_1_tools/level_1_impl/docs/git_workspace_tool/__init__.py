@@ -1,10 +1,3 @@
-"""
-Git Workspace Tool
+"""Auto-generated package exports (empty)."""
 
-Handles Git workspace operations.
-Follows ScriptCraft tool patterns for reusability.
-"""
-
-from .main import GitWorkspaceTool
-
-__all__ = ["GitWorkspaceTool"]
+__all__: list[str] = []

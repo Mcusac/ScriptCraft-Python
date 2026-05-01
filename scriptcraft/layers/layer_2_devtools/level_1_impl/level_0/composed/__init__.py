@@ -15,6 +15,17 @@ from .audit_target_discovery_ops import (
     run_audit_target_discovery,
 )
 
+from .barrel_enforcement_workflow_ops import (
+    BarrelEnforcementRun,
+    build_barrel_enforcement_markdown,
+    build_infra_json_friendly,
+    build_merged_barrel_enforcement_payload,
+    iter_infra_tier_level_dirs,
+    merge_barrel_violation_rows,
+    run_barrel_enforcement_workflow,
+    run_full_infra_stack_scan,
+)
+
 from .contest_scan_workflow_ops import (
     ContestTierScanResult,
     run_contest_tier_scan_workflow,
@@ -58,12 +69,16 @@ from .pre_upload_validation_workflow_ops import (
 )
 
 __all__ = [
+    "BarrelEnforcementRun",
     "ContestTierScanResult",
     "GeneralScanRunResult",
     "HealthSummaryOptions",
     "PackageHealthRunOptions",
     "PrecheckRunResult",
     "ViolationFixWorkflowOptions",
+    "build_barrel_enforcement_markdown",
+    "build_infra_json_friendly",
+    "build_merged_barrel_enforcement_payload",
     "check_duplicates_in_recommendations",
     "collect_health_results",
     "discover_contest_modules",
@@ -71,15 +86,19 @@ __all__ = [
     "format_statistics_table",
     "format_top_configurations",
     "group_violations_by_severity",
+    "iter_infra_tier_level_dirs",
     "load_threshold_config",
+    "merge_barrel_violation_rows",
     "print_validation_results",
     "print_violations",
     "resolve_contests_precheck_kind",
     "resolve_default_layers_root",
     "run_analyze_hyperparameters",
     "run_audit_target_discovery",
+    "run_barrel_enforcement_workflow",
     "run_comprehensive_audit_emit",
     "run_contest_tier_scan_workflow",
+    "run_full_infra_stack_scan",
     "run_general_full_precheck",
     "run_general_scan_workflow",
     "run_health_summary",

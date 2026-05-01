@@ -1,13 +1,32 @@
-"""
-Function auditor (level_0).
+"""Auto-generated package exports."""
 
-Public surface:
-- FunctionAuditor: audit a single file for unused functions
-- BatchFunctionAuditor: audit many files and generate reports
-"""
 
-from .auditor import FunctionAuditor
 from .batch import BatchFunctionAuditor
 
-__all__ = ["FunctionAuditor", "BatchFunctionAuditor"]
+from .file_discovery import (
+    CURRENT_DIR,
+    collect_files,
+)
 
+from .persistence import (
+    BATCH_FILENAME_TEMPLATE,
+    DETAILED_SUFFIX,
+    SINGLE_BASE_SUFFIX,
+    SUMMARY_SUFFIX,
+    save_batch_audit,
+    save_single_audit,
+    write_json,
+)
+
+__all__ = [
+    "BATCH_FILENAME_TEMPLATE",
+    "BatchFunctionAuditor",
+    "CURRENT_DIR",
+    "DETAILED_SUFFIX",
+    "SINGLE_BASE_SUFFIX",
+    "SUMMARY_SUFFIX",
+    "collect_files",
+    "save_batch_audit",
+    "save_single_audit",
+    "write_json",
+]

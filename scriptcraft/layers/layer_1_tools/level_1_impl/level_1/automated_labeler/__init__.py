@@ -1,10 +1,21 @@
-"""Level 1 automated labeler tool entrypoint + public API."""
+"""Auto-generated package exports."""
 
-from .entrypoint import main
-from .tool import AutomatedLabeler
+
+from .labeling_mode import (
+    DEFAULT_OUTPUT_TEMPLATE,
+    run_labeling_mode,
+)
+
+from .template_mode import (
+    DEFAULT_OUTPUT_NAME,
+    ID_COLUMNS,
+    run_template_mode,
+)
 
 __all__ = [
-    "AutomatedLabeler",
-    "main",
+    "DEFAULT_OUTPUT_NAME",
+    "DEFAULT_OUTPUT_TEMPLATE",
+    "ID_COLUMNS",
+    "run_labeling_mode",
+    "run_template_mode",
 ]
-
