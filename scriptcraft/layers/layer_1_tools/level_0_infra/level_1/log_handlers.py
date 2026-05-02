@@ -1,7 +1,7 @@
 """
 level_2/log_handlers.py
 
-Handler introspection and attachment utilities.
+Handler attachment utilities.
 Depends only on level_0 (handlers.py) and level_1 (logger_config.py).
 
 clear_handlers lives at level_1/logger_config.py — import from there, never re-declare.
@@ -9,27 +9,16 @@ clear_handlers lives at level_1/logger_config.py — import from there, never re
 
 import logging
 from pathlib import Path
-from typing import Dict, Union
+from typing import Union
 
-from layers.layer_1_tools.level_0_infra.level_0.formatter import DEFAULT_LOG_FORMAT, Utf8Formatter
+from layers.layer_1_tools.level_0_infra.level_0.formatter import (
+    DEFAULT_LOG_FORMAT,
+    Utf8Formatter,
+)
 from layers.layer_1_tools.level_0_infra.level_0.handlers import (
     build_file_handler,
     configure_handler,
 )
-
-
-def get_handler_paths() -> Dict[str, Path]:
-    """
-    Return resolved paths of every FileHandler on the root logger.
-
-    Returns:
-        Mapping of resolved path string → Path object.
-    """
-    return {
-        str(Path(h.baseFilename).resolve()): Path(h.baseFilename)
-        for h in logging.getLogger().handlers
-        if isinstance(h, logging.FileHandler)
-    }
 
 
 def add_file_handler(
@@ -40,7 +29,7 @@ def add_file_handler(
 ) -> None:
     """
     Attach a single FileHandler to an existing logger without disturbing
-    its other handlers.  Use setup_logger when you need full initialisation.
+    its other handlers. Use setup_logger when you need full initialisation.
 
     Args:
         logger_name: Target logger name ("root" for root logger).

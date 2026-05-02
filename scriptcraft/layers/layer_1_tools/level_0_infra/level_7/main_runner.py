@@ -8,7 +8,7 @@ duplication across tools.
 Usage:
     # In __main__.py files:
     from scriptcraft.common.cli.main_runner import run_tool_main
-    
+
     if __name__ == "__main__":
         run_tool_main("tool_name", "Tool description")
 """
@@ -26,140 +26,134 @@ from layers.layer_1_tools.level_0_infra.level_6.argument_parsers import ParserFa
 
 class ToolRunner(ABC):
     """Abstract base class for tool runners."""
-    
+
     @abstractmethod
     def create_parser(self) -> argparse.ArgumentParser:
-        """Create the argument parser for this tool."""
         pass
-    
+
     @abstractmethod
     def run_tool(self, args: argparse.Namespace, **kwargs) -> bool:
-        """Run the tool with the given arguments."""
         pass
 
 
 class StandardToolRunner(ToolRunner):
     """Standard tool runner that works with BaseTool subclasses."""
-    
+
     def __init__(self, tool_class: Type[BaseTool], tool_name: str, description: str) -> None:
         self.tool_class = tool_class
         self.tool_name = tool_name
         self.description = description
-    
+        self.logger = setup_logger(tool_name)
+
     def create_parser(self) -> argparse.ArgumentParser:
-        """Create a standard argument parser."""
         parser = ParserFactory.create_tool_parser(self.tool_name, self.description)
-        
-        # Add tool-specific arguments if the tool class has them
-        if hasattr(self.tool_class, 'add_cli_arguments'):
+
+        if hasattr(self.tool_class, "add_cli_arguments"):
             self.tool_class.add_cli_arguments(parser)
-        
+
         return parser
-    
+
     def run_tool(self, args: argparse.Namespace, **kwargs) -> bool:
-        """Run the tool with standard BaseTool interface."""
         try:
-            # Create tool instance with required arguments
-            tool = self.tool_class(name=self.tool_name, description=self.description)
-            
-            # Convert args to kwargs for tool.run()
+            tool = self.tool_class(
+                name=self.tool_name,
+                description=self.description
+            )
+
             tool_kwargs: Dict[str, Any] = vars(args)
-            
-            # Handle special cases
-            if hasattr(args, 'input_paths') and args.input_paths:
-                tool_kwargs['input_paths'] = args.input_paths
-            
-            # Run the tool
+
+            if hasattr(args, "input_paths") and args.input_paths:
+                tool_kwargs["input_paths"] = args.input_paths
+
             tool.run(**tool_kwargs, **kwargs)
+
+            self.logger.info(f"✅ {self.tool_name} completed successfully")
             return True
-            
+
         except Exception as e:
-            setup_logger(f"❌ {self.tool_name} failed: {e}", level="error")
+            self.logger.error(f"❌ {self.tool_name} failed: {e}")
             return False
 
 
 class CustomToolRunner(ToolRunner):
     """Custom tool runner for tools that need special handling."""
-    
-    def __init__(self, create_parser_func: Callable[[], argparse.ArgumentParser], 
-                 run_func: Callable[[argparse.Namespace], bool]) -> None:
+
+    def __init__(
+        self,
+        create_parser_func: Callable[[], argparse.ArgumentParser],
+        run_func: Callable[[argparse.Namespace], bool],
+        tool_name: str = "custom_tool",
+    ) -> None:
         self.create_parser_func = create_parser_func
         self.run_func = run_func
-    
+        self.logger = setup_logger(tool_name)
+
     def create_parser(self) -> argparse.ArgumentParser:
-        """Create parser using the provided function."""
         return self.create_parser_func()
-    
+
     def run_tool(self, args: argparse.Namespace, **kwargs) -> bool:
-        """Run tool using the provided function."""
         try:
-            return self.run_func(args, **kwargs)
+            success = self.run_func(args, **kwargs)
+
+            if success:
+                self.logger.info("✅ Tool completed successfully")
+            else:
+                self.logger.error("❌ Tool failed")
+
+            return success
+
         except Exception as e:
-            setup_logger(f"❌ Tool failed: {e}", level="error")
+            self.logger.error(f"❌ Tool crashed: {e}")
             return False
 
 
-def run_tool_main(tool_name: str, description: str, 
-                  tool_class: Optional[Type[BaseTool]] = None,
-                  create_parser_func: Optional[Callable[[], argparse.ArgumentParser]] = None,
-                  run_func: Optional[Callable[[argparse.Namespace], bool]] = None,
-                  **kwargs) -> int:
+def run_tool_main(
+    tool_name: str,
+    description: str,
+    tool_class: Optional[Type[BaseTool]] = None,
+    create_parser_func: Optional[Callable[[], argparse.ArgumentParser]] = None,
+    run_func: Optional[Callable[[argparse.Namespace], bool]] = None,
+    **kwargs,
+) -> int:
     """
     Main entry point for tool execution.
-    
-    Args:
-        tool_name: Name of the tool
-        description: Tool description
-        tool_class: BaseTool subclass (for standard tools)
-        create_parser_func: Function to create custom parser
-        run_func: Function to run custom tool logic
-        **kwargs: Extra arguments to forward to tool.run()
-    
-    Returns:
-        Exit code (0 for success, 1 for failure)
     """
+
     try:
-        # Create appropriate runner
         if tool_class and issubclass(tool_class, BaseTool):
             runner: ToolRunner = StandardToolRunner(tool_class, tool_name, description)
         elif create_parser_func and run_func:
-            runner = CustomToolRunner(create_parser_func, run_func)
+            runner = CustomToolRunner(create_parser_func, run_func, tool_name)
         else:
-            raise ValueError("Must provide either tool_class or both create_parser_func and run_func")
-        
-        # Create parser and parse arguments
+            raise ValueError(
+                "Must provide either tool_class or both create_parser_func and run_func"
+            )
+
         parser = runner.create_parser()
         args = parser.parse_args()
-        
-        # Set up logging
+
         logger = setup_logger(tool_name)
-        setup_logger(f"🚀 Starting {tool_name}...")
-        
-        # Run the tool (pass extra kwargs)
+        logger.info(f"🚀 Starting {tool_name}")
+
         success = runner.run_tool(args, **kwargs)
-        
-        if success:
-            setup_logger(f"✅ {tool_name} completed successfully")
-            return 0
-        else:
-            setup_logger(f"❌ {tool_name} failed")
-            return 1
-            
+
+        return 0 if success else 1
+
     except KeyboardInterrupt:
-        setup_logger("🛑 Tool interrupted by user")
+        setup_logger("root").warning("🛑 Tool interrupted by user")
         return 1
+
     except Exception as e:
-        setup_logger(f"❌ Fatal error: {e}", level="error")
+        setup_logger("root").error(f"❌ Fatal error: {e}")
         return 1
 
 
-def run_tool_from_cli(tool_name: str, description: str, 
-                     tool_class: Optional[Type[BaseTool]] = None,
-                     **kwargs: Any) -> None:
-    """
-    Convenience function for running tools from CLI.
-    Exits with appropriate code.
-    """
+def run_tool_from_cli(
+    tool_name: str,
+    description: str,
+    tool_class: Optional[Type[BaseTool]] = None,
+    **kwargs: Any,
+) -> None:
     exit_code = run_tool_main(tool_name, description, tool_class, **kwargs)
     sys.exit(exit_code)
 
@@ -167,10 +161,12 @@ def run_tool_from_cli(tool_name: str, description: str,
 # ===== LEGACY SUPPORT =====
 
 def create_standard_parser(tool_name: str, description: str) -> argparse.ArgumentParser:
-    """Create a standard parser for backward compatibility."""
     return ParserFactory.create_tool_parser(tool_name, description)
 
 
-def run_with_standard_args(tool_class: Type[BaseTool], tool_name: str, description: str) -> int:
-    """Run a tool with standard argument parsing for backward compatibility."""
-    return run_tool_main(tool_name, description, tool_class=tool_class) 
+def run_with_standard_args(
+    tool_class: Type[BaseTool],
+    tool_name: str,
+    description: str
+) -> int:
+    return run_tool_main(tool_name, description, tool_class=tool_class)

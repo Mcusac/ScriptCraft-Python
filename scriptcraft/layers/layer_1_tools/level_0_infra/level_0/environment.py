@@ -19,11 +19,13 @@ def detect_environment() -> str:
     if explicit:
         return explicit
 
-    cwd = Path(".")
+    cwd = Path.cwd()
 
+    # Development workspace indicators
     if (cwd / "config.yaml").exists() and (cwd / "implementations").exists():
         return "development"
 
+    # Distributable / production indicators
     distributable_indicators = (
         (cwd / "embed_py311").exists(),
         (cwd / "config.bat").exists(),
@@ -35,5 +37,5 @@ def detect_environment() -> str:
     if any(distributable_indicators):
         return "production"
 
-    # Default: assume development when no distributable markers are present.
+    # Default fallback
     return "development"

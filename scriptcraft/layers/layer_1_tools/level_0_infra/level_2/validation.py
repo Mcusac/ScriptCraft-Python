@@ -16,7 +16,6 @@ from abc import abstractmethod
 from layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
 from layers.layer_1_tools.level_0_infra.level_1.plugin_registry import PluginBase
 
-
 # ==== 🏷️ Validation Result Types ====
 
 @dataclass
@@ -54,11 +53,6 @@ class ColumnValidator(PluginBase):
     def validate_value(self, value: Any, expected_values: str) -> Optional[str]:
         """Validate a single value. Return error message if invalid, else None."""
         pass
-
-
-# Use the unified PluginRegistry from registry.plugin_registry
-from ..registry.plugin_registry import PluginRegistry
-
 
 # ==== 🎨 Validation Utilities ====
 
