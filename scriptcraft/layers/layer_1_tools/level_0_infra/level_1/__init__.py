@@ -12,6 +12,11 @@ from .config_accessors import (
     validate_config,
 )
 
+from .config_loader import (
+    get_config,
+    load_config,
+)
+
 from .data_loading import (
     load_comparison_datasets,
     load_data,
@@ -53,6 +58,8 @@ from .date_utils import (
 
 from .emoji_formatter import EmojiFormatter
 
+from .environment_resolver import EnvironmentResolver
+
 from .expected_values import (
     DATE_KEYWORDS,
     NOTES_COLUMN_NAMES,
@@ -65,15 +72,14 @@ from .expected_values import (
 
 from .framework_schema import FrameworkConfig
 
-from .log_handlers import (
-    add_file_handler,
-    get_handler_paths,
-)
+from .log_handlers import add_file_handler
 
 from .logger_config import (
     clear_handlers,
     setup_logger,
 )
+
+from .logging_controller import LogController
 
 from .logging_formatters import (
     PlainFormatter,
@@ -84,23 +90,15 @@ from .logging_formatters import (
 
 from .merger import merge_workspace_config
 
+from .metadata import (
+    ComponentMetadata,
+    PluginMetadata,
+    ToolMetadata,
+)
+
 from .paths import (
-    COLUMN_ALIASES,
-    DEFAULT_ENCODING,
-    DOMAINS,
-    FALLBACK_ENCODING,
-    FILE_PATTERNS,
-    FOLDER_STRUCTURE,
-    ID_COLUMNS,
-    LOG_LEVEL,
-    MISSING_VALUE_CODES,
-    MISSING_VALUE_STRINGS,
-    OUTPUT_DIR,
-    STANDARD_KEYS,
-    STUDY_NAME,
     get_domain_output_path,
     get_domain_paths,
-    get_legacy_config,
     get_project_root,
     resolve_path,
 )
@@ -124,6 +122,8 @@ from .plugin_registry import (
 
 from .tool_discovery import discover_and_merge_tools
 
+from .tool_dispatcher import dispatch_tool
+
 from .tool_metadata import (
     DistributionType,
     ToolMaturity,
@@ -138,35 +138,26 @@ from .tool_metadata import (
 )
 
 __all__ = [
-    "COLUMN_ALIASES",
+    "ComponentMetadata",
     "DATE_FORMATS",
     "DATE_KEYWORDS",
     "DEFAULT_DATE_FORMAT",
-    "DEFAULT_ENCODING",
     "DEFAULT_SAMPLE_SIZE",
-    "DOMAINS",
     "DateOutputType",
     "DistributionType",
     "EmojiFormatter",
-    "FALLBACK_ENCODING",
-    "FILE_PATTERNS",
-    "FOLDER_STRUCTURE",
+    "EnvironmentResolver",
     "FrameworkConfig",
-    "ID_COLUMNS",
-    "LOG_LEVEL",
+    "LogController",
     "MIN_SAMPLE_SIZE",
-    "MISSING_VALUE_CODES",
-    "MISSING_VALUE_STRINGS",
     "NOTES_COLUMN_NAMES",
-    "OUTPUT_DIR",
     "PipelineExecutor",
     "PlainFormatter",
     "PluginBase",
+    "PluginMetadata",
     "PluginRegistry",
     "QCFormatter",
     "RANGE_KEYWORDS",
-    "STANDARD_KEYS",
-    "STUDY_NAME",
     "TimestampFormatter",
     "ToolMaturity",
     "ToolMetadata",
@@ -182,6 +173,7 @@ __all__ = [
     "discover_all_tool_metadata",
     "discover_and_merge_tools",
     "discover_tool_metadata",
+    "dispatch_tool",
     "display_missing_values",
     "drop_empty_columns",
     "extract_expected_values",
@@ -192,11 +184,10 @@ __all__ = [
     "get_column_letter",
     "get_column_stats",
     "get_common_columns",
+    "get_config",
     "get_distributable_tools",
     "get_domain_output_path",
     "get_domain_paths",
-    "get_handler_paths",
-    "get_legacy_config",
     "get_logging_config",
     "get_path_resolver",
     "get_pipeline_step",
@@ -209,6 +200,7 @@ __all__ = [
     "get_workspace_root",
     "is_date_column",
     "load_comparison_datasets",
+    "load_config",
     "load_data",
     "load_dataset_columns",
     "load_datasets",

@@ -2,7 +2,6 @@
 
 
 from . import (
-    docs,
     level_0,
     level_1,
     level_2,
@@ -12,10 +11,9 @@ from . import (
     level_6,
     level_7,
     level_8,
-    level_Z,
+    level_9,
 )
 
-from .docs import *
 from .level_0 import *
 from .level_1 import *
 from .level_2 import *
@@ -25,11 +23,10 @@ from .level_5 import *
 from .level_6 import *
 from .level_7 import *
 from .level_8 import *
-from .level_Z import *
+from .level_9 import *
 
 __all__ = (
-    list(docs.__all__)
-    + list(level_0.__all__)
+    list(level_0.__all__)
     + list(level_1.__all__)
     + list(level_2.__all__)
     + list(level_3.__all__)
@@ -38,5 +35,5 @@ __all__ = (
     + list(level_6.__all__)
     + list(level_7.__all__)
     + list(level_8.__all__)
-    + list(level_Z.__all__)
+    + list(level_9.__all__)
 )

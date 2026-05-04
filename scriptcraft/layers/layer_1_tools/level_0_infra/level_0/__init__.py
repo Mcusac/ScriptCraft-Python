@@ -2,11 +2,26 @@
 
 
 from .comparison_core import (
-    ComparisonResult,
     CoreDataFrameComparer,
+    DataFrameDiffResult,
 )
 
-from .constants import OutlierMethod
+from .constants import (
+    COLUMN_ALIASES,
+    DEFAULT_ENCODING,
+    FALLBACK_ENCODING,
+    FILE_PATTERNS,
+    MISSING_VALUE_CODES,
+    MISSING_VALUE_STRINGS,
+    OutlierMethod,
+    STANDARD_KEYS,
+)
+
+from .core_types import (
+    ComponentType,
+    DistributionType,
+    ToolMaturity,
+)
 
 from .directory_ops import (
     clean_directory,
@@ -44,12 +59,12 @@ from .handlers import (
     has_handler_type,
 )
 
-from .logging_primitives import (
-    LogConfig,
-    StructuredFormatter,
-)
+from .logging_config_model import LogConfigModel
 
-from .logging_schema import LogConfig
+from .logging_handlers import (
+    create_console_handler,
+    create_file_handler,
+)
 
 from .path_resolver import (
     PathResolver,
@@ -59,6 +74,8 @@ from .path_resolver import (
 )
 
 from .paths_schema import PathConfig
+
+from .structured_formatter import StructuredFormatter
 
 from .typed_plugin_store import get_typed_plugin
 
@@ -71,14 +88,24 @@ from .version import (
 from .workspace_schema import WorkspaceConfig
 
 __all__ = [
-    "ComparisonResult",
+    "COLUMN_ALIASES",
+    "ComponentType",
     "CoreDataFrameComparer",
+    "DEFAULT_ENCODING",
     "DEFAULT_LOG_FORMAT",
-    "LogConfig",
+    "DataFrameDiffResult",
+    "DistributionType",
+    "FALLBACK_ENCODING",
+    "FILE_PATTERNS",
+    "LogConfigModel",
+    "MISSING_VALUE_CODES",
+    "MISSING_VALUE_STRINGS",
     "OutlierMethod",
     "PathConfig",
     "PathResolver",
+    "STANDARD_KEYS",
     "StructuredFormatter",
+    "ToolMaturity",
     "Utf8Formatter",
     "VERSION_INFO",
     "WorkspaceConfig",
@@ -89,6 +116,8 @@ __all__ = [
     "clean_directory",
     "configure_handler",
     "copy_file",
+    "create_console_handler",
+    "create_file_handler",
     "create_path_resolver",
     "detect_environment",
     "ensure_dir",
