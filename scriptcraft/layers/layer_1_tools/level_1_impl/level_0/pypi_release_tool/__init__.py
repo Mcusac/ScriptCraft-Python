@@ -23,14 +23,10 @@ from .runner import (
     stringify_args,
 )
 
-from .tool import (
-    Operation,
-    PyPIReleaseTool,
-)
+from .tool import PyPIReleaseTool
 
 __all__ = [
     "CommandResult",
-    "Operation",
     "PyPIReleaseTool",
     "build_package",
     "build_parser",

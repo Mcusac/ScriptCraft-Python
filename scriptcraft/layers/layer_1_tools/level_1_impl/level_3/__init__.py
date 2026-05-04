@@ -19,6 +19,20 @@ from .git_submodule_tool import *
 from .git_workspace_tool import *
 from .release_manager import *
 
+from .custom_release_script import (
+    CustomReleaseManager,
+    logger,
+)
+
+from .dictionary_driven_checker_validators import (
+    CalculatedFieldValidator,
+    CodedValueValidator,
+    DateValidator,
+    MultiCategoricalValidator,
+    NumericOutlierValidator,
+    PatternValidator,
+)
+
 from .dictionary_validator_main import DictionaryValidator
 
 from .feature_change_checker_main import FeatureChangeChecker
@@ -29,9 +43,10 @@ from .medvisit_integrity_validator_main import (
 )
 
 from .rhq_form_autofiller_main import (
+    Pipeline,
+    RHQContext,
     RHQFormAutofiller,
-    attempt_automatic_login,
-    load_credentials,
+    RHQFormService,
 )
 
 from .schema_detector_main import SchemaDetectorTool
@@ -47,14 +62,23 @@ __all__ = (
     + list(git_workspace_tool.__all__)
     + list(release_manager.__all__)
     + [
+        "CalculatedFieldValidator",
+        "CodedValueValidator",
+        "CustomReleaseManager",
+        "DateValidator",
         "DictionaryValidator",
         "FILENAME_MAP",
         "FeatureChangeChecker",
         "MedVisitIntegrityValidator",
+        "MultiCategoricalValidator",
+        "NumericOutlierValidator",
+        "PatternValidator",
+        "Pipeline",
+        "RHQContext",
         "RHQFormAutofiller",
+        "RHQFormService",
         "SchemaDetectorTool",
         "ScoreTotalsChecker",
-        "attempt_automatic_login",
-        "load_credentials",
+        "logger",
     ]
 )

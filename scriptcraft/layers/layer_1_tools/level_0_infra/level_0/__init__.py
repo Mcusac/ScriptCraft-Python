@@ -75,6 +75,12 @@ from .path_resolver import (
 
 from .paths_schema import PathConfig
 
+from .process_domain_mixins import (
+    DomainFileToolMixin,
+    DomainMappedToolMixin,
+    EngineWrapperToolMixin,
+)
+
 from .structured_formatter import StructuredFormatter
 
 from .typed_plugin_store import get_typed_plugin
@@ -95,6 +101,9 @@ __all__ = [
     "DEFAULT_LOG_FORMAT",
     "DataFrameDiffResult",
     "DistributionType",
+    "DomainFileToolMixin",
+    "DomainMappedToolMixin",
+    "EngineWrapperToolMixin",
     "FALLBACK_ENCODING",
     "FILE_PATTERNS",
     "LogConfigModel",

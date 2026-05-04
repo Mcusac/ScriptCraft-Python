@@ -8,12 +8,12 @@ Follows DRY principles and integrates with existing infrastructure.
 
 from typing import Any
 
-from layers.layer_1_tools.level_2.pipeline_base import BasePipeline, PipelineStep
-from layers.layer_1_tools.level_2.root_schema import Config
+from layers.layer_1_tools.level_0_infra.level_2.pipeline_base import BasePipeline, PipelineStep
+from layers.layer_1_tools.level_0_infra.level_2.root_schema import Config
 
-from layers.layer_1_tools.tools.git_submodule_tool.main import GitSubmoduleTool
-from layers.layer_1_tools.tools.git_workspace_tool.main import GitWorkspaceTool
-from layers.layer_1_tools.tools.pypi_release_tool.main import PyPIReleaseTool
+from layers.layer_1_tools.level_1_impl.level_0.pypi_release_tool.tool import PyPIReleaseTool
+from layers.layer_1_tools.level_1_impl.level_2.git_workspace_tool.tool import GitWorkspaceTool
+from layers.layer_1_tools.level_1_impl.level_3.git_submodule_tool.tool import GitSubmoduleTool
 
 
 class GitPipelineFactory:
@@ -211,24 +211,3 @@ class GitPipelineFactory:
         ))
         
         return pipeline
-
-# Convenience functions for easy pipeline creation
-def create_submodule_sync_pipeline(config: Any = None) -> BasePipeline:
-    """Create a submodule sync pipeline."""
-    return GitPipelineFactory.create_submodule_sync_pipeline(config)
-
-def create_workspace_push_pipeline(config: Any = None) -> BasePipeline:
-    """Create a workspace push pipeline."""
-    return GitPipelineFactory.create_workspace_push_pipeline(config)
-
-def create_full_git_sync_pipeline(config: Any = None) -> BasePipeline:
-    """Create a full Git sync pipeline."""
-    return GitPipelineFactory.create_full_git_sync_pipeline(config)
-
-def create_pypi_test_pipeline(config: Any = None) -> BasePipeline:
-    """Create a PyPI test pipeline."""
-    return GitPipelineFactory.create_pypi_test_pipeline(config)
-
-def create_pypi_release_pipeline(config: Any = None) -> BasePipeline:
-    """Create a PyPI release pipeline."""
-    return GitPipelineFactory.create_pypi_release_pipeline(config)

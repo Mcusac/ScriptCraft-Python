@@ -9,23 +9,23 @@ Provides easy access to release workflows for end users.
 import argparse
 import sys
 
-from layers.layer_1_tools import common as cu
-from layers.layer_1_tools.pipelines.git_pipelines import (
-    create_pypi_test_pipeline,
-    create_pypi_release_pipeline,
-    create_full_git_sync_pipeline
+from layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
+
+from layers.layer_1_tools.level_1_impl.level_0.pypi_release_tool.tool import PyPIReleaseTool
+from layers.layer_1_tools.level_1_impl.level_2.git_workspace_tool.tool import GitWorkspaceTool
+from layers.layer_1_tools.level_1_impl.level_3.git_submodule_tool.tool import GitSubmoduleTool
+from layers.layer_1_tools.level_1_impl.level_4.git_pipelines import (
+    GitPipelineFactory,
 )
-from layers.layer_1_tools.tools.pypi_release_tool.main import PyPIReleaseTool
-from layers.layer_1_tools.tools.git_workspace_tool.main import GitWorkspaceTool
-from layers.layer_1_tools.tools.git_submodule_tool.main import GitSubmoduleTool
+
 
 def pypi_test(args):
     """Run PyPI test workflow."""
-    cu.log_and_print("🧪 Running PyPI test workflow...")
+    log_and_print("🧪 Running PyPI test workflow...")
     
     if args.pipeline:
         # Use pipeline
-        pipeline = create_pypi_test_pipeline()
+        pipeline = GitPipelineFactory.create_pypi_test_pipeline()
         success = pipeline.run()
     else:
         # Use individual tool
@@ -33,18 +33,18 @@ def pypi_test(args):
         success = tool.run(operation="test")
     
     if success:
-        cu.log_and_print("✅ PyPI test completed successfully")
+        log_and_print("✅ PyPI test completed successfully")
     else:
-        cu.log_and_print("❌ PyPI test failed")
+        log_and_print("❌ PyPI test failed")
         sys.exit(1)
 
 def pypi_release(args):
     """Run PyPI release workflow."""
-    cu.log_and_print("🚀 Running PyPI release workflow...")
+    log_and_print("🚀 Running PyPI release workflow...")
     
     if args.pipeline:
         # Use pipeline
-        pipeline = create_pypi_release_pipeline()
+        pipeline = GitPipelineFactory.create_pypi_release_pipeline()
         success = pipeline.run()
     else:
         # Use individual tool
@@ -52,18 +52,18 @@ def pypi_release(args):
         success = tool.run(operation="release")
     
     if success:
-        cu.log_and_print("✅ PyPI release completed successfully")
+        log_and_print("✅ PyPI release completed successfully")
     else:
-        cu.log_and_print("❌ PyPI release failed")
+        log_and_print("❌ PyPI release failed")
         sys.exit(1)
 
 def git_sync(args):
     """Run Git sync workflow."""
-    cu.log_and_print("🔄 Running Git sync workflow...")
+    log_and_print("🔄 Running Git sync workflow...")
     
     if args.pipeline:
         # Use pipeline
-        pipeline = create_full_git_sync_pipeline()
+        pipeline = GitPipelineFactory.create_full_git_sync_pipeline()
         success = pipeline.run()
     else:
         # Use individual tools with full automation
@@ -71,28 +71,28 @@ def git_sync(args):
         workspace_tool = GitWorkspaceTool()
         
         # Step 1: Sync submodules
-        cu.log_and_print("📦 Syncing submodules...")
+        log_and_print("📦 Syncing submodules...")
         submodule_success = submodule_tool.run(operation="sync")
         
         # Step 2: Commit any uncommitted changes
-        cu.log_and_print("💾 Committing any uncommitted changes...")
+        log_and_print("💾 Committing any uncommitted changes...")
         commit_success = workspace_tool.run(operation="commit", message="🤖 Auto-commit: Automated sync")
         
         # Step 3: Push workspace
-        cu.log_and_print("📤 Pushing workspace...")
+        log_and_print("📤 Pushing workspace...")
         push_success = workspace_tool.run(operation="push")
         
         success = submodule_success and commit_success and push_success
     
     if success:
-        cu.log_and_print("✅ Git sync completed successfully")
+        log_and_print("✅ Git sync completed successfully")
     else:
-        cu.log_and_print("❌ Git sync failed")
+        log_and_print("❌ Git sync failed")
         sys.exit(1)
 
 def git_status(args):
     """Check Git status."""
-    cu.log_and_print("🔍 Checking Git status...")
+    log_and_print("🔍 Checking Git status...")
     
     tool = GitWorkspaceTool()
     success = tool.run(operation="status")
@@ -102,27 +102,27 @@ def git_status(args):
 
 def full_release(args):
     """Run full release workflow (PyPI + Git)."""
-    cu.log_and_print("🎯 Running full release workflow...")
+    log_and_print("🎯 Running full release workflow...")
     
     # Step 1: PyPI test
-    cu.log_and_print("Step 1: PyPI test...")
+    log_and_print("Step 1: PyPI test...")
     if not PyPIReleaseTool().run(operation="test"):
-        cu.log_and_print("❌ PyPI test failed, aborting release")
+        log_and_print("❌ PyPI test failed, aborting release")
         sys.exit(1)
     
     # Step 2: PyPI release
-    cu.log_and_print("Step 2: PyPI release...")
+    log_and_print("Step 2: PyPI release...")
     if not PyPIReleaseTool().run(operation="release"):
-        cu.log_and_print("❌ PyPI release failed, aborting release")
+        log_and_print("❌ PyPI release failed, aborting release")
         sys.exit(1)
     
     # Step 3: Git sync
-    cu.log_and_print("Step 3: Git sync...")
-    if not create_full_git_sync_pipeline().run():
-        cu.log_and_print("❌ Git sync failed")
+    log_and_print("Step 3: Git sync...")
+    if not GitPipelineFactory.create_full_git_sync_pipeline().run():
+        log_and_print("❌ Git sync failed")
         sys.exit(1)
     
-    cu.log_and_print("🎉 Full release completed successfully!")
+    log_and_print("🎉 Full release completed successfully!")
 
 def main():
     """Main CLI entry point."""
@@ -177,10 +177,10 @@ Examples:
     try:
         args.func(args)
     except KeyboardInterrupt:
-        cu.log_and_print("\n⚠️ Operation cancelled by user")
+        log_and_print("\n⚠️ Operation cancelled by user")
         sys.exit(1)
     except Exception as e:
-        cu.log_and_print(f"❌ Unexpected error: {e}", level="error")
+        log_and_print(f"❌ Unexpected error: {e}", level="error")
         sys.exit(1)
 
 if __name__ == "__main__":

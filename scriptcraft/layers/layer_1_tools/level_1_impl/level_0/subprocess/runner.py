@@ -5,15 +5,14 @@ We centralize encoding/env handling here to avoid Windows Unicode decode issues
 and to keep command execution behavior consistent across tools.
 """
 
-from __future__ import annotations
-
 import os
 import subprocess
+
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional
 
-from layers.layer_1_tools.level_0_infra.level_0.logging_core import log_and_print
+from layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
 
 
 @dataclass(frozen=True)

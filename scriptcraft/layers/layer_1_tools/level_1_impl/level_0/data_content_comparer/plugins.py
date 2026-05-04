@@ -1,40 +1,22 @@
+from typing import Callable, Dict
 
-import importlib.util
-from pathlib import Path
-from typing import Callable, Optional
+from layers.layer_1_tools.level_1_impl.level_0.data_content_comparer_plugins.rhq_mode import run_mode as rhq_mode
+from layers.layer_1_tools.level_1_impl.level_0.data_content_comparer_plugins.standard_mode import run_mode as standard_mode
+from layers.layer_1_tools.level_1_impl.level_0.data_content_comparer_plugins.release_consistency_mode import run_mode as release_consistency_mode
+from layers.layer_1_tools.level_1_impl.level_0.data_content_comparer_plugins.domain_old_vs_new_mode import run_mode as domain_old_vs_new_mode
 
-from layers.layer_1_tools.level_0_infra.level_0.logging_core import log_and_print
+
+MODE_REGISTRY: Dict[str, Callable] = {
+    "rhq": rhq_mode,
+    "standard": standard_mode,
+    "release_consistency": release_consistency_mode,
+    "domain_old_vs_new": domain_old_vs_new_mode,
+}
 
 
-def load_mode(mode_name: str, *, plugins_dir: Optional[Path] = None) -> Optional[Callable]:
-    """Dynamically load a mode plugin from a `plugins/` directory."""
+def get_mode(mode_name: str) -> Callable:
+    """Return a mode execution function."""
     try:
-        base_dir = plugins_dir or (Path(__file__).resolve().parent / "plugins")
-        plugin_file = base_dir / f"{mode_name}.py"
-
-        if not plugin_file.exists():
-            log_and_print(f"❌ Mode file '{plugin_file}' not found.")
-            return None
-
-        spec = importlib.util.spec_from_file_location(mode_name, plugin_file)
-        if spec is None:
-            log_and_print(f"❌ Failed to create spec for '{plugin_file}'")
-            return None
-
-        module = importlib.util.module_from_spec(spec)
-        if spec.loader is None:
-            log_and_print(f"❌ Failed to get loader for '{plugin_file}'")
-            return None
-
-        spec.loader.exec_module(module)
-
-        if hasattr(module, "run_mode"):
-            return getattr(module, "run_mode")
-
-        log_and_print(f"❌ Mode '{mode_name}' exists but does not define a 'run_mode()' function.")
-        return None
-
-    except Exception as e:
-        log_and_print(f"❌ Failed to load mode '{mode_name}': {e}")
-        return None
-
+        return MODE_REGISTRY[mode_name]
+    except KeyError:
+        raise ValueError(f"Unknown mode: {mode_name}. Available: {list(MODE_REGISTRY.keys())}")

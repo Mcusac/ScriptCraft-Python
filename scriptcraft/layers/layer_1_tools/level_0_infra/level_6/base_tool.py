@@ -164,7 +164,7 @@ class BaseTool(ABC):
 
     # ===== UTILITIES =====
 
-    def compare_dataframes(
+    def shallow_compare_dataframes(
         self,
         df1: pd.DataFrame,
         df2: pd.DataFrame,

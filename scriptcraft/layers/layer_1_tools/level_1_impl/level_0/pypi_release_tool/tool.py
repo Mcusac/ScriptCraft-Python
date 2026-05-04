@@ -1,8 +1,6 @@
-from __future__ import annotations
-
 from typing import Literal
 
-from layers.layer_1_tools.level_0_infra.level_0.logging_core import log_and_print
+from layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
 from layers.layer_1_tools.level_0_infra.level_6.base_tool import BaseTool
 
 from .ops_build import build_package
@@ -10,7 +8,7 @@ from .ops_upload import upload_pypi, upload_testpypi
 from .ops_validate import validate_package
 
 
-Operation = Literal["test", "release", "validate", "build"]
+_Operation = Literal["test", "release", "validate", "build"]
 
 
 class PyPIReleaseTool(BaseTool):
@@ -22,7 +20,7 @@ class PyPIReleaseTool(BaseTool):
             description="Handles PyPI testing and release operations",
         )
 
-    def run(self, operation: Operation = "test", **kwargs) -> bool:
+    def run(self, operation: _Operation = "test", **kwargs) -> bool:
         log_and_print(f"🚀 Starting PyPI {operation} operation...")
 
         if operation == "test":
