@@ -2,13 +2,27 @@
 
 
 from .runner import (
-    RunResult,
+    ProcessResult,
+    python_file_args,
+    python_module_args,
+    run,
     run_ok,
+    run_shell,
+    run_shell_ok,
+    run_shell_str,
     run_str,
+    stringify_args,
 )
 
 __all__ = [
-    "RunResult",
+    "ProcessResult",
+    "python_file_args",
+    "python_module_args",
+    "run",
     "run_ok",
+    "run_shell",
+    "run_shell_ok",
+    "run_shell_str",
     "run_str",
+    "stringify_args",
 ]

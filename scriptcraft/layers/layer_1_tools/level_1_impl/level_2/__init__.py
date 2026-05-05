@@ -8,9 +8,10 @@ from . import (
     dictionary_workflow,
     function_auditor,
     generic_release_tool,
-    git_submodule_tool,
     git_workspace_tool,
+    pypi_release_tool,
     release_manager,
+    schema_detector,
 )
 
 from .automated_labeler import *
@@ -19,9 +20,10 @@ from .dictionary_cleaner import *
 from .dictionary_workflow import *
 from .function_auditor import *
 from .generic_release_tool import *
-from .git_submodule_tool import *
 from .git_workspace_tool import *
+from .pypi_release_tool import *
 from .release_manager import *
+from .schema_detector import *
 
 from .rhq_flow import (
     handle_login,
@@ -51,9 +53,10 @@ __all__ = (
     + list(dictionary_workflow.__all__)
     + list(function_auditor.__all__)
     + list(generic_release_tool.__all__)
-    + list(git_submodule_tool.__all__)
     + list(git_workspace_tool.__all__)
+    + list(pypi_release_tool.__all__)
     + list(release_manager.__all__)
+    + list(schema_detector.__all__)
     + [
         "ToolRegistry",
         "dispatch_tool",

@@ -8,6 +8,7 @@ from . import (
     generic_release_tool,
     git_submodule_tool,
     git_workspace_tool,
+    pypi_release_tool,
     release_manager,
 )
 
@@ -17,6 +18,7 @@ from .function_auditor import *
 from .generic_release_tool import *
 from .git_submodule_tool import *
 from .git_workspace_tool import *
+from .pypi_release_tool import *
 from .release_manager import *
 
 from .custom_release_script import (
@@ -60,6 +62,7 @@ __all__ = (
     + list(generic_release_tool.__all__)
     + list(git_submodule_tool.__all__)
     + list(git_workspace_tool.__all__)
+    + list(pypi_release_tool.__all__)
     + list(release_manager.__all__)
     + [
         "CalculatedFieldValidator",

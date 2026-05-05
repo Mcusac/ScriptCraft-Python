@@ -1,13 +1,21 @@
 """Auto-generated package exports."""
 
 
-from .auditor import FunctionAuditor
+from .funtion_extractor import FunctionExtractor
+
+from .language_config import LanguageConfig
+
+from .language_detector import LanguageDetector
 
 from .languages import (
     DEFAULT_EXTENSION,
     LANGUAGE_EXTENSIONS,
     extension_for_language,
 )
+
+from .project_root import ProjectRootFinder
+
+from .reporter import AuditorReporter
 
 from .types import (
     AuditResult,
@@ -16,13 +24,20 @@ from .types import (
     InputPaths,
 )
 
+from .usage_searcher import UsageSearcher
+
 __all__ = [
     "AuditResult",
+    "AuditorReporter",
     "BatchResults",
     "DEFAULT_EXTENSION",
-    "FunctionAuditor",
+    "FunctionExtractor",
     "InputPath",
     "InputPaths",
     "LANGUAGE_EXTENSIONS",
+    "LanguageConfig",
+    "LanguageDetector",
+    "ProjectRootFinder",
+    "UsageSearcher",
     "extension_for_language",
 ]

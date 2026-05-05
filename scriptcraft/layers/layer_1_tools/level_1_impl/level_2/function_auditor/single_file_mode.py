@@ -2,10 +2,10 @@
 
 from pathlib import Path
 
-from layers.layer_1_tools.level_0_infra.level_0.logging_core import log_and_print
-from layers.layer_1_tools.level_1_impl.level_0.function_auditor import FunctionAuditor
+from layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
 
 from layers.layer_1_tools.level_1_impl.level_0.function_auditor.types import InputPath
+from layers.layer_1_tools.level_1_impl.level_1.function_auditor.auditor import FunctionAuditor
 from layers.layer_1_tools.level_1_impl.level_1.function_auditor.persistence import save_single_audit
 
 

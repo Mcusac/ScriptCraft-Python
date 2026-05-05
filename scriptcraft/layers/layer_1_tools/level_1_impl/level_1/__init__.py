@@ -11,8 +11,12 @@ from . import (
     function_auditor,
     generic_release_tool,
     git,
+    git_submodule_tool,
+    git_workspace_tool,
+    pypi_release_tool,
     release_manager,
     release_manager_plugins,
+    schema_detector,
 )
 
 from .automated_labeler import *
@@ -24,8 +28,12 @@ from .dictionary_workflow import *
 from .function_auditor import *
 from .generic_release_tool import *
 from .git import *
+from .git_submodule_tool import *
+from .git_workspace_tool import *
+from .pypi_release_tool import *
 from .release_manager import *
 from .release_manager_plugins import *
+from .schema_detector import *
 
 from .compare_columns import compare_columns
 
@@ -55,8 +63,12 @@ __all__ = (
     + list(function_auditor.__all__)
     + list(generic_release_tool.__all__)
     + list(git.__all__)
+    + list(git_submodule_tool.__all__)
+    + list(git_workspace_tool.__all__)
+    + list(pypi_release_tool.__all__)
     + list(release_manager.__all__)
     + list(release_manager_plugins.__all__)
+    + list(schema_detector.__all__)
     + [
         "attempt_automatic_login",
         "compare_columns",

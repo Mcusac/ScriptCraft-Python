@@ -15,9 +15,7 @@ from . import (
     function_auditor,
     generic_release_tool,
     git_submodule_tool,
-    git_workspace_tool,
     main_common,
-    pypi_release_tool,
     release_manager,
     release_manager_plugins,
     rhq,
@@ -43,9 +41,7 @@ from .feature_change_checker import *
 from .function_auditor import *
 from .generic_release_tool import *
 from .git_submodule_tool import *
-from .git_workspace_tool import *
 from .main_common import *
-from .pypi_release_tool import *
 from .release_manager import *
 from .release_manager_plugins import *
 from .rhq import *
@@ -58,6 +54,11 @@ from .tooling import *
 from .versioning import *
 
 from .env_base import import_module_dual
+
+from .git_service import (
+    GitResult,
+    GitService,
+)
 
 from .plugins import initialize_plugins
 
@@ -75,9 +76,7 @@ __all__ = (
     + list(function_auditor.__all__)
     + list(generic_release_tool.__all__)
     + list(git_submodule_tool.__all__)
-    + list(git_workspace_tool.__all__)
     + list(main_common.__all__)
-    + list(pypi_release_tool.__all__)
     + list(release_manager.__all__)
     + list(release_manager_plugins.__all__)
     + list(rhq.__all__)
@@ -89,6 +88,8 @@ __all__ = (
     + list(tooling.__all__)
     + list(versioning.__all__)
     + [
+        "GitResult",
+        "GitService",
         "import_module_dual",
         "initialize_plugins",
     ]

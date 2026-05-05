@@ -7,7 +7,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Callable, Dict, Optional
 
-from layers.layer_1_tools.level_0_infra.level_0.logging_core import log_and_print
+from layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
 from layers.layer_1_tools.level_0_infra.level_6.base_tool import BaseTool
 
 from layers.layer_1_tools.level_1_impl.level_1.generic_release_tool.pipelines import (

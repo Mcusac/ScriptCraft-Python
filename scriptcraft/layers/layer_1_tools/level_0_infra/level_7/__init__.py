@@ -1,6 +1,8 @@
 """Auto-generated package exports."""
 
 
+from .base_tool import BaseTool
+
 from .discovery import ToolDiscoveryEngine
 
 from .main_runner import (
@@ -14,6 +16,7 @@ from .main_runner import (
 )
 
 __all__ = [
+    "BaseTool",
     "CustomToolRunner",
     "StandardToolRunner",
     "ToolDiscoveryEngine",

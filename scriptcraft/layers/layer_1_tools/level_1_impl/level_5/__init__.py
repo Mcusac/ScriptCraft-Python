@@ -1,9 +1,13 @@
 """Auto-generated mixed exports."""
 
 
-from . import dictionary_cleaner
+from . import (
+    dictionary_cleaner,
+    function_auditor,
+)
 
 from .dictionary_cleaner import *
+from .function_auditor import *
 
 from .development_usage import (
     example_1_cli_approach,
@@ -23,6 +27,7 @@ from .release_cli import (
 
 __all__ = (
     list(dictionary_cleaner.__all__)
+    + list(function_auditor.__all__)
     + [
         "example_1_cli_approach",
         "example_2_pipeline_approach",
