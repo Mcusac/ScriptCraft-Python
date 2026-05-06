@@ -46,18 +46,18 @@ _ensure_pkg(
     _SCRIPTS / "layers" / "layer_2_devtools" / "level_0_infra" / "level_0",
 )
 
-from layers.layer_2_devtools.level_0_infra.level_0.models.dead_symbol_config import (  # noqa: E402
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.models.dead_symbol_config import (  # noqa: E402
     DeadSymbolConfig,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.parse.ast.symbol_definition_index import (  # noqa: E402
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.parse.ast.symbol_definition_index import (  # noqa: E402
     DefinitionIndexBuilder,
     DefinitionIndexOptions,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.parse.ast.symbol_reference_index import (  # noqa: E402
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.parse.ast.symbol_reference_index import (  # noqa: E402
     ReferenceIndexBuilder,
     ReferenceIndexOptions,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.path.workspace import (  # noqa: E402
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.path.workspace import (  # noqa: E402
     resolve_workspace_root,
 )
 

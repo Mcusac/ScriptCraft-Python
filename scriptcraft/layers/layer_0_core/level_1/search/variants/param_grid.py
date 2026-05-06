@@ -4,7 +4,7 @@ Generic parameter grid resolution.
 
 from typing import Any, Dict, List
 
-from layers.layer_0_core.level_0 import ConfigValidationError, get_logger
+from scriptcraft.layers.layer_0_core.level_0 import ConfigValidationError, get_logger
 
 _logger = get_logger(__name__)
 

@@ -18,15 +18,15 @@ _SCRIPTS_ROOT = Path(__file__).resolve().parents[3]
 if str(_SCRIPTS_ROOT) not in sys.path:
     sys.path.insert(0, str(_SCRIPTS_ROOT))
 
-from layers.layer_2_devtools.level_0_infra.level_0.contracts.envelope import err, ok
-from layers.layer_2_devtools.level_0_infra.level_0.fix.import_fix_strategies import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.contracts.envelope import err, ok
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.fix.import_fix_strategies import (
     FixOptions,
     build_edit_operations_for_tree,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.fix.import_rewrite_engine import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.fix.import_rewrite_engine import (
     apply_edit_operations,
 )
-from layers.layer_2_devtools.level_1_impl.level_1.api_maintenance import (
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_1.api_maintenance import (
     run_verify_imports_cli_api,
 )
 

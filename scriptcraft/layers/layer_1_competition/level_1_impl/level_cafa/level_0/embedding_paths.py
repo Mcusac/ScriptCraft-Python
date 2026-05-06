@@ -3,7 +3,7 @@
 from pathlib import Path
 from typing import Optional
 
-from layers.layer_0_core.level_0 import (
+from scriptcraft.layers.layer_0_core.level_0 import (
     get_logger,
     is_kaggle_input,
     normalize_embedding_type,

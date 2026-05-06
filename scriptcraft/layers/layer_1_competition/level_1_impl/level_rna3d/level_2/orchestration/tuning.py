@@ -7,16 +7,16 @@ from dataclasses import asdict
 from pathlib import Path
 from typing import Dict, List, Optional
 
-from layers.layer_0_core.level_0 import ensure_dir, get_logger
+from scriptcraft.layers.layer_0_core.level_0 import ensure_dir, get_logger
 
-from layers.layer_1_competition.level_1_impl.level_rna3d.level_0 import RNA3DPaths
-from layers.layer_1_competition.level_1_impl.level_rna3d.level_1 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_rna3d.level_0 import RNA3DPaths
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_rna3d.level_1 import (
     BaselineApproxConfig,
     evaluate_predictions_tm,
     run_baseline_approx_predictions,
 )
-from layers.layer_0_core.level_4 import save_json
-from layers.layer_1_competition.level_0_infra.level_0 import contest_models_dir
+from scriptcraft.layers.layer_0_core.level_4 import save_json
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import contest_models_dir
 
 _logger = get_logger(__name__)
 

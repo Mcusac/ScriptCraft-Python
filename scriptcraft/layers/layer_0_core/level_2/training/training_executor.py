@@ -2,8 +2,8 @@
 
 from typing import Any, Tuple
 
-from layers.layer_0_core.level_0 import get_logger, get_torch
-from layers.layer_0_core.level_1 import train_one_epoch, run_supervised_batch
+from scriptcraft.layers.layer_0_core.level_0 import get_logger, get_torch
+from scriptcraft.layers.layer_0_core.level_1 import train_one_epoch, run_supervised_batch
 
 _torch = get_torch()
 _nn = _torch.nn

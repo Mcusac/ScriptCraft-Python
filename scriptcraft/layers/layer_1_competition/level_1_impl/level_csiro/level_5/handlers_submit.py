@@ -2,11 +2,11 @@
 
 import argparse
 
-from layers.layer_1_competition.level_0_infra.level_1 import resolve_data_root_from_args
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1 import resolve_data_root_from_args
 
-from layers.layer_1_competition.level_1_impl.level_csiro.level_0 import resolve_dataset_type
-from layers.layer_1_competition.level_1_impl.level_csiro.level_2 import submit_lightweight_pipeline
-from layers.layer_1_competition.level_1_impl.level_csiro.level_4 import get_grid_search_context
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_csiro.level_0 import resolve_dataset_type
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_csiro.level_2 import submit_lightweight_pipeline
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_csiro.level_4 import get_grid_search_context
 
 
 def handle_submit(args: argparse.Namespace) -> None:

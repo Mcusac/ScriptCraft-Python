@@ -3,8 +3,8 @@
 import ast
 from pathlib import Path
 
-from layers.layer_2_devtools.level_0_infra.level_0.models.audit_models import FileReport, Violation
-from layers.layer_2_devtools.level_0_infra.level_0.parse.ast.ast_utils import parse_file
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.models.audit_models import FileReport, Violation
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.parse.ast.ast_utils import parse_file
 
 
 def scan_special_tree_file(path: Path) -> FileReport:

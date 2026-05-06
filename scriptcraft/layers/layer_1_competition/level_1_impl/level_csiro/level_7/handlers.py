@@ -10,19 +10,19 @@ import argparse
 
 from typing import Any, Callable, Dict
 
-from layers.layer_1_competition.level_0_infra.level_0 import (
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import (
     add_grid_search_parsers,
     add_training_parsers,
     add_ensemble_parsers,
     add_submission_parsers,
 )
 
-from layers.layer_1_competition.level_1_impl.level_csiro.level_0 import add_common_args
-from layers.layer_1_competition.level_1_impl.level_csiro.level_4 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_csiro.level_0 import add_common_args
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_csiro.level_4 import (
     handle_csiro_ensemble,
     handle_regression_ensemble,
 )
-from layers.layer_1_competition.level_1_impl.level_csiro.level_5 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_csiro.level_5 import (
     handle_cleanup_grid_search,
     handle_dataset_grid_search,
     handle_export_model,

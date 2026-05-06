@@ -1,8 +1,8 @@
 """CLI/pipeline entrypoint for the dictionary cleaner tool."""
 
-from layers.layer_1_tools.level_1_impl.level_0.main_common import create_entrypoint_main
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_0.main_common import create_entrypoint_main
 
-from layers.layer_1_tools.level_1_impl.level_5.dictionary_cleaner.tool import DictionaryCleaner
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_5.dictionary_cleaner.tool import DictionaryCleaner
 
 
 main = create_entrypoint_main(

@@ -4,8 +4,8 @@ import logging
 from pathlib import Path
 from typing import Union
 
-from layers.layer_1_tools.level_0_infra.level_0.logging_config_model import LogConfigModel
-from layers.layer_1_tools.level_0_infra.level_0.structured_formatter import StructuredFormatter
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.logging_config_model import LogConfigModel
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.structured_formatter import StructuredFormatter
 
 
 class LogController:

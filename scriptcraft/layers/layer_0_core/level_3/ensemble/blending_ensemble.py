@@ -5,8 +5,8 @@ import numpy as np
 from scipy.optimize import minimize  # no project-level lazy loader for scipy
 from typing import List, Optional
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_2 import (
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_2 import (
     geometric_mean,
     get_linear_regression,
     get_ridge,

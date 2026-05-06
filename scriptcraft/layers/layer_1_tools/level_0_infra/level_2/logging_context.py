@@ -11,7 +11,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any, Callable, Dict, Generator, Optional, TypeVar, Union
 
-from layers.layer_1_tools.level_0_infra.level_1.logger_config import setup_logger
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_1.logger_config import setup_logger
 
 T = TypeVar("T")
 

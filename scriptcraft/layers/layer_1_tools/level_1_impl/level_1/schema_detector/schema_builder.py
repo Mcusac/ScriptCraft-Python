@@ -1,6 +1,6 @@
 from typing import List
 
-from layers.layer_1_tools.level_1_impl.level_0.schema_detector.models import ColumnInfo, TableSchema
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_0.schema_detector.models import ColumnInfo, TableSchema
 
 
 class SchemaBuilder:

@@ -5,8 +5,8 @@ import pandas as pd
 from typing import Dict, Any, Optional, Tuple, Type
 from Bio import SeqIO
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_1 import normalize_protein_id
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_1 import normalize_protein_id
 
 _logger = get_logger(__name__)
 

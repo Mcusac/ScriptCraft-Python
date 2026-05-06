@@ -1,22 +1,23 @@
 """
-Package root version shim.
+Version information for ScriptCraft.
 
-`scriptcraft.layers.layer_1_tools.level_0_infra.level_0.version` remains the single source of
-truth; this module exists to support conventional `scriptcraft.__version__`
-imports.
+This is the single source of truth for version information.
+All other files should import from here to maintain DRY principles.
 """
 
-from layers.layer_1_tools.level_0_infra.level_0.version import (  # noqa: F401
-    __author__,
-    __version__,
-    get_version,
-    get_version_info,
-)
+__version__ = "1.6.3"
+__author__ = "ScriptCraft Team"
 
-__all__ = [
-    "__author__",
-    "__version__",
-    "get_version",
-    "get_version_info",
-]
+# Parse version components from the version string
+VERSION_MAJOR, VERSION_MINOR, VERSION_PATCH = map(int, __version__.split('.'))
 
+# Version info tuple
+VERSION_INFO = (VERSION_MAJOR, VERSION_MINOR, VERSION_PATCH)
+
+def get_version() -> str:
+    """Get the version string."""
+    return __version__
+
+def get_version_info() -> tuple:
+    """Get the version as a tuple of integers."""
+    return VERSION_INFO 

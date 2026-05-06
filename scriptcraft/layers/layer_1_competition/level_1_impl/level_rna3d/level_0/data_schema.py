@@ -3,7 +3,7 @@
 from dataclasses import dataclass
 from typing import List
 
-from layers.layer_1_competition.level_0_infra.level_0 import ContestDataSchema
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import ContestDataSchema
 
 
 def build_coordinate_columns(n_structures: int = 5) -> List[str]:

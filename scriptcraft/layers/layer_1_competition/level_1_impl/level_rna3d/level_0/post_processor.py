@@ -4,7 +4,7 @@ Primary requirement from the dataset description: x/y/z coordinates are clipped 
 [-999.999, 9999.999] before scoring (competition PDB-style coordinate range).
 """
 
-from layers.layer_1_competition.level_0_infra.level_0 import ClipRangePostProcessor
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import ClipRangePostProcessor
 
 
 class RNA3DPostProcessor(ClipRangePostProcessor):

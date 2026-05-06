@@ -5,11 +5,11 @@ import re
 from datetime import date
 from pathlib import Path
 
-from layers.layer_2_devtools.level_0_infra.level_0.models.audit_models import FileReport, Violation
-from layers.layer_2_devtools.level_0_infra.level_0.constants.import_patterns import LEVEL_DIR_RE
-from layers.layer_2_devtools.level_0_infra.level_0.path.level_paths import file_level_from_path
-from layers.layer_2_devtools.level_0_infra.level_0.parse.ast.ast_utils import parse_file
-from layers.layer_2_devtools.level_0_infra.level_0.validation.import_rules.general_rules import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.models.audit_models import FileReport, Violation
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.constants.import_patterns import LEVEL_DIR_RE
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.path.level_paths import file_level_from_path
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.parse.ast.ast_utils import parse_file
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.validation.import_rules.general_rules import (
     classify_general_import_from,
     has_deep_level_path,
 )
@@ -54,7 +54,7 @@ def scan_general_stack_file(path: Path, scripts_dir: Path) -> FileReport:
                     line,
                     f"from {module_name} import {names} — with explicit "
                     f"`{_LAYER0_CORE_PREFIX}...` imports in this file, use "
-                    f"`from layers.layer_0_core.{module_name} import ...` "
+                    f"`from scriptcraft.layers.layer_0_core.{module_name} import ...` "
                     f"(python-import-surfaces.mdc: framework-core explicit imports).",
                     file_level=current_level,
                 )
@@ -86,7 +86,7 @@ def scan_general_stack_file(path: Path, scripts_dir: Path) -> FileReport:
 
 
 def _file_uses_explicit_layer0_core(tree: ast.Module) -> bool:
-    """True if the module has any ``from layers.layer_0_core.... import``."""
+    """True if the module has any ``from scriptcraft.layers.layer_0_core.... import``."""
     for node in ast.walk(tree):
         if (
             isinstance(node, ast.ImportFrom)

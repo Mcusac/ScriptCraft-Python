@@ -13,22 +13,22 @@ Orchestrates training and export. Split into focused modules:
 from pathlib import Path
 from typing import Optional
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_1 import resolve_environment_path
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_1 import resolve_environment_path
 
-from layers.layer_1_competition.level_0_infra.level_1 import (
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1 import (
     get_data_root_path,
 )
 
-from layers.layer_1_competition.level_1_impl.level_csiro.level_0 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_csiro.level_0 import (
     export_trained_model,
     handle_export_only_mode,
     setup_contest_config,
 )
-from layers.layer_1_competition.level_1_impl.level_csiro.level_2 import train_end_to_end_model
-from layers.layer_1_competition.level_1_impl.level_csiro.level_3 import save_regression_training_result
-from layers.layer_1_competition.level_1_impl.level_csiro.level_4 import setup_feature_extraction_mode
-from layers.layer_1_competition.level_1_impl.level_csiro.level_5 import train_feature_extraction_model
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_csiro.level_2 import train_end_to_end_model
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_csiro.level_3 import save_regression_training_result
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_csiro.level_4 import setup_feature_extraction_mode
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_csiro.level_5 import train_feature_extraction_model
 
 _logger = get_logger(__name__)
 

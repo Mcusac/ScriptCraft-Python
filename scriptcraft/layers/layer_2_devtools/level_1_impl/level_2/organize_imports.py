@@ -16,9 +16,9 @@ _SCRIPTS_ROOT = Path(__file__).resolve().parents[3]
 if str(_SCRIPTS_ROOT) not in sys.path:
     sys.path.insert(0, str(_SCRIPTS_ROOT))
 
-from layers.layer_2_devtools.level_0_infra.level_0.contracts.envelope import err
-from layers.layer_2_devtools.level_0_infra.level_0.contracts.envelope import ok
-from layers.layer_2_devtools.level_1_impl.level_1.api_maintenance import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.contracts.envelope import err
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.contracts.envelope import ok
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_1.api_maintenance import (
     run_import_organizer_cli_api,
 )
 

@@ -14,7 +14,7 @@ _SCRIPTS_ROOT = _SCRIPT_DIR.parents[3]
 if str(_SCRIPTS_ROOT) not in sys.path:
     sys.path.insert(0, str(_SCRIPTS_ROOT))
 
-from layers.layer_2_devtools.level_1_impl.level_1.api_import_probe import (
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_1.api_import_probe import (
     run_import_test_suite_cli_api,
 )
 

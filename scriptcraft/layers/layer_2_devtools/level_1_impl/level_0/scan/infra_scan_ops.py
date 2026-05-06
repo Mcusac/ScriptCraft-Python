@@ -3,15 +3,15 @@
 import ast
 from pathlib import Path
 
-from layers.layer_2_devtools.level_0_infra.level_0.constants.import_patterns import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.constants.import_patterns import (
     DEEP_LEVEL_RE,
     INFRA_LAYER_IMPORT_RE,
     LEVEL_DIR_RE,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.models.audit_models import FileReport, Violation
-from layers.layer_2_devtools.level_0_infra.level_0.parse.ast.ast_utils import parse_file
-from layers.layer_2_devtools.level_0_infra.level_0.parse.barrel_names import load_static_barrel_names
-from layers.layer_2_devtools.level_0_infra.level_0.path.level_paths import infra_tier_from_level_dir
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.models.audit_models import FileReport, Violation
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.parse.ast.ast_utils import parse_file
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.parse.barrel_names import load_static_barrel_names
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.path.level_paths import infra_tier_from_level_dir
 
 
 def _find_level_0_infra_root(path: Path) -> Path | None:
@@ -111,7 +111,7 @@ def _infra_barrel_deep_violation(
         "INFRA_BARREL_DEEP",
         line,
         f"{module_name!r} import {name!r} — prefer "
-        f"from layers.layer_1_competition.level_0_infra.level_{import_tier} import {name!r} "
+        f"from scriptcraft.layers.layer_1_competition.level_0_infra.level_{import_tier} import {name!r} "
         f"when re-exported at package root (heuristic; verify dynamic __all__)",
     )
 

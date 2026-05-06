@@ -2,9 +2,9 @@
 
 from typing import Any, Dict, Optional
 
-from layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
 
-from layers.layer_1_competition.level_1_impl.level_csiro.level_1 import train_pipeline
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_csiro.level_1 import train_pipeline
 
 _logger = get_logger(__name__)
 

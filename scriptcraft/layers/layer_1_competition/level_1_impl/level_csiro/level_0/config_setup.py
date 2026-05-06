@@ -2,8 +2,8 @@
 
 from typing import Optional
 
-from layers.layer_1_competition.level_0_infra.level_0 import get_pretrained_weights_path
-from layers.layer_1_competition.level_0_infra.level_1 import get_contest
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import get_pretrained_weights_path
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1 import get_contest
 
 
 def setup_contest_config(

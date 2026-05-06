@@ -7,7 +7,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Sequence
 
-from layers.layer_2_devtools.level_0_infra.level_0.fix.text_span_rewrite_engine import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.fix.text_span_rewrite_engine import (
     SpanEditOperation,
 )
 

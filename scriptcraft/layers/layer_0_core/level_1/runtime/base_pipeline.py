@@ -3,7 +3,7 @@
 from abc import ABC, abstractmethod
 from typing import Any, Dict, Optional
 
-from layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
 
 _logger = get_logger(__name__)
 

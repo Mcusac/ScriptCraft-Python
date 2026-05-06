@@ -4,7 +4,7 @@ Supplement domain-specific cleaning + schema construction
 
 from typing import Any, Dict, Optional, Union
 
-from layers.layer_1_tools.level_0_infra.level_3.dataframe_cleaning import clean_dataframe, standardize_columns
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_3.dataframe_cleaning import clean_dataframe, standardize_columns
 
 
 def clean_supplement_data(df):

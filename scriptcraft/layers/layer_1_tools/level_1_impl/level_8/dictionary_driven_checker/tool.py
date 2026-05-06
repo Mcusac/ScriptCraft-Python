@@ -3,10 +3,10 @@
 from pathlib import Path
 from typing import Any, Optional, Union
 
-from layers.layer_1_tools.level_0_infra.level_6.base_tool import BaseTool
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_6.base_tool import BaseTool
 
-from layers.layer_1_tools.level_1_impl.level_0.plugins import initialize_plugins
-from layers.layer_1_tools.level_1_impl.level_7.dictionary_driven_checker.core import (
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_0.plugins import initialize_plugins
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_7.dictionary_driven_checker.core import (
     execute_dictionary_driven_check,
 )
 

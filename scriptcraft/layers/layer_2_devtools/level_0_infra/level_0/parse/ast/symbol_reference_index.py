@@ -4,14 +4,14 @@ import ast
 from dataclasses import dataclass
 from pathlib import Path
 
-from layers.layer_2_devtools.level_0_infra.level_0.models.symbol_reference_models import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.models.symbol_reference_models import (
     SymbolReference,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.parse.ast.ast_utils import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.parse.ast.ast_utils import (
     parse_file,
     resolve_relative_import,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.path.python_modules import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.path.python_modules import (
     collect_python_files,
     current_package,
     file_to_module,

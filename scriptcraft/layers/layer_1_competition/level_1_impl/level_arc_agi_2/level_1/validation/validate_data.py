@@ -5,20 +5,20 @@ import json
 from pathlib import Path
 from typing import Any
 
-from layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
 
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_0.arc_paths.arc_challenge_filenames import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_0.arc_paths.arc_challenge_filenames import (
     EVAL_CHALLENGE_NAMES,
     TEST_CHALLENGE_NAMES,
     TRAINING_CHALLENGE_NAMES,
 )
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_0.arc_paths.eval_paths import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_0.arc_paths.eval_paths import (
     arc_find_first_existing_file,
 )
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_1.validation.validate_challenges import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_1.validation.validate_challenges import (
     validate_challenges,
 )
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_1.validation.validate_submission_contract import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_1.validation.validate_submission_contract import (
     validate_submission_contract,
 )
 

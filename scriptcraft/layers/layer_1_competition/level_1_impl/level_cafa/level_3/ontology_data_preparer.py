@@ -7,9 +7,9 @@ from typing import Dict, Any, List, Optional, Tuple
 from collections import Counter
 from sklearn.preprocessing import MultiLabelBinarizer
 
-from layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
 
-from layers.layer_1_competition.level_1_impl.level_cafa.level_2 import OntologyFeatureExtractor
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_cafa.level_2 import OntologyFeatureExtractor
 
 _logger = get_logger(__name__)
 

@@ -7,14 +7,14 @@ Callers that need this pipeline should import from contest.implementations.csiro
 from pathlib import Path
 from typing import Optional, Tuple, List
 
-from layers.layer_0_core.level_0 import get_logger, ensure_dir
-from layers.layer_0_core.level_1 import create_kfold_splits, get_fold_data
-from layers.layer_1_competition.level_0_infra.level_4 import train_single_fold
+from scriptcraft.layers.layer_0_core.level_0 import get_logger, ensure_dir
+from scriptcraft.layers.layer_0_core.level_1 import create_kfold_splits, get_fold_data
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_4 import train_single_fold
 
-from layers.layer_1_competition.level_0_infra.level_0 import create_training_config, get_model_image_size
-from layers.layer_1_competition.level_0_infra.level_1 import get_contest
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import create_training_config, get_model_image_size
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1 import get_contest
 
-from layers.layer_1_competition.level_1_impl.level_csiro.level_0 import calc_metric, aggregate_train_csv
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_csiro.level_0 import calc_metric, aggregate_train_csv
 
 _logger = get_logger(__name__)
 

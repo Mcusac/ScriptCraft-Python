@@ -8,16 +8,16 @@ from datetime import date
 from pathlib import Path
 from typing import Any
 
-from layers.layer_2_devtools.level_0_infra.level_0.path.python_modules import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.path.python_modules import (
     discover_packages,
     is_internal_module,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.path.workspace import find_workspace_root
-from layers.layer_2_devtools.level_0_infra.level_0.validation.boundaries import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.path.workspace import find_workspace_root
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.validation.boundaries import (
     PackageBoundarySpec,
     classify_module_to_boundary,
 )
-from layers.layer_2_devtools.level_1_impl.level_1.composed.import_scan_ops import (
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_1.composed.import_scan_ops import (
     ScannedImport,
     build_module_map,
     collect_py_files,

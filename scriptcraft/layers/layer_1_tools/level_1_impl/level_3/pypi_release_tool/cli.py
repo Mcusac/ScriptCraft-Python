@@ -2,7 +2,7 @@ import argparse
 
 from collections.abc import Sequence
 
-from layers.layer_1_tools.level_1_impl.level_2.pypi_release_tool.tool import PyPIReleaseTool
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_2.pypi_release_tool.tool import PyPIReleaseTool
 
 
 def build_parser() -> argparse.ArgumentParser:

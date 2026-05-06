@@ -3,9 +3,9 @@
 from pathlib import Path
 from typing import List, Optional
 
-from layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
 
-from layers.layer_1_tools.level_1_impl.level_1.function_auditor import BatchFunctionAuditor, InputPaths
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_1.function_auditor import BatchFunctionAuditor, InputPaths
 
 CURRENT_DIR = "."
 

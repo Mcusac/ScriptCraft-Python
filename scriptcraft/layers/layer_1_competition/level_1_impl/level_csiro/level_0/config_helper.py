@@ -6,8 +6,8 @@ Applies domain defaults and policies on top of framework helpers.
 
 from typing import Dict, Optional, Tuple, Union, Any
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_2 import ConfigHelper
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_2 import ConfigHelper
 
 _logger = get_logger(__name__)
 

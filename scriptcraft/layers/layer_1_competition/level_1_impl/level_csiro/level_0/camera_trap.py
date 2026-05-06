@@ -6,8 +6,8 @@ Removes date stamps and bottom artifacts. CSIRO camera-trap domain.
 
 import numpy as np
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_2 import ImageCleaningConfig, clean_image_with_config
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_2 import ImageCleaningConfig, clean_image_with_config
 
 _logger = get_logger(__name__)
 

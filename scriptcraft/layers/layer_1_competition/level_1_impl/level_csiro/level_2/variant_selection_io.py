@@ -5,16 +5,16 @@ import shutil
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
-from layers.layer_0_core.level_0 import get_logger, is_kaggle_input
-from layers.layer_0_core.level_4 import save_json
-from layers.layer_0_core.level_5 import merge_json_from_input_and_working, merge_list_by_key_working_replaces
+from scriptcraft.layers.layer_0_core.level_0 import get_logger, is_kaggle_input
+from scriptcraft.layers.layer_0_core.level_4 import save_json
+from scriptcraft.layers.layer_0_core.level_5 import merge_json_from_input_and_working, merge_list_by_key_working_replaces
 
-from layers.layer_1_competition.level_1_impl.level_csiro.level_0 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_csiro.level_0 import (
     find_metadata_dir,
     get_writable_metadata_dir,
     validate_regression_model_type,
 )
-from layers.layer_1_competition.level_1_impl.level_csiro.level_1 import is_empty_list_json
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_csiro.level_1 import is_empty_list_json
 
 _logger = get_logger(__name__)
 

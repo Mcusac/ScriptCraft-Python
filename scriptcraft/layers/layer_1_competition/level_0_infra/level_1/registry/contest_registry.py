@@ -5,10 +5,10 @@ import os
 
 from typing import Any, Callable, Dict, Type, Optional
 
-from layers.layer_0_core.level_0 import get_arg
-from layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_0 import get_arg
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
 
-from layers.layer_1_competition.level_0_infra.level_0 import (
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import (
     ContestConfig,
     ContestDataSchema,
     ContestPaths,

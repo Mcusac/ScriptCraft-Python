@@ -5,7 +5,7 @@ import numpy as np
 from pathlib import Path
 from typing import List, Optional, Tuple
 
-from layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
 
 _logger = get_logger(__name__)
 

@@ -2,25 +2,25 @@
 
 import argparse
 
-from layers.layer_1_competition.level_0_infra.level_0 import (
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import (
     llm_tta_kwargs_from_args,
     log_result,
 )
-from layers.layer_1_competition.level_0_infra.level_1 import (
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1 import (
     parse_models_csv,
     resolve_data_root_from_args,
 )
 
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_2 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_2 import (
     init_run_context,
     run_validate_data_pipeline,
 )
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_6 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_6 import (
     run_submission_pipeline_result,
     run_train_pipeline_result,
     run_tune_pipeline_result,
 )
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_7 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_7 import (
     run_train_and_submit_pipeline_result,
     run_tune_and_submit_pipeline_result,
 )

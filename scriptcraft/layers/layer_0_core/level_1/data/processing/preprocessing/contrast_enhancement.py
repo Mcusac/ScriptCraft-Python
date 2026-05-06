@@ -6,7 +6,7 @@ import cv2
 from PIL import Image
 from typing import Union
 
-from layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
 
 _logger = get_logger(__name__)
 

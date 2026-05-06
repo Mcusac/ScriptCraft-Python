@@ -2,11 +2,11 @@
 
 from typing import Any
 
-from layers.layer_1_competition.level_0_infra.level_0 import add_max_targets_arg
-from layers.layer_1_competition.level_0_infra.level_1 import add_common_contest_args
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import add_max_targets_arg
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1 import add_common_contest_args
 
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_0 import add_search_type
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_1 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_0 import add_search_type
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_1 import (
     add_seed_and_run_context,
 )
 

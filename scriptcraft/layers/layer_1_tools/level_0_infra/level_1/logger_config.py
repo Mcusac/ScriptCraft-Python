@@ -7,8 +7,8 @@ import logging
 from pathlib import Path
 from typing import Optional, Union
 
-from layers.layer_1_tools.level_0_infra.level_0.formatter import Utf8Formatter, DEFAULT_LOG_FORMAT
-from layers.layer_1_tools.level_0_infra.level_0.handlers import (
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.formatter import Utf8Formatter, DEFAULT_LOG_FORMAT
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.handlers import (
     build_file_handler,
     build_stream_handler,
     configure_handler,

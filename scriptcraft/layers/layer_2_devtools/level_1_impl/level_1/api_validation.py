@@ -3,17 +3,17 @@
 from pathlib import Path
 from typing import Any
 
-from layers.layer_2_devtools.level_1_impl.level_1.composed.dependency_validation_ops import (
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_1.composed.dependency_validation_ops import (
     run_dependency_validation_workflow as _run_dependency_validation,
     write_dependency_report_artifacts as _write_dependency_report_artifacts,
 )
-from layers.layer_2_devtools.level_1_impl.level_1.composed.package_boundary_validation_ops import (
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_1.composed.package_boundary_validation_ops import (
     run_package_boundary_validation_workflow as _run_package_boundary_validation,
     write_package_boundary_report_artifacts as _write_package_boundary_report_artifacts,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.contracts.envelope import err as _err
-from layers.layer_2_devtools.level_0_infra.level_0.contracts.envelope import ok as _ok
-from layers.layer_2_devtools.level_0_infra.level_0.contracts.envelope import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.contracts.envelope import err as _err
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.contracts.envelope import ok as _ok
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.contracts.envelope import (
     parse_generated_optional as _parse_generated_optional,
 )
 

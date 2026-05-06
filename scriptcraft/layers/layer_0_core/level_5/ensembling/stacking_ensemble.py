@@ -5,10 +5,10 @@ import numpy as np
 from pathlib import Path
 from typing import Any, Dict, List, Tuple
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_2 import get_kfold, get_ridge
-from layers.layer_0_core.level_3 import create_regression_model
-from layers.layer_0_core.level_4 import load_pickle
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_2 import get_kfold, get_ridge
+from scriptcraft.layers.layer_0_core.level_3 import create_regression_model
+from scriptcraft.layers.layer_0_core.level_4 import load_pickle
 
 _logger = get_logger(__name__)
 

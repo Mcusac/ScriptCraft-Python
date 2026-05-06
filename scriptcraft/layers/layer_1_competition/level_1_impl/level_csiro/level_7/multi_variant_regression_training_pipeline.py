@@ -5,17 +5,17 @@ import shutil
 from pathlib import Path
 from typing import List, Optional, Any
 
-from layers.layer_0_core.level_0 import get_logger, ensure_dir
-from layers.layer_0_core.level_1 import generate_feature_filename
+from scriptcraft.layers.layer_0_core.level_0 import get_logger, ensure_dir
+from scriptcraft.layers.layer_0_core.level_1 import generate_feature_filename
 
-from layers.layer_1_competition.level_0_infra.level_0 import get_model_id
-from layers.layer_1_competition.level_0_infra.level_1 import get_contest
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import get_model_id
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1 import get_contest
 
-from layers.layer_1_competition.level_1_impl.level_csiro.level_1 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_csiro.level_1 import (
     apply_combo_to_config,
     get_variant_info_from_model_id,
 )
-from layers.layer_1_competition.level_1_impl.level_csiro.level_6 import train_and_export_pipeline
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_csiro.level_6 import train_and_export_pipeline
 
 _logger = get_logger(__name__)
 

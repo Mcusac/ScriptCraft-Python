@@ -8,8 +8,8 @@ based on runtime environment.
 from pathlib import Path
 from typing import Optional, Union, Any
 
-from layers.layer_1_tools.level_0_infra.level_0.environment import detect_environment
-from layers.layer_1_tools.level_0_infra.level_1.config_accessors import get_template_config
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.environment import detect_environment
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_1.config_accessors import get_template_config
 
 
 class EnvironmentResolver:

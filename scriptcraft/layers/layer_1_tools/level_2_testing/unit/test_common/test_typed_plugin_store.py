@@ -19,7 +19,7 @@ def _prepend_layers_parent_to_syspath() -> None:
 
 _prepend_layers_parent_to_syspath()
 
-from layers.layer_1_pypi.level_0_infra.level_0.typed_plugin_store import get_typed_plugin  # noqa: E402
+from scriptcraft.layers.layer_1_pypi.level_0_infra.level_0.typed_plugin_store import get_typed_plugin  # noqa: E402
 
 
 def test_get_typed_plugin_returns_match() -> None:

@@ -2,7 +2,7 @@
 
 from pathlib import Path
 
-from layers.layer_1_competition.level_0_infra.level_0 import ContestPaths, contest_models_dir
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import ContestPaths, contest_models_dir
 
 
 def contest_model_dir(paths: ContestPaths, contest_slug: str, model_name: str) -> Path:

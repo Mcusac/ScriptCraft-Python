@@ -6,8 +6,8 @@ import numpy as np
 from concurrent.futures import ThreadPoolExecutor
 from typing import Dict, Generator, List, Optional, Tuple
 
-from layers.layer_0_core.level_0 import HANDCRAFTED_FEATURE_DIM, get_logger
-from layers.layer_0_core.level_2 import extract_handcrafted_features
+from scriptcraft.layers.layer_0_core.level_0 import HANDCRAFTED_FEATURE_DIM, get_logger
+from scriptcraft.layers.layer_0_core.level_2 import extract_handcrafted_features
 
 _logger = get_logger(__name__)
 

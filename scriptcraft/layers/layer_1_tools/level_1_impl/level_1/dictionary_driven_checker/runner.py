@@ -3,12 +3,12 @@ import pandas as pd
 from pathlib import Path
 from typing import Dict, List, Optional
 
-from layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
-from layers.layer_1_tools.level_0_infra.level_0.constants import OutlierMethod
-from layers.layer_1_tools.level_0_infra.level_1.plugin_registry import plugin_registry
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.constants import OutlierMethod
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_1.plugin_registry import plugin_registry
 
-from layers.layer_1_tools.level_1_impl.level_0.dictionary_driven_checker.dictionary_validation import validate_against_dictionary
-from layers.layer_1_tools.level_1_impl.level_0.dictionary_driven_checker.models import ValidationResult
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_0.dictionary_driven_checker.dictionary_validation import validate_against_dictionary
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_0.dictionary_driven_checker.models import ValidationResult
 
 
 def run_dictionary_checker(

@@ -12,14 +12,14 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-from layers.layer_2_devtools.level_0_infra.level_0.fix.text_span_rewrite_engine import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.fix.text_span_rewrite_engine import (
     SpanEditOperation,
     apply_span_edit_operations,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.formatting.import_organizer import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.formatting.import_organizer import (
     build_import_organizer_span_edit,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.path.python_modules import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.path.python_modules import (
     module_to_file_path,
 )
 

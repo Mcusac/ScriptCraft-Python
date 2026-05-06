@@ -4,7 +4,7 @@ import numpy as np
 
 from typing import Dict, List, Optional
 
-from layers.layer_0_core.level_0 import (
+from scriptcraft.layers.layer_0_core.level_0 import (
     EnsemblingMethod,
     combine_predictions_loop,
     combine_predictions_vectorized,
@@ -12,7 +12,7 @@ from layers.layer_0_core.level_0 import (
     get_shape_and_targets,
     validate_predictions_list,
 )
-from layers.layer_0_core.level_2 import build_weight_matrix
+from scriptcraft.layers.layer_0_core.level_2 import build_weight_matrix
 
 _logger = get_logger(__name__)
 

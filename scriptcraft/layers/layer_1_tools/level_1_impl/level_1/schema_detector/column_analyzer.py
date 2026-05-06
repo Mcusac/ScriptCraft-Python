@@ -2,9 +2,9 @@ import pandas as pd
 
 from typing import List
 
-from layers.layer_1_tools.level_1_impl.level_0.schema_detector.type_inference import TypeInferenceEngine
-from layers.layer_1_tools.level_1_impl.level_0.schema_detector.privacy_classifier import PrivacyClassifier
-from layers.layer_1_tools.level_1_impl.level_0.schema_detector.models import ColumnInfo
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_0.schema_detector.type_inference import TypeInferenceEngine
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_0.schema_detector.privacy_classifier import PrivacyClassifier
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_0.schema_detector.models import ColumnInfo
 
 
 class ColumnAnalyzer:

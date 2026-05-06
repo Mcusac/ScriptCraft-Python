@@ -9,12 +9,12 @@ Provides easy access to release workflows for end users.
 import argparse
 import sys
 
-from layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
 
-from layers.layer_1_tools.level_1_impl.level_0.pypi_release_tool.tool import PyPIReleaseTool
-from layers.layer_1_tools.level_1_impl.level_2.git_workspace_tool.tool import GitWorkspaceTool
-from layers.layer_1_tools.level_1_impl.level_3.git_submodule_tool.tool import GitSubmoduleTool
-from layers.layer_1_tools.level_1_impl.level_4.git_pipelines import (
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_0.pypi_release_tool.tool import PyPIReleaseTool
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_2.git_workspace_tool.tool import GitWorkspaceTool
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_3.git_submodule_tool.tool import GitSubmoduleTool
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_4.git_pipelines import (
     GitPipelineFactory,
 )
 

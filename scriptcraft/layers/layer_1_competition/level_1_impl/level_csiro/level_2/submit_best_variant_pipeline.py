@@ -3,11 +3,11 @@
 from pathlib import Path
 from typing import Optional, Any
 
-from layers.layer_0_core.level_0 import get_fold_checkpoint_path, get_logger
+from scriptcraft.layers.layer_0_core.level_0 import get_fold_checkpoint_path, get_logger
 
-from layers.layer_1_competition.level_0_infra.level_1 import build_contest_context, get_contest
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1 import build_contest_context, get_contest
 
-from layers.layer_1_competition.level_1_impl.level_csiro.level_1 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_csiro.level_1 import (
     apply_combo_to_config,
     get_best_variant_info,
     test_pipeline,

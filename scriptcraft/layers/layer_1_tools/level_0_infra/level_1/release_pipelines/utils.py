@@ -1,6 +1,6 @@
 # release_pipelines/utils.py
 
-from layers.layer_1_tools.level_0_infra.level_0.release_pipelines.context import ReleasePipelineContext
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.release_pipelines.context import ReleasePipelineContext
 
 
 def build_context(**kwargs) -> ReleasePipelineContext:

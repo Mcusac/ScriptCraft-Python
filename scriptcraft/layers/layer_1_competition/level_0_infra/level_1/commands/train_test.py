@@ -4,10 +4,10 @@ import argparse
 
 from typing import Any, Callable
 
-from layers.layer_0_core.level_0 import get_arg, get_logger
-from layers.layer_0_core.level_9 import TrainPredictWorkflow
+from scriptcraft.layers.layer_0_core.level_0 import get_arg, get_logger
+from scriptcraft.layers.layer_0_core.level_9 import TrainPredictWorkflow
 
-from layers.layer_1_competition.level_0_infra.level_0 import create_pipeline_kwargs, setup_handler_context
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import create_pipeline_kwargs, setup_handler_context
 
 _logger = get_logger(__name__)
 

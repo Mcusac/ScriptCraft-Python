@@ -2,10 +2,10 @@
 
 import pandas as pd
 
-from layers.layer_1_tools.level_0_infra.level_3.dataframe_cleaning import clean_dataframe
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_3.dataframe_cleaning import clean_dataframe
 
-from layers.layer_1_tools.level_1_impl.level_0.dictionary_cleaner.value_types import DEFAULT_VALUE_TYPE, VALUE_TYPE_MAP
-from layers.layer_1_tools.level_1_impl.level_3.dictionary_cleaner.expected_values import clean_expected_values
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_0.dictionary_cleaner.value_types import DEFAULT_VALUE_TYPE, VALUE_TYPE_MAP
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_3.dictionary_cleaner.expected_values import clean_expected_values
 
 _TEXT_COLUMNS = ("Main Variable", "Value Type", "Expected Values")
 

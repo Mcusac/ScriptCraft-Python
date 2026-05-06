@@ -17,7 +17,7 @@ _SCRIPTS = _MODULE.parents[4]
 if str(_SCRIPTS) not in sys.path:
     sys.path.insert(0, str(_SCRIPTS))
 
-from layers.layer_2_devtools.level_1_impl.level_1 import api_audit
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_1 import api_audit
 
 
 def _defaults() -> tuple[Path, Path, Path]:

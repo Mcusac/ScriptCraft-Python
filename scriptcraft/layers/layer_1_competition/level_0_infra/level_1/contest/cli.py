@@ -3,7 +3,7 @@
 import argparse
 from typing import Any, Dict, List, Optional
 
-from layers.layer_1_competition.level_0_infra.level_1.paths import get_data_root_path
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1.paths import get_data_root_path
 
 
 def resolve_handler_args(args: Any, defaults: Dict[str, Any]) -> Dict[str, Any]:

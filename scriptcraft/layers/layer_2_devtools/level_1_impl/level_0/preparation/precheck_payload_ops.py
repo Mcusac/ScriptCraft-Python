@@ -5,7 +5,7 @@ from dataclasses import dataclass
 from datetime import date
 from pathlib import Path
 
-from layers.layer_2_devtools.level_0_infra.level_0.models.audit_models import FileReport
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.models.audit_models import FileReport
 
 
 @dataclass

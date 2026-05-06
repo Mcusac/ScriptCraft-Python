@@ -7,7 +7,7 @@ tokens via ``extra_args`` until dedicated helpers are added.
 
 from typing import List, Optional
 
-from layers.layer_1_competition.level_0_infra.level_1.notebook import build_run_py_base_command
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1.notebook import build_run_py_base_command
 
 from .handlers_common import CSIRO_COMMANDS
 

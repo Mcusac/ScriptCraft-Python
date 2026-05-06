@@ -2,7 +2,7 @@ from pathlib import Path
 
 
 def test_lines_oversized_modules_empty() -> None:
-    from layers.layer_2_devtools.level_0_infra.level_0.formatting.health_report_views import (
+    from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.formatting.health_report_views import (
         lines_oversized_modules,
     )
 
@@ -20,7 +20,7 @@ def test_lines_oversized_modules_empty() -> None:
 
 
 def test_lines_oversized_modules_with_suggestions() -> None:
-    from layers.layer_2_devtools.level_0_infra.level_0.formatting.health_report_views import (
+    from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.formatting.health_report_views import (
         lines_oversized_modules,
     )
 

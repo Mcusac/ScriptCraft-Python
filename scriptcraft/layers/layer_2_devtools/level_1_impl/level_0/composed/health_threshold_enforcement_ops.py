@@ -3,12 +3,12 @@
 from pathlib import Path
 from typing import Optional
 
-from layers.layer_2_devtools.level_0_infra.level_0.health_thresholds import ThresholdConfig
-from layers.layer_2_devtools.level_0_infra.level_1.checker import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.health_thresholds import ThresholdConfig
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_1.checker import (
     Severity,
     ThresholdChecker,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.parse.json.report_json import load_json_report
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.parse.json.report_json import load_json_report
 
 
 def load_threshold_config(config_path: Optional[Path]) -> ThresholdConfig:

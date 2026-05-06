@@ -17,7 +17,7 @@ _SCRIPTS_ROOT = _SCRIPT_DIR.parent
 if str(_SCRIPTS_ROOT) not in sys.path:
     sys.path.insert(0, str(_SCRIPTS_ROOT))
 
-from layers.layer_2_devtools.level_1_impl.level_1.api_violations import run_violation_fix_cli_api
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_1.api_violations import run_violation_fix_cli_api
 
 
 def main() -> None:

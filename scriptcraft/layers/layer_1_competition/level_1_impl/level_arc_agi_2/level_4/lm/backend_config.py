@@ -1,17 +1,17 @@
 """ARC LM backend factory; protocol types live in competition infra."""
 
-from layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
 
-from layers.layer_1_competition.level_0_infra.level_0 import unsloth_available
-from layers.layer_1_competition.level_0_infra.level_3 import (
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import unsloth_available
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_3 import (
     LmBackend,
     LmBackendConfig,
     MockLmBackend,
     TransformersLmBackend,
 )
-from layers.layer_1_competition.level_0_infra.level_4.lm_backends.backend_unsloth import UnslothLmBackend
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_4.lm_backends.backend_unsloth import UnslothLmBackend
 
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_4 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_4 import (
     arc_default_torch_lm_hooks,
     run_unsloth_task_adaptation,
 )

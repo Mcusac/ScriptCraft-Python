@@ -2,14 +2,14 @@
 
 from typing import Any
 
-from layers.layer_2_devtools.level_0_infra.level_0 import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0 import (
     BaseAnalyzer,
     collect_python_files,
     file_to_module,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.parse.ast.ast_utils import parse_file
-from layers.layer_2_devtools.level_0_infra.level_0.unreachable_code_analyzer import UnreachableCodeAnalyzer
-from layers.layer_2_devtools.level_0_infra.level_0.unused_import_analyzer import UnusedImportAnalyzer
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.parse.ast.ast_utils import parse_file
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.unreachable_code_analyzer import UnreachableCodeAnalyzer
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.unused_import_analyzer import UnusedImportAnalyzer
 
 
 class DeadCodeFinder(BaseAnalyzer):

@@ -7,9 +7,9 @@
 
 from typing import Any, Literal, Optional, Tuple, Union
 
-from layers.layer_0_core.level_0 import get_logger, get_torch
-from layers.layer_0_core.level_1 import BaseVisionModel
-from layers.layer_0_core.level_2 import TimmWeightLoader
+from scriptcraft.layers.layer_0_core.level_0 import get_logger, get_torch
+from scriptcraft.layers.layer_0_core.level_1 import BaseVisionModel
+from scriptcraft.layers.layer_0_core.level_2 import TimmWeightLoader
 
 _logger = get_logger(__name__)
 _torch = get_torch()

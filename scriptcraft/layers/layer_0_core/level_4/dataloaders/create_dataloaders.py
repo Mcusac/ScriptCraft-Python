@@ -4,8 +4,8 @@ import pandas as pd
 
 from typing import Tuple, Optional, Callable, Any
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_2 import (
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_2 import (
     build_preprocessing_transforms,
     create_dataloader_from_dataset,
     create_dataset_for_test_dataloader,
@@ -13,7 +13,7 @@ from layers.layer_0_core.level_2 import (
     create_worker_init_fn,
     validate_dataframe,
 )
-from layers.layer_0_core.level_3 import build_transforms_for_dataloaders
+from scriptcraft.layers.layer_0_core.level_3 import build_transforms_for_dataloaders
 
 _logger = get_logger(__name__)
 

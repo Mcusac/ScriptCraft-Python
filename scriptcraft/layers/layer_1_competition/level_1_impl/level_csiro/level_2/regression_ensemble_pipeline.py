@@ -6,21 +6,21 @@ import pandas as pd
 from pathlib import Path
 from typing import Any, Dict
 
-from layers.layer_0_core.level_0 import validate_predictions_shape, get_logger
-from layers.layer_0_core.level_1 import get_device
-from layers.layer_0_core.level_2 import FeatureExtractor
-from layers.layer_0_core.level_5 import load_and_validate_test_data
-from layers.layer_0_core.level_5 import save_submission_csv
-from layers.layer_0_core.level_6 import create_streaming_test_dataloader
+from scriptcraft.layers.layer_0_core.level_0 import validate_predictions_shape, get_logger
+from scriptcraft.layers.layer_0_core.level_1 import get_device
+from scriptcraft.layers.layer_0_core.level_2 import FeatureExtractor
+from scriptcraft.layers.layer_0_core.level_5 import load_and_validate_test_data
+from scriptcraft.layers.layer_0_core.level_5 import save_submission_csv
+from scriptcraft.layers.layer_0_core.level_6 import create_streaming_test_dataloader
 from level_8 import create_regression_ensemble_from_paths
 
-from layers.layer_1_competition.level_0_infra.level_1 import get_contest
-from layers.layer_1_competition.level_0_infra.level_1 import create_feature_extraction_model
-from layers.layer_1_competition.level_0_infra.level_5 import (
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1 import get_contest
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1 import create_feature_extraction_model
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_5 import (
     expand_predictions_to_submission_format,
 )
 
-from layers.layer_1_competition.level_1_impl.level_csiro.level_1 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_csiro.level_1 import (
     resolve_model_paths_from_config,
     validate_model_paths,
 )

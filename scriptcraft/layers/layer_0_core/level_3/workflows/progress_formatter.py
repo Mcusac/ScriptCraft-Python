@@ -10,8 +10,8 @@ Responsibilities:
 
 from typing import Dict, Any, Optional
 
-from layers.layer_0_core.level_1 import ProgressConfig, ProgressVerbosity
-from layers.layer_0_core.level_2 import ProgressMetrics
+from scriptcraft.layers.layer_0_core.level_1 import ProgressConfig, ProgressVerbosity
+from scriptcraft.layers.layer_0_core.level_2 import ProgressMetrics
 
 
 class ProgressFormatter:

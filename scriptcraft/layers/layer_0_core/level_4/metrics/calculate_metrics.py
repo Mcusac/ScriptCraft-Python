@@ -9,9 +9,9 @@ import numpy as np
 
 from typing import Dict, Optional, Any, Union
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_1 import get_metric, list_metrics
-from layers.layer_0_core.level_3 import (
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_1 import get_metric, list_metrics
+from scriptcraft.layers.layer_0_core.level_3 import (
     calculate_classification_metrics,
     calculate_regression_metrics,
 )

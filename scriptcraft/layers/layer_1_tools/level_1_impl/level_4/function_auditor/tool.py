@@ -3,13 +3,13 @@
 from pathlib import Path
 from typing import Any, Optional, Union
 
-from layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
-from layers.layer_1_tools.level_0_infra.level_0.function_auditor.types import InputPaths
-from layers.layer_1_tools.level_0_infra.level_0.function_auditor.languages import extension_for_language
-from layers.layer_1_tools.level_0_infra.level_7.base_tool import BaseTool
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.function_auditor.types import InputPaths
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.function_auditor.languages import extension_for_language
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_7.base_tool import BaseTool
 
-from layers.layer_1_tools.level_1_impl.level_2.function_auditor.single_file_mode import run_single_file_mode
-from layers.layer_1_tools.level_1_impl.level_3.function_auditor.batch_mode import run_batch_mode
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_2.function_auditor.single_file_mode import run_single_file_mode
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_3.function_auditor.batch_mode import run_batch_mode
 
 _BATCH_MODES = {"batch", "folder", "pattern"}
 

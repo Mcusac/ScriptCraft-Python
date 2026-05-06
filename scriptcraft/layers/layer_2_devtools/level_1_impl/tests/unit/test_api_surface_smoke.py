@@ -7,8 +7,8 @@ _SCRIPTS = Path(__file__).resolve().parents[5]
 if str(_SCRIPTS) not in sys.path:
     sys.path.insert(0, str(_SCRIPTS))
 
-from layers.layer_2_devtools.level_1_impl.level_1.api_audit import resolve_workspace
-from layers.layer_2_devtools.level_1_impl.level_1.api_discovery import run_audit_target_discovery
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_1.api_audit import resolve_workspace
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_1.api_discovery import run_audit_target_discovery
 
 
 def test_resolve_workspace_envelope() -> None:

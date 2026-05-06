@@ -4,8 +4,8 @@ import torchvision.transforms as transforms
 
 from typing import List, Any, Optional, Literal
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_1 import get_geometric_transform, get_color_jitter_transform, get_blur_transform
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_1 import get_geometric_transform, get_color_jitter_transform, get_blur_transform
 
 _logger = get_logger(__name__)
 

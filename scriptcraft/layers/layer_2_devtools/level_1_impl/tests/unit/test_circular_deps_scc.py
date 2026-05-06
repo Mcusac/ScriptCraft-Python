@@ -1,5 +1,5 @@
-from layers.layer_2_devtools.level_0_infra.level_0.graph.scc import find_cycles
-from layers.layer_2_devtools.level_0_infra.level_0.graph.scc import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.graph.scc import find_cycles
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.graph.scc import (
     find_strongly_connected_components,
 )
 

@@ -4,8 +4,8 @@ from pathlib import Path
 from typing import Any, Dict, List, Union
 
 
-from layers.layer_1_tools.level_0_infra.level_0.directory_ops import ensure_output_dir
-from layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.directory_ops import ensure_output_dir
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
 
 
 def run_categorized_changes(df: pd.DataFrame, feature: str, output_dir: Union[str, Path]) -> None:

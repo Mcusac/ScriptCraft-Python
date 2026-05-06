@@ -2,9 +2,9 @@
 
 import numpy as np
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_2 import get_lgbm_classifier, get_xgb_classifier
-from layers.layer_0_core.level_5 import BaseTabularModel
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_2 import get_lgbm_classifier, get_xgb_classifier
+from scriptcraft.layers.layer_0_core.level_5 import BaseTabularModel
 
 _logger = get_logger(__name__)
 

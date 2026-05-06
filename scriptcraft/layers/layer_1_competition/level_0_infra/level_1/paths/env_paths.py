@@ -9,7 +9,7 @@ import os
 
 from pathlib import Path
 
-from layers.layer_1_competition.level_0_infra.level_1.registry.contest_registry import (
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1.registry.contest_registry import (
     ContestRegistry,
     get_contest,
 )

@@ -4,9 +4,9 @@ import os
 
 from typing import Any
 
-from layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
 
-from layers.layer_1_competition.level_0_infra.level_0.lm import LlmTtaDfsConfig
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0.lm import LlmTtaDfsConfig
 
 from .store import (
     infer_ensure_run_layout,

@@ -2,8 +2,8 @@
 
 from typing import List
 
-from layers.layer_2_devtools.level_0_infra.level_0 import ErrorType
-from layers.layer_2_devtools.level_0_infra.level_1 import TestResult
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0 import ErrorType
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_1 import TestResult
 
 
 class TestReporter:

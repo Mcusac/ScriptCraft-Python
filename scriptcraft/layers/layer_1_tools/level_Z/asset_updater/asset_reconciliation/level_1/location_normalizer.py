@@ -6,7 +6,7 @@
 
 import pandas as pd
 
-from layers.layer_1_tools.level_Z.asset_updater.asset_reconciliation.level_0.schema import OFF_CAMPUS_CANONICAL
+from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.asset_reconciliation.level_0.schema import OFF_CAMPUS_CANONICAL
 
 
 # -----------------------------

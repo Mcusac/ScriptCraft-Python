@@ -1,9 +1,9 @@
 from typing import Callable, Dict
 
-from layers.layer_1_tools.level_1_impl.level_0.data_content_comparer_plugins.rhq_mode import run_mode as rhq_mode
-from layers.layer_1_tools.level_1_impl.level_0.data_content_comparer_plugins.standard_mode import run_mode as standard_mode
-from layers.layer_1_tools.level_1_impl.level_0.data_content_comparer_plugins.release_consistency_mode import run_mode as release_consistency_mode
-from layers.layer_1_tools.level_1_impl.level_0.data_content_comparer_plugins.domain_old_vs_new_mode import run_mode as domain_old_vs_new_mode
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_0.data_content_comparer_plugins.rhq_mode import run_mode as rhq_mode
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_0.data_content_comparer_plugins.standard_mode import run_mode as standard_mode
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_0.data_content_comparer_plugins.release_consistency_mode import run_mode as release_consistency_mode
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_0.data_content_comparer_plugins.domain_old_vs_new_mode import run_mode as domain_old_vs_new_mode
 
 
 MODE_REGISTRY: Dict[str, Callable] = {

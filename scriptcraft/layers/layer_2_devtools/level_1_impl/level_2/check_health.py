@@ -29,7 +29,7 @@ _SCRIPTS_ROOT = _SCRIPT_DIR.parents[3]
 if str(_SCRIPTS_ROOT) not in sys.path:
     sys.path.insert(0, str(_SCRIPTS_ROOT))
 
-from layers.layer_2_devtools.level_1_impl.level_1.api_health import run_package_health_cli_api
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_1.api_health import run_package_health_cli_api
 
 
 def main() -> int:

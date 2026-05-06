@@ -4,8 +4,8 @@ import numpy as np
 
 from tqdm import tqdm
 
-from layers.layer_0_core.level_0 import get_logger, get_torch
-from layers.layer_0_core.level_1 import forward_with_amp
+from scriptcraft.layers.layer_0_core.level_0 import get_logger, get_torch
+from scriptcraft.layers.layer_0_core.level_1 import forward_with_amp
 
 _torch = get_torch()
 _nn = _torch.nn

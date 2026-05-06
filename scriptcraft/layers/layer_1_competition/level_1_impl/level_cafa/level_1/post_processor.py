@@ -11,12 +11,12 @@ import numpy as np
 from pathlib import Path
 from typing import Optional, Dict
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_1 import HierarchyPropagator, TsvSubmissionFormatter
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_1 import HierarchyPropagator, TsvSubmissionFormatter
 
-from layers.layer_1_competition.level_0_infra.level_0 import ContestPostProcessor
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import ContestPostProcessor
 
-from layers.layer_1_competition.level_1_impl.level_cafa.level_0 import GOAFilter
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_cafa.level_0 import GOAFilter
 
 _logger = get_logger(__name__)
 

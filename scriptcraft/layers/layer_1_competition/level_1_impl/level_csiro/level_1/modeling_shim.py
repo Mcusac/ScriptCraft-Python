@@ -10,9 +10,9 @@ biomass model classes registered on ``csiro_modeling`` and nested ``models.bioma
 
 import types
 
-from layers.layer_0_core.level_0 import NonNegativePredictionMixin
+from scriptcraft.layers.layer_0_core.level_0 import NonNegativePredictionMixin
 
-from layers.layer_1_competition.level_1_impl.level_csiro.level_0 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_csiro.level_0 import (
     BiomassHistGBModel,
     BiomassGBModel,
     BiomassCatBoostModel,

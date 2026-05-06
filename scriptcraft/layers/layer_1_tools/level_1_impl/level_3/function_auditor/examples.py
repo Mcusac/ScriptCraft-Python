@@ -1,5 +1,5 @@
-from layers.layer_1_tools.level_1_impl.level_1.function_auditor.auditor import FunctionAuditor
-from layers.layer_1_tools.level_1_impl.level_2.function_auditor.batch import BatchFunctionAuditor
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_1.function_auditor.auditor import FunctionAuditor
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_2.function_auditor.batch import BatchFunctionAuditor
 
 
 def example_single_file_audit() -> None:

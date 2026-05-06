@@ -8,7 +8,7 @@ override via contest config or pass explicit paths to model creation.
 
 from typing import Dict, Optional, Tuple
 
-from layers.layer_0_core.level_1 import set_model_id_map
+from scriptcraft.layers.layer_0_core.level_1 import set_model_id_map
 
 # Model ID mapping for feature file naming
 # Maps MODEL_NAME to 2-digit ID for feature filename generation

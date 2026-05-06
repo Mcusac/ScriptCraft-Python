@@ -3,23 +3,23 @@
 from pathlib import Path
 from typing import Any, Optional
 
-from layers.layer_0_core.level_0 import ensure_dir, get_logger
-from layers.layer_0_core.level_4 import save_json
+from scriptcraft.layers.layer_0_core.level_0 import ensure_dir, get_logger
+from scriptcraft.layers.layer_0_core.level_4 import save_json
 
-from layers.layer_1_competition.level_0_infra.level_0 import contest_models_dir
-from layers.layer_1_competition.level_0_infra.level_1 import (
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import contest_models_dir
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1 import (
     RunContext,
     commit_run_artifacts,
 )
 
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_1.paths import ARC26Paths
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_1.stages import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_1.paths import ARC26Paths
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_1.stages import (
     default_chosen_params,
 )
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_1.validation import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_1.validation import (
     require_data_root,
 )
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_3 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_3 import (
     get_trainer,
     list_available_models,
 )

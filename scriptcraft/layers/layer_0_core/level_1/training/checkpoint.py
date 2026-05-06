@@ -3,7 +3,7 @@
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-from layers.layer_0_core.level_0 import ensure_dir, get_logger, get_torch
+from scriptcraft.layers.layer_0_core.level_0 import ensure_dir, get_logger, get_torch
 
 _torch = get_torch()
 _nn = _torch.nn if _torch is not None else None

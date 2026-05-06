@@ -36,7 +36,7 @@ def _rewrite_contents(src: str) -> tuple[str, int, int]:
         from_count += 1
         indent = m.group("indent")
         n = m.group("n")
-        return f"{indent}from layers.layer_0_core.level_{n} import "
+        return f"{indent}from scriptcraft.layers.layer_0_core.level_{n} import "
 
     def _import_repl(m: re.Match[str]) -> str:
         nonlocal import_count

@@ -6,7 +6,7 @@ Framework layer: callback-based epoch execution.
 
 from typing import Any, Callable, Optional
 
-from layers.layer_0_core.level_0 import get_torch
+from scriptcraft.layers.layer_0_core.level_0 import get_torch
 
 _torch = get_torch()
 _DataLoader = _torch.utils.data.DataLoader if _torch is not None else None

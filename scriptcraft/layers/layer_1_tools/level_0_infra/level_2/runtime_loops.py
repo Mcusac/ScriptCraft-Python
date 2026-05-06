@@ -5,9 +5,9 @@ Run-loop scaffolding for tools.
 from pathlib import Path
 from typing import Any, Callable, Dict, Optional, Sequence, Union
 
-from layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
-from layers.layer_1_tools.level_0_infra.level_0.runtime.protocols import DomainLoopTool, PathLike, ProcessDomainTool
-from layers.layer_1_tools.level_0_infra.level_1.normalize_list import normalize_list
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.runtime.protocols import DomainLoopTool, PathLike, ProcessDomainTool
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_1.normalize_list import normalize_list
 
 
 def run_process_domain_over_input_paths(

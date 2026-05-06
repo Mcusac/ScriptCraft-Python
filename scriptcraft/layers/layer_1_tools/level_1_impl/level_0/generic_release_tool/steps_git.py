@@ -7,8 +7,8 @@ Refactored to use GitService as the single source of truth for all git operation
 from pathlib import Path
 from typing import Any
 
-from layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
-from layers.layer_1_tools.level_0_infra.level_0.git_service import GitService
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.git_service import GitService
 
 
 # ---------------------------------------------------------------------

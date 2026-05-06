@@ -13,10 +13,10 @@ _SCRIPTS_ROOT = Path(__file__).resolve().parent.parent
 if str(_SCRIPTS_ROOT) not in sys.path:
     sys.path.insert(0, str(_SCRIPTS_ROOT))
 
-from layers.layer_2_devtools.level_0_infra.level_0.formatting.move_plan_from_scan import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.formatting.move_plan_from_scan import (
     build_move_plan_markdown,
 )
-from layers.layer_2_devtools.level_1_impl.level_1.api_audit import run_general_stack_scan_with_artifacts
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_1.api_audit import run_general_stack_scan_with_artifacts
 
 
 def main() -> None:

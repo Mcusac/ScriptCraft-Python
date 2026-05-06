@@ -2,15 +2,15 @@ import pandas as pd
 
 from typing import List, Dict, Tuple, Set, Optional
 
-from layers.layer_1_tools.level_0_infra.level_0.constants import OutlierMethod
-from layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
-from layers.layer_1_tools.level_0_infra.level_2.cleaning import get_clean_numeric_series
-from layers.layer_1_tools.level_0_infra.level_2.validation import FlaggedValue, ColumnValidator, get_status_emoji
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.constants import OutlierMethod
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_2.cleaning import get_clean_numeric_series
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_2.validation import FlaggedValue, ColumnValidator, get_status_emoji
 
 # TODO: Problem Imports
-from layers.layer_1_tools.level_0_infra.level_5.config import load_config # TODO: exists in two places
-from layers.layer_1_tools.level_0_infra.level_1.config_loader import load_config # TODO: exists in two places
-from layers.layer_1_tools.level_1_impl.level_0.dictionary_driven_checker_plugins.registry import register # TODO: Does not exist
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_5.config import load_config # TODO: exists in two places
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_1.config_loader import load_config # TODO: exists in two places
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_0.dictionary_driven_checker_plugins.registry import register # TODO: Does not exist
 
 # Load configuration
 config = load_config()

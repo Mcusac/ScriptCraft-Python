@@ -3,23 +3,23 @@
 from pathlib import Path
 from typing import Any, Optional
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_4 import load_json_raw, save_json
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_4 import load_json_raw, save_json
 
-from layers.layer_1_competition.level_0_infra.level_1 import (
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1 import (
     RunContext,
     build_submit_run_artifacts_patch,
     commit_run_artifacts,
 )
 
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_0 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_0 import (
     ARC26PostProcessor,
     arc_find_first_existing_file,
     infer_finalize_artifact_root,
     stack_raise_if_unsupported_strategy,
     TEST_CHALLENGE_NAMES,
 )
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_1 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_1 import (
     ARC26Paths,
     require_data_root,
     build_llm_tta_config,
@@ -28,13 +28,13 @@ from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_1 import (
     resolve_neural_paths_from_entry,
     second_attempt_grid,
 )
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_2 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_2 import (
     predict_grid_from_checkpoint,
 )
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_2.pipelines.score_submission import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_2.pipelines.score_submission import (
     log_local_evaluation_score_optional,
 )
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_6 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_6 import (
     predict_attempts_for_submit_strategy,
 )
 

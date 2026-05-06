@@ -10,15 +10,15 @@ from typing import Dict, Any, List, Optional
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from multiprocessing import cpu_count
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_1 import cleanup_gpu_memory, OntologyConfigResolver
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_1 import cleanup_gpu_memory, OntologyConfigResolver
 
-from layers.layer_1_competition.level_1_impl.level_cafa.level_0 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_cafa.level_0 import (
     CAFA_ONTOLOGIES,
     OntologyDataLoader,
     OntologyModelManager,
 )
-from layers.layer_1_competition.level_1_impl.level_cafa.level_3 import OntologyDataPreparer
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_cafa.level_3 import OntologyDataPreparer
 
 _logger = get_logger(__name__)
 

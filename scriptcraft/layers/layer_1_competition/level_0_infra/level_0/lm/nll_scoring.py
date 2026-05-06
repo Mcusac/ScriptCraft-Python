@@ -6,7 +6,7 @@ Copied from ARC-AGI-2 contest implementation for reuse by other LM contests.
 from collections.abc import Sequence
 from typing import Any, Literal
 
-from layers.layer_0_core.level_0 import get_torch
+from scriptcraft.layers.layer_0_core.level_0 import get_torch
 
 Grid = list[list[int]]
 

@@ -7,7 +7,7 @@ import sys
 from pathlib import Path
 from typing import Optional
 
-from layers.layer_1_tools.level_0_infra.level_0.env.layout import resolve_distributable_base_dir
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.env.layout import resolve_distributable_base_dir
 
 
 def ensure_sys_path(path: Path) -> None:

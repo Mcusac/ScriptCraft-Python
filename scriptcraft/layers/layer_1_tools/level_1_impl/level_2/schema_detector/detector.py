@@ -1,18 +1,18 @@
 from pathlib import Path
 from typing import List
 
-from layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
-from layers.layer_1_tools.level_0_infra.level_0.directory_ops import ensure_output_dir
-from layers.layer_1_tools.level_0_infra.level_0.version import __version__
-from layers.layer_1_tools.level_0_infra.level_7.base_tool import BaseTool
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.directory_ops import ensure_output_dir
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.version import __version__
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_7.base_tool import BaseTool
 
-from layers.layer_1_tools.level_1_impl.level_0.schema_detector.data_loader import DataLoader
-from layers.layer_1_tools.level_1_impl.level_0.schema_detector.type_inference import TypeInferenceEngine
-from layers.layer_1_tools.level_1_impl.level_0.schema_detector.privacy_classifier import PrivacyClassifier
-from layers.layer_1_tools.level_1_impl.level_0.schema_detector.models import TableSchema
-from layers.layer_1_tools.level_1_impl.level_1.schema_detector.column_analyzer import ColumnAnalyzer
-from layers.layer_1_tools.level_1_impl.level_1.schema_detector.schema_builder import SchemaBuilder
-from layers.layer_1_tools.level_1_impl.level_1.schema_detector.outputs import save_outputs
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_0.schema_detector.data_loader import DataLoader
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_0.schema_detector.type_inference import TypeInferenceEngine
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_0.schema_detector.privacy_classifier import PrivacyClassifier
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_0.schema_detector.models import TableSchema
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_1.schema_detector.column_analyzer import ColumnAnalyzer
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_1.schema_detector.schema_builder import SchemaBuilder
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_1.schema_detector.outputs import save_outputs
 
 
 class SchemaDetector(BaseTool):

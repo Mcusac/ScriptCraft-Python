@@ -1,11 +1,11 @@
 from typing import Literal
 
-from layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
-from layers.layer_1_tools.level_0_infra.level_6.base_tool import BaseTool
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_6.base_tool import BaseTool
 
-from layers.layer_1_tools.level_1_impl.level_1.pypi_release_tool.ops_build import build_package
-from layers.layer_1_tools.level_1_impl.level_1.pypi_release_tool.ops_upload import upload_pypi, upload_testpypi
-from layers.layer_1_tools.level_1_impl.level_1.pypi_release_tool.ops_validate import validate_package
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_1.pypi_release_tool.ops_build import build_package
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_1.pypi_release_tool.ops_upload import upload_pypi, upload_testpypi
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_1.pypi_release_tool.ops_validate import validate_package
 
 
 _Operation = Literal["test", "release", "validate", "build"]

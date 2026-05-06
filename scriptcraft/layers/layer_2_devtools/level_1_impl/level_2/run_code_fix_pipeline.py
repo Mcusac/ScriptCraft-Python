@@ -17,7 +17,7 @@ import io
 import sys
 from pathlib import Path
 
-from layers.layer_2_devtools.level_1_impl.level_1.api_fix_pipeline import run_code_fix_pipeline
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_1.api_fix_pipeline import run_code_fix_pipeline
 
 
 def _win_utf8_stdio() -> None:

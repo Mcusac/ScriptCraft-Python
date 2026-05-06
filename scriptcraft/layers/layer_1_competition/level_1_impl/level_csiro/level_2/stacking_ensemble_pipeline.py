@@ -11,23 +11,23 @@ from typing import Optional, Dict, Any, List, Tuple
 from sklearn.model_selection import KFold
 from sklearn.linear_model import Ridge
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_2 import find_feature_cache, load_features
-from layers.layer_0_core.level_3 import create_regression_model
-from layers.layer_0_core.level_4 import load_pickle
-from layers.layer_0_core.level_5 import save_submission_csv
-from layers.layer_0_core.level_7 import create_ensembling_method
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_2 import find_feature_cache, load_features
+from scriptcraft.layers.layer_0_core.level_3 import create_regression_model
+from scriptcraft.layers.layer_0_core.level_4 import load_pickle
+from scriptcraft.layers.layer_0_core.level_5 import save_submission_csv
+from scriptcraft.layers.layer_0_core.level_7 import create_ensembling_method
 
-from layers.layer_1_competition.level_0_infra.level_1 import get_contest
-from layers.layer_1_competition.level_0_infra.level_2 import (
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1 import get_contest
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_2 import (
     extract_test_features_from_model,
 )
-from layers.layer_1_competition.level_0_infra.level_5 import (
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_5 import (
     expand_predictions_to_submission_format,
 )
 
-from layers.layer_1_competition.level_1_impl.level_csiro.level_0 import calc_metric
-from layers.layer_1_competition.level_1_impl.level_csiro.level_1 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_csiro.level_0 import calc_metric
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_csiro.level_1 import (
     csiro_modeling,
     resolve_model_paths_from_config,
 )
@@ -180,7 +180,7 @@ def _find_feature_filename_from_ensembles(
     ensemble_configs: List[Dict[str, Any]],
 ) -> str:
     """Find feature filename from ensemble model metadata."""
-    from layers.layer_1_competition.level_0_infra.level_2.feature_extraction import (
+    from scriptcraft.layers.layer_1_competition.level_0_infra.level_2.feature_extraction import (
         find_feature_filename_from_ensemble_metadata,
     )
 

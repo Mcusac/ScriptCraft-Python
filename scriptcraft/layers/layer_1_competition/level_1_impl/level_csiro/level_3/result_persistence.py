@@ -2,9 +2,9 @@
 
 from typing import Any, Dict, Optional
 
-from layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
 
-from layers.layer_1_competition.level_1_impl.level_csiro.level_3.variant_selection_variants import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_csiro.level_3.variant_selection_variants import (
     save_regression_gridsearch_result,
 )
 

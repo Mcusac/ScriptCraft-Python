@@ -5,8 +5,8 @@ import json
 from pathlib import Path
 from typing import Any
 
-from layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
-from layers.layer_1_tools.level_0_infra.level_0.function_auditor.types import AuditResult, BatchResults
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.function_auditor.types import AuditResult, BatchResults
 
 SUMMARY_SUFFIX = "_summary.json"
 DETAILED_SUFFIX = "_detailed.json"

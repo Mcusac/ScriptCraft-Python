@@ -3,11 +3,11 @@
 from pathlib import Path
 from typing import Any, Optional, Union
 
-from layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
-from layers.layer_1_tools.level_0_infra.level_6.base_tool import BaseTool
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_6.base_tool import BaseTool
 
-from layers.layer_1_tools.level_1_impl.level_0.dictionary_cleaner.types import InputPaths
-from layers.layer_1_tools.level_1_impl.level_4.dictionary_cleaner.normalizer import clean_dictionary
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_0.dictionary_cleaner.types import InputPaths
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_4.dictionary_cleaner.normalizer import clean_dictionary
 
 
 class DictionaryCleaner(BaseTool):

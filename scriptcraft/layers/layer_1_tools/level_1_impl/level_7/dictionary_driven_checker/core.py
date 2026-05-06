@@ -1,12 +1,12 @@
 from pathlib import Path
 from typing import Any, Optional, Union
 
-from layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
-from layers.layer_1_tools.level_0_infra.level_0.constants import OutlierMethod
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.constants import OutlierMethod
 
-from layers.layer_1_tools.level_1_impl.level_1.dictionary_driven_checker.runner import run_dictionary_checker
-from layers.layer_1_tools.level_1_impl.level_0.dictionary_driven_checker.dictionary_finder import find_dictionary_file
-from layers.layer_1_tools.level_1_impl.level_6.dictionary_driven_checker.normalization import (
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_1.dictionary_driven_checker.runner import run_dictionary_checker
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_0.dictionary_driven_checker.dictionary_finder import find_dictionary_file
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_6.dictionary_driven_checker.normalization import (
     ensure_dataframe,
     normalize_dataset_columns,
     normalize_dictionary_df,

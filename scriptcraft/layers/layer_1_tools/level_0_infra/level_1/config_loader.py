@@ -14,7 +14,7 @@ import yaml
 from pathlib import Path
 from typing import Any, Dict
 
-from layers.layer_1_tools.level_0_infra.level_0.environment import detect_environment
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.environment import detect_environment
 
 _config_cache: Dict[str, Any] | None = None
 

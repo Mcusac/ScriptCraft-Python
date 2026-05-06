@@ -2,7 +2,7 @@
 
 from typing import Any
 
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_0.validation.validate_grid_shape import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_0.validation.validate_grid_shape import (
     is_valid_grid,
 )
 

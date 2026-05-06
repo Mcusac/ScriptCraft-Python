@@ -5,8 +5,8 @@ from typing import Iterable, List, Union
 
 from PIL import Image
 
-from layers.layer_0_core.level_1 import load_batch
-from layers.layer_0_core.level_4 import load_image
+from scriptcraft.layers.layer_0_core.level_1 import load_batch
+from scriptcraft.layers.layer_0_core.level_4 import load_image
 
 
 def load_image_batch(

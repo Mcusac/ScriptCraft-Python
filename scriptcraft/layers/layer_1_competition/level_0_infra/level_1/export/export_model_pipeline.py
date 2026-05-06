@@ -3,9 +3,9 @@
 from pathlib import Path
 from typing import Optional, Any
 
-from layers.layer_0_core.level_0 import ensure_dir, get_logger
+from scriptcraft.layers.layer_0_core.level_0 import ensure_dir, get_logger
 
-from layers.layer_1_competition.level_0_infra.level_1.export.source_handlers import (
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1.export.source_handlers import (
     handle_best_variant_file,
     handle_just_trained_model,
     handle_results_file,

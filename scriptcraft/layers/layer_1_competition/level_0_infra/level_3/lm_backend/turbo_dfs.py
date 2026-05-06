@@ -6,7 +6,7 @@ import time
 from collections import defaultdict
 from typing import Any, Dict, List, Sequence, Tuple
 
-from layers.layer_0_core.level_0 import get_torch
+from scriptcraft.layers.layer_0_core.level_0 import get_torch
 
 _torch = get_torch()
 

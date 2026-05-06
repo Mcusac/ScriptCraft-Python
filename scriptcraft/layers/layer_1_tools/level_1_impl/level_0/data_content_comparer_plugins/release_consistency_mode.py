@@ -6,10 +6,10 @@ import pandas as pd
 
 from pathlib import Path
 
-from layers.layer_1_tools.level_0_infra.level_0.release_consistency_mode.comparison_engine import build_pivot, diff_block, diff_filtered
-from layers.layer_1_tools.level_0_infra.level_1.release_consistency_mode.dataset_preparation import prepare_dataset
-from layers.layer_1_tools.level_0_infra.level_1.release_consistency_mode.dtype_alignment import align_dtypes
-from layers.layer_1_tools.level_0_infra.level_1.release_consistency_mode.reporting import write_csv, column_changes
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.release_consistency_mode.comparison_engine import build_pivot, diff_block, diff_filtered
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_1.release_consistency_mode.dataset_preparation import prepare_dataset
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_1.release_consistency_mode.dtype_alignment import align_dtypes
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_1.release_consistency_mode.reporting import write_csv, column_changes
 
 
 def run_comparison(

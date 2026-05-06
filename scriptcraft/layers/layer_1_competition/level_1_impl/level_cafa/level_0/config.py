@@ -4,9 +4,9 @@ import numpy as np
 
 from typing import Any, Dict, List
 
-from layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
 
-from layers.layer_1_competition.level_0_infra.level_0 import ContestConfig
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import ContestConfig
 
 _logger = get_logger(__name__)
 

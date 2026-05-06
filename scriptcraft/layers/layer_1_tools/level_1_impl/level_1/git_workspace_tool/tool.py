@@ -1,15 +1,15 @@
 
 from typing import Callable
 
-from layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
-from layers.layer_1_tools.level_0_infra.level_1.git.probes import (
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_1.git.probes import (
     is_git_repo,
     porcelain_status_has_changes,
 )
-from layers.layer_1_tools.level_0_infra.level_1.subprocess.runner import run_ok
-from layers.layer_1_tools.level_0_infra.level_7.base_tool import BaseTool
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_1.subprocess.runner import run_ok
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_7.base_tool import BaseTool
 
-from layers.layer_1_tools.level_1_impl.level_0.git_workspace_tool.operations import check_status, commit_changes, create_tag, pull_workspace, push_workspace
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_0.git_workspace_tool.operations import check_status, commit_changes, create_tag, pull_workspace, push_workspace
 
 
 class GitWorkspaceTool(BaseTool):

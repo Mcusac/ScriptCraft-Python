@@ -5,9 +5,9 @@ import os
 from pathlib import Path
 from typing import Optional
 
-from layers.layer_0_core.level_0 import is_kaggle_input
+from scriptcraft.layers.layer_0_core.level_0 import is_kaggle_input
 
-from layers.layer_1_competition.level_0_infra.level_0 import ContestPaths
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import ContestPaths
 
 
 class CSIROPaths(ContestPaths):

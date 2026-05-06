@@ -12,7 +12,7 @@ but delegates all logic to the canonical GitService implementation.
 from pathlib import Path
 from typing import Optional
 
-from layers.layer_1_tools.level_0_infra.level_0.git_service import GitService
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.git_service import GitService
 
 
 # ---------------------------------------------------------------------

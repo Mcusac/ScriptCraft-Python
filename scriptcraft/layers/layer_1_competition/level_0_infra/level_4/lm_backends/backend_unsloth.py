@@ -3,9 +3,9 @@
 import importlib
 from typing import Any, Callable
 
-from layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
 
-from layers.layer_1_competition.level_0_infra.level_0 import (
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import (
     COMMON_PEFT_PARAMS,
     get_peft_model_state_dict,
     load_adapter_state_dict,
@@ -14,9 +14,9 @@ from layers.layer_1_competition.level_0_infra.level_0 import (
     torch_dtype_from_config,
     unsloth_available,
 )
-from layers.layer_1_competition.level_0_infra.level_3 import LmBackend, LmBackendConfig
-from layers.layer_1_competition.level_0_infra.level_3.lm_backend.shared_hooks import SharedTorchLmHooks
-from layers.layer_1_competition.level_0_infra.level_3.lm_backend.shared_inference import SharedTorchLmInference
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_3 import LmBackend, LmBackendConfig
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_3.lm_backend.shared_hooks import SharedTorchLmHooks
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_3.lm_backend.shared_inference import SharedTorchLmInference
 
 _logger = get_logger(__name__)
 

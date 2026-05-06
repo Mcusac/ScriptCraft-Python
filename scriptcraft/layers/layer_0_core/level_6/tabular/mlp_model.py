@@ -6,10 +6,10 @@ from pathlib import Path
 from typing import Any, Optional, Tuple
 from scipy.sparse import csr_matrix, issparse
 
-from layers.layer_0_core.level_0 import get_logger, get_torch
-from layers.layer_0_core.level_1 import TabularDataset, get_device
-from layers.layer_0_core.level_2 import run_train_epoch, run_validate_epoch, validate_array
-from layers.layer_0_core.level_5 import BaseTabularModel, SparseTabularDataset
+from scriptcraft.layers.layer_0_core.level_0 import get_logger, get_torch
+from scriptcraft.layers.layer_0_core.level_1 import TabularDataset, get_device
+from scriptcraft.layers.layer_0_core.level_2 import run_train_epoch, run_validate_epoch, validate_array
+from scriptcraft.layers.layer_0_core.level_5 import BaseTabularModel, SparseTabularDataset
 
 _logger = get_logger(__name__)
 _torch = get_torch()

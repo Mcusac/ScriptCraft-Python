@@ -6,23 +6,23 @@ from datetime import date
 from pathlib import Path
 from typing import Any
 
-from layers.layer_2_devtools.level_1_impl.level_0.scan.general_scan_ops import (
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_0.scan.general_scan_ops import (
     build_general_json_payload,
     build_general_markdown,
     iter_level_py_files,
     scan_general_stack_file,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.fix.violation_fix_bundle import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.fix.violation_fix_bundle import (
     run_violation_fix_bundle,
 )
-from layers.layer_2_devtools.level_0_infra.level_0 import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0 import (
     format_scan_violation_summary_lines,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.io.json_fs import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.io.json_fs import (
     latest_path_by_glob_mtime,
     read_json_object,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.path.workspace import find_workspace_root
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.path.workspace import find_workspace_root
 
 
 @dataclass(frozen=True)

@@ -2,11 +2,11 @@
 
 from typing import Any, Optional
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_1 import generate_feature_filename, get_model_id
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_1 import generate_feature_filename, get_model_id
 
-from layers.layer_1_competition.level_0_infra.level_0 import get_model_name_from_pretrained
-from layers.layer_0_core.level_6 import find_combo_id_from_config
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import get_model_name_from_pretrained
+from scriptcraft.layers.layer_0_core.level_6 import find_combo_id_from_config
 
 _logger = get_logger(__name__)
 

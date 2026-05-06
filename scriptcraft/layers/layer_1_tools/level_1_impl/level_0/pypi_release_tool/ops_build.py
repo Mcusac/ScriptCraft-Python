@@ -2,8 +2,8 @@ import shutil
 
 from pathlib import Path
 
-from layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
-from layers.layer_1_tools.level_0_infra.level_1.subprocess.runner import (
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_1.subprocess.runner import (
     run,
     python_module_args,
     stringify_args,

@@ -3,9 +3,9 @@
 from pathlib import Path
 from typing import Optional
 
-from layers.layer_1_competition.level_0_infra.level_0 import ContestPaths
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import ContestPaths
 
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_0 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_0 import (
     EVAL_CHALLENGE_NAMES,
     EVAL_SOLUTION_NAMES,
     TEST_CHALLENGE_NAMES,

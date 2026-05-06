@@ -5,13 +5,13 @@ import numpy as np
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_2 import find_feature_cache, load_features
-from layers.layer_0_core.level_4 import load_json
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_2 import find_feature_cache, load_features
+from scriptcraft.layers.layer_0_core.level_4 import load_json
 
-from layers.layer_1_competition.level_0_infra.level_2 import extract_test_features_from_model
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_2 import extract_test_features_from_model
 
-from layers.layer_1_competition.level_1_impl.level_csiro.level_2 import generate_ensemble_oof_predictions
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_csiro.level_2 import generate_ensemble_oof_predictions
 
 _logger = get_logger(__name__)
 

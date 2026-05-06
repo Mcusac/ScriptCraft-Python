@@ -2,14 +2,14 @@
 
 from typing import Any, Callable, Mapping
 
-from layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
 
-from layers.layer_1_competition.level_0_infra.level_0 import (
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import (
     LlmTtaDfsConfig,
     LmAdaptationConfig,
     run_task_adaptation,
 )
-from layers.layer_1_competition.level_0_infra.level_3 import LmBackend, LmBackendConfig
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_3 import LmBackend, LmBackendConfig
 
 _logger = get_logger(__name__)
 

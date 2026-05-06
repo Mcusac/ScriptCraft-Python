@@ -4,7 +4,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-from layers.layer_2_devtools.level_0_infra.level_0 import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0 import (
     DEFAULT_COMPLEXITY_TARGET_NAMES,
     lines_complexity_targets,
     lines_duplication_summary,
@@ -13,7 +13,7 @@ from layers.layer_2_devtools.level_0_infra.level_0 import (
     ThresholdConfig,
     load_json_report,
 )
-from layers.layer_2_devtools.level_0_infra.level_1 import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_1 import (
     JSONReporter,
     CohesionAnalyzer,
     ComplexityAnalyzer,
@@ -27,7 +27,7 @@ from layers.layer_2_devtools.level_0_infra.level_1 import (
     SOLIDChecker,
     TypeAnnotationChecker,
 )
-from layers.layer_2_devtools.level_0_infra.level_2 import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_2 import (
     ConsoleReporter,
 )
 

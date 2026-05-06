@@ -7,8 +7,8 @@ import tempfile
 from pathlib import Path
 from typing import Any, Iterable, Optional, Type, Union
 
-from layers.layer_0_core.level_0 import get_logger, DataLoadError, DataProcessingError, ensure_dir
-from layers.layer_0_core.level_3 import validate_path_is_file
+from scriptcraft.layers.layer_0_core.level_0 import get_logger, DataLoadError, DataProcessingError, ensure_dir
+from scriptcraft.layers.layer_0_core.level_3 import validate_path_is_file
 
 _logger = get_logger(__name__)
 

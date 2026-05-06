@@ -1,8 +1,8 @@
 """Factory for creating ensembling methods by name."""
 
-from layers.layer_0_core.level_0 import EnsemblingMethod
-from layers.layer_0_core.level_3 import PerTargetWeightedEnsemble
-from layers.layer_0_core.level_6 import (
+from scriptcraft.layers.layer_0_core.level_0 import EnsemblingMethod
+from scriptcraft.layers.layer_0_core.level_3 import PerTargetWeightedEnsemble
+from scriptcraft.layers.layer_0_core.level_6 import (
     PercentileAverageEnsemble,
     RankedAverageEnsemble,
     SimpleAverageEnsemble,

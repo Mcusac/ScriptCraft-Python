@@ -8,11 +8,11 @@ from the tools package.
 
 from typing import Any, Dict, Optional, Type
 
-from layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
-from layers.layer_1_tools.level_0_infra.level_7.base_tool import BaseTool
-from layers.layer_1_tools.level_0_infra.level_8.registry import discover_tool_metadata, get_available_tools
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_7.base_tool import BaseTool
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_8.registry import discover_tool_metadata, get_available_tools
 
-from layers.layer_1_tools.level_1_impl.level_0.tooling_dispatcher import dispatch_tool
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_0.tooling_dispatcher import dispatch_tool
 
 
 class ToolRegistry:

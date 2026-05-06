@@ -9,7 +9,7 @@ import pandas as pd
 
 from typing import Dict, List, Tuple, Any
 
-from layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
 
 
 def detect_mismatches(df_old: pd.DataFrame, df_new: pd.DataFrame) -> Dict[str, Tuple[Any, Any]]:

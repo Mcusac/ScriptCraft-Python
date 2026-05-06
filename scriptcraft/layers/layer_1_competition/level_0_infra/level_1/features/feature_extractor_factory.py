@@ -2,11 +2,11 @@
 
 from typing import Optional, Tuple, Callable
 
-from layers.layer_0_core.level_0 import get_logger, get_torch
-from layers.layer_0_core.level_3 import SigLIPExtractor
-from layers.layer_0_core.level_4 import create_vision_model, SigLIPFeatureExtractorAdapter
+from scriptcraft.layers.layer_0_core.level_0 import get_logger, get_torch
+from scriptcraft.layers.layer_0_core.level_3 import SigLIPExtractor
+from scriptcraft.layers.layer_0_core.level_4 import create_vision_model, SigLIPFeatureExtractorAdapter
 
-from layers.layer_1_competition.level_0_infra.level_0 import get_pretrained_weights_path
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import get_pretrained_weights_path
 
 _logger = get_logger(__name__)
 

@@ -4,11 +4,11 @@ import numpy as np
 
 from typing import Dict, Any, Optional
 
-from layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
 
-from layers.layer_1_competition.level_0_infra.level_0 import ContestPostProcessor
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import ContestPostProcessor
 
-from layers.layer_1_competition.level_1_impl.level_csiro.level_0 import CSIROConfig
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_csiro.level_0 import CSIROConfig
 
 _logger = get_logger(__name__)
 

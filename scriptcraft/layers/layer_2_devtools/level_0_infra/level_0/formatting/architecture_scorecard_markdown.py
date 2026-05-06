@@ -7,10 +7,10 @@ from datetime import date
 from pathlib import Path
 from typing import Any, Iterable
 
-from layers.layer_2_devtools.level_0_infra.level_0.contracts.envelope import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.contracts.envelope import (
     parse_generated_optional,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.parse.json.report_json import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.parse.json.report_json import (
     load_json_report,
 )
 

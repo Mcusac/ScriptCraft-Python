@@ -16,7 +16,7 @@ import sys
 from pathlib import Path
 from typing import Any, Callable
 
-from layers.layer_2_devtools.level_1_impl.level_2.audit_artifact_bootstrap import (
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_2.audit_artifact_bootstrap import (
     get_resolve_audit_artifact_root,
 )
 

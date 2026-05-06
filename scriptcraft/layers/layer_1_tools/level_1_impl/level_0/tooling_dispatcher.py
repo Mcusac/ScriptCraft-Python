@@ -10,9 +10,9 @@ Responsibilities:
 
 from typing import Any, Optional
 
-from layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
-from layers.layer_1_tools.level_0_infra.level_0.arg_mapping import build_run_kwargs_from_args
-from layers.layer_1_tools.level_0_infra.level_0.tool_lookup import InfraRegistryToolLookup, ToolLookup
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.arg_mapping import build_run_kwargs_from_args
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.tool_lookup import InfraRegistryToolLookup, ToolLookup
 
 
 def dispatch_tool(tool_name: str, args: Any, *, lookup: Optional[ToolLookup] = None) -> None:

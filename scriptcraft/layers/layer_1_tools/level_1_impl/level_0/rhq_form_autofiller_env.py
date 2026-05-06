@@ -7,8 +7,8 @@ RHQ Form Autofiller tool.
 
 from pathlib import Path
 
-from layers.layer_1_tools.level_0_infra.level_0.env.layout import get_environment_type_from_bool
-from layers.layer_1_tools.level_0_infra.level_1.sys_path import ensure_sys_path
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.env.layout import get_environment_type_from_bool
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_1.sys_path import ensure_sys_path
 
 
 def setup_environment() -> bool:

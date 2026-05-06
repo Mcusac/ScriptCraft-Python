@@ -16,7 +16,7 @@ _SCRIPTS_ROOT = _SCRIPT_DIR.parents[3]
 if str(_SCRIPTS_ROOT) not in sys.path:
     sys.path.insert(0, str(_SCRIPTS_ROOT))
 
-from layers.layer_2_devtools.level_1_impl.level_2.audit_orchestrator_ops import (  # noqa: E402
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_2.audit_orchestrator_ops import (  # noqa: E402
     run_audit_orchestrator,
 )
 

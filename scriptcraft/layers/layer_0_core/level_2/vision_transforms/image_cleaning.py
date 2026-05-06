@@ -7,8 +7,8 @@ import numpy as np
 from dataclasses import dataclass
 from typing import List, Optional, Tuple
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_1 import crop_relative_height, inpaint_by_hsv_range
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_1 import crop_relative_height, inpaint_by_hsv_range
 
 _logger = get_logger(__name__)
 

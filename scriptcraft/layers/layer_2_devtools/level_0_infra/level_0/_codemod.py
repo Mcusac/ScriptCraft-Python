@@ -8,11 +8,11 @@ LEVEL_DIRS = [ROOT / f"level_{i}" for i in range(1, 11)]
 PATTERNS = [
     # from level_0 import ...
     (re.compile(r"^from\s+level_0\s+import\s+", re.M),
-     "from layers.layer_0_core.level_0 import "),
+     "from scriptcraft.layers.layer_0_core.level_0 import "),
 
     # from level_1 import ...
     (re.compile(r"^from\s+level_1\s+import\s+", re.M),
-     "from layers.layer_0_core.level_1 import "),
+     "from scriptcraft.layers.layer_0_core.level_1 import "),
 ]
 
 def iter_py_files() -> list[Path]:

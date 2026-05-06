@@ -17,8 +17,8 @@ import numpy as np
 
 from typing import List, Optional
 
-from layers.layer_0_core.level_0 import get_logger, DataValidationError
-from layers.layer_0_core.level_1 import validate_predictions_for_ensemble, normalize_weights
+from scriptcraft.layers.layer_0_core.level_0 import get_logger, DataValidationError
+from scriptcraft.layers.layer_0_core.level_1 import validate_predictions_for_ensemble, normalize_weights
 
 _logger = get_logger(__name__)
 

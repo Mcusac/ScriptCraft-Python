@@ -4,7 +4,7 @@ from pathlib import Path
 
 
 def test_summary_lines_formats_pass_and_steps() -> None:
-    from layers.layer_2_devtools.level_1_impl.level_2 import ci_runner
+    from scriptcraft.layers.layer_2_devtools.level_1_impl.level_2 import ci_runner
 
     data = {
         "run_id": "pytest-ci-000",
@@ -23,14 +23,14 @@ def test_summary_lines_formats_pass_and_steps() -> None:
 
 
 def test_write_step_summary_no_env_does_not_crash(monkeypatch) -> None:
-    from layers.layer_2_devtools.level_1_impl.level_2 import ci_runner
+    from scriptcraft.layers.layer_2_devtools.level_1_impl.level_2 import ci_runner
 
     monkeypatch.delenv("GITHUB_STEP_SUMMARY", raising=False)
     ci_runner._write_step_summary(lines=["hello"], enabled=True)
 
 
 def test_write_runner_summary_file(tmp_path: Path) -> None:
-    from layers.layer_2_devtools.level_1_impl.level_2 import ci_runner
+    from scriptcraft.layers.layer_2_devtools.level_1_impl.level_2 import ci_runner
 
     out = ci_runner._write_runner_summary_file(
         workspace_root=tmp_path,

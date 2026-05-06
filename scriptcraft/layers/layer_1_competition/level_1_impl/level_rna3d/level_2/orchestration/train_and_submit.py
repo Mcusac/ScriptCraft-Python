@@ -2,18 +2,18 @@
 
 from typing import List, Optional
 
-from layers.layer_1_competition.level_0_infra.level_0 import PipelineResult, contest_models_dir
-from layers.layer_1_competition.level_0_infra.level_1 import run_two_stage_pipeline_result_with_validation_first
-from layers.layer_1_competition.level_0_infra.level_0.artifacts import (
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import PipelineResult, contest_models_dir
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1 import run_two_stage_pipeline_result_with_validation_first
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0.artifacts import (
     capture_model_paths,
     capture_submission_paths,
     metadata_merge,
 )
-from layers.layer_1_competition.level_0_infra.level_1.pipelines import ValidateTrainSubmitPipelineResultShell
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1.pipelines import ValidateTrainSubmitPipelineResultShell
 
-from layers.layer_1_competition.level_1_impl.level_rna3d.level_0 import RNA3DPaths, validate_rna3d_inputs
-from layers.layer_1_competition.level_1_impl.level_rna3d.level_2.orchestration.submission import submit_pipeline
-from layers.layer_1_competition.level_1_impl.level_rna3d.level_3.training.pipeline import train_pipeline
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_rna3d.level_0 import RNA3DPaths, validate_rna3d_inputs
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_rna3d.level_2.orchestration.submission import submit_pipeline
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_rna3d.level_3.training.pipeline import train_pipeline
 
 
 def _validate_rna3d_pipeline_result(*, data_root: str, max_targets: int = 0, run_ctx: object | None = None) -> PipelineResult:

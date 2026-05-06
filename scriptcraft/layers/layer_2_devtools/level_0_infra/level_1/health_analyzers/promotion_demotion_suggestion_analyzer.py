@@ -13,17 +13,17 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Iterable
 
-from layers.layer_2_devtools.level_0_infra.level_0.base_health_analyzer import BaseAnalyzer
-from layers.layer_2_devtools.level_0_infra.level_0.parse.ast.ast_utils import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.base_health_analyzer import BaseAnalyzer
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.parse.ast.ast_utils import (
     get_imports_from_ast,
     parse_file,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.path.python_modules import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.path.python_modules import (
     collect_python_files,
     current_package,
     file_to_module,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.placement.promotion_demotion_suggestions import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.placement.promotion_demotion_suggestions import (
     HeavyReusePolicy,
     UsageEvidence,
     suggest_demotions,

@@ -10,7 +10,7 @@ from typing import Any, Dict, List, Optional
 
 from level_8 import RegressionEnsemble, create_regression_ensemble_from_paths
 
-from layers.layer_1_competition.level_1_impl.level_csiro.level_1 import csiro_modeling
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_csiro.level_1 import csiro_modeling
 
 _CSIRO_PICKLE_ALIASES: Dict[str, Any] = {
     "modeling": csiro_modeling,

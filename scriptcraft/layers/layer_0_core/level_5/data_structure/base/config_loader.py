@@ -3,8 +3,8 @@
 from pathlib import Path
 from typing import Dict, Any, Optional, List
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_4 import load_json
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_4 import load_json
 
 _logger = get_logger(__name__)
 

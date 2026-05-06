@@ -6,8 +6,8 @@ import pandas as pd
 
 from typing import Dict
 
-from layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
-from layers.layer_1_tools.level_0_infra.level_2.value_cleaning import is_missing_like
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_2.value_cleaning import is_missing_like
 
 
 def clean_dataframe(df: pd.DataFrame) -> pd.DataFrame:

@@ -1,14 +1,14 @@
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Type, Union
 
-from layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
-from layers.layer_1_tools.level_0_infra.level_0.typed_plugin_store import get_typed_plugin
-from layers.layer_1_tools.level_0_infra.level_1.metadata import (
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.typed_plugin_store import get_typed_plugin
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_1.metadata import (
     ToolMetadata,
     PluginMetadata,
 )
-from layers.layer_1_tools.level_0_infra.level_7.base_tool import BaseTool
-from layers.layer_1_tools.level_0_infra.level_7.discovery import ToolDiscoveryEngine
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_7.base_tool import BaseTool
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_7.discovery import ToolDiscoveryEngine
 
 
 class UnifiedRegistry:

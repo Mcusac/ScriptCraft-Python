@@ -5,7 +5,7 @@ Small normalization helpers.
 from pathlib import Path
 from typing import List, Optional, Sequence, Union
 
-from layers.layer_1_tools.level_0_infra.level_0.runtime.protocols import PathLike
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.runtime.protocols import PathLike
 
 
 def normalize_list(value: Optional[Union[PathLike, Sequence[PathLike]]]) -> List[PathLike]:

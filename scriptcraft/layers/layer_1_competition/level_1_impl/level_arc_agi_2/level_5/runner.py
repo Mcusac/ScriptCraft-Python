@@ -8,9 +8,9 @@ accumulated in a single ``predictions`` list and then ranked once at the end.
 import time
 from typing import Any, Mapping
 
-from layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
 
-from layers.layer_1_competition.level_0_infra.level_0 import (
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import (
     LlmTtaDfsConfig,
     apply_runtime_profile,
     build_budget,
@@ -18,7 +18,7 @@ from layers.layer_1_competition.level_0_infra.level_0 import (
     llm_tta_grid_hw,
     validate_llm_tta_dfs_config,
 )
-from layers.layer_1_competition.level_0_infra.level_1 import (
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1 import (
     CandidatePrediction,
     build_runtime_profile,
     per_task_adaptation_should_run,
@@ -26,28 +26,28 @@ from layers.layer_1_competition.level_0_infra.level_1 import (
     write_decoded_shard,
     write_intermediate_candidates,
 )
-from layers.layer_1_competition.level_0_infra.level_4 import (
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_4 import (
     prepare_llm_tta_backend,
     restore_adapter_safely,
 )
 
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_0 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_0 import (
     apply_augmentation,
     coerce_arc_grid,
     generate_augmentation_specs,
     invert_augmentation,
     predict_attempts_from_chosen_params,
 )
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_2.decode_branches import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_2.decode_branches import (
     decode_with_cell_probs,
     decode_with_support_grids,
     decode_with_turbo_lm,
 )
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_2.ranking import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_2.ranking import (
     build_fallback_attempts,
     pick_ranked_attempts,
 )
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_4.lm import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_4.lm import (
     build_arc_lm_backend,
 )
 

@@ -1,7 +1,7 @@
 from pathlib import Path
 from typing import Any, Dict
 
-from layers.layer_1_tools.level_0_infra.level_0.path_resolver import WorkspacePathResolver
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.path_resolver import WorkspacePathResolver
 
 
 def get_tool_config(config: Any, name: str) -> Dict[str, Any]:

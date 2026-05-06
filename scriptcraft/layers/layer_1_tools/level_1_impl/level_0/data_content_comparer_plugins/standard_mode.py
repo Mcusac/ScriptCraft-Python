@@ -1,9 +1,9 @@
 from pathlib import Path
 from typing import Dict, Any
 
-from layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
-from layers.layer_1_tools.level_0_infra.level_1.data_loading import load_comparison_datasets
-from layers.layer_1_tools.level_0_infra.level_2.comparison import compare_dataframes
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_1.data_loading import load_comparison_datasets
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_2.comparison import compare_dataframes
 
 
 def run_mode(input_paths, output_dir, domain=None, **kwargs) -> Dict[str, Any]:

@@ -6,10 +6,10 @@ Per-ontology parameter grid support for CAFA 6, where different ontologies
 
 from typing import Any, Dict, List, Optional
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_2 import resolve_keyed_param_grid
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_2 import resolve_keyed_param_grid
 
-from layers.layer_1_competition.level_1_impl.level_cafa.level_0 import validate_ontology
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_cafa.level_0 import validate_ontology
 
 _logger = get_logger(__name__)
 

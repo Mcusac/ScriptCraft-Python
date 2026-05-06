@@ -2,9 +2,9 @@
 
 import torch.nn as nn
 
-from layers.layer_0_core.level_0 import get_torch
+from scriptcraft.layers.layer_0_core.level_0 import get_torch
 
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_0 import NUM_CHANNELS
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_0 import NUM_CHANNELS
 
 _torch = get_torch()
 

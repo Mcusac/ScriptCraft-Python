@@ -6,72 +6,72 @@ from datetime import date
 from pathlib import Path
 from typing import Any
 
-from layers.layer_2_devtools.level_0_infra.level_0.graph.import_graph import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.graph.import_graph import (
     build_internal_import_graph as _build_internal_import_graph,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.graph.scc import find_cycles as _find_cycles
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.graph.scc import find_cycles as _find_cycles
 
-from layers.layer_2_devtools.level_1_impl.level_0.composed.audit_precheck_workflow_ops import (
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_0.composed.audit_precheck_workflow_ops import (
     dumps_precheck_payload as _dumps_precheck_payload,
 )
-from layers.layer_2_devtools.level_1_impl.level_0.composed.audit_precheck_workflow_ops import (
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_0.composed.audit_precheck_workflow_ops import (
     run_general_full_precheck as _run_general_full_precheck,
 )
-from layers.layer_2_devtools.level_1_impl.level_0.composed.audit_precheck_workflow_ops import (
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_0.composed.audit_precheck_workflow_ops import (
     run_target_precheck as _run_target_precheck,
 )
-from layers.layer_2_devtools.level_1_impl.level_0.composed.contest_scan_workflow_ops import (
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_0.composed.contest_scan_workflow_ops import (
     run_contest_tier_scan_workflow as _run_contest_tier_scan,
 )
-from layers.layer_2_devtools.level_1_impl.level_0.composed.general_scan_workflow_ops import (
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_0.composed.general_scan_workflow_ops import (
     run_general_scan_workflow as _run_general_scan,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.path.audit_paths import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.path.audit_paths import (
     mirror_files_to_run_snapshot as _mirror_files_to_run_snapshot,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.path.workspace import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.path.workspace import (
     resolve_workspace_root as _resolve_workspace_root,
 )
-from layers.layer_2_devtools.level_0_infra.level_1.rollup_skeleton import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_1.rollup_skeleton import (
     build_comprehensive_rollup_skeleton_markdown as _build_rollup_skeleton,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.path.layer_core_paths import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.path.layer_core_paths import (
     find_layer_0_core_ancestor,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.contracts.envelope import err as _err
-from layers.layer_2_devtools.level_0_infra.level_0.contracts.envelope import ok as _ok
-from layers.layer_2_devtools.level_0_infra.level_0.contracts.envelope import parse_generated as _parse_generated
-from layers.layer_2_devtools.level_0_infra.level_0.contracts.envelope import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.contracts.envelope import err as _err
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.contracts.envelope import ok as _ok
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.contracts.envelope import parse_generated as _parse_generated
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.contracts.envelope import (
     parse_generated_optional as _parse_generated_optional,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.formatting.file_level_suggestions_markdown import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.formatting.file_level_suggestions_markdown import (
     build_file_level_suggestions_markdown as _build_file_level_suggestions_markdown,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.formatting.promotion_demotion_suggestions_markdown import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.formatting.promotion_demotion_suggestions_markdown import (
     build_promotion_demotion_suggestions_markdown as _build_promotion_demotion_suggestions_markdown,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.formatting.health_report_views import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.formatting.health_report_views import (
     lines_oversized_modules as _lines_oversized_modules,
 )
-from layers.layer_2_devtools.level_0_infra.level_1.health_analyzers.file_level_suggestion_analyzer import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_1.health_analyzers.file_level_suggestion_analyzer import (
     FileLevelSuggestionAnalyzer as _FileLevelSuggestionAnalyzer,
     ScopeConfig as _ScopeConfig,
 )
-from layers.layer_2_devtools.level_0_infra.level_1.health_analyzers.file_metrics import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_1.health_analyzers.file_metrics import (
     FileMetricsAnalyzer as _FileMetricsAnalyzer,
 )
-from layers.layer_2_devtools.level_0_infra.level_1.health_analyzers.promotion_demotion_suggestion_analyzer import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_1.health_analyzers.promotion_demotion_suggestion_analyzer import (
     PromotionDemotionScopeConfig as _PromotionDemotionScopeConfig,
     PromotionDemotionSuggestionAnalyzer as _PromotionDemotionSuggestionAnalyzer,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.placement.file_level_suggestions import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.placement.file_level_suggestions import (
     LevelPolicy as _LevelPolicy,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.placement.promotion_demotion_suggestions import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.placement.promotion_demotion_suggestions import (
     HeavyReusePolicy,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.health_thresholds import ThresholdConfig
-from layers.layer_2_devtools.level_1_impl.level_1.api_validation import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.health_thresholds import ThresholdConfig
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_1.api_validation import (
     run_validate_package_boundaries_complete,
 )
 
@@ -679,7 +679,7 @@ def run_barrel_enforcement_with_artifacts(config: dict[str, Any]) -> dict[str, A
         ``exit_code`` (0).
     """
     try:
-        from layers.layer_2_devtools.level_1_impl.level_0.composed.barrel_enforcement_workflow_ops import (
+        from scriptcraft.layers.layer_2_devtools.level_1_impl.level_0.composed.barrel_enforcement_workflow_ops import (
             run_barrel_enforcement_workflow,
         )
 

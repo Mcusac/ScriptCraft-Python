@@ -2,7 +2,7 @@
 
 from typing import Any, Dict, List
 
-from layers.layer_0_core.level_2 import log_pipeline_completion
+from scriptcraft.layers.layer_0_core.level_2 import log_pipeline_completion
 
 
 def handle_stacking_result(

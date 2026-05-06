@@ -6,11 +6,11 @@ import pandas as pd
 from pathlib import Path
 from typing import Optional, List, Dict
 
-from layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
 
-from layers.layer_1_competition.level_0_infra.level_1 import get_contest
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1 import get_contest
 
-from layers.layer_1_competition.level_1_impl.level_csiro.level_2 import regression_ensemble_pipeline
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_csiro.level_2 import regression_ensemble_pipeline
 
 _logger = get_logger(__name__)
 

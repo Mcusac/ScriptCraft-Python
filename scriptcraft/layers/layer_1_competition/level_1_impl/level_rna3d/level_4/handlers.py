@@ -4,16 +4,16 @@ import argparse
 
 from typing import Any, Callable, Dict, List, Optional
 
-from layers.layer_1_competition.level_1_impl.level_rna3d.level_0.validate_data import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_rna3d.level_0.validate_data import (
     validate_rna3d_inputs,
 )
-from layers.layer_1_competition.level_1_impl.level_rna3d.level_2 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_rna3d.level_2 import (
     submit_pipeline,
     run_train_and_submit_pipeline_result,
     tune_pipeline,
 )
-from layers.layer_1_competition.level_1_impl.level_rna3d.level_3 import train_pipeline
-from layers.layer_1_competition.level_0_infra.level_1.contest import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_rna3d.level_3 import train_pipeline
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1.contest import (
     add_common_contest_args,
     add_ensemble_weights_arg,
     add_max_targets_arg,

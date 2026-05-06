@@ -7,13 +7,13 @@ _SCRIPTS = Path(__file__).resolve().parents[5]
 if str(_SCRIPTS) not in sys.path:
     sys.path.insert(0, str(_SCRIPTS))
 
-from layers.layer_2_devtools.level_1_impl.level_0.scan.contest_scan_ops import (
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_0.scan.contest_scan_ops import (
     scan_contest_package_file,
     scan_contest_root_directory,
 )
-from layers.layer_2_devtools.level_1_impl.level_0.scan.general_scan_ops import scan_general_stack_file
-from layers.layer_2_devtools.level_1_impl.level_0.scan.infra_scan_ops import scan_infra_file
-from layers.layer_2_devtools.level_1_impl.level_0.scan.special_scan_ops import scan_special_tree_file
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_0.scan.general_scan_ops import scan_general_stack_file
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_0.scan.infra_scan_ops import scan_infra_file
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_0.scan.special_scan_ops import scan_special_tree_file
 
 
 def test_general_upward_violation(tmp_path: Path) -> None:
@@ -51,7 +51,7 @@ def test_general_mixed_layer0_core_and_short_level(tmp_path: Path) -> None:
     f = core / "level_2" / "logic.py"
     f.parent.mkdir(parents=True)
     f.write_text(
-        "from layers.layer_0_core.level_1 import a\n"
+        "from scriptcraft.layers.layer_0_core.level_1 import a\n"
         "from level_0 import b\n",
         encoding="utf-8",
     )
@@ -63,7 +63,7 @@ def test_infra_tier_upward(tmp_path: Path) -> None:
     f = tmp_path / "infra" / "level_0" / "x.py"
     f.parent.mkdir(parents=True)
     f.write_text(
-        "from layers.layer_1_competition.level_0_infra.level_2 import Thing\n",
+        "from scriptcraft.layers.layer_1_competition.level_0_infra.level_2 import Thing\n",
         encoding="utf-8",
     )
     r = scan_infra_file(f, tier_k=0)
@@ -82,7 +82,7 @@ def test_infra_barrel_deep_when_reexported(tmp_path: Path) -> None:
     f = infra / "level_2" / "x.py"
     f.parent.mkdir(parents=True)
     f.write_text(
-        "from layers.layer_1_competition.level_0_infra.level_0.reg import foo\n",
+        "from scriptcraft.layers.layer_1_competition.level_0_infra.level_0.reg import foo\n",
         encoding="utf-8",
     )
     r = scan_infra_file(f, tier_k=2)
@@ -107,7 +107,7 @@ def test_contest_upward(tmp_path: Path) -> None:
     f = lev1 / "a.py"
     f.parent.mkdir(parents=True)
     f.write_text(
-        "from layers.layer_1_competition.level_1_impl.level_demo.level_2 import x\n",
+        "from scriptcraft.layers.layer_1_competition.level_1_impl.level_demo.level_2 import x\n",
         encoding="utf-8",
     )
     r = scan_contest_package_file(f, "level_demo", 1, contest, {})
@@ -127,7 +127,7 @@ def test_contest_deep_path_heuristic(tmp_path: Path) -> None:
     lev1.mkdir(parents=True)
     f = lev1 / "a.py"
     f.write_text(
-        "from layers.layer_1_competition.level_1_impl.level_demo.level_0.submod "
+        "from scriptcraft.layers.layer_1_competition.level_1_impl.level_demo.level_0.submod "
         "import exported\n",
         encoding="utf-8",
     )
@@ -140,7 +140,7 @@ def test_contest_root_relaxes_layering(tmp_path: Path) -> None:
     contest.mkdir(parents=True)
     f = contest / "hook.py"
     f.write_text(
-        "from layers.layer_1_competition.level_1_impl.level_demo.level_1 import x\n",
+        "from scriptcraft.layers.layer_1_competition.level_1_impl.level_demo.level_1 import x\n",
         encoding="utf-8",
     )
     reports = scan_contest_root_directory(contest, "level_demo")

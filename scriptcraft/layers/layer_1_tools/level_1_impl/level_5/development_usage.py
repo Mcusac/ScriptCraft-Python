@@ -13,10 +13,10 @@ from pathlib import Path
 # Add the package to path (only needed for development)
 sys.path.insert(0, str(Path(__file__).parent.parent / "implementations" / "python-package"))
 
-from layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
 
-from layers.layer_1_tools.level_1_impl.level_0.pypi_release_tool.tool import PyPIReleaseTool
-from layers.layer_1_tools.level_1_impl.level_4.git_pipelines import (
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_0.pypi_release_tool.tool import PyPIReleaseTool
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_4.git_pipelines import (
     GitPipelineFactory,
 )
 

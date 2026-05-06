@@ -16,12 +16,12 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional
 
-from layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
-from layers.layer_1_tools.level_0_infra.level_0.path_resolver import (
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.path_resolver import (
     PathResolver,
     create_path_resolver,
 )
-from layers.layer_1_tools.level_0_infra.level_2.logging_context import (
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_2.logging_context import (
     qc_log_context,
     with_domain_logger,
 )

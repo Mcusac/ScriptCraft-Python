@@ -5,9 +5,9 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List
 
-from layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
 
-from layers.layer_1_tools.level_1_impl.level_0.schema_detector.models import TableSchema
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_0.schema_detector.models import TableSchema
 
 
 def schema_to_dict(schema: TableSchema) -> Dict[str, Any]:

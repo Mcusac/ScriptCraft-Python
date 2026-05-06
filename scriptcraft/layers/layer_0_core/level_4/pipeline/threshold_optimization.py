@@ -5,8 +5,8 @@ import numpy as np
 from scipy.optimize import minimize_scalar
 from typing import Tuple
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_3 import (
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_3 import (
     calculate_f1,
     calculate_precision,
     calculate_recall,

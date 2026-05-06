@@ -6,7 +6,7 @@ _FW_ROOT = Path(__file__).resolve().parents[5]
 if str(_FW_ROOT) not in sys.path:
     sys.path.insert(0, str(_FW_ROOT))
 
-from layers.layer_2_devtools.level_1_impl.level_1.api_maintenance import (
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_1.api_maintenance import (
     run_package_dump_sys_argv_api,
 )
 

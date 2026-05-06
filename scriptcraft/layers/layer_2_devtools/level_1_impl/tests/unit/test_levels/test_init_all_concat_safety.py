@@ -2,7 +2,7 @@
 
 from pathlib import Path
 
-from layers.layer_2_devtools.level_0_infra.level_0.validation.init_all_concat import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.validation.init_all_concat import (
     collect_init_all_concat_violations,
     find_scripts_root,
 )

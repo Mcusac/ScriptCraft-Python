@@ -6,8 +6,8 @@ import pickle
 from typing import Dict, Any
 from pathlib import Path
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_7 import create_tabular_model
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_7 import create_tabular_model
 
 _logger = get_logger(__name__)
 

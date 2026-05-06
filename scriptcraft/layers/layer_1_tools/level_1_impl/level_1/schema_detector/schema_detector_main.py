@@ -8,12 +8,12 @@ import sys
 from pathlib import Path
 from typing import List
 
-from layers.layer_1_tools.level_0_infra.level_0.emitter import setup_logger, log_and_print
-from layers.layer_1_tools.level_0_infra.level_0.process_domain_mixins import EngineWrapperToolMixin
-from layers.layer_1_tools.level_0_infra.level_6.argument_parsers import ParserFactory
-from layers.layer_1_tools.level_0_infra.level_7.base_tool import BaseTool
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import setup_logger, log_and_print
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.process_domain_mixins import EngineWrapperToolMixin
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_6.argument_parsers import ParserFactory
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_7.base_tool import BaseTool
 
-from layers.layer_1_tools.level_1_impl.level_0.schema_detector import SchemaDetector
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_0.schema_detector import SchemaDetector
 
 
 class SchemaDetectorTool(EngineWrapperToolMixin, BaseTool):
@@ -34,7 +34,7 @@ class SchemaDetectorTool(EngineWrapperToolMixin, BaseTool):
         """
         Standard domain-driven execution.
         """
-        from layers.layer_1_tools.level_1_impl.level_2.runtime_loops import (
+        from scriptcraft.layers.layer_1_tools.level_1_impl.level_2.runtime_loops import (
             run_process_domain_over_input_paths,
         )
 

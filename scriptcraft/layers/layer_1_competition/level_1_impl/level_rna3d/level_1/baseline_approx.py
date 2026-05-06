@@ -19,15 +19,15 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Dict, List, Optional, Sequence, Tuple
 
-from layers.layer_0_core.level_0 import get_logger, ensure_dir
+from scriptcraft.layers.layer_0_core.level_0 import get_logger, ensure_dir
 
-from layers.layer_1_competition.level_1_impl.level_rna3d.level_0 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_rna3d.level_0 import (
     build_coordinate_columns,
     group_labels_by_target,
     RNA3DPaths,
     RNA3DPostProcessor,
 )
-from layers.layer_1_competition.level_0_infra.level_1.paths import contest_submission_path
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1.paths import contest_submission_path
 
 _logger = get_logger(__name__)
 

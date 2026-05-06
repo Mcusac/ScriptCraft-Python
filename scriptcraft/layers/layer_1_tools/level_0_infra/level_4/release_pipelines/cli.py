@@ -1,8 +1,8 @@
 import argparse
 
-from layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
-from layers.layer_1_tools.level_0_infra.level_2.root_schema import Config
-from layers.layer_1_tools.level_0_infra.level_3.release_pipelines.factory import ReleasePipelineFactory
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_2.root_schema import Config
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_3.release_pipelines.factory import ReleasePipelineFactory
 
 
 def main():

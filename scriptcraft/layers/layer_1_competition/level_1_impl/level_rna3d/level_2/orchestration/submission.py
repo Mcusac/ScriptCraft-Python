@@ -6,22 +6,22 @@ import pandas as pd
 from pathlib import Path
 from typing import Dict, List, Optional
 
-from layers.layer_0_core.level_0 import (
+from scriptcraft.layers.layer_0_core.level_0 import (
     combine_predictions_weighted_average,
     fit_stacking_weights_from_scores,
     get_logger,
 )
-from layers.layer_0_core.level_4 import load_best_config_json
+from scriptcraft.layers.layer_0_core.level_4 import load_best_config_json
 
-from layers.layer_1_competition.level_1_impl.level_rna3d.level_0 import validate_rna3d_inputs
-from layers.layer_1_competition.level_1_impl.level_rna3d.level_1 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_rna3d.level_0 import validate_rna3d_inputs
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_rna3d.level_1 import (
     BaselineApproxConfig,
     evaluate_predictions_tm,
     format_predictions_to_submission_csv,
     run_baseline_approx_predictions,
 )
-from layers.layer_1_competition.level_0_infra.level_1.contest import ValidateFirstRunner
-from layers.layer_1_competition.level_0_infra.level_0.submission import validate_strategy_models
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1.contest import ValidateFirstRunner
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0.submission import validate_strategy_models
 
 _logger = get_logger(__name__)
 

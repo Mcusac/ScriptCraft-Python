@@ -1,7 +1,7 @@
 import subprocess
 
-from layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
-from layers.layer_1_tools.level_0_infra.level_1.release_pipelines.utils import build_context
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_1.release_pipelines.utils import build_context
 
 
 def check_git_status(**kwargs) -> None:

@@ -3,13 +3,13 @@
 import ast
 from pathlib import Path
 
-from layers.layer_2_devtools.level_0_infra.level_0.constants.import_patterns import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.constants.import_patterns import (
     CONTEST_LAYER_IMPORT_RE,
     LEVEL_DIR_RE,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.models.audit_models import FileReport, Violation
-from layers.layer_2_devtools.level_0_infra.level_0.parse.ast.ast_utils import parse_file
-from layers.layer_2_devtools.level_0_infra.level_0.parse.barrel_names import load_static_barrel_names
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.models.audit_models import FileReport, Violation
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.parse.ast.ast_utils import parse_file
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.parse.barrel_names import load_static_barrel_names
 
 
 def load_level_barrel_names(level_j_dir: Path) -> set[str]:

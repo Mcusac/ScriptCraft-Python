@@ -1,12 +1,12 @@
 from typing import Any
 
-from layers.layer_1_tools.level_0_infra.level_0.release_pipelines.context import ReleasePipelineContext
-from layers.layer_1_tools.level_0_infra.level_0.release_pipelines.run_modes import RunMode
-from layers.layer_1_tools.level_0_infra.level_2.root_schema import Config
-from layers.layer_1_tools.level_0_infra.level_2.pipeline_base import BasePipeline, PipelineStep
-from layers.layer_1_tools.level_0_infra.level_2.release_pipelines.steps_python import validate_package, run_tests, build_package, upload_to_pypi
-from layers.layer_1_tools.level_0_infra.level_2.release_pipelines.steps_git import check_git_status, create_git_tag, push_to_remote
-from layers.layer_1_tools.level_0_infra.level_2.release_pipelines.steps_docs import build_docs, deploy_docs
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.release_pipelines.context import ReleasePipelineContext
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.release_pipelines.run_modes import RunMode
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_2.root_schema import Config
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_2.pipeline_base import BasePipeline, PipelineStep
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_2.release_pipelines.steps_python import validate_package, run_tests, build_package, upload_to_pypi
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_2.release_pipelines.steps_git import check_git_status, create_git_tag, push_to_remote
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_2.release_pipelines.steps_docs import build_docs, deploy_docs
 
 
 class ReleasePipelineFactory:

@@ -6,8 +6,8 @@ import pandas as pd
 from pathlib import Path
 from typing import Any, Dict, List
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_5 import load_and_validate_test_data
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_5 import load_and_validate_test_data
 
 _logger = get_logger(__name__)
 

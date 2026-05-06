@@ -2,18 +2,18 @@
 
 from typing import Any, Dict, Optional, Tuple, Union
 
-from layers.layer_0_core.level_0 import (
+from scriptcraft.layers.layer_0_core.level_0 import (
     BEST_HYPERPARAMETERS_FILE,
     ConfigValidationError,
     RESULTS_FILE_GRIDSEARCH,
     SEARCH_TYPE_THOROUGH,
     get_logger,
 )
-from layers.layer_0_core.level_1 import get_transformer_hyperparameter_grid
-from layers.layer_0_core.level_4 import save_json
-from layers.layer_0_core.level_7 import HyperparameterGridSearchBase
-from layers.layer_0_core.level_8 import create_end_to_end_variant_result, extract_variant_config
-from layers.layer_0_core.level_9 import attach_paths_to_config
+from scriptcraft.layers.layer_0_core.level_1 import get_transformer_hyperparameter_grid
+from scriptcraft.layers.layer_0_core.level_4 import save_json
+from scriptcraft.layers.layer_0_core.level_7 import HyperparameterGridSearchBase
+from scriptcraft.layers.layer_0_core.level_8 import create_end_to_end_variant_result, extract_variant_config
+from scriptcraft.layers.layer_0_core.level_9 import attach_paths_to_config
 
 _logger = get_logger(__name__)
 

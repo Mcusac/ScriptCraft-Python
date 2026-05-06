@@ -5,9 +5,9 @@ import numpy as np
 from typing import Set, Dict, List
 from pathlib import Path
 
-from layers.layer_0_core.level_1 import HierarchyPropagator
+from scriptcraft.layers.layer_0_core.level_1 import HierarchyPropagator
 
-from layers.layer_1_competition.level_0_infra.level_0 import ContestHierarchy
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import ContestHierarchy
 
 
 class CAFAHierarchy(ContestHierarchy):

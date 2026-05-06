@@ -3,7 +3,7 @@
 from pathlib import Path
 from typing import Any, Dict
 
-from layers.layer_0_core.level_0 import get_logger, get_torch
+from scriptcraft.layers.layer_0_core.level_0 import get_logger, get_torch
 
 _torch = get_torch()
 _logger = get_logger(__name__)

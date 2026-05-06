@@ -2,8 +2,8 @@
 
 from typing import Callable, Dict, List, Any, Set, Optional
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_1 import execute_variants
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_1 import execute_variants
 
 _logger = get_logger(__name__)
 

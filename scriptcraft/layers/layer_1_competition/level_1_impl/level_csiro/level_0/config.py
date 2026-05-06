@@ -4,7 +4,7 @@ import numpy as np
 
 from typing import Dict, List, Optional
 
-from layers.layer_1_competition.level_0_infra.level_0 import ContestConfig
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import ContestConfig
 
 from .derived_targets import compute_derived_targets as _compute_derived_targets
 

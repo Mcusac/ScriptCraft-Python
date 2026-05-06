@@ -6,7 +6,7 @@ from pathlib import Path
 from PIL import Image
 from typing import Any, Optional, Callable, List, Union, Tuple
 
-from layers.layer_0_core.level_0 import get_logger, get_torch
+from scriptcraft.layers.layer_0_core.level_0 import get_logger, get_torch
 
 _torch = get_torch()
 _Dataset = _torch.utils.data.Dataset if _torch is not None else object

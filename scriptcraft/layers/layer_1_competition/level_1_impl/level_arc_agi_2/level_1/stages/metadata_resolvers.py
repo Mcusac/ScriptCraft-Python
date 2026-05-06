@@ -13,10 +13,10 @@ verbatim (metadata-read failures must never abort a pipeline).
 from pathlib import Path
 from typing import Any, Optional
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_4 import load_json_raw
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_4 import load_json_raw
 
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_0 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_0 import (
     DEFAULT_SUBMIT_HEURISTIC,
     load_chosen_params_from_tuned_config,
 )
