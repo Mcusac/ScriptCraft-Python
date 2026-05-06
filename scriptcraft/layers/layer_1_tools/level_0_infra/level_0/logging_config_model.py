@@ -1,9 +1,9 @@
 # level_0/logging_config_model.py
+import logging
 
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional, Union
-import logging
 
 
 def _normalize_level(level: Union[str, int]) -> int:

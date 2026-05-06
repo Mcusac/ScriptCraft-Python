@@ -1,12 +1,21 @@
-"""
-Top-level `layers` package.
+"""Auto-generated aggregation exports."""
 
-We intentionally do not eagerly import the entire `layers.*` tree here:
-- importing subpackages can pull in optional dependencies
-- importing cross-layer entrypoints can trigger unrelated import-time failures
 
-Callers should import the specific subpackage they need, e.g.:
-`from layers.layer_0_core.level_2 import ...`.
-"""
+from . import (
+    layer_0_core,
+    layer_1_competition,
+    layer_1_tools,
+    layer_2_devtools,
+)
 
-__all__: list[str] = []
+from .layer_0_core import *
+from .layer_1_competition import *
+from .layer_1_tools import *
+from .layer_2_devtools import *
+
+__all__ = (
+    list(layer_0_core.__all__)
+    + list(layer_1_competition.__all__)
+    + list(layer_1_tools.__all__)
+    + list(layer_2_devtools.__all__)
+)

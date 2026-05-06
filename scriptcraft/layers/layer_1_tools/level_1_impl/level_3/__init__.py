@@ -35,25 +35,12 @@ from .dictionary_driven_checker_validators import (
     PatternValidator,
 )
 
-from .dictionary_validator_main import DictionaryValidator
-
-from .feature_change_checker_main import FeatureChangeChecker
-
-from .medvisit_integrity_validator_main import (
-    FILENAME_MAP,
-    MedVisitIntegrityValidator,
-)
-
 from .rhq_form_autofiller_main import (
     Pipeline,
     RHQContext,
     RHQFormAutofiller,
     RHQFormService,
 )
-
-from .schema_detector_main import SchemaDetectorTool
-
-from .score_totals_checker_main import ScoreTotalsChecker
 
 __all__ = (
     list(automated_labeler.__all__)
@@ -69,10 +56,6 @@ __all__ = (
         "CodedValueValidator",
         "CustomReleaseManager",
         "DateValidator",
-        "DictionaryValidator",
-        "FILENAME_MAP",
-        "FeatureChangeChecker",
-        "MedVisitIntegrityValidator",
         "MultiCategoricalValidator",
         "NumericOutlierValidator",
         "PatternValidator",
@@ -80,8 +63,6 @@ __all__ = (
         "RHQContext",
         "RHQFormAutofiller",
         "RHQFormService",
-        "SchemaDetectorTool",
-        "ScoreTotalsChecker",
         "logger",
     ]
 )

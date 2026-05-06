@@ -1,5 +1,9 @@
-"""Auto-generated package exports."""
+"""Auto-generated mixed exports."""
 
+
+from . import release_pipelines
+
+from .release_pipelines import *
 
 from .runner import run_tool
 
@@ -11,10 +15,13 @@ from .supplement_cleaning import (
 
 from .yaml_loader import load_config_from_yaml
 
-__all__ = [
-    "clean_supplement_data",
-    "create_standardized_supplement_row",
-    "load_config_from_yaml",
-    "run_tool",
-    "standardize_supplement_columns",
-]
+__all__ = (
+    list(release_pipelines.__all__)
+    + [
+        "clean_supplement_data",
+        "create_standardized_supplement_row",
+        "load_config_from_yaml",
+        "run_tool",
+        "standardize_supplement_columns",
+    ]
+)

@@ -2,8 +2,8 @@ from dataclasses import dataclass
 from typing import Optional
 
 from layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
+from layers.layer_1_tools.level_0_infra.level_0.git_service import GitService
 
-from layers.layer_1_tools.level_1_impl.level_0.git_service import GitService
 from layers.layer_1_tools.level_1_impl.level_0.git_submodule_tool.submodules import list_submodules
 
 

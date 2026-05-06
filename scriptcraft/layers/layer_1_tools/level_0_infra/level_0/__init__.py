@@ -1,9 +1,21 @@
 """Auto-generated mixed exports."""
 
 
-from . import release_consistency_mode
+from . import (
+    env,
+    function_auditor,
+    release_consistency_mode,
+    release_pipelines,
+    runtime,
+)
 
+from .env import *
+from .function_auditor import *
 from .release_consistency_mode import *
+from .release_pipelines import *
+from .runtime import *
+
+from .arg_mapping import build_run_kwargs_from_args
 
 from .comparison_core import (
     CoreDataFrameComparer,
@@ -60,6 +72,11 @@ from .formatter import (
     Utf8Formatter,
 )
 
+from .git_service import (
+    GitResult,
+    GitService,
+)
+
 from .handlers import (
     build_file_handler,
     build_stream_handler,
@@ -73,6 +90,8 @@ from .logging_handlers import (
     create_console_handler,
     create_file_handler,
 )
+
+from .messages import get_commit_message
 
 from .path_resolver import (
     PathResolver,
@@ -89,6 +108,8 @@ from .process_domain_mixins import (
     EngineWrapperToolMixin,
 )
 
+from .project_root import ProjectRootFinder
+
 from .structured_formatter import StructuredFormatter
 
 from .text_cleaning import (
@@ -96,6 +117,11 @@ from .text_cleaning import (
     fix_numeric_dash_inside_braces,
     fix_word_number_dash_inside_braces,
     prevent_pipe_inside_braces,
+)
+
+from .tool_lookup import (
+    InfraRegistryToolLookup,
+    ToolLookup,
 )
 
 from .typed_plugin_store import get_typed_plugin
@@ -111,7 +137,11 @@ from .version import (
 from .workspace_schema import WorkspaceConfig
 
 __all__ = (
-    list(release_consistency_mode.__all__)
+    list(env.__all__)
+    + list(function_auditor.__all__)
+    + list(release_consistency_mode.__all__)
+    + list(release_pipelines.__all__)
+    + list(runtime.__all__)
     + [
         "COLUMN_ALIASES",
         "ComponentType",
@@ -127,14 +157,19 @@ __all__ = (
         "ErrorHandlingMixin",
         "FALLBACK_ENCODING",
         "FILE_PATTERNS",
+        "GitResult",
+        "GitService",
+        "InfraRegistryToolLookup",
         "LogConfigModel",
         "MISSING_VALUE_CODES",
         "MISSING_VALUE_STRINGS",
         "OutlierMethod",
         "PathConfig",
         "PathResolver",
+        "ProjectRootFinder",
         "STANDARD_KEYS",
         "StructuredFormatter",
+        "ToolLookup",
         "ToolMaturity",
         "Utf8Formatter",
         "VERSION_INFO",
@@ -143,6 +178,7 @@ __all__ = (
         "WorkspacePathResolver",
         "build_domain_paths",
         "build_file_handler",
+        "build_run_kwargs_from_args",
         "build_stream_handler",
         "clean_brace_formatting",
         "clean_directory",
@@ -157,6 +193,7 @@ __all__ = (
         "find_matching_file",
         "fix_numeric_dash_inside_braces",
         "fix_word_number_dash_inside_braces",
+        "get_commit_message",
         "get_handler_paths",
         "get_typed_plugin",
         "get_version",

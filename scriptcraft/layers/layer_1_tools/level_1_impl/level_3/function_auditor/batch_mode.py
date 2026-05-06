@@ -4,9 +4,9 @@ from pathlib import Path
 from typing import Optional
 
 from layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
+from layers.layer_1_tools.level_0_infra.level_0.function_auditor.types import InputPaths
 
-from layers.layer_1_tools.level_1_impl.level_0.function_auditor.types import InputPaths
-from layers.layer_1_tools.level_1_impl.level_1.function_auditor.persistence import save_batch_audit
+from layers.layer_1_tools.level_1_impl.level_0.function_auditor.persistence import save_batch_audit
 from layers.layer_1_tools.level_1_impl.level_2.function_auditor.file_discovery import collect_files
 from layers.layer_1_tools.level_1_impl.level_2.function_auditor.batch import BatchFunctionAuditor
 

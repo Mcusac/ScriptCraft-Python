@@ -1,9 +1,13 @@
 """Auto-generated mixed exports."""
 
 
-from . import release_consistency_mode
+from . import (
+    release_consistency_mode,
+    release_pipelines,
+)
 
 from .release_consistency_mode import *
+from .release_pipelines import *
 
 from .dataframe_cleaning import (
     clean_dataframe,
@@ -36,6 +40,7 @@ from .unified_loader import load_unified_config
 
 __all__ = (
     list(release_consistency_mode.__all__)
+    + list(release_pipelines.__all__)
     + [
         "PipelineFactory",
         "build_step",

@@ -1,5 +1,9 @@
-"""Auto-generated package exports."""
+"""Auto-generated mixed exports."""
 
+
+from . import release_pipelines
+
+from .release_pipelines import *
 
 from .comparison import (
     ComparisonResult,
@@ -46,6 +50,12 @@ from .processor import (
 
 from .root_schema import Config
 
+from .runtime_loops import (
+    run_domains,
+    run_process_domain_for_single_pair,
+    run_process_domain_over_input_paths,
+)
+
 from .timepoint import (
     clean_sequence_ids,
     compare_entity_changes_over_sequence,
@@ -66,42 +76,48 @@ from .value_cleaning import (
     normalize_value,
 )
 
-__all__ = [
-    "BasePipeline",
-    "ColumnValidator",
-    "ComparisonResult",
-    "Config",
-    "DataFrameComparer",
-    "DataProcessor",
-    "EnvironmentMixin",
-    "FlaggedValue",
-    "PipelineStep",
-    "QCLogContext",
-    "STATUS_EMOJI",
-    "T",
-    "auto_resolve_input_files",
-    "batch_process_files",
-    "build_log_config",
-    "clean_sequence_ids",
-    "compare_dataframes",
-    "compare_entity_changes_over_sequence",
-    "create_tool_runner",
-    "get_legacy_config",
-    "get_status_emoji",
-    "handle_comparison_errors",
-    "is_missing_like",
-    "load_and_process_data",
-    "log_fix_summary",
-    "merge_dataframes",
-    "merge_with_key_column",
-    "normalize_value",
-    "process_by_domains",
-    "qc_log_context",
-    "setup_tool_files",
-    "split_dataframe_by_column",
-    "standardize_tool_execution",
-    "validate_and_transform_data",
-    "validate_input_paths",
-    "validate_required_columns",
-    "with_domain_logger",
-]
+__all__ = (
+    list(release_pipelines.__all__)
+    + [
+        "BasePipeline",
+        "ColumnValidator",
+        "ComparisonResult",
+        "Config",
+        "DataFrameComparer",
+        "DataProcessor",
+        "EnvironmentMixin",
+        "FlaggedValue",
+        "PipelineStep",
+        "QCLogContext",
+        "STATUS_EMOJI",
+        "T",
+        "auto_resolve_input_files",
+        "batch_process_files",
+        "build_log_config",
+        "clean_sequence_ids",
+        "compare_dataframes",
+        "compare_entity_changes_over_sequence",
+        "create_tool_runner",
+        "get_legacy_config",
+        "get_status_emoji",
+        "handle_comparison_errors",
+        "is_missing_like",
+        "load_and_process_data",
+        "log_fix_summary",
+        "merge_dataframes",
+        "merge_with_key_column",
+        "normalize_value",
+        "process_by_domains",
+        "qc_log_context",
+        "run_domains",
+        "run_process_domain_for_single_pair",
+        "run_process_domain_over_input_paths",
+        "setup_tool_files",
+        "split_dataframe_by_column",
+        "standardize_tool_execution",
+        "validate_and_transform_data",
+        "validate_input_paths",
+        "validate_required_columns",
+        "with_domain_logger",
+    ]
+)

@@ -1,12 +1,13 @@
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-from .language_detector import LanguageDetector
-from .language_config import LanguageConfig
-from .project_root import ProjectRootFinder
-from .function_extractor import FunctionExtractor
-from .usage_searcher import UsageSearcher
-from .reporter import AuditorReporter
+from layers.layer_1_tools.level_0_infra.level_0.project_root import ProjectRootFinder
+from layers.layer_1_tools.level_0_infra.level_0.function_auditor.language_detector import LanguageDetector
+from layers.layer_1_tools.level_0_infra.level_0.function_auditor.language_config import LanguageConfig
+
+from layers.layer_1_tools.level_1_impl.level_0.function_auditor.usage_searcher import UsageSearcher
+from layers.layer_1_tools.level_1_impl.level_0.function_auditor.reporter import AuditorReporter
+from layers.layer_1_tools.level_1_impl.level_0.function_auditor.function_extractor import FunctionExtractor
 
 
 class FunctionAuditor:

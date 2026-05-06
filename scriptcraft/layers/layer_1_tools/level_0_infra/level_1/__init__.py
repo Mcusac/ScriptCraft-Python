@@ -1,9 +1,19 @@
 """Auto-generated mixed exports."""
 
 
-from . import release_consistency_mode
+from . import (
+    git,
+    release_consistency_mode,
+    release_pipelines,
+    subprocess,
+    versioning,
+)
 
+from .git import *
 from .release_consistency_mode import *
+from .release_pipelines import *
+from .subprocess import *
+from .versioning import *
 
 from .config_accessors import (
     get_logging_config,
@@ -104,6 +114,8 @@ from .metadata import (
     ToolMetadata,
 )
 
+from .normalize_list import normalize_list
+
 from .paths import (
     get_domain_output_path,
     get_domain_paths,
@@ -128,6 +140,11 @@ from .plugin_registry import (
     register_validator,
 )
 
+from .sys_path import (
+    ensure_sys_path,
+    setup_import_paths_common,
+)
+
 from .tool_discovery import discover_and_merge_tools
 
 from .tool_dispatcher import dispatch_tool
@@ -146,7 +163,11 @@ from .tool_metadata import (
 )
 
 __all__ = (
-    list(release_consistency_mode.__all__)
+    list(git.__all__)
+    + list(release_consistency_mode.__all__)
+    + list(release_pipelines.__all__)
+    + list(subprocess.__all__)
+    + list(versioning.__all__)
     + [
         "ComponentMetadata",
         "DATE_FORMATS",
@@ -188,6 +209,7 @@ __all__ = (
         "dispatch_tool",
         "display_missing_values",
         "drop_empty_columns",
+        "ensure_sys_path",
         "extract_expected_values",
         "find_duplicate_rows",
         "find_non_numeric",
@@ -223,6 +245,7 @@ __all__ = (
         "load_yaml",
         "merge_workspace_config",
         "normalize_column_names",
+        "normalize_list",
         "plugin_registry",
         "register_pipeline_step",
         "register_tool_plugin",
@@ -230,6 +253,7 @@ __all__ = (
         "resolve_path",
         "run_pipeline_step",
         "run_pipeline_steps",
+        "setup_import_paths_common",
         "setup_logger",
         "standardize_date_column",
         "standardize_dates_in_dataframe",
