@@ -10,13 +10,13 @@ import argparse
 from pathlib import Path
 from typing import Dict
 
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.directory_ops import ensure_output_dir
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.process_domain_mixins import DomainMappedToolMixin
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_1.data_loading import load_datasets
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_2.runtime_loops import run_domains
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_3.dataframe_cleaning import standardize_columns
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_2.comparison import compare_dataframes
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_6.argument_parsers import ArgumentValidator
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_7.base_tool import BaseTool
 
 from scriptcraft.layers.layer_1_tools.level_1_impl.level_0.main_common import create_entrypoint_main
@@ -125,7 +125,7 @@ class MedVisitIntegrityValidator(BaseTool, DomainMappedToolMixin):
             pd.DataFrame()
         )
 
-        ensure_output_dir(output_path)
+        ArgumentValidator.ensure_output_dir(output_path)
 
         with pd.ExcelWriter(output_path) as writer:
             missing_in_new.to_excel(writer, sheet_name="Missing in New", index=False)

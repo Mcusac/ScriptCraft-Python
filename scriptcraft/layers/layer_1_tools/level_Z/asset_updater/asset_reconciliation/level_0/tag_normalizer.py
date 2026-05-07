@@ -1,102 +1,97 @@
 # ============================================================
-# normalizer/tags.py — canonical tag and employee-ID cleaning
-#
-# Pure functions; safe null handling; deterministic output.
+# tag_normalizer.py — canonical identifier normalization
 # ============================================================
 
 import pandas as pd
 
 
-# -----------------------------
-# PRIVATE HELPERS
-# -----------------------------
+# ============================================================
+# 1. NULL NORMALIZATION
+# ============================================================
 
-def _is_empty(val) -> bool:
-    """
-    Unified emptiness check for:
-    - None
-    - NaN
-    - pd.NA
-    - empty strings
-    """
+_NULL_STRINGS = {"nan", "none", "na", ""}
+
+
+def is_empty(val) -> bool:
     if val is None:
         return True
     if pd.isna(val):
         return True
-    if str(val).strip() == "":
-        return True
-    if str(val).strip().lower() in {"nan", "none", "na"}:
-        return True
+
+    if isinstance(val, str):
+        return val.strip().lower() in _NULL_STRINGS
+
     return False
 
 
-def _fix_tag_format(value) -> str:
-    """
-    Domain-specific correction rules for a single asset-tag string.
+# ============================================================
+# 2. SANITIZATION LAYER (PURE TRANSFORM)
+# ============================================================
 
-    Rules:
-      1. Empty → ""
-      2. Remove Excel float artifacts
-      3. Remove whitespace
-      4. Apply known padding rules
+def sanitize(value) -> str:
+    """
+    Converts raw input → clean string base.
+    No domain logic allowed here.
     """
 
-    if _is_empty(value):
+    if is_empty(value):
         return ""
 
-    v = str(value).strip()
+    s = str(value).strip()
 
-    # Excel artifact cleanup
-    if v.endswith(".0"):
-        v = v[:-2]
+    if s.endswith(".0"):
+        s = s[:-2]
 
-    v = v.replace(" ", "")
+    return s.replace(" ", "")
 
-    # Defensive: ensure still valid string
-    if v == "":
+
+# ============================================================
+# 3. DOMAIN RULES (TAG ONLY)
+# ============================================================
+
+def apply_tag_rules(value: str) -> str:
+    """
+    Domain-specific rules for asset tags only.
+    Requires sanitized input.
+    """
+
+    if not value:
         return ""
 
-    # Domain padding rules
-    if len(v) == 5:
-        if v.startswith("4"):
-            v = "000" + v
-        elif v.startswith("3"):
-            v = "000" + v
+    # padding rule (business logic)
+    if len(value) == 5 and value[0] in {"3", "4"}:
+        return "000" + value
 
-    return v
+    return value
 
 
-# -----------------------------
-# PUBLIC API
-# -----------------------------
+# ============================================================
+# 4. PIPELINE COMPOSER (IMPORTANT DAG FIX)
+# ============================================================
+
+def _tag_pipeline(value) -> str:
+    """
+    Explicit DAG-style transformation pipeline.
+    """
+
+    return apply_tag_rules(sanitize(value))
+
+
+def _id_pipeline(value) -> str:
+    """
+    Employee ID pipeline (no domain logic).
+    """
+
+    return sanitize(value)
+
+
+# ============================================================
+# 5. PUBLIC API
+# ============================================================
 
 def normalize_tag(series: pd.Series) -> pd.Series:
-    """
-    Vectorised tag normalization.
-
-    NOTE:
-    - does NOT coerce to string globally
-    - preserves null safety inside helper
-    """
-    return series.apply(_fix_tag_format)
+    return series.map(_tag_pipeline)
 
 
 def normalize_employee_id(series: pd.Series) -> pd.Series:
-    """
-    Clean employee IDs:
-      - remove whitespace
-      - remove Excel '.0' artifacts
-      - preserve identifier semantics
-    """
-
-    def _clean(val):
-        if _is_empty(val):
-            return ""
-
-        s = str(val).strip()
-        s = s.replace(" ", "")
-        s = s.rstrip(".0")
-
-        return s
-
-    return series.apply(_clean)
+    return series.map(_id_pipeline)

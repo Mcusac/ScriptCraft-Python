@@ -1,8 +1,8 @@
 from pathlib import Path
 from typing import Optional, Union
 
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.directory_ops import ensure_output_dir
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_1.environment_resolver import EnvironmentResolver
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_6.argument_parsers import ArgumentValidator
 
 
 class EnvironmentMixin:
@@ -19,5 +19,5 @@ class EnvironmentMixin:
         output_dir: Optional[Union[str, Path]] = None,
     ) -> Path:
         path = EnvironmentResolver.resolve_output_directory(output_dir, self.config)
-        ensure_output_dir(path)
+        ArgumentValidator.ensure_output_dir(path)
         return path

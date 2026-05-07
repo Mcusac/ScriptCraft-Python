@@ -3,19 +3,16 @@
 # ============================================================
 
 import pandas as pd
+
 from pathlib import Path
 
 from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.asset_reconciliation.level_0.schema import (
-    ASSET_COLUMN_MAP,
-    FORM_COLUMN_MAP,
-    standardize_columns,
     ASSET_RAW,
     FORM_RAW,
 )
-
-from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.asset_reconciliation.level_2.asset_normalizer import clean_asset_df
-from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.asset_reconciliation.level_2.form_normalizer import normalize_form
-from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.asset_reconciliation.level_2.orchestrator import run_comparison
+from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.asset_reconciliation.level_3.asset_normalizer import clean_asset_df
+from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.asset_reconciliation.level_3.form_pipeline import normalize_form
+from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.asset_reconciliation.level_4.orchestrator import run_comparison
 
 
 # ------------------------------------------------------------
@@ -40,15 +37,8 @@ def run(
     # STEP 2 — INGESTION LAYER (CRITICAL FIX)
     # CSV columns → canonical schema fields
     # --------------------------------------------------------
-    asset_df = standardize_columns(asset_df_raw, ASSET_COLUMN_MAP)
-    form_df = standardize_columns(form_df_raw, FORM_COLUMN_MAP)
-
-    # --------------------------------------------------------
-    # STEP 3 — NORMALIZATION LAYER
-    # (safe ONLY after standardization)
-    # --------------------------------------------------------
-    asset_df = clean_asset_df(asset_df)
-    form_df = normalize_form(form_df)
+    asset_df = clean_asset_df(asset_df_raw)
+    form_df = normalize_form(form_df_raw)
 
     print("\n--- RUNNER DEBUG (POST-NORMALIZATION) ---")
     print(f"Form rows: {len(form_df)}")
@@ -67,7 +57,7 @@ def run(
     print(len(asset_set.intersection(form_set)))
 
     # --------------------------------------------------------
-    # STEP 4 — PIPELINE EXECUTION (DAG orchestrator)
+    # STEP 3 — PIPELINE EXECUTION (DAG orchestrator)
     # --------------------------------------------------------
     results = run_comparison(
         asset_df,
@@ -76,12 +66,12 @@ def run(
     )
 
     # --------------------------------------------------------
-    # STEP 5 — OUTPUT DIRECTORY
+    # STEP 4 — OUTPUT DIRECTORY
     # --------------------------------------------------------
     output_dir.mkdir(parents=True, exist_ok=True)
 
     # --------------------------------------------------------
-    # STEP 6 — OUTPUT MAP (contract outputs only)
+    # STEP 5 — OUTPUT MAP (contract outputs only)
     # --------------------------------------------------------
     outputs = {
         "missing_from_form.csv": results["missing_from_form"],
@@ -93,13 +83,13 @@ def run(
     }
 
     # --------------------------------------------------------
-    # STEP 7 — WRITE OUTPUTS
+    # STEP 6 — WRITE OUTPUTS
     # --------------------------------------------------------
     for filename, df in outputs.items():
         df.to_csv(output_dir / filename, index=False)
 
     # --------------------------------------------------------
-    # STEP 8 — SUMMARY
+    # STEP 7 — SUMMARY
     # --------------------------------------------------------
     print("\n✅ Asset Reconciliation Complete")
     print(f"📁 Output: {output_dir}\n")

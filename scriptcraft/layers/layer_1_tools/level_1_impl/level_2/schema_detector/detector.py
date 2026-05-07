@@ -1,9 +1,10 @@
 from pathlib import Path
 from typing import List
 
+from scriptcraft._version import __version__
+
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.directory_ops import ensure_output_dir
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.version import __version__
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_6.argument_parsers import ArgumentValidator
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_7.base_tool import BaseTool
 
 from scriptcraft.layers.layer_1_tools.level_1_impl.level_0.schema_detector.data_loader import DataLoader
@@ -42,7 +43,7 @@ class SchemaDetector(BaseTool):
     def run(self, input_paths: List[str], output_dir: str = "output", **kwargs):
         self.log_start()
 
-        output_path = ensure_output_dir(output_dir)
+        output_path = ArgumentValidator.ensure_output_dir(output_dir)
 
         schemas: List[TableSchema] = []
 

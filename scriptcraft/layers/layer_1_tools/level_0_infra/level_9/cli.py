@@ -5,7 +5,8 @@ Centralized CLI utilities for consistent command-line interfaces.
 import argparse
 import sys
 
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.version import get_version
+from scriptcraft._version import get_version
+
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_2.root_schema import Config
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_2.pipeline_base import BasePipeline

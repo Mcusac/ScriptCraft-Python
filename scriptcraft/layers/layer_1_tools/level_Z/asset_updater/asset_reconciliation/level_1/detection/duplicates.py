@@ -1,58 +1,126 @@
 # ============================================================
-# detection/duplicates.py — duplicate Device Tag detection
+# detection/duplicates.py — duplicate form-tag detection
+#
+# DESIGN:
+# - Pure detector layer
+# - Schema-driven
+# - DAG-safe validation
+# - Reusable projection pipeline
 # ============================================================
 
 import pandas as pd
 
-from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.asset_reconciliation.level_0.schema import FORM_RAW
+from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.asset_reconciliation.level_0.schema import (
+    FORM_RAW_TAG,
+    FORM_RAW_EMP_ID,
+    FORM_RAW_FIRST_NAME,
+    FORM_RAW_LAST_NAME,
+    FORM_RAW_LOCATION,
+)
+
+from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.asset_reconciliation.level_1.validators import (
+    require_columns,
+)
 
 
-# ------------------------------------------------------------
-# CORE DETECTOR
-# ------------------------------------------------------------
+# ============================================================
+# OUTPUT CONTRACT
+# ============================================================
 
-def detect_form_duplicates(form_df: pd.DataFrame) -> pd.DataFrame:
+DUPLICATE_OUTPUT_COLUMNS = [
+    FORM_RAW_TAG,
+    FORM_RAW_EMP_ID,
+    FORM_RAW_FIRST_NAME,
+    FORM_RAW_LAST_NAME,
+    FORM_RAW_LOCATION,
+]
+
+
+# ============================================================
+# INTERNAL HELPERS
+# ============================================================
+
+def _get_duplicate_rows(
+    df: pd.DataFrame,
+    key_column: str,
+) -> pd.DataFrame:
     """
-    Detect duplicate Device Tags in normalized form data.
+    Returns all duplicated rows for a key column.
+    """
+
+    duplicate_mask = df.duplicated(
+        subset=[key_column],
+        keep=False,
+    )
+
+    return df[duplicate_mask].copy()
+
+
+def _project_columns(
+    df: pd.DataFrame,
+    columns: list[str],
+) -> pd.DataFrame:
+    """
+    Safe output projection layer.
+    """
+
+    available = [c for c in columns if c in df.columns]
+
+    return df[available].copy()
+
+
+# ============================================================
+# PUBLIC API
+# ============================================================
+
+def detect_form_duplicates(
+    form_df: pd.DataFrame,
+) -> pd.DataFrame:
+    """
+    Detect duplicated device tags in normalized form data.
 
     Assumes:
-        - form_df is already standardized to canonical schema
-        - ingestion mapping has already been applied
+    - ingestion mapping already applied
+    - dataframe already reshaped
     """
 
-    tag_col = FORM_RAW.tag
+    # --------------------------------------------------------
+    # CONTRACT VALIDATION
+    # --------------------------------------------------------
+
+    require_columns(
+        form_df,
+        [FORM_RAW_TAG],
+        context="FORM_DUPLICATE_DETECTION",
+    )
 
     # --------------------------------------------------------
-    # Guard: schema contract validation
+    # DETECT DUPLICATES
     # --------------------------------------------------------
-    if tag_col not in form_df.columns:
-        return pd.DataFrame(columns=[tag_col])
+
+    duplicates = _get_duplicate_rows(
+        form_df,
+        FORM_RAW_TAG,
+    )
 
     # --------------------------------------------------------
-    # Detect duplicates
+    # EMPTY CONTRACT
     # --------------------------------------------------------
-    dupes = form_df[
-        form_df.duplicated(subset=[tag_col], keep=False)
-    ].copy()
 
-    if dupes.empty:
-        return pd.DataFrame(columns=dupes.columns)
+    if duplicates.empty:
+        return pd.DataFrame(columns=DUPLICATE_OUTPUT_COLUMNS)
 
     # --------------------------------------------------------
-    # Output projection (schema-safe fields only)
+    # OUTPUT PROJECTION
     # --------------------------------------------------------
-    preferred_cols = [
-        FORM_RAW.tag,
-        FORM_RAW.emp_id,
-        FORM_RAW.first_name,
-        FORM_RAW.last_name,
-        FORM_RAW.location,
-    ]
 
-    available_cols = [c for c in preferred_cols if c in dupes.columns]
+    duplicates = _project_columns(
+        duplicates,
+        DUPLICATE_OUTPUT_COLUMNS,
+    )
 
     return (
-        dupes[available_cols]
-        .sort_values(tag_col)
+        duplicates
+        .sort_values(FORM_RAW_TAG)
         .reset_index(drop=True)
     )

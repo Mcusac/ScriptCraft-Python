@@ -5,8 +5,9 @@ import argparse
 from typing import Optional, Callable, List
 
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import  log_and_print
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_1.paths import get_project_root, resolve_path, ensure_output_dir, get_legacy_config
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_1.paths import get_project_root, resolve_path, get_legacy_config
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_3.logging_utils import setup_logging_with_timestamp
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_6.argument_parsers import ArgumentValidator
 
 
 def run_tool(logic_func: Callable, args: Optional[List[str]] = None, **kwargs) -> None:
@@ -34,8 +35,8 @@ def run_tool(logic_func: Callable, args: Optional[List[str]] = None, **kwargs) -
     config = get_legacy_config()
     project_root = get_project_root()
     input_dir = resolve_path(parsed_args.input_dir, project_root)
-    output_dir = ensure_output_dir(resolve_path(parsed_args.output_dir, project_root))
-    log_dir = ensure_output_dir(resolve_path(parsed_args.log_dir, project_root))
+    output_dir = ArgumentValidator.ensure_output_dir(resolve_path(parsed_args.output_dir, project_root))
+    log_dir = ArgumentValidator.ensure_output_dir(resolve_path(parsed_args.log_dir, project_root))
 
     log_file = setup_logging_with_timestamp(log_dir, mode=logic_func.__name__)
     log_and_print(f"🚀 Running tool: {logic_func.__name__}")

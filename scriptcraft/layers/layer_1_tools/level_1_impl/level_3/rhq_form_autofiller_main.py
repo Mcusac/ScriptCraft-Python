@@ -25,9 +25,9 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.directory_ops import ensure_output_dir
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print, setup_logger
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_6.base_tool import BaseTool
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_6.argument_parsers import ArgumentValidator
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_7.base_tool import BaseTool
 
 from scriptcraft.layers.layer_1_tools.level_1_impl.level_0.rhq_form_autofiller import (
     build_address_data, launch_browser, fill_panel
@@ -201,8 +201,8 @@ class RHQFormAutofiller(BaseTool):
     # ========================================================
 
     def _build_context(self, input_paths, output_dir, kwargs) -> RHQContext:
-        output_dir = ensure_output_dir(Path(output_dir or self.default_output_dir))
-        log_dir = ensure_output_dir(Path(kwargs.get("log_dir", "logs")))
+        output_dir = ArgumentValidator.ensure_output_dir(Path(output_dir or self.default_output_dir))
+        log_dir = ArgumentValidator.ensure_output_dir(Path(kwargs.get("log_dir", "logs")))
 
         input_file = self._resolve_input_file(input_paths, kwargs)
 

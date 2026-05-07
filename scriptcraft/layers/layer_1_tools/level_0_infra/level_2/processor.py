@@ -14,7 +14,7 @@ from pathlib import Path
 from typing import Union, List, Dict, Any, Optional, Callable, Tuple
 
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.directory_ops import ensure_output_dir
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_6.argument_parsers import ArgumentValidator
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_1.data_loading import load_data
 
 
@@ -86,7 +86,7 @@ class DataProcessor:
         **kwargs: Any
     ) -> Path:
         output_path = Path(output_path)
-        ensure_output_dir(output_path.parent)
+        ArgumentValidator.ensure_output_dir(output_path.parent)
 
         try:
             df = data if isinstance(data, pd.DataFrame) else pd.DataFrame(data)

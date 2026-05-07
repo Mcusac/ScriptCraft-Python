@@ -3,7 +3,7 @@ import pandas as pd
 from pathlib import Path
 from typing import Union
 
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.directory_ops import ensure_output_dir
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_6.argument_parsers import ArgumentValidator
 
 
 class IOMixin:
@@ -27,7 +27,7 @@ class IOMixin:
         include_index: bool = False,
     ) -> Path:
         output_path = Path(output_path)
-        ensure_output_dir(output_path.parent)
+        ArgumentValidator.ensure_output_dir(output_path.parent)
 
         if output_path.suffix.lower() == '.csv':
             data.to_csv(output_path, index=include_index)

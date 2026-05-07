@@ -1,15 +1,92 @@
 # ============================================================
-# detection/missing.py — missing asset / form mismatch detection
+# detection/missing.py — merged mismatch detectors
+#
+# DESIGN:
+# - Pure detector layer
+# - Schema-driven projections
+# - DAG-safe validation
+# - Stable output contracts
 # ============================================================
 
 import pandas as pd
 
-from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.asset_reconciliation.level_0.schema import MERGED
+from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.asset_reconciliation.level_0.constants import (
+    MERGED_ASSET_DESCRIPTION,
+    MERGED_ASSET_EMP_ID,
+    MERGED_ASSET_LOCATION,
+    MERGED_FLAG,
+    MERGED_FORM_EMP_ID,
+    MERGED_FORM_EMPLOYEE_NAME,
+    MERGED_FORM_LOCATION,
+    MERGED_TAG,
+)
+
+from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.asset_reconciliation.level_1.validators import (
+    require_columns,
+)
 
 
-# ------------------------------------------------------------
-# MAIN DETECTOR
-# ------------------------------------------------------------
+# ============================================================
+# MERGE STATES
+# ============================================================
+
+_LEFT_ONLY = "left_only"
+_RIGHT_ONLY = "right_only"
+
+
+# ============================================================
+# OUTPUT CONTRACTS
+# ============================================================
+
+_MISSING_FROM_FORM_COLUMNS = [
+    MERGED_TAG,
+    MERGED_ASSET_EMP_ID,
+    MERGED_ASSET_LOCATION,
+    MERGED_ASSET_DESCRIPTION,
+]
+
+_ONLY_IN_FORM_COLUMNS = [
+    MERGED_TAG,
+    MERGED_FORM_EMP_ID,
+    MERGED_FORM_EMPLOYEE_NAME,
+    MERGED_FORM_LOCATION,
+]
+
+
+# ============================================================
+# INTERNAL HELPERS
+# ============================================================
+
+def _filter_merge_state(
+    merged: pd.DataFrame,
+    merge_state: str,
+) -> pd.DataFrame:
+    """
+    Returns rows matching a merge state.
+    """
+
+    return merged[
+        merged[MERGED_FLAG] == merge_state
+    ].copy()
+
+
+def _project_columns(
+    df: pd.DataFrame,
+    columns: list[str],
+) -> pd.DataFrame:
+    """
+    Stable schema-safe projection.
+    """
+
+    return (
+        df[columns]
+        .reset_index(drop=True)
+    )
+
+
+# ============================================================
+# PUBLIC API
+# ============================================================
 
 def detect_missing(
     merged: pd.DataFrame,
@@ -17,60 +94,48 @@ def detect_missing(
     """
     Splits merged dataset into:
 
-    1. missing_from_form:
-        Assets that do not have a matching form entry
+    1. missing_from_form
+        Assets missing from form data
 
-    2. only_in_form:
-        Form entries that do not match any asset record
+    2. only_in_form
+        Form entries missing from asset inventory
     """
 
-    merge_col = MERGED.merge_flag
+    require_columns(
+        merged,
+        [MERGED_FLAG],
+        context="MISSING_DETECTION",
+    )
 
-    if merge_col not in merged.columns:
-        raise ValueError(
-            "merged dataframe must include merge_flag "
-            "(ensure build_merged_dataset was used)"
-        )
+    # --------------------------------------------------------
+    # SPLIT MERGE STATES
+    # --------------------------------------------------------
 
-    left_only = merged[merged[merge_col] == "left_only"].copy()
-    right_only = merged[merged[merge_col] == "right_only"].copy()
+    left_only = _filter_merge_state(
+        merged,
+        _LEFT_ONLY,
+    )
 
-    # ------------------------------------------------------------
-    # ASSET SIDE (missing from form)
-    # ------------------------------------------------------------
-    missing_from_form = left_only[
-        [
-            MERGED.tag,
-            MERGED.asset_emp_id,
-            MERGED.asset_location,
-            MERGED.asset_description,
-        ]
-    ].reset_index(drop=True)
+    right_only = _filter_merge_state(
+        merged,
+        _RIGHT_ONLY,
+    )
 
-    missing_from_form = missing_from_form.rename(columns={
-        MERGED.tag: "tag",
-        MERGED.asset_emp_id: "asset_emp_id",
-        MERGED.asset_location: "asset_location",
-        MERGED.asset_description: "asset_description",
-    })
+    # --------------------------------------------------------
+    # PROJECT OUTPUT CONTRACTS
+    # --------------------------------------------------------
 
-    # ------------------------------------------------------------
-    # FORM SIDE (not found in asset DB)
-    # ------------------------------------------------------------
-    only_in_form = right_only[
-        [
-            MERGED.tag,
-            MERGED.form_emp_id,
-            MERGED.form_employee_name,
-            MERGED.form_location,
-        ]
-    ].reset_index(drop=True)
+    missing_from_form = _project_columns(
+        left_only,
+        _MISSING_FROM_FORM_COLUMNS,
+    )
 
-    only_in_form = only_in_form.rename(columns={
-        MERGED.tag: "tag",
-        MERGED.form_emp_id: "form_emp_id",
-        MERGED.form_employee_name: "form_employee_name",
-        MERGED.form_location: "form_location",
-    })
+    only_in_form = _project_columns(
+        right_only,
+        _ONLY_IN_FORM_COLUMNS,
+    )
 
-    return missing_from_form, only_in_form
+    return (
+        missing_from_form,
+        only_in_form,
+    )

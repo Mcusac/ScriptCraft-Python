@@ -3,10 +3,11 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.logging_schema import LogConfig
+from scriptcraft._version import get_version
+
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.logging_config_model import LogConfig
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.paths_schema import PathConfig
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.workspace_schema import WorkspaceConfig
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.version import get_version
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.path_resolver import PathResolver
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_1.framework_schema import FrameworkConfig
 

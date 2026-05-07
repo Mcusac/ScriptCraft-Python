@@ -11,15 +11,14 @@ Author: ScriptCraft Team
 
 import pytest
 import pandas as pd
-import numpy as np
-from pathlib import Path
 import json
 import tempfile
 import shutil
-from typing import List, Dict, Any
 
-from scriptcraft.tools.schema_detector import SchemaDetector
-from scriptcraft.common.io import ensure_output_dir
+from pathlib import Path
+from typing import List
+
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_2.schema_detector.detector import SchemaDetector
 
 
 class TestSchemaDetector:

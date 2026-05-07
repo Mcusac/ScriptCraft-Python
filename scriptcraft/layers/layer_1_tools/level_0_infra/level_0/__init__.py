@@ -2,14 +2,12 @@
 
 
 from . import (
-    env,
     function_auditor,
     release_consistency_mode,
     release_pipelines,
     runtime,
 )
 
-from .env import *
 from .function_auditor import *
 from .release_consistency_mode import *
 from .release_pipelines import *
@@ -128,17 +126,10 @@ from .typed_plugin_store import get_typed_plugin
 
 from .validation_mixin import ValidationMixin
 
-from .version import (
-    VERSION_INFO,
-    get_version,
-    get_version_info,
-)
-
 from .workspace_schema import WorkspaceConfig
 
 __all__ = (
-    list(env.__all__)
-    + list(function_auditor.__all__)
+    list(function_auditor.__all__)
     + list(release_consistency_mode.__all__)
     + list(release_pipelines.__all__)
     + list(runtime.__all__)
@@ -172,7 +163,6 @@ __all__ = (
         "ToolLookup",
         "ToolMaturity",
         "Utf8Formatter",
-        "VERSION_INFO",
         "ValidationMixin",
         "WorkspaceConfig",
         "WorkspacePathResolver",
@@ -196,8 +186,6 @@ __all__ = (
         "get_commit_message",
         "get_handler_paths",
         "get_typed_plugin",
-        "get_version",
-        "get_version_info",
         "has_handler_type",
         "list_files",
         "log",

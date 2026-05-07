@@ -10,6 +10,9 @@ from typing import List
 
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import setup_logger, log_and_print
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.process_domain_mixins import EngineWrapperToolMixin
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_2.runtime_loops import (
+    run_process_domain_over_input_paths,
+)
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_6.argument_parsers import ParserFactory
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_7.base_tool import BaseTool
 
@@ -34,10 +37,6 @@ class SchemaDetectorTool(EngineWrapperToolMixin, BaseTool):
         """
         Standard domain-driven execution.
         """
-        from scriptcraft.layers.layer_1_tools.level_1_impl.level_2.runtime_loops import (
-            run_process_domain_over_input_paths,
-        )
-
         input_paths = kwargs.get("input_paths") or (args[0] if args else None)
         output_dir = kwargs.get("output_dir", self.default_output_dir)
         domain = kwargs.get("domain", "unknown")
