@@ -1,20 +1,8 @@
 from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.asset_reconciliation.level_0.schema import (
-    ASSET_RAW_TAG,
-    ASSET_RAW_EMP_ID,
-    ASSET_RAW_LOCATION,
-    ASSET_RAW_CUSTODIAN,
-    ASSET_RAW_DESCRIPTION,
-    FORM_RAW_TAG,
-    FORM_RAW_EMP_ID,
-    FORM_RAW_LOCATION,
-    FORM_NORMALIZED_EMPLOYEE_NAME,
-    MERGED_ASSET_EMP_ID,
-    MERGED_ASSET_LOCATION,
-    MERGED_ASSET_CUSTODIAN,
-    MERGED_ASSET_DESCRIPTION,
-    MERGED_FORM_EMP_ID,
-    MERGED_FORM_EMPLOYEE_NAME,
-    MERGED_FORM_LOCATION,
+    ASSET_RAW,
+    FORM_NORMALIZED,
+    FORM_RAW,
+    MERGED,
 )
 
 # ----------------------------
@@ -22,18 +10,18 @@ from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.asset_reconciliation
 # ----------------------------
 
 ASSET_REQUIRED_COLUMNS = [
-    ASSET_RAW_TAG,
-    ASSET_RAW_EMP_ID,
-    ASSET_RAW_LOCATION,
-    ASSET_RAW_CUSTODIAN,
-    ASSET_RAW_DESCRIPTION,
+    ASSET_RAW.tag,
+    ASSET_RAW.emp_id,
+    ASSET_RAW.location,
+    ASSET_RAW.custodian,
+    ASSET_RAW.description,
 ]
 
 FORM_REQUIRED_COLUMNS = [
-    FORM_RAW_TAG,
-    FORM_RAW_EMP_ID,
-    FORM_RAW_LOCATION,
-    FORM_NORMALIZED_EMPLOYEE_NAME,
+    FORM_RAW.tag,
+    FORM_RAW.emp_id,
+    FORM_RAW.location,
+    FORM_NORMALIZED.employee_name,
 ]
 
 
@@ -42,14 +30,14 @@ FORM_REQUIRED_COLUMNS = [
 # ----------------------------
 
 ASSET_TO_MERGED_MAP = {
-    ASSET_RAW_EMP_ID: MERGED_ASSET_EMP_ID,
-    ASSET_RAW_LOCATION: MERGED_ASSET_LOCATION,
-    ASSET_RAW_CUSTODIAN: MERGED_ASSET_CUSTODIAN,
-    ASSET_RAW_DESCRIPTION: MERGED_ASSET_DESCRIPTION,
+    ASSET_RAW.emp_id: MERGED.asset_emp_id,
+    ASSET_RAW.location: MERGED.asset_location,
+    ASSET_RAW.custodian: MERGED.asset_custodian,
+    ASSET_RAW.description: MERGED.asset_description,
 }
 
 FORM_TO_MERGED_MAP = {
-    FORM_RAW_EMP_ID: MERGED_FORM_EMP_ID,
-    FORM_RAW_LOCATION: MERGED_FORM_LOCATION,
-    FORM_NORMALIZED_EMPLOYEE_NAME: MERGED_FORM_EMPLOYEE_NAME,
+    FORM_RAW.emp_id: MERGED.form_emp_id,
+    FORM_RAW.location: MERGED.form_location,
+    FORM_NORMALIZED.employee_name: MERGED.form_employee_name,
 }

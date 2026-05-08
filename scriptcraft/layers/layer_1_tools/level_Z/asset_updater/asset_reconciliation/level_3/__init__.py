@@ -1,14 +1,14 @@
 """Auto-generated package exports."""
 
 
-from .asset_normalizer import clean_asset_df
+from .key_normalizer import normalize_merge_key
 
-from .form_pipeline import normalize_form
+from .location_normalizer import normalize_location
 
-from .pipeline import build_device_merged
+from .registry import DETECTORS
 
 __all__ = [
-    "build_device_merged",
-    "clean_asset_df",
-    "normalize_form",
+    "DETECTORS",
+    "normalize_location",
+    "normalize_merge_key",
 ]

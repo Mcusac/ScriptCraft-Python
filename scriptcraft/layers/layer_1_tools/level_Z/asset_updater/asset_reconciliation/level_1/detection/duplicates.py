@@ -11,11 +11,7 @@
 import pandas as pd
 
 from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.asset_reconciliation.level_0.schema import (
-    FORM_RAW_TAG,
-    FORM_RAW_EMP_ID,
-    FORM_RAW_FIRST_NAME,
-    FORM_RAW_LAST_NAME,
-    FORM_RAW_LOCATION,
+    FORM_RAW,
 )
 
 from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.asset_reconciliation.level_1.validators import (
@@ -28,11 +24,11 @@ from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.asset_reconciliation
 # ============================================================
 
 DUPLICATE_OUTPUT_COLUMNS = [
-    FORM_RAW_TAG,
-    FORM_RAW_EMP_ID,
-    FORM_RAW_FIRST_NAME,
-    FORM_RAW_LAST_NAME,
-    FORM_RAW_LOCATION,
+    FORM_RAW.tag,
+    FORM_RAW.emp_id,
+    FORM_RAW.first_name,
+    FORM_RAW.last_name,
+    FORM_RAW.location,
 ]
 
 
@@ -90,7 +86,7 @@ def detect_form_duplicates(
 
     require_columns(
         form_df,
-        [FORM_RAW_TAG],
+        [FORM_RAW.tag],
         context="FORM_DUPLICATE_DETECTION",
     )
 
@@ -100,7 +96,7 @@ def detect_form_duplicates(
 
     duplicates = _get_duplicate_rows(
         form_df,
-        FORM_RAW_TAG,
+        FORM_RAW.tag,
     )
 
     # --------------------------------------------------------
@@ -121,6 +117,6 @@ def detect_form_duplicates(
 
     return (
         duplicates
-        .sort_values(FORM_RAW_TAG)
+        .sort_values(FORM_RAW.tag)
         .reset_index(drop=True)
     )

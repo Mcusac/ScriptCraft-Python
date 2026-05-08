@@ -12,27 +12,11 @@
 
 import pandas as pd
 
-from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.asset_reconciliation.level_0.constants import (
-    ASSET_RAW_CUSTODIAN,
-    ASSET_RAW_DESCRIPTION,
-    ASSET_RAW_EMP_ID,
-    ASSET_RAW_LOCATION,
-    ASSET_RAW_TAG,
-    FORM_NORMALIZED_EMPLOYEE_NAME,
-    FORM_RAW_EMP_ID,
-    FORM_RAW_FIRST_NAME,
-    FORM_RAW_LAST_NAME,
-    FORM_RAW_LOCATION,
-    FORM_RAW_TAG,
-    MERGED_ASSET_CUSTODIAN,
-    MERGED_ASSET_DESCRIPTION,
-    MERGED_ASSET_EMP_ID,
-    MERGED_ASSET_LOCATION,
-    MERGED_FLAG,
-    MERGED_FORM_EMPLOYEE_NAME,
-    MERGED_FORM_EMP_ID,
-    MERGED_FORM_LOCATION,
-    MERGED_TAG,
+from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.asset_reconciliation.level_0.schema import (
+    ASSET_RAW,
+    FORM_NORMALIZED,
+    FORM_RAW,
+    MERGED,
 )
 
 
@@ -41,38 +25,38 @@ from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.asset_reconciliation
 # ============================================================
 
 _ASSET_RAW_COLUMNS = [
-    ASSET_RAW_TAG,
-    ASSET_RAW_EMP_ID,
-    ASSET_RAW_LOCATION,
-    ASSET_RAW_CUSTODIAN,
-    ASSET_RAW_DESCRIPTION,
+    ASSET_RAW.tag,
+    ASSET_RAW.emp_id,
+    ASSET_RAW.location,
+    ASSET_RAW.custodian,
+    ASSET_RAW.description,
 ]
 
 _FORM_RAW_COLUMNS = [
-    FORM_RAW_TAG,
-    FORM_RAW_EMP_ID,
-    FORM_RAW_FIRST_NAME,
-    FORM_RAW_LAST_NAME,
-    FORM_RAW_LOCATION,
+    FORM_RAW.tag,
+    FORM_RAW.emp_id,
+    FORM_RAW.first_name,
+    FORM_RAW.last_name,
+    FORM_RAW.location,
 ]
 
 _FORM_NORMALIZED_COLUMNS = [
-    FORM_RAW_TAG,
-    FORM_RAW_EMP_ID,
-    FORM_RAW_LOCATION,
-    FORM_NORMALIZED_EMPLOYEE_NAME,
+    FORM_NORMALIZED.tag,
+    FORM_NORMALIZED.emp_id,
+    FORM_NORMALIZED.location,
+    FORM_NORMALIZED.employee_name,
 ]
 
 _MERGED_COLUMNS = [
-    MERGED_TAG,
-    MERGED_ASSET_EMP_ID,
-    MERGED_ASSET_LOCATION,
-    MERGED_ASSET_CUSTODIAN,
-    MERGED_ASSET_DESCRIPTION,
-    MERGED_FORM_EMP_ID,
-    MERGED_FORM_EMPLOYEE_NAME,
-    MERGED_FORM_LOCATION,
-    MERGED_FLAG,
+    MERGED.tag,
+    MERGED.asset_emp_id,
+    MERGED.asset_location,
+    MERGED.asset_custodian,
+    MERGED.asset_description,
+    MERGED.form_emp_id,
+    MERGED.form_employee_name,
+    MERGED.form_location,
+    MERGED.merge_flag,
 ]
 
 

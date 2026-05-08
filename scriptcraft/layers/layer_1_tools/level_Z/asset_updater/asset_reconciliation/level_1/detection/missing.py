@@ -10,17 +10,9 @@
 
 import pandas as pd
 
-from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.asset_reconciliation.level_0.constants import (
-    MERGED_ASSET_DESCRIPTION,
-    MERGED_ASSET_EMP_ID,
-    MERGED_ASSET_LOCATION,
-    MERGED_FLAG,
-    MERGED_FORM_EMP_ID,
-    MERGED_FORM_EMPLOYEE_NAME,
-    MERGED_FORM_LOCATION,
-    MERGED_TAG,
+from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.asset_reconciliation.level_0.schema import (
+    MERGED,
 )
-
 from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.asset_reconciliation.level_1.validators import (
     require_columns,
 )
@@ -39,17 +31,17 @@ _RIGHT_ONLY = "right_only"
 # ============================================================
 
 _MISSING_FROM_FORM_COLUMNS = [
-    MERGED_TAG,
-    MERGED_ASSET_EMP_ID,
-    MERGED_ASSET_LOCATION,
-    MERGED_ASSET_DESCRIPTION,
+    MERGED.tag,
+    MERGED.asset_emp_id,
+    MERGED.asset_location,
+    MERGED.asset_description,
 ]
 
 _ONLY_IN_FORM_COLUMNS = [
-    MERGED_TAG,
-    MERGED_FORM_EMP_ID,
-    MERGED_FORM_EMPLOYEE_NAME,
-    MERGED_FORM_LOCATION,
+    MERGED.tag,
+    MERGED.form_emp_id,
+    MERGED.form_employee_name,
+    MERGED.form_location,
 ]
 
 
@@ -66,7 +58,7 @@ def _filter_merge_state(
     """
 
     return merged[
-        merged[MERGED_FLAG] == merge_state
+        merged[MERGED.merge_flag] == merge_state
     ].copy()
 
 
@@ -103,7 +95,7 @@ def detect_missing(
 
     require_columns(
         merged,
-        [MERGED_FLAG],
+        [MERGED.merge_flag],
         context="MISSING_DETECTION",
     )
 
