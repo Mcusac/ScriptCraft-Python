@@ -9,8 +9,8 @@ from .constants import (
 )
 
 from .debug_core import (
-    debug_merge,
-    debug_raw_inputs,
+    get_dataframe_summary,
+    get_merge_summary,
 )
 
 from .mappings import (
@@ -50,9 +50,9 @@ __all__ = [
     "MERGED",
     "OFF_CAMPUS_CANONICAL",
     "apply_tag_rules",
-    "debug_merge",
-    "debug_raw_inputs",
     "execute_merge",
+    "get_dataframe_summary",
+    "get_merge_summary",
     "is_empty",
     "normalize_employee_id",
     "normalize_string",

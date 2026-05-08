@@ -1,30 +1,20 @@
-# level_0/debug.py
-
 import pandas as pd
 
 
-def debug_raw_inputs(asset_df: pd.DataFrame, form_df: pd.DataFrame, tag_col: str) -> None:
-    print("\n--- DEBUG: RAW INPUT ---")
-    print(f"Asset rows : {len(asset_df)}")
-    print(f"Form rows  : {len(form_df)}")
-
-    if tag_col in form_df.columns:
-        print(f"Unique form tags  : {form_df[tag_col].nunique()}")
-
-    if tag_col in asset_df.columns:
-        print(f"Unique asset tags : {asset_df[tag_col].nunique()}")
+def get_dataframe_summary(df: pd.DataFrame, key_col: str | None = None) -> dict:
+    return {
+        "rows": len(df),
+        "columns": list(df.columns),
+        "unique_keys": df[key_col].nunique() if key_col and key_col in df.columns else None,
+        "null_counts": df.isna().sum().to_dict(),
+    }
 
 
-def debug_merge(merged: pd.DataFrame, tag_col: str, merge_col: str = "_merge") -> None:
-    print("\n--- DEBUG: MERGE RESULTS ---")
+def get_merge_summary(df: pd.DataFrame, merge_col: str = "_merge") -> dict:
+    if merge_col not in df.columns:
+        return {"error": "missing_merge_column"}
 
-    if merge_col not in merged.columns:
-        print("⚠️ Missing merge column")
-        return
-
-    print(merged[merge_col].value_counts())
-
-    cols = [c for c in [tag_col, merge_col] if c in merged.columns]
-
-    print("\nSample rows:")
-    print(merged[cols].head(10))
+    return {
+        "distribution": df[merge_col].value_counts().to_dict(),
+        "sample": df[[merge_col]].head(10).to_dict(orient="records"),
+    }
