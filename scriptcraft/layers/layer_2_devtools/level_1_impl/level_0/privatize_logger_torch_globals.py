@@ -28,13 +28,12 @@ If import errors occur during ``--check`` (optional deps / heavy imports from
 (see ``kaggle-ml-scripts.mdc``).
 """
 
-from __future__ import annotations
-
 import ast
 import difflib
 import io
 import sys
 import tokenize
+
 from argparse import ArgumentParser
 from io import StringIO
 from pathlib import Path
