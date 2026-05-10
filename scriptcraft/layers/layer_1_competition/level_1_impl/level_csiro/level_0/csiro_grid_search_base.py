@@ -2,7 +2,7 @@
 
 from typing import Any
 
-from layers.layer_1_competition.level_0_infra.level_1 import ContestGridSearchBase
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1 import ContestGridSearchBase
 
 
 class CSIROGridSearchBase(ContestGridSearchBase):

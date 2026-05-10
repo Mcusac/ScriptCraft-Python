@@ -7,17 +7,17 @@ import pandas as pd
 from pathlib import Path
 from typing import Optional, Any
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_1 import get_device, cleanup_gpu_memory
-from layers.layer_0_core.level_5 import save_submission_csv
-from layers.layer_0_core.level_6 import create_streaming_test_dataloader
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_1 import get_device, cleanup_gpu_memory
+from scriptcraft.layers.layer_0_core.level_5 import save_submission_csv
+from scriptcraft.layers.layer_0_core.level_6 import create_streaming_test_dataloader
 
-from layers.layer_1_competition.level_0_infra.level_1 import create_feature_extraction_model
-from layers.layer_1_competition.level_0_infra.level_5 import (
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1 import create_feature_extraction_model
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_5 import (
     expand_predictions_to_submission_format,
 )
 
-from layers.layer_1_competition.level_1_impl.level_csiro.level_0 import load_model_from_checkpoint
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_csiro.level_0 import load_model_from_checkpoint
 
 _logger = get_logger(__name__)
 

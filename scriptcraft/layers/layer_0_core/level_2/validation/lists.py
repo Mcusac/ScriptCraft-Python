@@ -5,8 +5,8 @@ Validation utilities for lists and collections.
 
 from typing import Iterable, Collection, Any
 
-from layers.layer_0_core.level_0 import DataValidationError
-from layers.layer_0_core.level_1 import check_not_none
+from scriptcraft.layers.layer_0_core.level_0 import DataValidationError
+from scriptcraft.layers.layer_0_core.level_1 import check_not_none
 
 def validate_list(
     values: Iterable[Any],

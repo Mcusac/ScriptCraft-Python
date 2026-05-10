@@ -4,8 +4,8 @@ Contest-specific feature definitions.
 Registers biological embedding and handcrafted features.
 """
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_1 import FEATURE_PRESETS, INDIVIDUAL_FEATURES
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_1 import FEATURE_PRESETS, INDIVIDUAL_FEATURES
 
 _logger = get_logger(__name__)
 

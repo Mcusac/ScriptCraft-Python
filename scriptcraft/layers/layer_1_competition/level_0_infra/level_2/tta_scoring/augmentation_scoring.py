@@ -3,7 +3,7 @@
 from collections.abc import Callable, Sequence
 from typing import Any
 
-from layers.layer_1_competition.level_0_infra.level_0 import (
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import (
     AggregateMode,
     aggregate_scores_across_augmentations,
     calc_scores,

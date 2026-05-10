@@ -2,7 +2,7 @@
 
 from typing import Dict, Any
 
-from layers.layer_0_core.level_0 import build_training_config
+from scriptcraft.layers.layer_0_core.level_0 import build_training_config
 
 
 DEFAULT_TRAINING_SETTINGS = {

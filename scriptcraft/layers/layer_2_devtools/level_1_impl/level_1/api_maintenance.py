@@ -7,45 +7,45 @@ from datetime import date
 from pathlib import Path
 from typing import Any
 
-from layers.layer_2_devtools.level_0_infra.level_0.contracts.envelope import err
-from layers.layer_2_devtools.level_0_infra.level_0.contracts.envelope import ok
-from layers.layer_2_devtools.level_0_infra.level_0.fix.layer_core_import_rewrite import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.contracts.envelope import err
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.contracts.envelope import ok
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.fix.layer_core_import_rewrite import (
     run_layer_core_import_rewrite,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.fix.import_fix_strategies import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.fix.import_fix_strategies import (
     FixOptions,
     build_edit_operations_for_tree,
     iter_python_files,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.fix.import_rewrite_engine import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.fix.import_rewrite_engine import (
     apply_edit_operations,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.fix.text_span_rewrite_engine import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.fix.text_span_rewrite_engine import (
     SpanEditOperation,
     apply_span_edit_operations,
 )
-from layers.layer_2_devtools.level_0_infra.level_0 import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0 import (
     run_unused_import_cleanup,
 )
-from layers.layer_2_devtools.level_0_infra.level_0 import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0 import (
     run_violation_fix_bundle,
 )
-from layers.layer_2_devtools.level_0_infra.level_0 import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0 import (
     bootstrap_markdown,
 )
-from layers.layer_2_devtools.level_0_infra.level_0 import clean_pycache
-from layers.layer_2_devtools.level_0_infra.level_1 import dump_level
-from layers.layer_2_devtools.level_0_infra.level_1 import package_dump_main
-from layers.layer_2_devtools.level_0_infra.level_0.path.workspace import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0 import clean_pycache
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_1 import dump_level
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_1 import package_dump_main
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.path.workspace import (
     resolve_workspace_root,
 )
-from layers.layer_2_devtools.level_0_infra.level_1.health_analyzers.import_path_validator import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_1.health_analyzers.import_path_validator import (
     ImportPathValidator,
 )
-from layers.layer_2_devtools.level_0_infra.level_1.health_analyzers.import_surface_validator import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_1.health_analyzers.import_surface_validator import (
     ImportSurfaceValidator,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.formatting.import_organizer import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.formatting.import_organizer import (
     build_import_organizer_span_edit,
 )
 

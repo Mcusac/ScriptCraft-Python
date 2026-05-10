@@ -7,7 +7,7 @@ the target interface minimal and uses identity derived-target behavior.
 
 from typing import Any, Dict, List
 
-from layers.layer_1_competition.level_0_infra.level_0 import ContestConfig
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import ContestConfig
 
 
 class RNA3DConfig(ContestConfig):

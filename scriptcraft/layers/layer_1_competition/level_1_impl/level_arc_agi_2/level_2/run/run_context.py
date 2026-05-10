@@ -8,16 +8,16 @@ import time
 from pathlib import Path
 from typing import Any, Optional
 
-from layers.layer_0_core.level_0 import ensure_dir, get_logger, is_kaggle
-from layers.layer_0_core.level_4 import save_json
+from scriptcraft.layers.layer_0_core.level_0 import ensure_dir, get_logger, is_kaggle
+from scriptcraft.layers.layer_0_core.level_4 import save_json
 
-from layers.layer_1_competition.level_0_infra.level_1 import RunContext
-from layers.layer_1_competition.level_0_infra.level_0 import (
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1 import RunContext
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import (
     generate_run_id,
     utc_now_iso,
 )
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_1.paths import ARC26Paths
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_1.run import resolve_run_dir
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_1.paths import ARC26Paths
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_1.run import resolve_run_dir
 
 _logger = get_logger(__name__)
 

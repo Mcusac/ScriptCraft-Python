@@ -4,7 +4,7 @@ from pathlib import Path
 from typing import Callable, Iterable, List, Protocol, TypeVar, Union
 from tqdm import tqdm
 
-from layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
 
 _logger = get_logger(__name__)
 _T = TypeVar("_T")

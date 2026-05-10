@@ -6,13 +6,13 @@ import json
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple, Any
 
-from layers.layer_0_core.level_0 import get_logger, is_kaggle_input
+from scriptcraft.layers.layer_0_core.level_0 import get_logger, is_kaggle_input
 
-from layers.layer_0_core.level_5 import (
+from scriptcraft.layers.layer_0_core.level_5 import (
     merge_json_from_input_and_working,
     merge_list_by_key_working_replaces,
 )
-from layers.layer_1_competition.level_1_impl.level_csiro.level_0 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_csiro.level_0 import (
     find_metadata_dir,
     get_writable_metadata_dir,
 )

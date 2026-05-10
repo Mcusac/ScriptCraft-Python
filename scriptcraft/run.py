@@ -19,7 +19,7 @@ from run_helpers import (
 )
 from level_1 import setup_framework_subparsers
 from level_0 import dispatch_command, get_logger
-from layers.layer_1_competition.level_0_infra.level_1 import get_command_handlers
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1 import get_command_handlers
 
 _logger = get_logger(__name__)
 

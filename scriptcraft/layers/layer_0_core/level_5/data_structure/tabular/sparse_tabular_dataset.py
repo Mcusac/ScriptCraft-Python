@@ -6,8 +6,8 @@ from pathlib import Path
 from typing import Union, Optional, Tuple
 from scipy.sparse import csr_matrix, issparse, spmatrix
 
-from layers.layer_0_core.level_0 import get_logger, get_torch
-from layers.layer_0_core.level_4 import load_json
+from scriptcraft.layers.layer_0_core.level_0 import get_logger, get_torch
+from scriptcraft.layers.layer_0_core.level_4 import load_json
 
 _logger = get_logger(__name__)
 

@@ -2,15 +2,15 @@
 
 from pathlib import Path
 
-from layers.layer_0_core.level_0 import get_torch
-from layers.layer_0_core.level_4 import load_json_raw
+from scriptcraft.layers.layer_0_core.level_0 import get_torch
+from scriptcraft.layers.layer_0_core.level_4 import load_json_raw
 
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_0 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_0 import (
     CANVAS_SIZE, 
     grid_to_one_hot_tensor, 
     logits_to_grid
 )
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_1 import TinyGridCNN
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_1 import TinyGridCNN
 
 
 def predict_grid_from_checkpoint(

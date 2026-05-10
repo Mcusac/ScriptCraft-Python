@@ -7,10 +7,10 @@ Injects runtime dependencies for clean separation of concerns.
 
 from typing import Any, Dict, Optional
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_1 import ProgressConfig, get_device_info
-from layers.layer_0_core.level_2 import ProgressBarManager, ProgressMetrics
-from layers.layer_0_core.level_3 import ProgressFormatter
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_1 import ProgressConfig, get_device_info
+from scriptcraft.layers.layer_0_core.level_2 import ProgressBarManager, ProgressMetrics
+from scriptcraft.layers.layer_0_core.level_3 import ProgressFormatter
 
 _logger = get_logger(__name__)
 

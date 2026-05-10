@@ -7,12 +7,12 @@ writes artifacts under contest-scoped output directories.
 from pathlib import Path
 from typing import List
 
-from layers.layer_0_core.level_0 import get_logger, ensure_dir
+from scriptcraft.layers.layer_0_core.level_0 import get_logger, ensure_dir
 
-from layers.layer_1_competition.level_1_impl.level_rna3d.level_0 import validate_rna3d_inputs, RNA3DPaths
-from layers.layer_1_competition.level_1_impl.level_rna3d.level_2 import get_trainer, list_available_models
-from layers.layer_1_competition.level_0_infra.level_0 import contest_models_dir
-from layers.layer_1_competition.level_0_infra.level_1.contest import ValidateFirstRunner
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_rna3d.level_0 import validate_rna3d_inputs, RNA3DPaths
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_rna3d.level_2 import get_trainer, list_available_models
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import contest_models_dir
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1.contest import ValidateFirstRunner
 
 _logger = get_logger(__name__)
 

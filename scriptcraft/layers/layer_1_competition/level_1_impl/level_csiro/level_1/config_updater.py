@@ -3,10 +3,10 @@
 from pathlib import Path
 from typing import Any
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_1 import validate_config_section_exists
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_1 import validate_config_section_exists
 
-from layers.layer_1_competition.level_1_impl.level_csiro.level_0 import find_metadata_dir, load_combo_metadata
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_csiro.level_0 import find_metadata_dir, load_combo_metadata
 
 _logger = get_logger(__name__)
 

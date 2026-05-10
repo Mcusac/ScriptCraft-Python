@@ -4,8 +4,8 @@ from abc import ABC, abstractmethod
 from pathlib import Path
 from typing import Optional
 
-from layers.layer_0_core.level_0 import is_kaggle
-from layers.layer_0_core.level_5 import find_project_input_root
+from scriptcraft.layers.layer_0_core.level_0 import is_kaggle
+from scriptcraft.layers.layer_0_core.level_5 import find_project_input_root
 
 
 class ContestPaths(ABC):

@@ -11,11 +11,11 @@ from collections.abc import Iterable, Mapping, Sequence
 from dataclasses import dataclass
 from pathlib import Path
 
-from layers.layer_2_devtools.level_0_infra.level_0.parse.ast.ast_utils import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.parse.ast.ast_utils import (
     get_imports_from_ast,
     parse_file,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.path.python_modules import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.path.python_modules import (
     collect_python_files,
     current_package,
     discover_packages,

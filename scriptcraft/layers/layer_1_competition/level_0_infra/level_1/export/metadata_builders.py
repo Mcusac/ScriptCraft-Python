@@ -3,11 +3,11 @@
 from pathlib import Path
 from typing import Any, Dict, Optional
 
-from layers.layer_0_core.level_0 import ConfigValidationError, get_logger
-from layers.layer_1_competition.level_0_infra.level_1.export.feature_filename import (
+from scriptcraft.layers.layer_0_core.level_0 import ConfigValidationError, get_logger
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1.export.feature_filename import (
     construct_feature_filename_from_config,
 )
-from layers.layer_0_core.level_5 import extract_scores_from_json, resolve_best_fold_and_score
+from scriptcraft.layers.layer_0_core.level_5 import extract_scores_from_json, resolve_best_fold_and_score
 
 _logger = get_logger(__name__)
 

@@ -3,7 +3,6 @@
 
 from .pypi_plugin import (
     check_dist_directory,
-    run_command,
     run_mode,
     upload_to_pypi,
     validate_package_files,
@@ -20,7 +19,6 @@ __all__ = [
     "ReleaseWorkflowRegistry",
     "WorkspaceSyncPlugin",
     "check_dist_directory",
-    "run_command",
     "run_mode",
     "upload_to_pypi",
     "validate_package_files",

@@ -7,7 +7,7 @@ Includes both standard PyTorch losses and custom implementations.
 from abc import ABC, abstractmethod
 from typing import Literal, Optional
 
-from layers.layer_0_core.level_0 import get_torch
+from scriptcraft.layers.layer_0_core.level_0 import get_torch
 
 _torch = get_torch()
 _nn = _torch.nn if _torch is not None else None

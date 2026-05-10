@@ -4,8 +4,8 @@ import numpy as np
 
 from typing import Any, Callable, Dict, List, Optional, Tuple
 
-from layers.layer_0_core.level_2 import validate_paired_arrays
-from layers.layer_0_core.level_3 import (
+from scriptcraft.layers.layer_0_core.level_2 import validate_paired_arrays
+from scriptcraft.layers.layer_0_core.level_3 import (
     calculate_r2_per_target,
     calculate_weighted_r2_from_arrays,
     prepare_weighted_arrays,

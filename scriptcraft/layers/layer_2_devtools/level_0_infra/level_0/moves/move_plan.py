@@ -3,7 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from pathlib import Path
 
-from layers.layer_2_devtools.level_0_infra.level_0.path.python_modules import file_to_module
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.path.python_modules import file_to_module
 
 
 @dataclass(frozen=True)

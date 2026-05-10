@@ -5,11 +5,11 @@ import csv
 from pathlib import Path
 from typing import Any, Dict, Optional, Tuple
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_4 import load_json_raw
-from layers.layer_0_core.level_5 import find_trained_model_path
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_4 import load_json_raw
+from scriptcraft.layers.layer_0_core.level_5 import find_trained_model_path
 
-from layers.layer_1_competition.level_0_infra.level_1.export.metadata_builders import (
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1.export.metadata_builders import (
     build_end_to_end_metadata,
     build_regression_metadata,
 )

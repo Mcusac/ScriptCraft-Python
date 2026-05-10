@@ -2,7 +2,7 @@
 
 from typing import Any, List
 
-from layers.layer_1_competition.level_0_infra.level_0.argv_command_builders import (
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0.argv_command_builders import (
     append_llm_args,
 )
 

@@ -3,14 +3,14 @@
 from pathlib import Path
 from typing import Any
 
-from layers.layer_2_devtools.level_1_impl.level_0.composed.audit_target_discovery_ops import (
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_0.composed.audit_target_discovery_ops import (
     resolve_default_layers_root as _resolve_default_layers_root,
 )
-from layers.layer_2_devtools.level_1_impl.level_0.composed.audit_target_discovery_ops import (
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_0.composed.audit_target_discovery_ops import (
     run_audit_target_discovery as _run_audit_target_discovery,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.contracts.envelope import err as _err
-from layers.layer_2_devtools.level_0_infra.level_0.contracts.envelope import ok as _ok
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.contracts.envelope import err as _err
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.contracts.envelope import ok as _ok
 
 
 def run_audit_target_discovery(config: dict[str, Any]) -> dict[str, Any]:

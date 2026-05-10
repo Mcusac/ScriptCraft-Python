@@ -3,10 +3,10 @@
 from pathlib import Path
 from typing import Optional
 
-from layers.layer_1_competition.level_0_infra.level_0 import ContestRunPathsProtocol
-from layers.layer_1_competition.level_0_infra.level_1 import contest_run_dir, contest_runs_root
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import ContestRunPathsProtocol
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1 import contest_run_dir, contest_runs_root
 
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_1.paths import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_1.paths import (
     ARC26Paths,
 )
 

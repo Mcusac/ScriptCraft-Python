@@ -5,7 +5,7 @@ Contest-specific glue for notebooks; shared ``run.py`` prefix comes from infra.
 
 from typing import List, Optional
 
-from layers.layer_1_competition.level_0_infra.level_1.notebook import build_run_py_base_command
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1.notebook import build_run_py_base_command
 
 _CONTEST = "rna3d"
 

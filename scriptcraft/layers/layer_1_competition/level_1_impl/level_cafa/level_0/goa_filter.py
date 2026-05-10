@@ -5,8 +5,8 @@ import pandas as pd
 from pathlib import Path
 from typing import Optional, Set
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_1 import HierarchyPropagator
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_1 import HierarchyPropagator
 
 _logger = get_logger(__name__)
 

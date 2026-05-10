@@ -1,16 +1,16 @@
 """Per-task Unsloth LoRA adaptation runner (NVARC reference training loop)."""
 
-from layers.layer_1_competition.level_0_infra.level_0 import (
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import (
     resolve_collator_token_ids,
     restore_peft_adapter_state_dict,
 )
-from layers.layer_1_competition.level_0_infra.level_4 import unsloth_train_completion_lm
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_4 import unsloth_train_completion_lm
 
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_1 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_1 import (
     ArcQwenGridChatFormatter,
 )
 
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_3.lm_task_adaptation.training_rows import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_3.lm_task_adaptation.training_rows import (
     build_task_training_rows,
 )
 

@@ -13,7 +13,7 @@ _SCRIPTS_ROOT = Path(__file__).resolve().parent.parent
 if str(_SCRIPTS_ROOT) not in sys.path:
     sys.path.insert(0, str(_SCRIPTS_ROOT))
 
-from layers.layer_2_devtools.level_1_impl.level_1.api_audit import run_csiro_level_violations_cli_api
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_1.api_audit import run_csiro_level_violations_cli_api
 
 
 def main() -> int:

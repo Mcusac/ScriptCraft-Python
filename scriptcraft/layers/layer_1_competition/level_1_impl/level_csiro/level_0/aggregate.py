@@ -5,9 +5,9 @@ import pandas as pd
 from pathlib import Path
 from typing import Union, Optional
 
-from layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
 
-from layers.layer_1_competition.level_0_infra.level_1 import get_contest
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1 import get_contest
 
 _logger = get_logger(__name__)
 

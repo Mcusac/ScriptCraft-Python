@@ -2,20 +2,20 @@
 
 import argparse
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_1 import normalize_search_type
-from layers.layer_0_core.level_5 import cleanup_grid_search_checkpoints_retroactive
-from layers.layer_0_core.level_9 import (
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_1 import normalize_search_type
+from scriptcraft.layers.layer_0_core.level_5 import cleanup_grid_search_checkpoints_retroactive
+from scriptcraft.layers.layer_0_core.level_9 import (
     regression_grid_search_pipeline,
     dataset_grid_search_pipeline,
     test_max_augmentation_pipeline,
 )
-from layers.layer_0_core.level_10 import hyperparameter_grid_search_pipeline
+from scriptcraft.layers.layer_0_core.level_10 import hyperparameter_grid_search_pipeline
 
-from layers.layer_1_competition.level_0_infra.level_1 import get_contest, resolve_data_root_from_args
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1 import get_contest, resolve_data_root_from_args
 
-from layers.layer_1_competition.level_1_impl.level_csiro.level_1 import train_pipeline
-from layers.layer_1_competition.level_1_impl.level_csiro.level_4 import get_grid_search_context
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_csiro.level_1 import train_pipeline
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_csiro.level_4 import get_grid_search_context
 
 _logger = get_logger(__name__)
 

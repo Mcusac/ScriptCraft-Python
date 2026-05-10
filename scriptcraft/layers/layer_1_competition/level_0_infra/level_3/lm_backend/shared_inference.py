@@ -2,7 +2,7 @@
 
 from typing import Any
 
-from layers.layer_1_competition.level_0_infra.level_0 import (
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import (
     eval_teacher_forced_neg_sum_logprob,
     resolve_digit_token_ids,
     resolve_newline_token_id,

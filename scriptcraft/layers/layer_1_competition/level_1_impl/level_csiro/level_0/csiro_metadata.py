@@ -3,8 +3,8 @@
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_5 import (
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_5 import (
     find_metadata_dir as _find_metadata_dir_raw,
     get_writable_metadata_dir as _get_writable_metadata_dir_raw,
     load_combo_metadata as _load_combo_raw,

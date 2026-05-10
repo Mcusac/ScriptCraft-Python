@@ -2,10 +2,10 @@
 
 from typing import Optional
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_1 import generate_feature_filename
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_1 import generate_feature_filename
 
-from layers.layer_1_competition.level_0_infra.level_0 import get_model_id, get_model_name_from_pretrained, get_model_image_size
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import get_model_id, get_model_name_from_pretrained, get_model_image_size
 
 _logger = get_logger(__name__)
 

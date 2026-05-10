@@ -7,7 +7,7 @@ _SCRIPTS = Path(__file__).resolve().parents[5]
 if str(_SCRIPTS) not in sys.path:
     sys.path.insert(0, str(_SCRIPTS))
 
-from layers.layer_2_devtools.level_1_impl.level_0.targets.discovery_ops import (
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_0.targets.discovery_ops import (
     build_comprehensive_queue,
     default_layers_root,
 )

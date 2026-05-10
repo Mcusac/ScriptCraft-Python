@@ -3,23 +3,23 @@
 import time
 from typing import Any, Mapping
 
-from layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
 
-from layers.layer_1_competition.level_0_infra.level_0 import (
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import (
     ArcLmBudget,
     LlmTtaDfsConfig,
 )
-from layers.layer_1_competition.level_0_infra.level_1 import (
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1 import (
     CandidatePrediction,
     rank_candidate_grids,
 )
 
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_0 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_0 import (
     coerce_arc_grid,
     empty_arc_grid_like,
     predict_attempts_from_chosen_params,
 )
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_1.ranking import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_1.ranking import (
     ensemble_rank_predictions_reference,
 )
 

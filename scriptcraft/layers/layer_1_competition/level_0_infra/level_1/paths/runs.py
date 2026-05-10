@@ -2,7 +2,7 @@
 
 from pathlib import Path
 
-from layers.layer_1_competition.level_0_infra.level_0 import ContestPaths
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import ContestPaths
 
 
 def contest_runs_root(paths: ContestPaths, contest_slug: str) -> Path:

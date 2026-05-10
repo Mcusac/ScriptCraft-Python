@@ -3,24 +3,24 @@
 from pathlib import Path
 from typing import Any, Dict, Optional, Tuple
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_1 import create_kfold_splits, get_device, cleanup_gpu_memory
-from layers.layer_0_core.level_2 import save_features
-from layers.layer_0_core.level_3 import create_train_dataloader
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_1 import create_kfold_splits, get_device, cleanup_gpu_memory
+from scriptcraft.layers.layer_0_core.level_2 import save_features
+from scriptcraft.layers.layer_0_core.level_3 import create_train_dataloader
 
-from layers.layer_1_competition.level_0_infra.level_4 import create_trainer
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_4 import create_trainer
 
-from layers.layer_1_competition.level_1_impl.level_csiro.level_0 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_csiro.level_0 import (
     aggregate_train_csv,
     calc_metric,
     get_model_image_size_for_extraction,
     resolve_feature_filename,
 )
-from layers.layer_1_competition.level_1_impl.level_csiro.level_2 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_csiro.level_2 import (
     initialize_working_metadata_files,
 )
 
-from layers.layer_1_competition.level_1_impl.level_csiro.level_3 import get_regression_variant_info
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_csiro.level_3 import get_regression_variant_info
 
 
 _logger = get_logger(__name__)

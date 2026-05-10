@@ -2,13 +2,13 @@
 
 import argparse
 
-from layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
 
-from layers.layer_1_competition.level_0_infra.level_1 import (
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1 import (
     resolve_data_root_from_args,
 )
 
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_2 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_2 import (
     pipeline_run_benchmark_rankers_from_artifacts,
     pipeline_run_score_submission,
 )

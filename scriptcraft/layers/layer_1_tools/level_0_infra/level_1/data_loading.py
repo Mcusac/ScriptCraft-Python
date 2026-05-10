@@ -9,7 +9,7 @@ import yaml
 from typing import Optional, Union, List, Dict, Any, Tuple
 from pathlib import Path
 
-from layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
 
 def load_data(
     file_path: Union[str, Path],

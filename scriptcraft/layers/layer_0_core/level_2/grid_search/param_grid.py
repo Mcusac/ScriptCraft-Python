@@ -6,8 +6,8 @@ Supports per-key overrides (task, head, domain, etc).
 
 from typing import Any, Dict, List, Optional
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_1 import resolve_param_grid
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_1 import resolve_param_grid
 
 _logger = get_logger(__name__)
 

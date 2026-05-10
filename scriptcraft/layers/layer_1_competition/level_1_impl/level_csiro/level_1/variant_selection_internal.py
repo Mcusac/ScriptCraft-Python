@@ -6,12 +6,12 @@ import numpy as np
 from pathlib import Path
 from typing import Any, Dict, Optional
 
-from layers.layer_0_core.level_4 import load_json
-from layers.layer_0_core.level_5 import merge_json_from_input_and_working, merge_list_by_key_add_only
+from scriptcraft.layers.layer_0_core.level_4 import load_json
+from scriptcraft.layers.layer_0_core.level_5 import merge_json_from_input_and_working, merge_list_by_key_add_only
 
-from layers.layer_0_core.level_0 import is_kaggle_input
+from scriptcraft.layers.layer_0_core.level_0 import is_kaggle_input
 
-from layers.layer_1_competition.level_1_impl.level_csiro.level_0 import find_metadata_dir, get_writable_metadata_dir
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_csiro.level_0 import find_metadata_dir, get_writable_metadata_dir
 
 
 def is_empty_list_json(path: Path) -> bool:

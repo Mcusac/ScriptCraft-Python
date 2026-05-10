@@ -9,8 +9,8 @@ import numpy as np
 
 from typing import Any, Dict, List, Optional, Union
 
-from layers.layer_0_core.level_0 import get_logger, get_torch
-from layers.layer_0_core.level_1 import BaseFeatureExtractor, get_siglip_text_classes
+from scriptcraft.layers.layer_0_core.level_0 import get_logger, get_torch
+from scriptcraft.layers.layer_0_core.level_1 import BaseFeatureExtractor, get_siglip_text_classes
 
 _torch = get_torch()
 _logger = get_logger(__name__)

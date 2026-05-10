@@ -2,23 +2,23 @@
 
 from typing import Optional
 
-from layers.layer_0_core.level_0 import PipelineResult
-from layers.layer_0_core.level_1 import run_pipeline_result_with_validation_first
+from scriptcraft.layers.layer_0_core.level_0 import PipelineResult
+from scriptcraft.layers.layer_0_core.level_1 import run_pipeline_result_with_validation_first
 
-from layers.layer_1_competition.level_0_infra.level_0 import (
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import (
     capture_config_paths,
     capture_submission_paths,
 )
-from layers.layer_1_competition.level_0_infra.level_1 import RunContext
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1 import RunContext
 
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_3 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_3 import (
     run_validate_data_pipeline,
 )
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_4 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_4 import (
     run_train_pipeline,
     run_tune_pipeline,
 )
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_5 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_5 import (
     run_submission_pipeline,
 
 )

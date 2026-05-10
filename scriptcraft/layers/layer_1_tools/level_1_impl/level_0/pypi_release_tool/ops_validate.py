@@ -1,15 +1,16 @@
-from __future__ import annotations
-
 from pathlib import Path
 
-from layers.layer_1_tools.level_0_infra.level_0.logging_core import log_and_print
-
-from .runner import python_file_args, run_command, stringify_args
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_1.subprocess.runner import (
+    run,
+    python_file_args,
+)
 
 
 def validate_package() -> bool:
     log_and_print("🔍 Validating package...")
 
+    # ---- static checks ----
     for required in ["pyproject.toml", "README.md"]:
         if not Path(required).exists():
             log_and_print(f"❌ Missing required file: {required}", level="error")
@@ -25,16 +26,22 @@ def validate_package() -> bool:
         log_and_print("✅ Package validation passed")
         return True
 
+    # ---- dynamic test execution ----
     log_and_print("🧪 Running validation tests...")
+
     for test_file in test_files:
         args = python_file_args(str(test_file))
-        result = run_command(args, description=f"Running {test_file} ({stringify_args(args)})")
-        if result.returncode != 0:
-            log_and_print(f"❌ Validation test failed: {test_file}", level="error")
+
+        result = run(args)
+
+        if not result.ok:
+            log_and_print(
+                f"❌ Validation test failed: {test_file}",
+                level="error",
+            )
             if result.stderr:
                 log_and_print(result.stderr, level="error")
             return False
 
     log_and_print("✅ Package validation passed")
     return True
-

@@ -20,23 +20,23 @@ from datetime import date
 from pathlib import Path
 from typing import Any
 
-from layers.layer_2_devtools.level_0_infra.level_0.fix import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.fix import (
     MoveImportRewrite,
     build_move_import_rewrite_ops,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.fix.import_rewrite_engine import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.fix.import_rewrite_engine import (
     apply_edit_operations,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.moves import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.moves import (
     MovePlanError,
     MoveSpec,
     compute_move_plan,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.path.workspace import resolve_workspace_root
-from layers.layer_2_devtools.level_1_impl.level_1.api_maintenance import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.path.workspace import resolve_workspace_root
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_1.api_maintenance import (
     run_verify_imports_cli_api,
 )
-from layers.layer_2_devtools.level_1_impl.level_2.regenerate_package_inits import (
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_2.regenerate_package_inits import (
     apply_regeneration,
 )
 

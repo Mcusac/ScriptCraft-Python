@@ -17,7 +17,7 @@ from datetime import date, datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from layers.layer_2_devtools.level_1_impl.level_2.audit_artifact_bootstrap import (
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_2.audit_artifact_bootstrap import (
     get_resolve_audit_artifact_root,
 )
 
@@ -303,7 +303,7 @@ def run_code_fix_pipeline(config: dict[str, Any]) -> dict[str, Any]:
     # Tool 5: init_regen (deterministic barrels)
     if "init_regen" in tools:
         try:
-            from layers.layer_2_devtools.level_1_impl.level_2 import regenerate_package_inits as rpi
+            from scriptcraft.layers.layer_2_devtools.level_1_impl.level_2 import regenerate_package_inits as rpi
         except Exception as exc:  # noqa: BLE001
             errors.append(str(exc))
             steps.append({"tool": "init_regen", "status": "error", "errors": [str(exc)]})

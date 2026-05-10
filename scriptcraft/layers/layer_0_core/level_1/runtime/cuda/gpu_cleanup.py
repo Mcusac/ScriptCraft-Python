@@ -2,7 +2,7 @@
 
 import gc
 
-from layers.layer_0_core.level_0 import get_logger, get_torch
+from scriptcraft.layers.layer_0_core.level_0 import get_logger, get_torch
 
 _logger = get_logger(__name__)
 _torch = get_torch()

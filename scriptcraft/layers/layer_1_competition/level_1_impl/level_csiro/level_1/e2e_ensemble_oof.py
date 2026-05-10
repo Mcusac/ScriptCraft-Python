@@ -8,13 +8,13 @@ import pandas as pd
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_1 import get_device, create_kfold_splits, get_fold_data
-from layers.layer_0_core.level_4 import load_json
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_1 import get_device, create_kfold_splits, get_fold_data
+from scriptcraft.layers.layer_0_core.level_4 import load_json
 
-from layers.layer_1_competition.level_0_infra.level_1 import get_contest
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1 import get_contest
 
-from layers.layer_1_competition.level_1_impl.level_csiro.level_0 import process_single_fold_for_e2e_ensemble, aggregate_train_csv
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_csiro.level_0 import process_single_fold_for_e2e_ensemble, aggregate_train_csv
 
 _logger = get_logger(__name__)
 

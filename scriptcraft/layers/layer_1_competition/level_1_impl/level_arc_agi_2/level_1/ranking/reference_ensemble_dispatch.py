@@ -6,7 +6,7 @@ Requires contest ``ENSEMBLE_REFERENCE_RANKERS``; uses infra
 
 from __future__ import annotations
 
-from layers.layer_1_competition.level_0_infra.level_1 import (
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1 import (
     CandidatePrediction,
     ensemble_predictions_to_guess_map,
 )

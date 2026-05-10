@@ -3,14 +3,14 @@
 from pathlib import Path
 from typing import Any
 
-from layers.layer_2_devtools.level_1_impl.level_0.targets.discovery_ops import (
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_0.targets.discovery_ops import (
     build_comprehensive_queue,
     build_markdown_table,
     default_layers_root,
     dumps_queue_json,
     queue_to_json,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.path.workspace import find_workspace_root
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.path.workspace import find_workspace_root
 
 
 def run_audit_target_discovery(

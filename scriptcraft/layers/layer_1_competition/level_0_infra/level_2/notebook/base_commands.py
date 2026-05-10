@@ -4,7 +4,7 @@ import sys
 
 from typing import List, Optional
 
-from layers.layer_1_competition.level_0_infra.level_1.paths import (
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1.paths import (
     get_data_root_path,
     get_run_py_path,
 )

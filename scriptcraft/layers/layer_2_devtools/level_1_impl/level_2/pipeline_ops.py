@@ -15,8 +15,8 @@ from datetime import date, datetime, timezone
 from pathlib import Path
 from typing import Any, Callable
 
-from layers.layer_2_devtools.level_1_impl.level_0.targets.discovery_ops import AuditTarget
-from layers.layer_2_devtools.level_1_impl.level_0.targets.discovery_ops import (
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_0.targets.discovery_ops import AuditTarget
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_0.targets.discovery_ops import (
     build_comprehensive_queue,
     default_layers_root,
     dumps_queue_json,

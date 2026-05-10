@@ -35,14 +35,14 @@ if "layers.layer_2_devtools.level_1_impl.level_1" not in sys.modules:
     sys.modules["layers.layer_2_devtools.level_1_impl.level_1"] = p
 
 
-from layers.layer_2_devtools.level_1_impl.level_1.api_health import (
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_1.api_health import (
     emit_health_report_view_api,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.formatting.architecture_score import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.formatting.architecture_score import (
     ScoreConfig,
     compute_architecture_score,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.formatting.architecture_scorecard_markdown import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.formatting.architecture_scorecard_markdown import (
     build_health_markdown_scorecard,
 )
 

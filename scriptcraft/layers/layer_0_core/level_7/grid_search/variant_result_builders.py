@@ -2,8 +2,8 @@
 
 from typing import Any, Dict, List, Optional
 
-from layers.layer_0_core.level_0 import create_error_result_dict, create_result_dict
-from layers.layer_0_core.level_6 import create_variant_specific_data
+from scriptcraft.layers.layer_0_core.level_0 import create_error_result_dict, create_result_dict
+from scriptcraft.layers.layer_0_core.level_6 import create_variant_specific_data
 
 
 def build_success_result(

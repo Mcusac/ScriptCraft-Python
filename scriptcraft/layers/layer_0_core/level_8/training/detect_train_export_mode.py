@@ -3,9 +3,9 @@
 from pathlib import Path
 from typing import Optional
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_1 import print_config_section
-from layers.layer_0_core.level_6.grid_search import auto_detect_grid_search_results
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_1 import print_config_section
+from scriptcraft.layers.layer_0_core.level_6.grid_search import auto_detect_grid_search_results
 
 _logger = get_logger(__name__)
 

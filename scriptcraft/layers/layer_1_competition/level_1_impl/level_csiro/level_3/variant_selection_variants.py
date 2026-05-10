@@ -3,16 +3,16 @@
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
-from layers.layer_0_core.level_0 import get_logger, is_kaggle_input
-from layers.layer_0_core.level_4 import load_json, save_json
-from layers.layer_0_core.level_5 import merge_json_from_input_and_working, merge_list_by_key_add_only
+from scriptcraft.layers.layer_0_core.level_0 import get_logger, is_kaggle_input
+from scriptcraft.layers.layer_0_core.level_4 import load_json, save_json
+from scriptcraft.layers.layer_0_core.level_5 import merge_json_from_input_and_working, merge_list_by_key_add_only
 
-from layers.layer_1_competition.level_1_impl.level_csiro.level_0 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_csiro.level_0 import (
     find_metadata_dir,
     get_writable_metadata_dir,
     validate_regression_model_type,
 )
-from layers.layer_1_competition.level_1_impl.level_csiro.level_1 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_csiro.level_1 import (
     load_gridsearch_metadata,    
     find_variant_by_id,
     hyperparameters_signature,
@@ -21,7 +21,7 @@ from layers.layer_1_competition.level_1_impl.level_csiro.level_1 import (
     resolve_metadata_file_locations,
     to_jsonable,
 )
-from layers.layer_1_competition.level_1_impl.level_csiro.level_2 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_csiro.level_2 import (
     initialize_working_metadata_files,
 )
 

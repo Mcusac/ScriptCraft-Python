@@ -3,7 +3,7 @@
 from dataclasses import dataclass
 from typing import Any, Callable, Optional
 
-from layers.layer_0_core.level_0 import PipelineResult
+from scriptcraft.layers.layer_0_core.level_0 import PipelineResult
 
 
 @dataclass(frozen=True)

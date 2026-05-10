@@ -1,22 +1,26 @@
 import pandas as pd
 
 from typing import List, Dict, Tuple, Set, Optional
-from scriptcraft.common.data.cleaning import get_clean_numeric_series, MISSING_VALUE_STRINGS
-from scriptcraft.common.data.validation import FlaggedValue, ColumnValidator, get_status_emoji
-from scriptcraft.common.logging import log_and_print
-from scriptcraft.common.io.paths import OutlierMethod
-from . import registry
-from scriptcraft.common import cu
+
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.constants import OutlierMethod
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_2.cleaning import get_clean_numeric_series
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_2.validation import FlaggedValue, ColumnValidator, get_status_emoji
+
+# TODO: Problem Imports
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_5.config import load_config # TODO: exists in two places
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_1.config_loader import load_config # TODO: exists in two places
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_0.dictionary_driven_checker_plugins.registry import register # TODO: Does not exist
 
 # Load configuration
-config = cu.load_config()
+config = load_config()
 checker_config = config.checkers.dictionary_checker
 
 class NumericValidationError(Exception):
     """Custom exception for numeric validation errors"""
     pass
 
-@registry.register("numeric")
+@register("numeric")
 class NumericValidator(ColumnValidator):
     """Plugin for numeric validation including outlier detection"""
     

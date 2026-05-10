@@ -4,8 +4,8 @@ import timm
 
 from typing import Optional
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_1 import (
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_1 import (
     configure_huggingface_cache,
     resolve_offline_weight_cache,
 )

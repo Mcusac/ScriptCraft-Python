@@ -3,7 +3,7 @@
 import argparse
 from typing import Any
 
-from layers.layer_1_competition.level_0_infra.level_1.contest import add_common_contest_args
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1.contest import add_common_contest_args
 
 CSIRO_COMMANDS = [
     "dataset_grid_search",

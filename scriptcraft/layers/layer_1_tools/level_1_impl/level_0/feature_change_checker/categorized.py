@@ -4,8 +4,8 @@ from pathlib import Path
 from typing import Any, Dict, List, Union
 
 
-from layers.layer_1_tools.level_0_infra.level_0.directory_ops import ensure_output_dir
-from layers.layer_1_tools.level_0_infra.level_0.logging_core import log_and_print
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_6.argument_parsers import ArgumentValidator
 
 
 def run_categorized_changes(df: pd.DataFrame, feature: str, output_dir: Union[str, Path]) -> None:
@@ -46,7 +46,7 @@ def run_categorized_changes(df: pd.DataFrame, feature: str, output_dir: Union[st
     df_out = pd.DataFrame(category_data)
     safe_feature = feature.replace(" ", "_").replace("/", "-")
     output_path = Path(output_dir) / f"{safe_feature}_Category_Changes.csv"
-    ensure_output_dir(output_path)
+    ArgumentValidator.ensure_output_dir(output_path)
 
     if df_out.empty:
         log_and_print("⚠️ No visit-to-visit changes met the criteria.")

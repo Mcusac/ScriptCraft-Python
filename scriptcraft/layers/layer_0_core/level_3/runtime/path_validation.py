@@ -8,8 +8,8 @@ import pandas as pd
 from pathlib import Path
 from typing import Union, List
 
-from layers.layer_0_core.level_0 import DataValidationError
-from layers.layer_0_core.level_2 import validate_column_values, validate_dataframe
+from scriptcraft.layers.layer_0_core.level_0 import DataValidationError
+from scriptcraft.layers.layer_0_core.level_2 import validate_column_values, validate_dataframe
 
 
 def validate_file_exists(

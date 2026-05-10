@@ -8,12 +8,12 @@ from pathlib import Path
 from typing import Any, Dict, Optional
 from sklearn.metrics import r2_score
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_2 import find_feature_cache, load_features
-from layers.layer_0_core.level_3 import create_regression_model
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_2 import find_feature_cache, load_features
+from scriptcraft.layers.layer_0_core.level_3 import create_regression_model
 
-from layers.layer_1_competition.level_1_impl.level_csiro.level_0 import resolve_feature_filename
-from layers.layer_1_competition.level_1_impl.level_csiro.level_4 import extract_features_from_scratch
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_csiro.level_0 import resolve_feature_filename
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_csiro.level_4 import extract_features_from_scratch
 
 _logger = get_logger(__name__)
 

@@ -6,14 +6,23 @@ from .fix_counts import (
     FixCounter,
 )
 
-from .paths import (
-    DOMAIN_PATHS,
-    PROJECT_ROOT,
+from .types import (
+    InputPath,
+    InputPaths,
+    OptionalStr,
+)
+
+from .value_types import (
+    VALUE_TYPE_MAP,
+    normalize_value_type,
 )
 
 __all__ = [
     "DEFAULT_FIX_COUNTS",
-    "DOMAIN_PATHS",
     "FixCounter",
-    "PROJECT_ROOT",
+    "InputPath",
+    "InputPaths",
+    "OptionalStr",
+    "VALUE_TYPE_MAP",
+    "normalize_value_type",
 ]

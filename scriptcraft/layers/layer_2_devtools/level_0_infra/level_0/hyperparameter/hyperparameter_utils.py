@@ -8,13 +8,13 @@ from typing import Dict, List, Any, Tuple, Optional
 from collections import defaultdict
 from pathlib import Path
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_4 import load_json
-from layers.layer_0_core.level_5.file_io.merge import (
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_4 import load_json
+from scriptcraft.layers.layer_0_core.level_5.file_io.merge import (
     merge_json_from_input_and_working,
     merge_list_by_key_working_replaces,
 )
-from layers.layer_0_core.level_5.metadata.paths import (
+from scriptcraft.layers.layer_0_core.level_5.metadata.paths import (
     find_metadata_dir,
     get_writable_metadata_dir,
 )

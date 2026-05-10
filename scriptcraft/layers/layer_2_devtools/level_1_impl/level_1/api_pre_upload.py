@@ -3,11 +3,11 @@
 from pathlib import Path
 from typing import Any
 
-from layers.layer_2_devtools.level_1_impl.level_0.composed.pre_upload_validation_workflow_ops import (
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_0.composed.pre_upload_validation_workflow_ops import (
     run_pre_upload_validation as _run_pre_upload_validation,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.contracts.envelope import err
-from layers.layer_2_devtools.level_0_infra.level_0.contracts.envelope import ok
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.contracts.envelope import err
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.contracts.envelope import ok
 
 
 def run_pre_upload_validation_cli_api(config: dict[str, Any]) -> dict[str, Any]:

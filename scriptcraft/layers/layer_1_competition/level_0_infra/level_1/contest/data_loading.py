@@ -9,14 +9,14 @@ import pandas as pd
 from pathlib import Path
 from typing import Optional, Tuple
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_4 import load_csv_raw, load_csv_raw_if_exists
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_4 import load_csv_raw, load_csv_raw_if_exists
 
-from layers.layer_1_competition.level_0_infra.level_1.contest.csv_io import (
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1.contest.csv_io import (
     load_training_csv,
 )
-from layers.layer_1_competition.level_0_infra.level_1.contest.splits import split_train_val
-from layers.layer_1_competition.level_0_infra.level_1.registry import (
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1.contest.splits import split_train_val
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1.registry import (
     ContestRegistry,
     get_contest,
 )

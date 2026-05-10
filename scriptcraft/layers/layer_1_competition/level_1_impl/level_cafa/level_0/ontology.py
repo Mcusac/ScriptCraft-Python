@@ -2,7 +2,7 @@
 
 from typing import List, Dict, Any
 
-from layers.layer_1_competition.level_0_infra.level_0 import ContestOntologySystem
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import ContestOntologySystem
 
 
 class CAFAOntologySystem(ContestOntologySystem):

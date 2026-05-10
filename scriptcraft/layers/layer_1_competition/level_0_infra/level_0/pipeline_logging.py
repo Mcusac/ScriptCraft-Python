@@ -1,8 +1,8 @@
 """Log :class:`PipelineResult` for contest CLI handlers."""
 
-from layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
 
-from layers.layer_1_competition.level_0_infra.level_1 import PipelineResult
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1 import PipelineResult
 
 _logger = get_logger(__name__)
 

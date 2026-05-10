@@ -3,7 +3,7 @@
 import os
 import time
 
-from layers.layer_0_core.level_0 import get_torch
+from scriptcraft.layers.layer_0_core.level_0 import get_torch
 
 _torch = get_torch()
 

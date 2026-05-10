@@ -4,8 +4,8 @@ import logging
 from pathlib import Path
 from typing import Optional
 
-from layers.layer_1_tools.level_0_infra.level_0.logging_primitives import LogConfig
-from layers.layer_1_tools.level_0_infra.level_1.paths import get_project_root, LOG_LEVEL
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.logging_primitives import LogConfig
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_1.paths import get_project_root, LOG_LEVEL
 
 
 def _load_verbose_mode(config_file: Path, default: bool) -> Optional[bool]:

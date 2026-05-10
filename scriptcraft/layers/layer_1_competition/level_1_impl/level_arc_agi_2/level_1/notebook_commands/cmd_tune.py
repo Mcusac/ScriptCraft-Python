@@ -6,13 +6,13 @@ Shares argv primitives with ``level_1/cli/commands/build_tune_command.py`` via
 
 from typing import List, Optional
 
-from layers.layer_1_competition.level_0_infra.level_0.argv_command_builders import (
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0.argv_command_builders import (
     append_max_targets,
     append_run_args,
     append_tune_args,
 )
 
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_0 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_0 import (
     base_cmd,
 )
 

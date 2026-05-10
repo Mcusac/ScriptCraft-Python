@@ -20,7 +20,7 @@ Ports NVARC ``score_sum`` / ``getter_*`` behavior:
 
 from typing import Any, Callable
 
-from layers.layer_1_competition.level_0_infra.level_0 import grid_int_hash_key
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import grid_int_hash_key
 
 Grid = list[list[int]]
 GuessDict = dict[str, Any]

@@ -11,7 +11,7 @@ from collections import defaultdict
 
 # Reuse existing framework function for top results extraction
 try:
-    from layers.layer_0_core.level_5 import extract_top_results
+    from scriptcraft.layers.layer_0_core.level_5 import extract_top_results
 except ImportError:
     # Fallback if contest-specific import fails (may not be available in all contexts)
     extract_top_results = None

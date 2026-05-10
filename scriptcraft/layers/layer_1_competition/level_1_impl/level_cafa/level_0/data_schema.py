@@ -2,7 +2,7 @@
 
 from typing import List
 
-from layers.layer_1_competition.level_0_infra.level_0 import ContestDataSchema
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import ContestDataSchema
 
 
 class CAFADataSchema(ContestDataSchema):

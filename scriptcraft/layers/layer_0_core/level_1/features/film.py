@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from layers.layer_0_core.level_0 import get_logger, get_nn_module_base_class, get_torch
+from scriptcraft.layers.layer_0_core.level_0 import get_logger, get_nn_module_base_class, get_torch
 
 _torch = get_torch()
 _NNModule = get_nn_module_base_class()

@@ -1,4 +1,4 @@
-from layers.layer_2_devtools.level_1_impl.level_2.circular_deps import _cycle_chain_for_component
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_2.circular_deps import _cycle_chain_for_component
 
 
 def test_cycle_chain_prefers_a_real_cycle_path() -> None:

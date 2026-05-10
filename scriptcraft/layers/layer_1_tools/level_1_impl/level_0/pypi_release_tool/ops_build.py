@@ -1,11 +1,13 @@
-from __future__ import annotations
-
 import shutil
+
 from pathlib import Path
 
-from layers.layer_1_tools.level_0_infra.level_0.logging_core import log_and_print
-
-from .runner import python_module_args, run_command, stringify_args
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_1.subprocess.runner import (
+    run,
+    python_module_args,
+    stringify_args,
+)
 
 
 def clean_build_artifacts() -> None:
@@ -27,13 +29,17 @@ def build_package() -> bool:
     clean_build_artifacts()
 
     args = python_module_args("build")
-    result = run_command(args, description=f"Building package ({stringify_args(args)})")
-    if result.returncode != 0:
-        log_and_print("❌ Package build failed", level="error")
+
+    result = run(args)
+
+    if not result.ok:
+        log_and_print(
+            f"❌ Package build failed ({stringify_args(args)})",
+            level="error",
+        )
         if result.stderr:
             log_and_print(result.stderr, level="error")
         return False
 
     log_and_print("✅ Package built successfully")
     return True
-

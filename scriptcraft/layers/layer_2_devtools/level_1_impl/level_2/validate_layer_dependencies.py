@@ -11,7 +11,7 @@ _SCRIPTS_ROOT = _SCRIPT_DIR.parent.parent
 if str(_SCRIPTS_ROOT) not in sys.path:
     sys.path.insert(0, str(_SCRIPTS_ROOT))
 
-from layers.layer_2_devtools.level_1_impl.level_1.api_validation import (
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_1.api_validation import (
     run_validate_layer_dependencies_complete,
 )
 

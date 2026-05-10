@@ -14,7 +14,7 @@ from dataclasses import dataclass
 from enum import IntEnum
 from typing import Optional
 
-from layers.layer_0_core.level_0 import ConfigValidationError, get_logger
+from scriptcraft.layers.layer_0_core.level_0 import ConfigValidationError, get_logger
 
 _logger = get_logger(__name__)
 

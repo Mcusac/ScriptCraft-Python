@@ -1,13 +1,13 @@
 """Training-row construction for per-task LoRA adaptation."""
 
-from layers.layer_1_competition.level_0_infra.level_0 import resolve_collator_token_ids
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import resolve_collator_token_ids
 
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_0 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_0 import (
     apply_augmentation,
     coerce_arc_grid,
     generate_augmentation_specs,
 )
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_2 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_2 import (
     train_trim_task_train_pairs_to_token_budget,
 )
 

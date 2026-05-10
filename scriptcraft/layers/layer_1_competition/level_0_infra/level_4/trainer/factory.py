@@ -2,10 +2,10 @@
 
 from typing import Optional, Dict, Any, Union
 
-from layers.layer_0_core.level_0 import get_config_value, get_logger
-from layers.layer_0_core.level_5 import BaseModelTrainer
+from scriptcraft.layers.layer_0_core.level_0 import get_config_value, get_logger
+from scriptcraft.layers.layer_0_core.level_5 import BaseModelTrainer
 
-from layers.layer_1_competition.level_0_infra.level_3 import FeatureExtractionTrainer
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_3 import FeatureExtractionTrainer
 
 _logger = get_logger(__name__)
 

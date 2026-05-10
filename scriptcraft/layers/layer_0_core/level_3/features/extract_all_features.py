@@ -4,8 +4,8 @@ import numpy as np
 
 from typing import Tuple
 
-from layers.layer_0_core.level_0 import get_torch
-from layers.layer_0_core.level_2 import FeatureExtractor
+from scriptcraft.layers.layer_0_core.level_0 import get_torch
+from scriptcraft.layers.layer_0_core.level_2 import FeatureExtractor
 
 _torch = get_torch()
 _DataLoader = _torch.utils.data.DataLoader

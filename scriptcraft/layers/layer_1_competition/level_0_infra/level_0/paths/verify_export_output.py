@@ -2,7 +2,7 @@
 
 from pathlib import Path
 
-from layers.layer_0_core.level_0 import verify_export_files
+from scriptcraft.layers.layer_0_core.level_0 import verify_export_files
 
 
 def verify_export_output(

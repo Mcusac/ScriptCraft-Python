@@ -5,7 +5,7 @@ from datetime import date
 from pathlib import Path
 from typing import Any
 
-from layers.layer_2_devtools.level_0_infra.level_0 import precheck_summary_json_path
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0 import precheck_summary_json_path
 
 
 def build_comprehensive_rollup_skeleton_markdown(

@@ -1,8 +1,12 @@
 """Auto-generated package exports."""
 
 
-from .tool import DictionaryDrivenChecker
+from .core import (
+    InputPaths,
+    execute_dictionary_driven_check,
+)
 
 __all__ = [
-    "DictionaryDrivenChecker",
+    "InputPaths",
+    "execute_dictionary_driven_check",
 ]

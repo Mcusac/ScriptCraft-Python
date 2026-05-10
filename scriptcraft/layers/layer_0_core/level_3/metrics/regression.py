@@ -15,9 +15,9 @@ from sklearn.metrics import (
     r2_score as sklearn_r2_score,
 )
 
-from layers.layer_0_core.level_0 import Metric, get_logger
-from layers.layer_0_core.level_1 import register_metric
-from layers.layer_0_core.level_2 import validate_paired_arrays
+from scriptcraft.layers.layer_0_core.level_0 import Metric, get_logger
+from scriptcraft.layers.layer_0_core.level_1 import register_metric
+from scriptcraft.layers.layer_0_core.level_2 import validate_paired_arrays
 
 _logger = get_logger(__name__)
 

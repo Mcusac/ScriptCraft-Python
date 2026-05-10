@@ -5,7 +5,7 @@ import numpy as np
 
 from typing import Callable, List, Optional
 
-from layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
 
 _logger = get_logger(__name__)
 

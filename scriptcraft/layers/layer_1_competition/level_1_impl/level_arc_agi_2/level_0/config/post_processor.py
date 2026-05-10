@@ -5,7 +5,7 @@ import numpy as np
 from copy import deepcopy
 from typing import Any
 
-from layers.layer_1_competition.level_0_infra.level_0 import ContestPostProcessor
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import ContestPostProcessor
 
 
 class ARC26PostProcessor(ContestPostProcessor):

@@ -24,14 +24,14 @@ _SCRIPTS_ROOT = _SCRIPT_DIR.parents[3]
 if str(_SCRIPTS_ROOT) not in sys.path:
     sys.path.insert(0, str(_SCRIPTS_ROOT))
 
-from layers.layer_2_devtools.level_0_infra.level_0.formatting.health_report_views import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.formatting.health_report_views import (
     lines_oversized_modules,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.health_thresholds import ThresholdConfig
-from layers.layer_2_devtools.level_0_infra.level_1.health_analyzers.file_metrics import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.health_thresholds import ThresholdConfig
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_1.health_analyzers.file_metrics import (
     FileMetricsAnalyzer,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.path.workspace import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.path.workspace import (
     resolve_workspace_root,
 )
 

@@ -6,17 +6,17 @@ import os
 
 from typing import Any, Dict, FrozenSet, Optional, Tuple
 
-from layers.layer_0_core.level_0 import get_logger, setup_environment, setup_logging
-from layers.layer_0_core.level_1 import create_config, set_seed
+from scriptcraft.layers.layer_0_core.level_0 import get_logger, setup_environment, setup_logging
+from scriptcraft.layers.layer_0_core.level_1 import create_config, set_seed
 
-from layers.layer_1_competition.level_0_infra.level_1.contest.data_loading import (
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1.contest.data_loading import (
     load_contest_data,
 )
-from layers.layer_1_competition.level_0_infra.level_1.registry import (
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1.registry import (
     ContestRegistry,
     get_contest,
 )
-from layers.layer_1_competition.level_0_infra.level_2 import get_cli_handlers_module
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_2 import get_cli_handlers_module
 
 _logger = get_logger(__name__)
 

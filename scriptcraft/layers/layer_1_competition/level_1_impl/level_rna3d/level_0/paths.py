@@ -2,7 +2,7 @@
 
 from typing import Optional
 
-from layers.layer_1_competition.level_0_infra.level_0 import ContestPaths
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import ContestPaths
 
 
 class RNA3DPaths(ContestPaths):

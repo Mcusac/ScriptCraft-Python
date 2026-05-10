@@ -6,42 +6,42 @@ import json
 from pathlib import Path
 from typing import Any
 
-from layers.layer_2_devtools.level_1_impl.level_0.preparation.precheck_payload_ops import (
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_0.preparation.precheck_payload_ops import (
     PrecheckMeta,
     build_precheck_json,
     build_precheck_markdown,
 )
-from layers.layer_2_devtools.level_1_impl.level_0.scan.contest_scan_ops import (
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_0.scan.contest_scan_ops import (
     scan_contest_level_directory,
     scan_contest_root_directory,
 )
-from layers.layer_2_devtools.level_1_impl.level_0.scan.general_scan_ops import (
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_0.scan.general_scan_ops import (
     build_general_json_payload,
     build_general_markdown,
     iter_level_py_files,
     scan_general_stack_file,
 )
-from layers.layer_2_devtools.level_1_impl.level_0.scan.infra_scan_ops import (
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_0.scan.infra_scan_ops import (
     scan_infra_level_directory,
 )
-from layers.layer_2_devtools.level_1_impl.level_0.scan.special_scan_ops import (
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_0.scan.special_scan_ops import (
     scan_special_tree_directory,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.constants.import_patterns import LEVEL_DIR_RE
-from layers.layer_2_devtools.level_0_infra.level_0 import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.constants.import_patterns import LEVEL_DIR_RE
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0 import (
     build_audit_markdown,
     build_inventory_markdown,
 )
-from layers.layer_2_devtools.level_0_infra.level_0 import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0 import (
     bootstrap_markdown,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.path.audit_paths import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.path.audit_paths import (
     mirror_files_to_run_snapshot,
     precheck_summary_json_path,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.path.layer_core_paths import find_layer_0_core_ancestor
-from layers.layer_2_devtools.level_0_infra.level_0.path.workspace import find_workspace_root
-from layers.layer_2_devtools.level_0_infra.level_0.path.workspace import resolve_workspace_root
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.path.layer_core_paths import find_layer_0_core_ancestor
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.path.workspace import find_workspace_root
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.path.workspace import resolve_workspace_root
 
 
 @dataclass(frozen=True)

@@ -10,8 +10,8 @@ from datetime import date
 from pathlib import Path
 from typing import Any
 
-from layers.layer_2_devtools.level_0_infra.level_0.path.workspace import find_workspace_root
-from layers.layer_2_devtools.level_1_impl.level_1.composed.import_scan_ops import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.path.workspace import find_workspace_root
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_1.composed.import_scan_ops import (
     build_module_map as _build_module_map,
     collect_py_files as _collect_py_files,
     extract_imports as _extract_imports,

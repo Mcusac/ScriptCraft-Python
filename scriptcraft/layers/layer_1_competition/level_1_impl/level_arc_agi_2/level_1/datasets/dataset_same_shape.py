@@ -4,9 +4,9 @@ from typing import Any
 
 from torch.utils.data import Dataset
 
-from layers.layer_0_core.level_0 import get_torch
+from scriptcraft.layers.layer_0_core.level_0 import get_torch
 
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_0 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_0 import (
     CANVAS_SIZE,
     grid_to_one_hot_tensor,
     pad_grid_to_canvas,

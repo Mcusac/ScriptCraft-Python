@@ -4,7 +4,7 @@ from typing import Any, Tuple
 
 import numpy as np
 
-from layers.layer_0_core.level_2 import FeatureExtractor
+from scriptcraft.layers.layer_0_core.level_2 import FeatureExtractor
 
 
 class FeatureExtractionHelper:

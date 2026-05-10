@@ -3,21 +3,25 @@ import pandas as pd
 
 from typing import List, Optional
 
-from scriptcraft.common.logging import log_and_print
-from scriptcraft.common.data.cleaning import MISSING_VALUE_STRINGS
-from scriptcraft.common.data.validation import FlaggedValue, ColumnValidator
-from . import registry
-from scriptcraft.common import cu
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.constants import MISSING_VALUE_STRINGS
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_2.validation import FlaggedValue, ColumnValidator
+
+# TODO: Problem Imports
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_5.config import load_config # TODO: exists in two places
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_1.config_loader import load_config # TODO: exists in two places
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_0.dictionary_driven_checker_plugins.registry import register # TODO: Does not exist
+
 
 # Load configuration
-config = cu.load_config()
+config = load_config()
 text_config = config.checkers.dictionary_checker.text_validation
 
 class TextValidationError(Exception):
     """Custom exception for text validation errors"""
     pass
 
-@registry.register("text")
+@register("text")
 class TextValidator(ColumnValidator):
     """Plugin for text validation"""
     

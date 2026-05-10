@@ -14,7 +14,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Dict
 
-from layers.layer_0_core.level_4 import PICKLE_HIGHEST_PROTOCOL, load_pickle, save_pickle
+from scriptcraft.layers.layer_0_core.level_4 import PICKLE_HIGHEST_PROTOCOL, load_pickle, save_pickle
 
 
 ARTIFACT_VERSION = "rna3d_pred_v1"

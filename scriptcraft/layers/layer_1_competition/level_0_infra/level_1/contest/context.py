@@ -3,7 +3,7 @@
 from dataclasses import dataclass
 from typing import Any
 
-from layers.layer_1_competition.level_0_infra.level_1.registry import get_contest
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1.registry import get_contest
 
 
 @dataclass

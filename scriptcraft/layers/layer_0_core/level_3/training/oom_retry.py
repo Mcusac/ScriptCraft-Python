@@ -2,8 +2,8 @@
 
 from typing import Any, Callable, Optional
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_2 import is_oom_error, recover_from_oom
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_2 import is_oom_error, recover_from_oom
 
 _logger = get_logger(__name__)
 

@@ -4,7 +4,7 @@ from pathlib import Path
 
 import pytest
 
-from layers.layer_2_devtools.level_0_infra.level_0.fs.pycache_cleanup import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.fs.pycache_cleanup import (
     SKIP_DIRS,
     CleanResult,
     clean_pycache,

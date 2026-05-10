@@ -46,6 +46,16 @@ dependencies = [
     "pytz>=2021.1",
     "python-docx>=0.8.11",
     "typing-extensions>=4.0.0",
+    "opencv-python",
+    "Pillow",
+    "scipy",
+    "scikit-learn",
+    "tqdm",
+    "torchvision",
+    "psutil",
+    "transformers",
+    "timm",
+    "unsloth",
 ]
 
 [project.optional-dependencies]

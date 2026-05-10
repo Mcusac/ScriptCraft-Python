@@ -2,10 +2,10 @@
 
 from typing import Any
 
-from layers.layer_2_devtools.level_0_infra.level_0 import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0 import (
     BaseReporter,
 )
-from layers.layer_2_devtools.level_0_infra.level_1 import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_1 import (
     SectionFormatters,
 )
 

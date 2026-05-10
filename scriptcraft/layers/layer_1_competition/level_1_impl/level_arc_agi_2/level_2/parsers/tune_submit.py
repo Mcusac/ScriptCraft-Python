@@ -2,21 +2,21 @@
 
 from typing import Any
 
-from layers.layer_1_competition.level_0_infra.level_0 import (
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import (
     add_ensemble_weights_arg,
     add_llm_tta_args,
     add_max_targets_arg,
     add_output_csv_arg,
     add_validation_stacking_toggle,
 )
-from layers.layer_1_competition.level_0_infra.level_1 import add_common_contest_args
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1 import add_common_contest_args
 
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_0 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_0 import (
     add_model,
     add_search_type,
     add_strategy,
 )
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_1 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_1 import (
     add_seed_and_run_context,
 )
 

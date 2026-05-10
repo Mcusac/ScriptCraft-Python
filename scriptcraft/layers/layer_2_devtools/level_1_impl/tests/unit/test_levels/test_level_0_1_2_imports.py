@@ -70,7 +70,7 @@ def test_import_level_1(assert_module_under_layer_0_core: Callable[[object], Non
         "training",
     ):
         assert getattr(level_1, name, None) is not None, f"missing level_1.{name}"
-    from layers.layer_0_core.level_1.io import TsvSubmissionFormatter
+    from scriptcraft.layers.layer_0_core.level_1.io import TsvSubmissionFormatter
 
     assert TsvSubmissionFormatter is not None
 
@@ -103,7 +103,7 @@ def test_import_level_2(assert_module_under_layer_0_core: Callable[[object], Non
 def test_level_1_depends_only_on_level_0():
     """level_1 can be used; it depends only on level_0 (no level_2)."""
     pytest.importorskip("torchvision", reason="level_0 loads vision at import")
-    from layers.layer_0_core.level_1.io import TsvSubmissionFormatter
+    from scriptcraft.layers.layer_0_core.level_1.io import TsvSubmissionFormatter
 
     assert TsvSubmissionFormatter is not None
 
@@ -111,6 +111,6 @@ def test_level_1_depends_only_on_level_0():
 def test_level_2_imports_level_0_and_level_1():
     """level_2 public API is reachable (implementation may import level_0 / level_1)."""
     pytest.importorskip("torchvision", reason="level_0 loads vision at import")
-    from layers.layer_0_core.level_2.models import DINOv2Model
+    from scriptcraft.layers.layer_0_core.level_2.models import DINOv2Model
 
     assert DINOv2Model is not None

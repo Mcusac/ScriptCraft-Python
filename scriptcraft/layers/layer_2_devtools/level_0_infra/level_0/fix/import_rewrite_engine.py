@@ -4,7 +4,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable
 
-from layers.layer_2_devtools.level_0_infra.level_0.fix.import_fix_models import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.fix.import_fix_models import (
     EditOperation,
     FileEditResult,
     FixRunSummary,

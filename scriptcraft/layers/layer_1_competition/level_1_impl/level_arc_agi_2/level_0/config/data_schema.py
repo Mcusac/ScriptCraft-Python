@@ -1,6 +1,6 @@
 """ARC-AGI-2 schema surface for framework compatibility."""
 
-from layers.layer_1_competition.level_0_infra.level_0 import ContestDataSchema
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import ContestDataSchema
 
 
 class ARC26DataSchema(ContestDataSchema):

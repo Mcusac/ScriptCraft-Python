@@ -2,7 +2,7 @@
 
 from typing import Any
 
-from layers.layer_1_competition.level_0_infra.level_0.lm import LmAdaptationConfig
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0.lm import LmAdaptationConfig
 
 from .protocol import Grid, LmBackend, LmBackendConfig
 

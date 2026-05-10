@@ -3,14 +3,14 @@
 from pathlib import Path
 from typing import Any
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_4 import load_json_raw
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_4 import load_json_raw
 
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_0 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_0 import (
     arc_find_first_existing_file,
     eval_parse_task_solution_grids,
 )
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_1 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_1 import (
     eval_score_submission_two_attempts,
 )
 

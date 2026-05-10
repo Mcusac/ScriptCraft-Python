@@ -16,9 +16,9 @@ import numpy as np
 
 from typing import Dict, List, Optional
 
-from layers.layer_0_core.level_0 import get_logger, EnsemblingMethod
-from layers.layer_0_core.level_3 import PerTargetWeightedEnsemble
-from layers.layer_0_core.level_6 import TargetSpecificEnsemble
+from scriptcraft.layers.layer_0_core.level_0 import get_logger, EnsemblingMethod
+from scriptcraft.layers.layer_0_core.level_3 import PerTargetWeightedEnsemble
+from scriptcraft.layers.layer_0_core.level_6 import TargetSpecificEnsemble
 
 
 _logger = get_logger(__name__)

@@ -4,7 +4,7 @@ from pathlib import Path
 from typing import Any, Dict, Union
 
 
-from layers.layer_1_tools.level_0_infra.level_0.logging_core import log_and_print
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
 
 
 def generate_report(

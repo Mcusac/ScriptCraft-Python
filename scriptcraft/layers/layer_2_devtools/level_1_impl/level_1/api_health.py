@@ -4,34 +4,34 @@ import json
 from pathlib import Path
 from typing import Any
 
-from layers.layer_2_devtools.level_0_infra.level_0.contracts.envelope import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.contracts.envelope import (
     err,
     ok,
     parse_generated_optional,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.formatting.architecture_score import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.formatting.architecture_score import (
     ScoreConfig,
     compute_architecture_score,
     load_score_config_optional,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.formatting.architecture_scorecard_markdown import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.formatting.architecture_scorecard_markdown import (
     ScorecardOptions,
     build_health_markdown_scorecard,
     build_manifest_markdown_scorecard,
     load_health_report,
     load_manifest,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.formatting.health_report_views import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.formatting.health_report_views import (
     DEFAULT_COMPLEXITY_TARGET_NAMES,
     lines_complexity_targets,
     lines_duplication_summary,
     lines_health_compare,
     lines_srp_summary,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.health_thresholds import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.health_thresholds import (
     ThresholdConfig,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.parse.json.report_json import load_json_report
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.parse.json.report_json import load_json_report
 
 
 def _threshold_config_from_optional_path(path: Path | None) -> ThresholdConfig:
@@ -50,7 +50,7 @@ def run_package_health_cli_api(config: dict[str, Any]) -> dict[str, Any]:
     """
     try:
         # Lazy import to avoid importing composed package trees for view-only usage.
-        from layers.layer_2_devtools.level_1_impl.level_0.composed.package_health_workflow_ops import (
+        from scriptcraft.layers.layer_2_devtools.level_1_impl.level_0.composed.package_health_workflow_ops import (
             PackageHealthRunOptions,
             run_package_health_cli,
         )
@@ -86,7 +86,7 @@ def run_health_summary_api(config: dict[str, Any]) -> dict[str, Any]:
     """
     try:
         # Lazy import to avoid importing composed package trees for view-only usage.
-        from layers.layer_2_devtools.level_1_impl.level_0.composed.package_health_workflow_ops import (
+        from scriptcraft.layers.layer_2_devtools.level_1_impl.level_0.composed.package_health_workflow_ops import (
             HealthSummaryOptions,
             run_health_summary,
         )
@@ -120,7 +120,7 @@ def run_health_threshold_check_api(config: dict[str, Any]) -> dict[str, Any]:
     """
     try:
         # Lazy import to avoid importing composed package trees for view-only usage.
-        from layers.layer_2_devtools.level_1_impl.level_0.composed.health_threshold_enforcement_ops import (
+        from scriptcraft.layers.layer_2_devtools.level_1_impl.level_0.composed.health_threshold_enforcement_ops import (
             run_health_threshold_check,
         )
 

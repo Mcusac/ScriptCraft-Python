@@ -7,8 +7,8 @@ from typing import Any, Callable
 
 import numpy as np
 
-from layers.layer_0_core.level_0 import ensure_dir, get_arg, get_logger, parse_comma_separated
-from layers.layer_0_core.level_2 import simple_average
+from scriptcraft.layers.layer_0_core.level_0 import ensure_dir, get_arg, get_logger, parse_comma_separated
+from scriptcraft.layers.layer_0_core.level_2 import simple_average
 
 _logger = get_logger(__name__)
 

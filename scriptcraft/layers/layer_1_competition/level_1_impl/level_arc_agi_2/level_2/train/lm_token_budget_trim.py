@@ -4,7 +4,7 @@ import copy
 
 from typing import Any, Mapping
 
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_1 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_1 import (
     ArcQwenGridChatFormatter,
     arc_count_tokens,
 )

@@ -2,7 +2,7 @@ import argparse
 import sys
 from pathlib import Path
 
-from layers.layer_2_devtools.level_0_infra.level_0 import PackageDumper
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0 import PackageDumper
 
 
 def main() -> int:

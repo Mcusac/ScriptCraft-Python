@@ -3,9 +3,9 @@
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple, Union
 
-from layers.layer_0_core.level_0 import ensure_dir, get_logger, get_torch
-from layers.layer_0_core.level_1 import get_device, setup_mixed_precision
-from layers.layer_0_core.level_2 import (
+from scriptcraft.layers.layer_0_core.level_0 import ensure_dir, get_logger, get_torch
+from scriptcraft.layers.layer_0_core.level_1 import get_device, setup_mixed_precision
+from scriptcraft.layers.layer_0_core.level_2 import (
     ModelCheckpointer,
     TrainingPhaseExecutor,
     ValidationPhaseExecutor,
@@ -16,7 +16,7 @@ from layers.layer_0_core.level_2 import (
     finalize_epoch,
     get_training_config_value,
 )
-from layers.layer_0_core.level_4 import create_vision_model
+from scriptcraft.layers.layer_0_core.level_4 import create_vision_model
 
 _logger = get_logger(__name__)
 _torch = get_torch()

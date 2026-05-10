@@ -4,10 +4,10 @@ import numpy as np
 
 from typing import Any, Dict
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_1 import split_features_by_fold
-from layers.layer_0_core.level_3 import create_regression_model
-from layers.layer_0_core.level_7 import build_success_result
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_1 import split_features_by_fold
+from scriptcraft.layers.layer_0_core.level_3 import create_regression_model
+from scriptcraft.layers.layer_0_core.level_7 import build_success_result
 
 _logger = get_logger(__name__)
 

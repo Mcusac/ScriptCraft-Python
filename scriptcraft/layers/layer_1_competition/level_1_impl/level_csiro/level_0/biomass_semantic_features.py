@@ -8,8 +8,8 @@ import numpy as np
 
 from typing import Any, Optional, Union
 
-from layers.layer_0_core.level_0 import get_torch
-from layers.layer_0_core.level_2 import SemanticFeatureExtractor
+from scriptcraft.layers.layer_0_core.level_0 import get_torch
+from scriptcraft.layers.layer_0_core.level_2 import SemanticFeatureExtractor
 
 _torch = get_torch()
 

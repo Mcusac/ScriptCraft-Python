@@ -8,7 +8,7 @@ system remains clean and dependency-free.
 
 import logging
 
-from layers.layer_1_tools.level_0_infra.level_0.formatter import Utf8Formatter
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.formatter import Utf8Formatter
 
 
 class EmojiFormatter(Utf8Formatter):

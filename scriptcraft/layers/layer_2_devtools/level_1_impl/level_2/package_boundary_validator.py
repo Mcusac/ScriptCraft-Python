@@ -29,7 +29,7 @@ for name, rel in [
         p.__path__ = [str(_SCRIPTS_ROOT.joinpath(*rel))]
         sys.modules[name] = p
 
-from layers.layer_2_devtools.level_1_impl.level_1.api_validation import (
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_1.api_validation import (
     run_validate_package_boundaries_complete,
 )
 

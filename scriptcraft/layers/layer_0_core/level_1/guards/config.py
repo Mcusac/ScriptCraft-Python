@@ -2,7 +2,7 @@
 
 from typing import Any
 
-from layers.layer_0_core.level_0 import ConfigValidationError, get_config_value, get_torch
+from scriptcraft.layers.layer_0_core.level_0 import ConfigValidationError, get_config_value, get_torch
 
 
 def validate_config_section_exists(

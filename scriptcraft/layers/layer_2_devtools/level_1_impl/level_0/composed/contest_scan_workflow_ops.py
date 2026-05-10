@@ -5,11 +5,11 @@ from datetime import date
 from pathlib import Path
 from typing import Any
 
-from layers.layer_2_devtools.level_1_impl.level_0.scan.contest_scan_ops import (
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_0.scan.contest_scan_ops import (
     scan_contest_level_directory,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.constants.import_patterns import LEVEL_DIR_RE
-from layers.layer_2_devtools.level_0_infra.level_0.path.workspace import find_workspace_root
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.constants.import_patterns import LEVEL_DIR_RE
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.path.workspace import find_workspace_root
 
 
 @dataclass(frozen=True)

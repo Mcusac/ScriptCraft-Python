@@ -2,10 +2,10 @@
 
 from typing import Optional, Tuple
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_1 import BaseVisionModel
-from layers.layer_0_core.level_2 import DINOv2Model
-from layers.layer_0_core.level_3 import TimmModel
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_1 import BaseVisionModel
+from scriptcraft.layers.layer_0_core.level_2 import DINOv2Model
+from scriptcraft.layers.layer_0_core.level_3 import TimmModel
 
 _logger = get_logger(__name__)
 

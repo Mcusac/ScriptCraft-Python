@@ -6,9 +6,9 @@ import traceback
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
-from layers.layer_0_core.level_4 import load_json, save_json
+from scriptcraft.layers.layer_0_core.level_4 import load_json, save_json
 
-from layers.layer_2_devtools.level_0_infra.level_0 import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0 import (
     extract_tested_values,
     filter_out_existing_combinations,
     find_duplicates_in_metadata,
@@ -17,7 +17,7 @@ from layers.layer_2_devtools.level_0_infra.level_0 import (
     load_and_join_metadata,
     load_regression_metadata,
 )
-from layers.layer_2_devtools.level_0_infra.level_1 import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_1 import (
     analyze_parameter_trends,
     calculate_parameter_statistics,
     generate_focused_grid_recommendations,
@@ -371,7 +371,7 @@ def check_duplicates_in_recommendations(
     recommendations: Dict[str, List[Any]],
     model_type: str = "lgbm",
 ) -> Dict[str, Any]:
-    from layers.layer_2_devtools.level_0_infra.level_0.hyperparameter.hyperparameter_utils import (
+    from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.hyperparameter.hyperparameter_utils import (
         normalize_hyperparameters,
     )
 

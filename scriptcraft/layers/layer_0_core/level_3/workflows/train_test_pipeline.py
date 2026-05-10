@@ -2,8 +2,8 @@
 
 from typing import Optional, Any
 
-from layers.layer_0_core.level_0 import get_fold_checkpoint_path, get_logger
-from layers.layer_0_core.level_2 import find_best_fold_from_scores
+from scriptcraft.layers.layer_0_core.level_0 import get_fold_checkpoint_path, get_logger
+from scriptcraft.layers.layer_0_core.level_2 import find_best_fold_from_scores
 
 _logger = get_logger(__name__)
 

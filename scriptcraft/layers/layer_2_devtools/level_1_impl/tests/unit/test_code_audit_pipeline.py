@@ -7,7 +7,7 @@ _SCRIPTS_ROOT = Path(__file__).resolve().parents[5]
 
 
 def test_code_audit_pipeline_manifest_schema(tmp_path: Path) -> None:
-    from layers.layer_2_devtools.level_1_impl.level_2.pipeline_ops import run_code_audit_pipeline
+    from scriptcraft.layers.layer_2_devtools.level_1_impl.level_2.pipeline_ops import run_code_audit_pipeline
 
     out = run_code_audit_pipeline(
         {
@@ -38,7 +38,7 @@ def test_code_audit_pipeline_manifest_schema(tmp_path: Path) -> None:
 
 
 def test_code_audit_pipeline_fail_on_skipped(tmp_path: Path) -> None:
-    from layers.layer_2_devtools.level_1_impl.level_2.pipeline_ops import run_code_audit_pipeline
+    from scriptcraft.layers.layer_2_devtools.level_1_impl.level_2.pipeline_ops import run_code_audit_pipeline
 
     out = run_code_audit_pipeline(
         {

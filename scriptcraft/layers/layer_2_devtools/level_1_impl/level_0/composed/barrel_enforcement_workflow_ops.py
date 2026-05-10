@@ -7,16 +7,16 @@ from datetime import date
 from pathlib import Path
 from typing import Any
 
-from layers.layer_2_devtools.level_0_infra.level_0.constants.import_patterns import LEVEL_DIR_RE
-from layers.layer_2_devtools.level_0_infra.level_0.models.audit_models import FileReport
-from layers.layer_2_devtools.level_1_impl.level_0.composed.contest_scan_workflow_ops import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.constants.import_patterns import LEVEL_DIR_RE
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.models.audit_models import FileReport
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_0.composed.contest_scan_workflow_ops import (
     run_contest_tier_scan_workflow,
 )
-from layers.layer_2_devtools.level_1_impl.level_0.composed.general_scan_workflow_ops import (
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_0.composed.general_scan_workflow_ops import (
     run_general_scan_workflow,
 )
-from layers.layer_2_devtools.level_1_impl.level_0.scan.general_scan_ops import build_general_json_payload
-from layers.layer_2_devtools.level_1_impl.level_0.scan.infra_scan_ops import (
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_0.scan.general_scan_ops import build_general_json_payload
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_0.scan.infra_scan_ops import (
     scan_infra_level_directory,
 )
 
@@ -348,7 +348,7 @@ def run_barrel_enforcement_workflow(
             g.reports, generated, layer_0_core.resolve(), g.workspace
         )
     else:
-        from layers.layer_2_devtools.level_0_infra.level_0.path.workspace import (  # local import
+        from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.path.workspace import (  # local import
             find_workspace_root,
         )
 

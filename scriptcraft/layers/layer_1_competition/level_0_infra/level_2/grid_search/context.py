@@ -2,10 +2,10 @@
 
 from typing import Any, Callable, Optional
 
-from layers.layer_1_competition.level_0_infra.level_0.context_types import (
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0.context_types import (
     ContestGridSearchContext,
 )
-from layers.layer_1_competition.level_0_infra.level_1.registry.contest_registry import (
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1.registry.contest_registry import (
     get_contest,
 )
 

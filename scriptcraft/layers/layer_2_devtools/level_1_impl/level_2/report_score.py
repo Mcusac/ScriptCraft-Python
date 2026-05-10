@@ -21,14 +21,14 @@ _SCRIPTS_ROOT = _SCRIPT_DIR.parents[3]
 if str(_SCRIPTS_ROOT) not in sys.path:
     sys.path.insert(0, str(_SCRIPTS_ROOT))
 
-from layers.layer_2_devtools.level_0_infra.level_0.contracts.envelope import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.contracts.envelope import (
     parse_generated_optional,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.path.audit_paths import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.path.audit_paths import (
     architecture_score_json_path,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.path.workspace import resolve_workspace_root
-from layers.layer_2_devtools.level_1_impl.level_1.api_health import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.path.workspace import resolve_workspace_root
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_1.api_health import (
     emit_health_report_view_api,
 )
 

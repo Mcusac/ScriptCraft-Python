@@ -5,7 +5,7 @@ import importlib
 from types import ModuleType
 from typing import List
 
-from layers.layer_1_competition.level_0_infra.level_1 import ContestRegistry
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1 import ContestRegistry
 
 
 def register_cli_handlers_module(contest: str, module_path: str) -> None:

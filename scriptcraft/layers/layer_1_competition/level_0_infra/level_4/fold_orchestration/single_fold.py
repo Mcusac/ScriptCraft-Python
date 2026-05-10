@@ -3,14 +3,14 @@
 from pathlib import Path
 from typing import Any, Tuple
 
-from layers.layer_0_core.level_0 import ensure_dir, get_logger
-from layers.layer_0_core.level_1 import cleanup_gpu_memory, get_device
-from layers.layer_0_core.level_3 import (
+from scriptcraft.layers.layer_0_core.level_0 import ensure_dir, get_logger
+from scriptcraft.layers.layer_0_core.level_1 import cleanup_gpu_memory, get_device
+from scriptcraft.layers.layer_0_core.level_3 import (
     create_train_dataloader,
     create_val_dataloader,
 )
 
-from layers.layer_1_competition.level_0_infra.level_4.trainer import create_trainer
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_4.trainer import create_trainer
 
 _logger = get_logger(__name__)
 

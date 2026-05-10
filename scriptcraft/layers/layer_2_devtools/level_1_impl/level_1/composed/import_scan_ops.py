@@ -6,7 +6,7 @@ import ast
 from dataclasses import dataclass
 from pathlib import Path
 
-from layers.layer_2_devtools.level_0_infra.level_0.parse.ast.ast_utils import resolve_relative_import
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.parse.ast.ast_utils import resolve_relative_import
 
 
 @dataclass(frozen=True)

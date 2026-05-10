@@ -2,11 +2,11 @@
 
 from typing import Any
 
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_1 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_1 import (
     add_validate_data_subparser,
     add_postprocess_subparsers,
 )
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_2 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_2 import (
     add_submit_subparser,
     add_train_subparser,
     add_train_and_submit_subparser,

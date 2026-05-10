@@ -4,8 +4,8 @@ import numpy as np
 
 from typing import Dict, List
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_1 import ensure_positive_weights
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_1 import ensure_positive_weights
 
 _logger = get_logger(__name__)
 

@@ -31,7 +31,7 @@ try:
 except Exception:
     pass
 
-from layers.layer_2_devtools.level_1_impl.level_2.audit_artifact_bootstrap import (
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_2.audit_artifact_bootstrap import (
     get_resolve_audit_artifact_root,
 )
 
@@ -199,7 +199,7 @@ def main() -> int:
     args = parser.parse_args()
     strict = _strict_from_env_and_flag(bool(args.strict))
     try:
-        from layers.layer_2_devtools.level_1_impl.level_1.api_audit import (  # type: ignore
+        from scriptcraft.layers.layer_2_devtools.level_1_impl.level_1.api_audit import (  # type: ignore
             run_audit_precheck_cli_complete,
         )
     except ModuleNotFoundError as exc:

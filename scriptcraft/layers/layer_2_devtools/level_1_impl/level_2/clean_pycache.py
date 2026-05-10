@@ -16,7 +16,7 @@ _SCRIPTS_ROOT = _SCRIPT_DIR.parent.parent
 if str(_SCRIPTS_ROOT) not in sys.path:
     sys.path.insert(0, str(_SCRIPTS_ROOT))
 
-from layers.layer_2_devtools.level_1_impl.level_1.api_maintenance import run_clean_pycache_cli_api
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_1.api_maintenance import run_clean_pycache_cli_api
 
 
 def _win_utf8_stdio() -> None:

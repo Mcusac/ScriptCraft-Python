@@ -4,7 +4,7 @@ from __future__ import annotations
 
 
 def test_eval_parse_task_solution_grids_shapes() -> None:
-    from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_0.decoding.eval_solution_parse import (
+    from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_0.decoding.eval_solution_parse import (
         eval_parse_task_solution_grids,
     )
 
@@ -32,7 +32,7 @@ def test_eval_parse_task_solution_grids_shapes() -> None:
 
 def test_decode_grid_candidates_matches_row_major_cell_probs() -> None:
     """Same [H][W][K] tensor should match decode_grid_candidates directly vs provider path."""
-    from layers.layer_1_competition.level_0_infra.level_1.decoding.cell_prob_decoder import (
+    from scriptcraft.layers.layer_1_competition.level_0_infra.level_1.decoding.cell_prob_decoder import (
         decode_grid_candidates,
         decode_grid_candidates_from_provider,
     )

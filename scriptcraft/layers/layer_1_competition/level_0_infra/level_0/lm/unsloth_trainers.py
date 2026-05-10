@@ -2,7 +2,7 @@
 
 from unsloth import UnslothTrainer
 
-from layers.layer_0_core.level_0 import get_torch
+from scriptcraft.layers.layer_0_core.level_0 import get_torch
 
 from .ddp_utils import ddp_safe_loss
 

@@ -2,8 +2,8 @@
 
 from typing import List
 
-from layers.layer_0_core.level_1 import get_default_submission_csv_path
-from layers.layer_0_core.level_2 import log_pipeline_completion
+from scriptcraft.layers.layer_0_core.level_1 import get_default_submission_csv_path
+from scriptcraft.layers.layer_0_core.level_2 import log_pipeline_completion
 
 
 def handle_ensemble_result(

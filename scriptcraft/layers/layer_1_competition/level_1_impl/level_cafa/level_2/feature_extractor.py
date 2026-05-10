@@ -4,11 +4,11 @@ import numpy as np
 
 from typing import Dict, Any, List, Optional
 
-from layers.layer_0_core.level_0 import get_logger, align_embeddings, HANDCRAFTED_FEATURE_DIM
-from layers.layer_0_core.level_1 import fuse_embeddings
-from layers.layer_0_core.level_2 import extract_handcrafted_features
+from scriptcraft.layers.layer_0_core.level_0 import get_logger, align_embeddings, HANDCRAFTED_FEATURE_DIM
+from scriptcraft.layers.layer_0_core.level_1 import fuse_embeddings
+from scriptcraft.layers.layer_0_core.level_2 import extract_handcrafted_features
 
-from layers.layer_1_competition.level_1_impl.level_cafa.level_1 import load_embedding_data
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_cafa.level_1 import load_embedding_data
 
 _logger = get_logger(__name__)
 

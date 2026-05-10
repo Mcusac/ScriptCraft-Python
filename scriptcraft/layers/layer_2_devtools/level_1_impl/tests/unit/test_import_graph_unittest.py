@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from layers.layer_2_devtools.level_0_infra.level_0.graph.import_graph import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.graph.import_graph import (
     bounded_bfs_tree_edges,
     build_internal_import_graph,
     direct_inbound,

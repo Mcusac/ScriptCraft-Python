@@ -2,7 +2,7 @@
 
 import time
 
-from layers.layer_1_competition.level_0_infra.level_0.lm import (
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0.lm import (
     ArcLmBudget,
     ArcLmRuntimeProfile,
     LlmTtaDfsConfig,

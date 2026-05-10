@@ -4,13 +4,13 @@ import importlib
 from pathlib import Path
 from typing import Any
 
-from layers.layer_2_devtools.level_0_infra.level_0.contracts.envelope import err
-from layers.layer_2_devtools.level_0_infra.level_0.contracts.envelope import ok
-from layers.layer_2_devtools.level_0_infra.level_0.import_testing.classifier import ErrorClassifier
-from layers.layer_2_devtools.level_0_infra.level_0.import_testing.discoverer import DiscoveryConfig
-from layers.layer_2_devtools.level_0_infra.level_0.import_testing.discoverer import ModuleDiscoverer
-from layers.layer_2_devtools.level_0_infra.level_1.tester import ImportTester
-from layers.layer_2_devtools.level_0_infra.level_2.reporter import TestReporter
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.contracts.envelope import err
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.contracts.envelope import ok
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.import_testing.classifier import ErrorClassifier
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.import_testing.discoverer import DiscoveryConfig
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.import_testing.discoverer import ModuleDiscoverer
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_1.tester import ImportTester
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_2.reporter import TestReporter
 
 
 def run_import_test_suite_cli_api(config: dict[str, Any]) -> dict[str, Any]:

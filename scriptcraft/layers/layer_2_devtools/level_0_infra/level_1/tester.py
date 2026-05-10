@@ -5,7 +5,7 @@ import traceback
 from dataclasses import dataclass
 from typing import Callable
 
-from layers.layer_2_devtools.level_0_infra.level_0 import ErrorClassifier, ErrorInfo, ErrorType
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0 import ErrorClassifier, ErrorInfo, ErrorType
 
 
 @dataclass

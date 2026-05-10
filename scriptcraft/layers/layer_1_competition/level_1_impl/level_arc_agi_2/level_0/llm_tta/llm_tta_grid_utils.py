@@ -2,7 +2,7 @@
 
 from typing import Any, Mapping
 
-from layers.layer_1_competition.level_0_infra.level_0 import (
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import (
     empty_grid_like,
     llm_tta_augment_seed,
     llm_tta_grid_hw,

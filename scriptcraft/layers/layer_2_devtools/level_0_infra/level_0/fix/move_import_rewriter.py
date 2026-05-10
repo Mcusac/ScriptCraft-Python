@@ -4,9 +4,9 @@ import ast
 from dataclasses import dataclass
 from pathlib import Path
 
-from layers.layer_2_devtools.level_0_infra.level_0.fix.import_fix_models import EditOperation
-from layers.layer_2_devtools.level_0_infra.level_0.parse.ast.ast_utils import parse_file
-from layers.layer_2_devtools.level_0_infra.level_0.path.python_modules import collect_python_files
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.fix.import_fix_models import EditOperation
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.parse.ast.ast_utils import parse_file
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.path.python_modules import collect_python_files
 
 
 @dataclass(frozen=True)

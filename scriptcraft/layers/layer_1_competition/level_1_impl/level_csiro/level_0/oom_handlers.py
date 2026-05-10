@@ -6,8 +6,8 @@ core helpers (config shape) and level_2 for detection/recovery.
 
 from typing import Dict, Any, Optional, Callable, Tuple
 
-from layers.layer_0_core.level_0 import get_logger, get_config_value
-from layers.layer_0_core.level_2 import is_oom_error as _is_oom_error, recover_from_oom
+from scriptcraft.layers.layer_0_core.level_0 import get_logger, get_config_value
+from scriptcraft.layers.layer_0_core.level_2 import is_oom_error as _is_oom_error, recover_from_oom
 
 _logger = get_logger(__name__)
 

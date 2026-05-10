@@ -6,6 +6,6 @@ avoid loading the full ``level_1`` package ``__init__`` (e.g. lightweight manife
 
 from __future__ import annotations
 
-from layers.layer_2_devtools.level_1_impl.level_2.pipeline_ops import run_code_audit_pipeline
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_2.pipeline_ops import run_code_audit_pipeline
 
 __all__ = ["run_code_audit_pipeline"]

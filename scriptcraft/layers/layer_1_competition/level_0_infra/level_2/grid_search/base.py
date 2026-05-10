@@ -2,10 +2,10 @@
 
 from typing import Any
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_6 import GridSearchBase
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_6 import GridSearchBase
 
-from layers.layer_1_competition.level_0_infra.level_1.registry import get_contest
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1.registry import get_contest
 
 _logger = get_logger(__name__)
 

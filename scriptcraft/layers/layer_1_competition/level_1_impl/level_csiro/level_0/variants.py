@@ -1,7 +1,7 @@
 """CSIRO-specific dataset variant grid for grid search."""
 
-from layers.layer_0_core.level_0 import AVAILABLE_AUGMENTATION, AVAILABLE_PREPROCESSING
-from layers.layer_0_core.level_1 import generate_variant_grid
+from scriptcraft.layers.layer_0_core.level_0 import AVAILABLE_AUGMENTATION, AVAILABLE_PREPROCESSING
+from scriptcraft.layers.layer_0_core.level_1 import generate_variant_grid
 
 
 def csiro_dataset_grid():

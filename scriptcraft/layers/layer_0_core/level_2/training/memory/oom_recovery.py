@@ -5,8 +5,8 @@ import time
 
 from typing import Optional, Any
 
-from layers.layer_0_core.level_0 import get_logger, get_torch
-from layers.layer_0_core.level_1 import perform_aggressive_cleanup
+from scriptcraft.layers.layer_0_core.level_0 import get_logger, get_torch
+from scriptcraft.layers.layer_0_core.level_1 import perform_aggressive_cleanup
 
 _logger = get_logger(__name__)
 _torch = get_torch()

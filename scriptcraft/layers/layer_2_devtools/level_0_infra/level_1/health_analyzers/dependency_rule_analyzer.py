@@ -4,7 +4,7 @@ import ast
 from pathlib import Path
 from typing import Any
 
-from layers.layer_2_devtools.level_0_infra.level_0 import(
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0 import(
     BaseAnalyzer,
     collect_python_files,
     current_package,

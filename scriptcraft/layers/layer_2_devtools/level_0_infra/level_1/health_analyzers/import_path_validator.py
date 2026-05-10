@@ -3,8 +3,8 @@
 from typing import Any
 from pathlib import Path
 
-from layers.layer_2_devtools.level_0_infra.level_0.base_health_analyzer import BaseAnalyzer
-from layers.layer_2_devtools.level_0_infra.level_0.path.python_modules import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.base_health_analyzer import BaseAnalyzer
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.path.python_modules import (
     collect_python_files,
     current_package,
     discover_packages,
@@ -12,7 +12,7 @@ from layers.layer_2_devtools.level_0_infra.level_0.path.python_modules import (
     is_internal_module,
     module_exists,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.parse.ast.ast_utils import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.parse.ast.ast_utils import (
     get_relative_imports_from_ast,
     parse_file,
     resolve_relative_import,

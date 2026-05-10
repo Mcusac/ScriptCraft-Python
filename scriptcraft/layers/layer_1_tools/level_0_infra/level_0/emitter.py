@@ -3,6 +3,8 @@ Logging emission utilities.
 """
 
 import logging
+from pathlib import Path
+from typing import Dict
 
 
 def _get_logger(name: str) -> logging.Logger:
@@ -38,10 +40,20 @@ def log_and_print(
         print_message(message)
 
 
-def get_handler_paths(logger_name: str = "root"):
+def get_handler_paths(logger_name: str = "root") -> Dict[str, Path]:
+    """
+    Return resolved paths of every FileHandler on the specified logger.
+
+    Args:
+        logger_name: Logger name ("root" for root logger)
+
+    Returns:
+        Mapping of resolved path string → Path object
+    """
     logger = _get_logger(logger_name)
-    return [
-        h.baseFilename
+
+    return {
+        str(Path(h.baseFilename).resolve()): Path(h.baseFilename)
         for h in logger.handlers
         if isinstance(h, logging.FileHandler)
-    ]
+    }

@@ -5,7 +5,7 @@ from typing import Optional, Tuple
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
-from layers.layer_0_core.level_1 import create_kfold_splits, get_fold_data
+from scriptcraft.layers.layer_0_core.level_1 import create_kfold_splits, get_fold_data
 
 
 def split_train_val(

@@ -3,8 +3,8 @@
 import importlib
 from typing import Any
 
-from layers.layer_1_competition.level_0_infra.level_0 import LmAdaptationConfig
-from layers.layer_1_competition.level_0_infra.level_3.lm_backend.protocol import LmBackend, LmBackendConfig
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import LmAdaptationConfig
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_3.lm_backend.protocol import LmBackend, LmBackendConfig
 
 from .shared_hooks import SharedTorchLmHooks
 from .shared_inference import SharedTorchLmInference

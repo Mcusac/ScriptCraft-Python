@@ -9,7 +9,7 @@ import tempfile
 from contextlib import redirect_stderr, redirect_stdout
 from typing import Any
 
-from layers.layer_1_competition.level_0_infra.level_0 import QwenDataCollatorForCompletionOnlyLM
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import QwenDataCollatorForCompletionOnlyLM
 
 
 def unsloth_train_completion_lm(
@@ -31,7 +31,7 @@ def unsloth_train_completion_lm(
     unsloth = importlib.import_module("unsloth")
     datasets = importlib.import_module("datasets")
 
-    from layers.layer_1_competition.level_0_infra.level_0.lm import UnslothFixedTrainer
+    from scriptcraft.layers.layer_1_competition.level_0_infra.level_0.lm import UnslothFixedTrainer
 
     FastLanguageModel = unsloth.FastLanguageModel
     UnslothTrainingArguments = unsloth.UnslothTrainingArguments

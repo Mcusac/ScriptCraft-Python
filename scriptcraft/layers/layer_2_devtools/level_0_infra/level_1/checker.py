@@ -4,7 +4,7 @@ from dataclasses import dataclass
 from enum import Enum
 from typing import Any
 
-from layers.layer_2_devtools.level_0_infra.level_0 import ThresholdConfig
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0 import ThresholdConfig
 
 
 class Severity(Enum):

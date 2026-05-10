@@ -3,10 +3,10 @@
 from collections.abc import Sequence
 from typing import Any
 
-from layers.layer_1_competition.level_0_infra.level_0 import AggregateMode
-from layers.layer_1_competition.level_0_infra.level_2.tta_scoring import augmentation_scoring as _tta
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import AggregateMode
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_2.tta_scoring import augmentation_scoring as _tta
 
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_0.ranking.augmentations import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_0.ranking.augmentations import (
     AugmentationSpec,
     apply_augmentation,
     invert_augmentation,

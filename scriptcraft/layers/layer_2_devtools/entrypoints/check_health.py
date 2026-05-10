@@ -8,7 +8,7 @@ _SCRIPTS_ROOT = Path(__file__).resolve().parents[3]
 if str(_SCRIPTS_ROOT) not in sys.path:
     sys.path.insert(0, str(_SCRIPTS_ROOT))
 
-from layers.layer_2_devtools.level_1_impl.level_2.check_health import main
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_2.check_health import main
 
 
 if __name__ == "__main__":

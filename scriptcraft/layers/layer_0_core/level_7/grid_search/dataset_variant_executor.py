@@ -5,7 +5,7 @@ import copy
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple, Union
 
-from layers.layer_0_core.level_0 import (
+from scriptcraft.layers.layer_0_core.level_0 import (
     ConfigValidationError,
     MODEL_DIR_DATASET_GRID_SEARCH,
     create_error_result_dict,
@@ -13,8 +13,8 @@ from layers.layer_0_core.level_0 import (
     ensure_dir,
     get_logger,
 )
-from layers.layer_0_core.level_1 import cleanup_gpu_memory
-from layers.layer_0_core.level_6 import create_variant_specific_data
+from scriptcraft.layers.layer_0_core.level_1 import cleanup_gpu_memory
+from scriptcraft.layers.layer_0_core.level_6 import create_variant_specific_data
 
 _logger = get_logger(__name__)
 

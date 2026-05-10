@@ -1,6 +1,6 @@
 """Noise addition augmentations. Callers pass params (e.g. from contest transform_defaults)."""
 
-from layers.layer_0_core.level_0 import (
+from scriptcraft.layers.layer_0_core.level_0 import (
     get_logger,
     get_nn_module_base_class,
     get_torch,

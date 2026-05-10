@@ -4,16 +4,16 @@ import ast
 from dataclasses import dataclass
 from pathlib import Path
 
-from layers.layer_2_devtools.level_0_infra.level_0.models.symbol_models import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.models.symbol_models import (
     SymbolDefinition,
     SymbolKind,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.parse.ast.ast_utils import parse_file
-from layers.layer_2_devtools.level_0_infra.level_0.parse.ast.public_symbols import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.parse.ast.ast_utils import parse_file
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.parse.ast.public_symbols import (
     DEFAULT_EXCLUDED_SYMBOLS,
     is_public_symbol,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.path.python_modules import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.path.python_modules import (
     collect_python_files,
     file_to_module,
 )

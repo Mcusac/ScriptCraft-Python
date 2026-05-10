@@ -2,15 +2,15 @@
 
 from pathlib import Path
 
-from layers.layer_0_core.level_0 import ensure_dir, get_logger, get_torch
-from layers.layer_0_core.level_1 import train_one_epoch
-from layers.layer_0_core.level_4 import save_json
+from scriptcraft.layers.layer_0_core.level_0 import ensure_dir, get_logger, get_torch
+from scriptcraft.layers.layer_0_core.level_1 import train_one_epoch
+from scriptcraft.layers.layer_0_core.level_4 import save_json
 
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_0 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_0 import (
     CANVAS_SIZE,
     NUM_CHANNELS,
 )
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_1 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_1 import (
     ArcSameShapeGridDataset,
     collect_same_shape_train_pairs,
     TinyGridCNN,

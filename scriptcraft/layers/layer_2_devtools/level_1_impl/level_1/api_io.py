@@ -3,7 +3,7 @@
 from pathlib import Path
 from typing import Any
 
-from layers.layer_2_devtools.level_0_infra.level_0.parse.ast.ast_utils import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.parse.ast.ast_utils import (
     count_class_nodes,
     count_function_nodes,
     count_lines_in_node,
@@ -16,7 +16,7 @@ from layers.layer_2_devtools.level_0_infra.level_0.parse.ast.ast_utils import (
     parse_file,
     resolve_relative_import,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.parse.json.report_json import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.parse.json.report_json import (
     load_json_report,
 )
 

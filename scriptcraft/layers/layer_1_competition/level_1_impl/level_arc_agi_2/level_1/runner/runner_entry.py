@@ -6,7 +6,7 @@ import os
 
 import torch.multiprocessing as mp
 
-from layers.layer_1_competition.level_0_infra.level_0 import make_local_worker
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import make_local_worker
 
 
 def run_entry(worker_fn, nprocs=2, test_filter=None):

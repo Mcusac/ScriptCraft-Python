@@ -6,16 +6,16 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable
 
-from layers.layer_2_devtools.level_0_infra.level_0.constants.import_patterns import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.constants.import_patterns import (
     DEEP_LEVEL_RE,
     LEVEL_DIR_RE,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.fix.import_fix_models import EditOperation
-from layers.layer_2_devtools.level_0_infra.level_0.parse.ast.ast_utils import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.fix.import_fix_models import EditOperation
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.parse.ast.ast_utils import (
     parse_file,
     resolve_relative_import,
 )
-from layers.layer_2_devtools.level_0_infra.level_0.path.python_modules import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.path.python_modules import (
     current_package,
     discover_packages,
     is_internal_module,
@@ -241,7 +241,7 @@ def _rewrite_from_level_line(line: str) -> str | None:
     indent = m.group("indent")
     n = m.group("n")
     rest = line[m.end() :]
-    return f"{indent}from layers.layer_0_core.level_{n} import {rest}"
+    return f"{indent}from scriptcraft.layers.layer_0_core.level_{n} import {rest}"
 
 
 def _rewrite_import_level_line(line: str) -> str | None:

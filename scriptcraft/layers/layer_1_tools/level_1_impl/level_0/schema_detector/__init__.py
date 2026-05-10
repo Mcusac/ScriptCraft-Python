@@ -1,24 +1,21 @@
 """Auto-generated package exports."""
 
 
-from .detector import SchemaDetector
+from .data_loader import DataLoader
 
 from .models import (
     ColumnInfo,
     TableSchema,
 )
 
-from .outputs import (
-    generate_documentation,
-    save_outputs,
-    schema_to_dict,
-)
+from .privacy_classifier import PrivacyClassifier
+
+from .type_inference import TypeInferenceEngine
 
 __all__ = [
     "ColumnInfo",
-    "SchemaDetector",
+    "DataLoader",
+    "PrivacyClassifier",
     "TableSchema",
-    "generate_documentation",
-    "save_outputs",
-    "schema_to_dict",
+    "TypeInferenceEngine",
 ]

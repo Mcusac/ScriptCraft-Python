@@ -2,17 +2,17 @@
 
 from pathlib import Path
 
-from layers.layer_0_core.level_4 import load_json_raw
+from scriptcraft.layers.layer_0_core.level_4 import load_json_raw
 
-from layers.layer_1_competition.level_0_infra.level_0 import score_grid_exact_match
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import score_grid_exact_match
 
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_0 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_0 import (
     arc_find_first_existing_file,
 )
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_0.decoding.eval_solution_parse import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_0.decoding.eval_solution_parse import (
     eval_parse_task_solution_grids,
 )
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_2 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_2 import (
     predict_grid_from_checkpoint,
 )
 

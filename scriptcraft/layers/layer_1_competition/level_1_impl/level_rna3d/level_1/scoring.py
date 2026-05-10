@@ -14,7 +14,7 @@ import pandas as pd
 from dataclasses import dataclass
 from typing import Dict, Iterable, List, Mapping, Optional, Sequence, Tuple
 
-from layers.layer_1_competition.level_1_impl.level_rna3d.level_0 import group_labels_by_target
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_rna3d.level_0 import group_labels_by_target
 
 
 def _kabsch_align(P: np.ndarray, Q: np.ndarray) -> np.ndarray:

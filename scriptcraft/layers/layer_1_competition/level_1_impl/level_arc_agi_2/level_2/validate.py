@@ -2,15 +2,15 @@
 
 from typing import Optional
 
-from layers.layer_0_core.level_0 import PipelineResult, get_logger
+from scriptcraft.layers.layer_0_core.level_0 import PipelineResult, get_logger
 
-from layers.layer_1_competition.level_0_infra.level_0 import metadata_merge
-from layers.layer_1_competition.level_0_infra.level_1 import (
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import metadata_merge
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_1 import (
     RunContext,
     update_run_metadata,
 )
 
-from layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_1 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_arc_agi_2.level_1 import (
     validate_arc_inputs,
 )
 

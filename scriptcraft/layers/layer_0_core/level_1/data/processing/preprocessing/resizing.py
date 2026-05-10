@@ -5,7 +5,7 @@ import torchvision.transforms as transforms
 from PIL import Image
 from typing import Union, Tuple
 
-from layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
 
 _logger = get_logger(__name__)
 

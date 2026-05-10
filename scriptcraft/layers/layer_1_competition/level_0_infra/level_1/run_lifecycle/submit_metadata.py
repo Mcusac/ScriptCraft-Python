@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from layers.layer_1_competition.level_0_infra.level_0 import LlmTtaDfsConfig
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0 import LlmTtaDfsConfig
 
 
 def llm_tta_config_to_submit_dict(cfg: LlmTtaDfsConfig) -> dict[str, Any]:

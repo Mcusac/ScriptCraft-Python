@@ -4,8 +4,8 @@ import math
 
 from typing import List, Tuple, Dict, Any, Optional
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_1 import calculate_fold_statistics, generate_cv_test_gap_warnings
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_1 import calculate_fold_statistics, generate_cv_test_gap_warnings
 
 _logger = get_logger(__name__)
 

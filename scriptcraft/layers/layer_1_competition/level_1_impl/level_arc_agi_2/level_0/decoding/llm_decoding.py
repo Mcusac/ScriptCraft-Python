@@ -1,6 +1,6 @@
 """ARC-facing names and docs for NVARC ``turbo_dfs`` (implementation in competition infra)."""
 
-from layers.layer_1_competition.level_0_infra.level_3.lm_backend.turbo_dfs import (
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_3.lm_backend.turbo_dfs import (
     DEFAULT_TURBO_DFS_ALLOWED_TOKEN_IDS,
     NVARC_QWEN_GRID_SOLVER_TOKEN_VOCAB,
     TURBO_DFS_DEFAULT_EOS_ID,

@@ -4,7 +4,7 @@ import numpy as np
 
 from typing import Any, Optional, Tuple
 
-from layers.layer_0_core.level_0 import get_torch
+from scriptcraft.layers.layer_0_core.level_0 import get_torch
 
 _torch = get_torch()
 _Dataset = _torch.utils.data.Dataset if _torch is not None else object

@@ -5,10 +5,10 @@ import numpy as np
 from pathlib import Path
 from typing import Tuple, Optional
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_1 import load_ids_file, build_embedding_error_message, load_embeddings_file
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_1 import load_ids_file, build_embedding_error_message, load_embeddings_file
 
-from layers.layer_1_competition.level_1_impl.level_cafa.level_0 import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_cafa.level_0 import (
     load_t5_rds, 
     load_t5_qs,
     get_embedding_paths,

@@ -5,11 +5,11 @@ import pandas as pd
 from pathlib import Path
 from typing import Callable, Optional
 
-from layers.layer_0_core.level_0 import get_logger
-from layers.layer_0_core.level_4 import save_pickle
-from layers.layer_1_competition.level_0_infra.level_0.registry import NamedRegistry
+from scriptcraft.layers.layer_0_core.level_0 import get_logger
+from scriptcraft.layers.layer_0_core.level_4 import save_pickle
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0.registry import NamedRegistry
 
-from layers.layer_1_competition.level_1_impl.level_rna3d.level_1 import build_templates, group_labels_to_coords
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_rna3d.level_1 import build_templates, group_labels_to_coords
 
 _logger = get_logger(__name__)
 

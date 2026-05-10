@@ -3,7 +3,7 @@
 from dataclasses import dataclass
 from typing import Any, Literal
 
-from layers.layer_1_competition.level_0_infra.level_0.lm import LmAdaptationConfig
+from scriptcraft.layers.layer_1_competition.level_0_infra.level_0.lm import LmAdaptationConfig
 
 Grid = list[list[int]]
 

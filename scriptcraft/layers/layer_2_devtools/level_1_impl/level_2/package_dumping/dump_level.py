@@ -7,7 +7,7 @@ _SCRIPTS = Path(__file__).resolve().parents[5]
 if str(_SCRIPTS) not in sys.path:
     sys.path.insert(0, str(_SCRIPTS))
 
-from layers.layer_2_devtools.level_1_impl.level_1 import (
+from scriptcraft.layers.layer_2_devtools.level_1_impl.level_1 import (
     run_dump_level_preset_cli_api,
 )
 

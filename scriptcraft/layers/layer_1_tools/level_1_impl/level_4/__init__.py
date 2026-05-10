@@ -1,4 +1,4 @@
-"""Auto-generated aggregation exports."""
+"""Auto-generated mixed exports."""
 
 
 from . import (
@@ -17,6 +17,8 @@ from .git_submodule_tool import *
 from .git_workspace_tool import *
 from .release_manager import *
 
+from .git_pipelines import GitPipelineFactory
+
 __all__ = (
     list(dictionary_cleaner.__all__)
     + list(function_auditor.__all__)
@@ -24,4 +26,7 @@ __all__ = (
     + list(git_submodule_tool.__all__)
     + list(git_workspace_tool.__all__)
     + list(release_manager.__all__)
+    + [
+        "GitPipelineFactory",
+    ]
 )

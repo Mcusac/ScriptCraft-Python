@@ -6,8 +6,8 @@ from collections import Counter
 from pathlib import Path
 from typing import Any
 
-from layers.layer_2_devtools.level_0_infra.level_0 import BaseAnalyzer
-from layers.layer_2_devtools.level_0_infra.level_0.path.python_modules import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0 import BaseAnalyzer
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.path.python_modules import (
     SKIP_DIRS,
     collect_python_files,
 )

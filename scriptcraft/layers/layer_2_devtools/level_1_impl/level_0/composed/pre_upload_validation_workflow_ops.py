@@ -3,13 +3,13 @@
 from pathlib import Path
 from typing import Optional
 
-from layers.layer_2_devtools.level_0_infra.level_0 import (
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0 import (
     ErrorClassifier,
     ModuleDiscoverer,
 )
-from layers.layer_2_devtools.level_0_infra.level_0 import ErrorType
-from layers.layer_2_devtools.level_0_infra.level_0 import DiscoveryConfig
-from layers.layer_2_devtools.level_0_infra.level_1 import ImportTester
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0 import ErrorType
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0 import DiscoveryConfig
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_1 import ImportTester
 
 
 def discover_contest_modules(scripts_root: Path) -> list[str]:

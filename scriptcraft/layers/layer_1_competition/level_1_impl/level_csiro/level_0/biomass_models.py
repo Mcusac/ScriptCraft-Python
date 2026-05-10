@@ -1,6 +1,6 @@
 """CSIRO biomass models."""
 
-from layers.layer_0_core.level_3 import (
+from scriptcraft.layers.layer_0_core.level_3 import (
     HistGradientBoostingRegressorModel,
     GradientBoostingRegressorModel,
     CatBoostRegressorModel,
@@ -9,7 +9,7 @@ from layers.layer_0_core.level_3 import (
     RidgeRegressorModel,
 )
 
-from layers.layer_0_core.level_0 import NonNegativePredictionMixin
+from scriptcraft.layers.layer_0_core.level_0 import NonNegativePredictionMixin
 
 
 class BiomassHistGBModel(

@@ -5,9 +5,9 @@ from typing import Any
 import hashlib
 import re
 
-from layers.layer_2_devtools.level_0_infra.level_0 import BaseAnalyzer
-from layers.layer_2_devtools.level_0_infra.level_0.io import text_file as file_utils
-from layers.layer_2_devtools.level_0_infra.level_0 import collect_python_files, file_to_module
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0 import BaseAnalyzer
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0.io import text_file as file_utils
+from scriptcraft.layers.layer_2_devtools.level_0_infra.level_0 import collect_python_files, file_to_module
 
 
 class DuplicationDetector(BaseAnalyzer):

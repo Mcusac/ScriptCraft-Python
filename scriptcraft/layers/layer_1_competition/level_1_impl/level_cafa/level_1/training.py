@@ -5,9 +5,9 @@ CAFA-specific training configuration.
 from dataclasses import dataclass
 from typing import Dict, Any, Optional
 
-from layers.layer_0_core.level_2 import MultiTaskTrainingConfig
+from scriptcraft.layers.layer_0_core.level_2 import MultiTaskTrainingConfig
 
-from layers.layer_1_competition.level_1_impl.level_cafa.level_0 import CAFA_ONTOLOGIES
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_cafa.level_0 import CAFA_ONTOLOGIES
 
 
 @dataclass
