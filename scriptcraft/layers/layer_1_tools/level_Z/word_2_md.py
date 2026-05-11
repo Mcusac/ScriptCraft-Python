@@ -1,7 +1,8 @@
-from pathlib import Path
 import subprocess
 import shutil
 import sys
+
+from pathlib import Path
 
 # === CONFIG ===
 INPUT_FILE = Path(

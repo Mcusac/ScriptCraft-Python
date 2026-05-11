@@ -5,7 +5,7 @@ Tests for the MedVisit Integrity Validator
 import pandas as pd
 import pytest
 
-from scriptcraft.layers.layer_1_pypi.tools.medvisit_integrity_validator.main import MedVisitIntegrityValidator
+from scriptcraft.layers.layer_1_pypi.tools.medvisit_integrity_validator.main import run_medvisit_integrity_validator
 
 @pytest.fixture
 def sample_data():

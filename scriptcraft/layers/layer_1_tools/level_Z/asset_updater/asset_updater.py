@@ -1,8 +1,8 @@
-# utilize user_changed.csv and location_changed.csv to update the asset updater page
+# utilize custodian_changed.csv and location_changed.csv to update the asset updater page
     # load and combine both. be sure to drop duplicates on the column "Tag Number"
-    # from user_changed.csv: columns "Tag Number", "user_norm_forms"
+    # from custodian_changed.csv: columns "Tag Number", "user_norm_forms"
         # some values in Tag Number column may be lacking their three leading zeros, so we need to add them (ie 47072 -> 00047072)
-        # need to get the employee id in the user_changed.csv column "user_norm_forms"
+        # need to get the employee id in the custodian_changed.csv column "user_norm_forms"
     # from location_changed.csv: columns "Tag Number", "location_norm_forms"
         # need to update location_norm_forms to be the exact string required for input into the asset updater page
         # same tag number issue as above (ie 47072 -> 00047072)
