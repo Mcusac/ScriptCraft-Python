@@ -1,8 +1,3 @@
-"""Auto-generated package exports."""
+"""Auto-generated package exports (empty)."""
 
-
-from .runner import run
-
-__all__ = [
-    "run",
-]
+__all__: list[str] = []

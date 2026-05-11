@@ -5,7 +5,7 @@ from .asset_pipeline import clean_asset_df
 
 from .form_pipeline import normalize_form
 
-from .pipeline import build_device_merged
+from .merge_pipeline import build_device_merged
 
 __all__ = [
     "build_device_merged",

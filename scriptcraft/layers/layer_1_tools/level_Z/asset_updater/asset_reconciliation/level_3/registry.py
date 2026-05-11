@@ -2,7 +2,7 @@
 # registry.py — full DAG detector registry (single contract)
 # ============================================================
 
-from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.asset_reconciliation.level_1.detect_off_campus import (
+from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.asset_reconciliation.level_1.detection.off_campus import (
     detect_off_campus,
 )
 
@@ -10,11 +10,11 @@ from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.asset_reconciliation
     detect_form_duplicates,
 )
 
-from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.asset_reconciliation.level_1.detect_missing_from_form import (
+from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.asset_reconciliation.level_1.detection.missing_from_form import (
     detect_missing_from_form,
 )
 
-from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.asset_reconciliation.level_1.detect_only_in_form import (
+from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.asset_reconciliation.level_1.detection.only_in_form import (
     detect_only_in_form,
 )
 

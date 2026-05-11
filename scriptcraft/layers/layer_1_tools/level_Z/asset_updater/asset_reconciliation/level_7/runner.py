@@ -3,10 +3,6 @@
 # ============================================================
 
 from pathlib import Path
-<<<<<<< HEAD
-=======
-import pandas as pd
->>>>>>> 182d6be043d82fdc23c5fc4c567ad4e195b94c00
 
 from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.asset_reconciliation.level_0.loader import (
     load_csv,
@@ -17,19 +13,11 @@ from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.asset_reconciliation
 from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.asset_reconciliation.level_1.sanity_checks import (
     run_sanity_checks,
 )
-<<<<<<< HEAD
 from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.asset_reconciliation.level_5.asset_pipeline import (
     clean_asset_df,
 )
 from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.asset_reconciliation.level_5.form_pipeline import (
     normalize_form,
-=======
-from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.asset_reconciliation.level_6.asset_ingest import (
-    ingest_assets,
-)
-from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.asset_reconciliation.level_6.form_ingest import (
-    ingest_forms,
->>>>>>> 182d6be043d82fdc23c5fc4c567ad4e195b94c00
 )
 from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.asset_reconciliation.level_6.orchestrator import (
     run_comparison,
@@ -53,13 +41,8 @@ def run(
     # --------------------------------------------------------
     # STEP 2 — INGESTION
     # --------------------------------------------------------
-<<<<<<< HEAD
     asset_df = clean_asset_df(asset_df_raw)
     form_df = normalize_form(form_df_raw)
-=======
-    asset_df = ingest_assets(asset_df_raw)
-    form_df = ingest_forms(form_df_raw)
->>>>>>> 182d6be043d82fdc23c5fc4c567ad4e195b94c00
 
     # --------------------------------------------------------
     # STEP 3 — DEBUG (OPTIONAL)

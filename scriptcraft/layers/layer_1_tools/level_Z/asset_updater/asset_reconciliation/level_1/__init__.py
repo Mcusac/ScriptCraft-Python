@@ -19,12 +19,6 @@ from .debug_print import (
     debug_raw_inputs,
 )
 
-from .detect_missing_from_form import detect_missing_from_form
-
-from .detect_off_campus import detect_off_campus
-
-from .detect_only_in_form import detect_only_in_form
-
 from .form_debug import debug_form
 
 from .form_utils import (
@@ -42,8 +36,6 @@ from .location_primitives import (
 from .merge_contracts import validate_merged_contract
 
 from .sanity_checks import run_sanity_checks
-
-from .tag_sanitizer import sanitize_tag
 
 from .text_canonicalizer import canonical_text
 
@@ -73,9 +65,6 @@ __all__ = (
         "debug_form",
         "debug_merge",
         "debug_raw_inputs",
-        "detect_missing_from_form",
-        "detect_off_campus",
-        "detect_only_in_form",
         "extract_device_columns",
         "filter_computers_only",
         "require_columns",
@@ -83,7 +72,6 @@ __all__ = (
         "resolve_column",
         "run_sanity_checks",
         "safe_get",
-        "sanitize_tag",
         "to_string_dtype",
         "validate_merged_contract",
     ]

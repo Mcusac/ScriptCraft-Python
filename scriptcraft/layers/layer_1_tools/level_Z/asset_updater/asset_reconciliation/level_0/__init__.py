@@ -52,8 +52,6 @@ from .schema import (
 
 from .tag_rules import apply_tag_rules
 
-from .writer import write_outputs
-
 __all__ = [
     "ASSET_COLUMN_MAP",
     "ASSET_DESCRIPTION_PREFIX",
@@ -82,5 +80,4 @@ __all__ = [
     "run_nodes",
     "safe_eq",
     "standardize_columns",
-    "write_outputs",
 ]
