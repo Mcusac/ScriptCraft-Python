@@ -35,68 +35,24 @@ def build_device_merged(
         ↓
     normalize keys
         ↓
-    rename
+    rename to merged contract
         ↓
     merge
         ↓
-    finalize
+    finalize tag contract
     """
 
-    # --------------------------------------------------------
     # STEP 1 — VALIDATE
-    # --------------------------------------------------------
+    validate_merge_inputs(asset_df, form_df)
 
-    validate_merge_inputs(
-        asset_df,
-        form_df,
-    )
-
-    # --------------------------------------------------------
     # STEP 2 — NORMALIZE MERGE KEYS
-    # --------------------------------------------------------
+    asset_df, form_df = prepare_merge_keys(asset_df, form_df)
 
-    asset_df, form_df = prepare_merge_keys(
-        asset_df,
-        form_df,
-    )
-
-    # --------------------------------------------------------
     # STEP 3 — RENAME TO MERGED CONTRACT
-    # --------------------------------------------------------
-
     asset_df = rename_asset_columns(asset_df)
-
     form_df = rename_form_columns(form_df)
 
-
-    print("\n--- POST VALIDATE ---")
-    print(form_df.columns.tolist())
-
-    print("\n--- POST KEY NORMALIZE ---")
-    print(form_df.columns.tolist())
-
-    print("\n--- POST FORM RENAME ---")
-    print(form_df.columns.tolist())
-
-    if "location" in form_df.columns:
-        print(form_df[["tag", "location"]].head())
-
-    if "form_location" in form_df.columns:
-        print(form_df[["tag", "form_location"]].head())
-
-
-    # --------------------------------------------------------
     # STEP 4 — MERGE
-    # --------------------------------------------------------
-
-    target_tags = ["00037435", "00040524"]
-
-    print(
-        form_df[
-            form_df["tag"].isin(target_tags)
-        ][["tag", "form_location"]]
-    )
-
     merged = execute_merge(
         asset_df,
         form_df,
@@ -104,21 +60,7 @@ def build_device_merged(
         right_key=FORM_RAW.tag,
     )
 
-
-    print(
-        merged[
-            merged["tag"].isin(target_tags)
-        ][[
-            "tag",
-            "asset_location",
-            "form_location",
-        ]]
-    )
-
-    # --------------------------------------------------------
     # STEP 5 — FINALIZE TAG CONTRACT
-    # --------------------------------------------------------
-
     merged = project_final_tag(
         merged,
         ASSET_RAW.tag,

@@ -10,4 +10,4 @@ from scriptcraft.layers.layer_1_tools.level_Z.asset_reconciliation.level_0.schem
 
 
 def detect_only_in_form(merged: pd.DataFrame) -> pd.DataFrame:
-    return merged[merged[MERGED.merge_flag] == "only_in_form"]
+    return merged[merged[MERGED.merge_flag] == "right_only"]

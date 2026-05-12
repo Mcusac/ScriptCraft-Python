@@ -37,6 +37,8 @@ from .merge_contracts import validate_merged_contract
 
 from .sanity_checks import run_sanity_checks
 
+from .tag_sanitizer import sanitize_tag
+
 from .text_canonicalizer import canonical_text
 
 from .validators import (
@@ -72,6 +74,7 @@ __all__ = (
         "resolve_column",
         "run_sanity_checks",
         "safe_get",
+        "sanitize_tag",
         "to_string_dtype",
         "validate_merged_contract",
     ]
