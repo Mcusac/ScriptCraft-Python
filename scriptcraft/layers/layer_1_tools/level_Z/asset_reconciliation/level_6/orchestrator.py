@@ -7,14 +7,14 @@ import pandas as pd
 from scriptcraft.layers.layer_1_tools.level_Z.asset_reconciliation.level_0.dag_runner import (
     run_nodes,
 )
-from scriptcraft.layers.layer_1_tools.level_Z.asset_reconciliation.level_1.detection.missing_from_form import (
-    detect_missing_from_form,
-)
-from scriptcraft.layers.layer_1_tools.level_Z.asset_reconciliation.level_1.detection.only_in_form import (
-    detect_only_in_form,
+from scriptcraft.layers.layer_1_tools.level_Z.asset_reconciliation.level_1.detection.missing import (
+    detect_missing,
 )
 from scriptcraft.layers.layer_1_tools.level_Z.asset_reconciliation.level_1.merge_contracts import (
     validate_merged_contract,
+)
+from scriptcraft.layers.layer_1_tools.level_Z.asset_reconciliation.level_1.detection.duplicates import (
+    detect_form_duplicates,
 )
 from scriptcraft.layers.layer_1_tools.level_Z.asset_reconciliation.level_2.debug_hooks import (
     emit_input_debug,
@@ -26,6 +26,7 @@ from scriptcraft.layers.layer_1_tools.level_Z.asset_reconciliation.level_3.regis
 from scriptcraft.layers.layer_1_tools.level_Z.asset_reconciliation.level_5.merge_pipeline import (
     build_device_merged,
 )
+
 
 
 def run_comparison(
@@ -63,7 +64,10 @@ def run_comparison(
     results = run_nodes(merged, DETECTORS)
 
     # STEP 5 — SPECIAL CASE DETECTORS (now normalized nodes would remove this later)
-    results["missing_from_form"] = detect_missing_from_form(merged)
-    results["only_in_form"] = detect_only_in_form(merged)
+    missing_from_form, only_in_form = detect_missing(merged)
+
+    results["missing_from_form"] = missing_from_form
+    results["only_in_form"] = only_in_form
+    results["duplicates_in_form"] = detect_form_duplicates(form_df)
 
     return results

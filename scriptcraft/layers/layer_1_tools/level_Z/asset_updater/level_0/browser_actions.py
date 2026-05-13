@@ -25,11 +25,11 @@ def navigate(page: Page, url: str) -> None:
     page.goto(url)
 
 
-def wait_for_page_load(page: Page, timeout_ms: int = 10_000) -> None:
+def wait_for_page_load(page: Page, timeout_ms: int = 100_000) -> None:
     page.wait_for_load_state("networkidle", timeout=timeout_ms)
 
 
-def wait_for_selector(page: Page, selector: str, timeout_ms: int = 10_000) -> None:
+def wait_for_selector(page: Page, selector: str, timeout_ms: int = 100_000) -> None:
     page.wait_for_selector(selector, timeout=timeout_ms)
 
 

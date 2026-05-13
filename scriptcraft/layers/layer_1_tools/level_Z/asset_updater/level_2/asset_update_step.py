@@ -1,3 +1,5 @@
+# asset_update_step.py — LEVEL_2
+
 from playwright.sync_api import Page
 
 from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.level_0 import (
@@ -24,7 +26,7 @@ def execute_asset_update_step(
     """
 
     # date
-    ba.fill(page, c.DATE_OF_TRANSFER_SELECTOR, ba.current_date_mmddyyyy())
+    ba.fill_current_date(page, c.DATE_OF_TRANSFER_INPUT_SELECTOR)
 
     # location
     complete_location_lookup(page, location_code)

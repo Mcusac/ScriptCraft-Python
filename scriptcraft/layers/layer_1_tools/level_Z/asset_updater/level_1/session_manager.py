@@ -20,5 +20,5 @@ def set_business_unit(page: Page) -> None:
     """
     Sets static business unit (HS763).
     """
-    ba.fill(page, c.BUSINESS_UNIT_SELECTOR, c.BUSINESS_UNIT_VALUE)
-    ba.safe_wait(page, c.TIMER_WAIT_SECONDS)
+    ba.fill_input(page, c.BUSINESS_UNIT_INPUT_SELECTOR, c.BUSINESS_UNIT_VALUE)
+    ba.safe_wait(page, 1000)

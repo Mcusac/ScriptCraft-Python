@@ -1,3 +1,6 @@
+# ============================================================
+# asset_pipeline.py — asset normalization pipeline
+# ============================================================
 import pandas as pd
 
 from scriptcraft.layers.layer_1_tools.level_Z.asset_reconciliation.level_0.mappings import (

@@ -1,3 +1,6 @@
+# ============================================================
+# asset_normalizer.py — asset field normalization stage
+# ============================================================
 import pandas as pd
 
 from scriptcraft.layers.layer_1_tools.level_Z.asset_reconciliation.level_0.schema import ASSET_RAW
