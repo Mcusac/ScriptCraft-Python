@@ -169,3 +169,56 @@ def fill_tag_number(page: Page, selector: str, value: str) -> None:
 
 def fill_asset_id(page: Page, selector: str, value: str) -> None:
     fill_input(page, selector, value)
+
+# ============================================================
+# DIAGNOSTICS & PAGE STATE
+# ============================================================
+
+def get_page_url(page: Page) -> str:
+    """Return current page URL."""
+    return page.url
+
+
+def get_page_title(page: Page) -> str:
+    """Return current page title."""
+    return page.title()
+
+
+def log_page_state(page: Page, prefix: str = "") -> None:
+    """Log page URL and title for debugging."""
+    url = get_page_url(page)
+    title = get_page_title(page)
+    print(f"{prefix} URL: {url}")
+    print(f"{prefix} Title: {title}")
+
+
+def selector_exists(page: Page, selector: str) -> bool:
+    """Check if selector exists without waiting."""
+    try:
+        return page.query_selector(selector) is not None
+    except Exception:
+        return False
+
+
+def wait_for_url_contains(page: Page, substring: str, timeout_ms: int = 30_000) -> None:
+    """Wait for page URL to contain substring (useful post-redirect)."""
+    page.wait_for_url(f"**/*{substring}*", timeout=timeout_ms)
+
+
+def wait_for_selector_with_diagnostics(
+    page: Page, 
+    selector: str, 
+    timeout_ms: int = 100_000
+) -> None:
+    """
+    Wait for selector with enhanced diagnostics.
+    Logs page state before and after failure.
+    """
+    try:
+        wait_for_selector(page, selector, timeout_ms)
+    except Exception as e:
+        print(f"\n[DIAGNOSTIC] Selector wait failed: {selector}")
+        log_page_state(page, "[DIAGNOSTIC]")
+        print(f"[DIAGNOSTIC] Selector exists: {selector_exists(page, selector)}")
+        print(f"[DIAGNOSTIC] Error: {e}\n")
+        raise

@@ -1,14 +1,14 @@
 # run_asset_update_test.py
 
 import pandas as pd
-from playwright.sync_api import sync_playwright
 
-from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.level_5.asset_update_api import (
-    run_asset_update,
-)
+from playwright.sync_api import sync_playwright
 
 from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.level_0.constants import (
     ASSET_UPDATER_URL,
+)
+from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.level_5.asset_update_api import (
+    run_asset_update,
 )
 
 
@@ -42,9 +42,16 @@ def main():
         browser = p.chromium.launch(headless=False)
         page = browser.new_page()
 
-        run_asset_update(page, ASSET_UPDATER_URL, dataset)
-
-        browser.close()
+        try:
+            run_asset_update(page, ASSET_UPDATER_URL, dataset)
+            print("\n✓ Asset update automation completed successfully")
+        except Exception as e:
+            print(f"\n✗ Automation failed: {e}")
+            print("Browser window will close in 5 seconds...")
+            import time
+            time.sleep(5)
+        finally:
+            browser.close()
 
 
 if __name__ == "__main__":

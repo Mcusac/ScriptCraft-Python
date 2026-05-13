@@ -32,12 +32,8 @@ DATE_FORMAT_MM_DD_YYYY = "%m/%d/%Y"
 # ASSET UPDATER URL
 # ============================================================
 
-# TODO:
-# Replace with actual asset updater URL.
-ASSET_UPDATER_URL = (
-    "https://myfs.unt.edu/psp/ps/EMPLOYEE/ERP/c/GBAM_MANAGE_ASSETS.GBAM_CAMPUS_SLFSRV.GBL"
-)
-
+LOGIN_URL = "https://myfs.unt.edu/psp/ps/?cmd=login&languageCd=ENG&"
+ASSET_URL = "https://myfs.unt.edu/psp/ps/EMPLOYEE/ERP/c/GBAM_MANAGE_ASSETS.GBAM_CAMPUS_SLFSRV.GBL"
 
 # ============================================================
 # SEARCH PAGE SELECTORS
