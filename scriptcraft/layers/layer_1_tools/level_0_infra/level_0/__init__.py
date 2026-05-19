@@ -15,6 +15,8 @@ from .runtime import *
 
 from .arg_mapping import build_run_kwargs_from_args
 
+from .asset_reconciliation_io import write_outputs
+
 from .comparison_core import (
     CoreDataFrameComparer,
     DataFrameDiffResult,
@@ -195,5 +197,6 @@ __all__ = (
         "prevent_pipe_inside_braces",
         "print_message",
         "resolve_file",
+        "write_outputs",
     ]
 )

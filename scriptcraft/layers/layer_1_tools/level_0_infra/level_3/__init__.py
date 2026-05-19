@@ -9,6 +9,8 @@ from . import (
 from .release_consistency_mode import *
 from .release_pipelines import *
 
+from .asset_updater_row_values import is_present
+
 from .dataframe_cleaning import (
     clean_dataframe,
     get_clean_numeric_series,
@@ -50,6 +52,7 @@ __all__ = (
         "get_clean_numeric_series",
         "get_pipeline_steps",
         "import_function",
+        "is_present",
         "load_from_environment",
         "load_legacy_config",
         "load_unified_config",
