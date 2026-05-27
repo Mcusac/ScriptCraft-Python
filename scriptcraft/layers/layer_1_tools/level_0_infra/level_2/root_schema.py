@@ -56,3 +56,21 @@ class Config:
 
         if self.workspace.logging:
             self.logging = LogConfigModel(**self.workspace.logging)
+
+    @classmethod
+    def from_yaml(cls, path: str | Path = "config.yaml") -> "Config":
+        """
+        Load and finalize config from a YAML file path (or env fallback).
+        """
+        from scriptcraft.layers.layer_1_tools.level_0_infra.level_5.config import (
+            load_config,
+        )
+
+        return load_config(path)
+
+    def get_tool_config(self, name: str) -> Dict[str, Any]:
+        from scriptcraft.layers.layer_1_tools.level_0_infra.level_1 import (
+            get_tool_config,
+        )
+
+        return get_tool_config(self, name)

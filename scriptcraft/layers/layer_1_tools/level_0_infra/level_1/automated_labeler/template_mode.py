@@ -5,12 +5,13 @@ from pathlib import Path
 from typing import List, Optional, Tuple
 from docx import Document
 
+from scriptcraft.layers.layer_0_core.level_0 import InputPaths
+
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import (
+    fill_full_page,
+    LoaderSaver,
     log_and_print,
     resolve_output_file,
-    fill_full_page,
-    InputPaths,
-    LoaderSaver,
 )
 
 

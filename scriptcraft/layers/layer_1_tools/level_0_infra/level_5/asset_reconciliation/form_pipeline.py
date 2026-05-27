@@ -9,12 +9,10 @@ from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import (
 )
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_1 import (
     debug_form,
+    standardize_columns,
 )
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_2 import (
     reshape_form_wide_to_long,
-)
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_3 import (
-    standardize_columns,
 )
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_4 import (
     normalize_form_fields,

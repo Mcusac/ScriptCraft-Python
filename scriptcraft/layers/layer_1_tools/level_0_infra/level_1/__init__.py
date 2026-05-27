@@ -5,6 +5,7 @@ from . import (
     asset_reconciliation,
     asset_updater,
     automated_labeler,
+    browser,
     data_content_comparer,
     dictionary_cleaner,
     dictionary_driven_checker,
@@ -25,6 +26,7 @@ from . import (
 from .asset_reconciliation import *
 from .asset_updater import *
 from .automated_labeler import *
+from .browser import *
 from .data_content_comparer import *
 from .dictionary_cleaner import *
 from .dictionary_driven_checker import *
@@ -186,6 +188,7 @@ __all__ = (
     list(asset_reconciliation.__all__)
     + list(asset_updater.__all__)
     + list(automated_labeler.__all__)
+    + list(browser.__all__)
     + list(data_content_comparer.__all__)
     + list(dictionary_cleaner.__all__)
     + list(dictionary_driven_checker.__all__)

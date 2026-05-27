@@ -3,7 +3,9 @@
 from pathlib import Path
 from typing import Optional
 
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import log_and_print, InputPaths
+from scriptcraft.layers.layer_0_core.level_0 import InputPaths
+
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import log_and_print
 
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_1 import save_batch_audit
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_2 import BatchFunctionAuditor

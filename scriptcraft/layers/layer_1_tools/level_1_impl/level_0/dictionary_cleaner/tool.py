@@ -3,8 +3,9 @@
 from pathlib import Path
 from typing import Any, Optional, Union
 
+from scriptcraft.layers.layer_0_core.level_0 import InputPaths
+
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import log_and_print
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import InputPaths
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_2 import clean_dictionary
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_7 import BaseTool
 

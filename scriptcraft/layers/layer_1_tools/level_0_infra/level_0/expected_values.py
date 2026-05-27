@@ -4,6 +4,27 @@ from typing import Any
 
 from scriptcraft.layers.layer_0_core.level_1 import is_missing_like
 
+DEFAULT_VALUE_TYPE = "text"
+
+# Maps dictionary "Value Type" strings to canonical values.
+# Keep this minimal and tolerant; unknown values fall back to DEFAULT_VALUE_TYPE.
+VALUE_TYPE_MAP: dict[str, str] = {
+    "numeric": "numeric",
+    "number": "numeric",
+    "float": "numeric",
+    "integer": "numeric",
+    "int": "numeric",
+    "text": "text",
+    "string": "text",
+    "str": "text",
+    "categorical": "categorical",
+    "category": "categorical",
+    "set": "categorical",
+    "enum": "categorical",
+    "date": "date",
+    "mm/yyyy": "date",
+}
+
 
 def _normalize_numeric_range(values: str) -> str:
     if "-" not in values:

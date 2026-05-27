@@ -92,7 +92,11 @@ from .environment import detect_environment
 
 from .error_handling_mixin import ErrorHandlingMixin
 
-from .expected_values import clean_expected_values
+from .expected_values import (
+    DEFAULT_VALUE_TYPE,
+    VALUE_TYPE_MAP,
+    clean_expected_values,
+)
 
 from .file_ops import (
     copy_file,
@@ -175,18 +179,19 @@ from .shared_paths import (
 
 from .structured_formatter import StructuredFormatter
 
+from .subprocess_ops import (
+    CommandResult,
+    python_file_args,
+    python_module_args,
+    run,
+    stringify_args,
+)
+
 from .text_cleaning import (
     clean_brace_formatting,
     fix_numeric_dash_inside_braces,
     fix_word_number_dash_inside_braces,
     prevent_pipe_inside_braces,
-)
-
-from .tool_dispatch import dispatch_tool
-
-from .tool_lookup import (
-    InfraRegistryToolLookup,
-    ToolLookup,
 )
 
 from .validation_mixin import ValidationMixin
@@ -211,9 +216,11 @@ __all__ = (
     + list(schema_detector.__all__)
     + [
         "COLUMN_ALIASES",
+        "CommandResult",
         "ComponentType",
         "DEFAULT_ENCODING",
         "DEFAULT_LOG_FORMAT",
+        "DEFAULT_VALUE_TYPE",
         "DataFrameUtilsMixin",
         "DistributionType",
         "DomainFileToolMixin",
@@ -225,7 +232,6 @@ __all__ = (
         "GitPrecheckResult",
         "GitResult",
         "GitService",
-        "InfraRegistryToolLookup",
         "LogConfig",
         "MISSING_VALUE_CODES",
         "OutlierMethod",
@@ -240,9 +246,9 @@ __all__ = (
         "TParser",
         "TTool",
         "TagNormalizationMode",
-        "ToolLookup",
         "ToolMaturity",
         "Utf8Formatter",
+        "VALUE_TYPE_MAP",
         "ValidationMixin",
         "WorkspaceConfig",
         "WorkspacePathResolver",
@@ -261,7 +267,6 @@ __all__ = (
         "create_file_handler",
         "create_path_resolver",
         "detect_environment",
-        "dispatch_tool",
         "find_first_data_file",
         "find_latest_file",
         "find_matching_file",
@@ -288,11 +293,15 @@ __all__ = (
         "outer_merge_with_indicator",
         "prevent_pipe_inside_braces",
         "print_message",
+        "python_file_args",
+        "python_module_args",
         "resolve_file",
         "resolve_python_package_paths",
+        "run",
         "run_cli_and_exit",
         "run_git_operation_with_precheck",
         "sanitize_scalar_tag",
+        "stringify_args",
         "submodule_path",
     ]
 )

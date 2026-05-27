@@ -24,12 +24,12 @@ from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import (
     STATE_AUTHENTICATED,
 )
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_1 import (
-    load_credentials,
-    assist_login_page,
     get_page_state,
     is_authenticated_page,
+    load_credentials,
 )
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_2 import (
+    assist_login_page,
     log_page_diagnostics,
 )
 
@@ -134,3 +134,4 @@ def wait_for_post_auth_ready(
             page,
             STATE_CHECK_INTERVAL_MS,
         )
+

@@ -18,6 +18,7 @@ from . import (
     pypi_release_tool,
     release_manager,
     release_manager_plugins,
+    rhq_form_autofiller,
     schema_detector,
     scores_totals_checker,
 )
@@ -38,6 +39,7 @@ from .medvisit_integrity_validator import *
 from .pypi_release_tool import *
 from .release_manager import *
 from .release_manager_plugins import *
+from .rhq_form_autofiller import *
 from .schema_detector import *
 from .scores_totals_checker import *
 
@@ -62,6 +64,7 @@ __all__ = (
     + list(pypi_release_tool.__all__)
     + list(release_manager.__all__)
     + list(release_manager_plugins.__all__)
+    + list(rhq_form_autofiller.__all__)
     + list(schema_detector.__all__)
     + list(scores_totals_checker.__all__)
     + [

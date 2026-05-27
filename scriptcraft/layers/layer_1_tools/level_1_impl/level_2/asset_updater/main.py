@@ -10,7 +10,7 @@ from playwright.sync_api import sync_playwright
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import (
     ASSET_URL,
 )
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_4 import (
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_2 import (
     load_updater_dataset,
 )
 from scriptcraft.layers.layer_1_tools.level_1_impl.level_1 import (

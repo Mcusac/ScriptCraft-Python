@@ -12,8 +12,15 @@ from .frame import *
 from .primitives import *
 
 from .frame_context import (
+    clear_and_fill,
+    click,
+    click_button,
+    fill,
+    fill_input,
     get_active_frame,
     get_context_for_selector,
+    selector_exists,
+    wait_for_selector,
 )
 
 from .lookup_text import (
@@ -31,12 +38,19 @@ __all__ = (
     + list(frame.__all__)
     + list(primitives.__all__)
     + [
+        "clear_and_fill",
+        "click",
+        "click_button",
+        "fill",
+        "fill_input",
         "format_location_for_lookup",
         "get_active_frame",
         "get_context_for_selector",
         "launch_chrome",
         "normalize_lookup_text",
+        "selector_exists",
         "text_matches_lookup",
+        "wait_for_selector",
         "wait_until_url_excludes",
     ]
 )

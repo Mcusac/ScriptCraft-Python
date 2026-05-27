@@ -4,9 +4,9 @@ from pathlib import Path
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import log_and_print
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_1 import (
     build_python_package,
+    validate_python_package,
 )
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_2 import (
-    validate_python_package,
     upload_pypi, 
     upload_testpypi
 )

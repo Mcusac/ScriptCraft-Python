@@ -7,10 +7,10 @@ from . import (
     data_content_comparer,
     dictionary_cleaner,
     dictionary_driven_checker,
+    dictionary_workflow,
     feature_change_checker,
     function_auditor,
     generic_release_tool,
-    release_consistency_mode,
     release_pipelines,
     rhq_form_autofiller,
 )
@@ -20,10 +20,10 @@ from .asset_updater import *
 from .data_content_comparer import *
 from .dictionary_cleaner import *
 from .dictionary_driven_checker import *
+from .dictionary_workflow import *
 from .feature_change_checker import *
 from .function_auditor import *
 from .generic_release_tool import *
-from .release_consistency_mode import *
 from .release_pipelines import *
 from .rhq_form_autofiller import *
 
@@ -62,10 +62,10 @@ __all__ = (
     + list(data_content_comparer.__all__)
     + list(dictionary_cleaner.__all__)
     + list(dictionary_driven_checker.__all__)
+    + list(dictionary_workflow.__all__)
     + list(feature_change_checker.__all__)
     + list(function_auditor.__all__)
     + list(generic_release_tool.__all__)
-    + list(release_consistency_mode.__all__)
     + list(release_pipelines.__all__)
     + list(rhq_form_autofiller.__all__)
     + [

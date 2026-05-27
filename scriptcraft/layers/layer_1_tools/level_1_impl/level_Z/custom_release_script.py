@@ -16,7 +16,9 @@ import sys
 
 from typing import Optional
 
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import log_and_print, setup_logger
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import log_and_print
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_1 import setup_logger
+
 from scriptcraft.layers.layer_1_tools.level_1_impl.level_0 import PyPIReleaseTool, GitWorkspaceTool
 
 logger = setup_logger("custom_release")

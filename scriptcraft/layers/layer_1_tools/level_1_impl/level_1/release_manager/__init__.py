@@ -1,15 +1,12 @@
-"""Auto-generated mixed exports."""
+"""Auto-generated package exports."""
 
 
-from . import plugins
-
-from .plugins import *
-
-from .tool import ReleaseManager
-
-__all__ = (
-    list(plugins.__all__)
-    + [
-        "ReleaseManager",
-    ]
+from .python_package_plugin import (
+    PythonPackageReleaseContext,
+    python_package_release_mode,
 )
+
+__all__ = [
+    "PythonPackageReleaseContext",
+    "python_package_release_mode",
+]

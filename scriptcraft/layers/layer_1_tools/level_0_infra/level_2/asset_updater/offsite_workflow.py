@@ -6,7 +6,6 @@ from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import (
     fill_input,
     format_location_for_lookup,
     normalize_lookup_text,
-    set_checkbox_checked,
     OFFSITE_LOCATION_BUILDING,
     OFFSITE_LOCATION_ROOM,
     OFFSITE_CHECKBOX_SELECTOR,
@@ -14,6 +13,7 @@ from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import (
 )
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_1 import (
     load_authorizer_name,
+    set_checkbox_checked,
 )
 
 

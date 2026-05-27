@@ -3,13 +3,14 @@
 from pathlib import Path
 from typing import Optional
 
+from scriptcraft.layers.layer_0_core.level_0 import InputPaths
+
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import (
     apply_labeling_rules,
-    log_and_print,
-    resolve_output_file,
-    InputPaths,
     LabelingRules,
     LoaderSaver,
+    log_and_print,
+    resolve_output_file,
 )
 
 DEFAULT_OUTPUT_TEMPLATE = "labeled_data.{output_format}"

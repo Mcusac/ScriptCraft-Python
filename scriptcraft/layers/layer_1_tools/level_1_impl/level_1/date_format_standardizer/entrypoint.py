@@ -2,7 +2,7 @@
 
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_7 import create_entrypoint_main
 
-from scriptcraft.layers.layer_1_tools.level_1_impl.level_0.date_format_standardizer.tool import DateFormatStandardizer
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_0 import DateFormatStandardizer
 
 main = create_entrypoint_main(
     DateFormatStandardizer,

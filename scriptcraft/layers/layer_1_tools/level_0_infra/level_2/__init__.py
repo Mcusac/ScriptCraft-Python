@@ -4,6 +4,7 @@
 from . import (
     asset_reconciliation,
     asset_updater,
+    browser,
     dictionary_cleaner,
     dictionary_driven_checker,
     dictionary_workflow,
@@ -16,6 +17,7 @@ from . import (
 
 from .asset_reconciliation import *
 from .asset_updater import *
+from .browser import *
 from .dictionary_cleaner import *
 from .dictionary_driven_checker import *
 from .dictionary_workflow import *
@@ -116,6 +118,7 @@ from .validation import (
 __all__ = (
     list(asset_reconciliation.__all__)
     + list(asset_updater.__all__)
+    + list(browser.__all__)
     + list(dictionary_cleaner.__all__)
     + list(dictionary_driven_checker.__all__)
     + list(dictionary_workflow.__all__)

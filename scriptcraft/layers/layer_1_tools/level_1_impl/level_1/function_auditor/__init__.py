@@ -1,3 +1,12 @@
-"""Auto-generated package exports (empty)."""
+"""Auto-generated package exports."""
 
-__all__: list[str] = []
+
+from .cli import (
+    build_parser,
+    resolve_batch_target,
+)
+
+__all__ = [
+    "build_parser",
+    "resolve_batch_target",
+]

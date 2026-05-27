@@ -8,12 +8,14 @@ from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import log_and_print
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import (
     fix_numeric_dash_inside_braces,
     fix_word_number_dash_inside_braces,
-    parse_missing_unit,
     prevent_pipe_inside_braces,
 )
 
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import FixCounter
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_1 import convert_numeric_keys_to_ints
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_1 import (
+    convert_numeric_keys_to_ints,
+    parse_missing_unit,
+)
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_2 import fix_language_blocks
 
 

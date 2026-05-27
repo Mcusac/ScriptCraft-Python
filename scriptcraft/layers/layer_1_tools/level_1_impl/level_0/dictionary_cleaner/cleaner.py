@@ -7,8 +7,8 @@ from scriptcraft.layers.layer_0_core.level_5 import load_tabular as load_data
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import (
     FixCounter,
     log_and_print,
-    log_fix_summary,
 )
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_2 import log_fix_summary
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_3 import parse_missing_or_unit, parse_values
 
 

@@ -3,7 +3,9 @@
 from pathlib import Path
 from typing import Any, Optional, Union
 
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import InputPaths, extension_for_language, log_and_print
+from scriptcraft.layers.layer_0_core.level_0 import InputPaths
+
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import extension_for_language, log_and_print
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_1 import run_tool_lifecycle
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_2 import run_single_file_mode
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_4 import run_batch_mode

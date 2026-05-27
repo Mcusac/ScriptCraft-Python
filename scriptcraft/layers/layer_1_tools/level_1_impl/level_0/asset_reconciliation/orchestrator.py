@@ -6,19 +6,19 @@ import pandas as pd
 
 from scriptcraft.layers.layer_0_core.level_0 import run_nodes
 
-from scriptcraft.layers.layer_1_tools.level_1_impl.level_1 import (
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_1 import (
     assert_merged,
     detect_form_duplicates,
     detect_missing,
 )
-from scriptcraft.layers.layer_1_tools.level_1_impl.level_2 import (
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_2 import (
     emit_input_debug,
     emit_merge_debug,
 )
-from scriptcraft.layers.layer_1_tools.level_1_impl.level_3 import (
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_3 import (
     MERGED_DETECTORS,
 )
-from scriptcraft.layers.layer_1_tools.level_1_impl.level_5 import (
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_4 import (
     build_device_merged,
 )
 

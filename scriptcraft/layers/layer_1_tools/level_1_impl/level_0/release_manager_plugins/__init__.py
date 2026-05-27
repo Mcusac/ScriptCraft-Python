@@ -8,11 +8,6 @@ from .pypi_plugin import (
     validate_package_files,
 )
 
-from .python_package_plugin import (
-    PythonPackageReleaseContext,
-    python_package_release_mode,
-)
-
 from .python_package_steps import (
     get_workspace_version_strategy,
     upload_to_pypi,
@@ -36,7 +31,6 @@ from .workspace_sync_plugin import (
 )
 
 __all__ = [
-    "PythonPackageReleaseContext",
     "ReleaseWorkflowRegistry",
     "WorkspaceReleaseContext",
     "WorkspaceReleasePipeline",
@@ -46,7 +40,6 @@ __all__ = [
     "get_phase_name",
     "get_workspace_version_strategy",
     "pypi_upload_mode",
-    "python_package_release_mode",
     "update_changelog",
     "update_version_file",
     "upload_to_pypi",

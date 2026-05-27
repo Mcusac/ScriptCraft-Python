@@ -1,4 +1,4 @@
-"""DataContentComparer tool implementation (level_1)."""
+"""DataContentComparer tool implementation (level_2)."""
 
 from pathlib import Path
 from typing import Any, Optional, Union

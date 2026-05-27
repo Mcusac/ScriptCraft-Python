@@ -4,23 +4,22 @@ from typing import List, Dict, Tuple, Set, Optional
 
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import OutlierMethod
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import log_and_print
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_1 import get_clean_numeric_series
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_2 import FlaggedValue, ColumnValidator, get_status_emoji
-
-# TODO: Problem Imports
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_5 import load_config # TODO: exists in two places
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_1 import load_config # TODO: exists in two places
-from scriptcraft.layers.layer_1_tools.level_1_impl.level_0 import register # TODO: Does not exist
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_1 import (
+    get_clean_numeric_series,
+    register_validator,
+)
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_5 import load_config
 
 # Load configuration
 config = load_config()
-checker_config = config.checkers.dictionary_checker
+checker_config = config.dictionary_checker
 
 class NumericValidationError(Exception):
     """Custom exception for numeric validation errors"""
     pass
 
-@register("numeric")
+@register_validator("numeric")
 class NumericValidator(ColumnValidator):
     """Plugin for numeric validation including outlier detection"""
     

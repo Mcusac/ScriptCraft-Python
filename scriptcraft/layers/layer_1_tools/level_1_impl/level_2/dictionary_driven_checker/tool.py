@@ -3,7 +3,8 @@
 from pathlib import Path
 from typing import Any, Optional, Union
 
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import InputPaths
+from scriptcraft.layers.layer_0_core.level_0 import InputPaths
+
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_1 import run_tool_lifecycle
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_2 import initialize_plugins
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_7 import BaseTool

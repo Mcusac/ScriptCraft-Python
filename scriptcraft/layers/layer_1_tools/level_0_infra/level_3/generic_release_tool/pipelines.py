@@ -13,10 +13,10 @@ from scriptcraft.layers.layer_1_tools.level_0_infra.level_1 import (
     build_docs, 
     deploy_docs,
     run_python_package_tests,
-    upload_to_pypi
+    upload_to_pypi,
+    validate_python_package,
 )
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_2 import (
-    validate_python_package,
     PipelineStep,
     StepPipelineEngine,
     create_git_tag, 

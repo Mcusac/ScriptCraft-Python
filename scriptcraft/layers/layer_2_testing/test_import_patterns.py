@@ -18,17 +18,24 @@ def test_basic_import():
     print(f"✅ Basic import works - version: {scriptcraft.__version__}")
 
 def test_common_import():
-    """Test common utilities import."""
-    import scriptcraft.common as cu
-    assert hasattr(cu, 'BaseTool')
-    assert hasattr(cu, 'Config')
-    assert hasattr(cu, 'setup_logger')
-    assert hasattr(cu, 'log_and_print')
-    print("✅ Common import works")
+    """Test canonical barrel imports for shared utilities."""
+    from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import log_and_print
+    from scriptcraft.layers.layer_1_tools.level_0_infra.level_1 import setup_logger
+    from scriptcraft.layers.layer_1_tools.level_0_infra.level_2 import Config
+    from scriptcraft.layers.layer_1_tools.level_0_infra.level_7 import BaseTool
+
+    assert BaseTool is not None
+    assert Config is not None
+    assert setup_logger is not None
+    assert log_and_print is not None
+    print("✅ Barrel imports work")
 
 def test_specific_imports():
-    """Test specific imports from common."""
-    from scriptcraft.common import BaseTool, Config, setup_logger, log_and_print
+    """Test specific imports from infra barrels."""
+    from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import log_and_print
+    from scriptcraft.layers.layer_1_tools.level_0_infra.level_1 import setup_logger
+    from scriptcraft.layers.layer_1_tools.level_0_infra.level_2 import Config
+    from scriptcraft.layers.layer_1_tools.level_0_infra.level_7 import BaseTool
     assert BaseTool is not None
     assert Config is not None
     assert setup_logger is not None
@@ -36,16 +43,12 @@ def test_specific_imports():
     print("✅ Specific imports work")
 
 def test_tool_imports():
-    """Test tool imports."""
-    from scriptcraft.layers.layer_1_tools.level_1_impl.level_0.automated_labeler import (
+    """Test tool imports via level barrels."""
+    from scriptcraft.layers.layer_1_tools.level_1_impl.level_0 import (
         AutomatedLabeler,
-    )
-    from scriptcraft.layers.layer_1_tools.level_1_impl.level_0.data_content_comparer import (
-        DataContentComparer,
-    )
-    from scriptcraft.layers.layer_1_tools.level_1_impl.level_0.rhq_form_autofiller import (
         RHQFormAutofiller,
     )
+    from scriptcraft.layers.layer_1_tools.level_1_impl.level_2 import DataContentComparer
     
     # Test instantiation
     labeler = AutomatedLabeler()
@@ -84,10 +87,10 @@ def test_pipeline_imports():
 
 def test_config_usage():
     """Test configuration usage."""
-    import scriptcraft.common as cu
+    from scriptcraft.layers.layer_1_tools.level_0_infra.level_2 import Config
     
     # Test config loading (should work with environment fallback)
-    config = cu.Config.from_yaml("nonexistent.yaml")
+    config = Config.from_yaml("nonexistent.yaml")
     assert config is not None
     
     # Test tool config access
@@ -97,14 +100,15 @@ def test_config_usage():
 
 def test_logging_usage():
     """Test logging usage."""
-    import scriptcraft.common as cu
+    from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import log_and_print
+    from scriptcraft.layers.layer_1_tools.level_0_infra.level_1 import setup_logger
     
     # Test logging setup
-    logger = cu.setup_logger("test_logger")
+    logger = setup_logger("test_logger")
     assert logger is not None
     
     # Test log and print
-    cu.log_and_print("✅ Test message")
+    log_and_print("✅ Test message")
     print("✅ Logging usage works")
 
 def run_all_tests():

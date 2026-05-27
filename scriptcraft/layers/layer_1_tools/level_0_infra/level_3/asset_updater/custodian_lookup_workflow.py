@@ -1,20 +1,20 @@
-# custodian_lookup_workflow.py — LEVEL_1
-
 from playwright.sync_api import Frame, Page
 
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import (
-    click_button,
-    click_in_frame,
-    fill_in_frame,
-    get_lookup_modal_frame,
-    wait_for_lookup_results_in_frame,
-    wait_for_modal_lookup_settled,
-    wait_for_page_load,
     CUSTODIAN_LOOKUP_BUTTON_SELECTOR,
     CUSTODIAN_SPYGLASS_BUTTON_SELECTOR,
     EMPLOYEE_ID_INPUT_SELECTOR,
     EMPLOYEE_SEARCH_RESULT_SELECTOR,
+    click_button,
+    click_in_frame,
+    fill_in_frame,
+    get_lookup_modal_frame,
+    wait_for_modal_lookup_settled,
+    wait_for_page_load,
+)
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_1 import (
     select_lookup_result,
+    wait_for_lookup_results_in_frame,
 )
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_2 import (
     complete_modal_lookup,
@@ -82,3 +82,4 @@ def complete_custodian_lookup(page: Page, employee_id: str) -> None:
         result_selector=EMPLOYEE_SEARCH_RESULT_SELECTOR,
         value=employee_id,
     )
+

@@ -1,3 +1,8 @@
-"""Auto-generated package exports (empty)."""
+"""Auto-generated package exports."""
 
-__all__: list[str] = []
+
+from .tool import ReleaseManager
+
+__all__ = [
+    "ReleaseManager",
+]

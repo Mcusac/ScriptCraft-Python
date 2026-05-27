@@ -2,9 +2,10 @@
 
 from pathlib import Path
 
+from scriptcraft.layers.layer_0_core.level_0.runtime import InputPath
+
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import (
     log_and_print,
-    InputPath,
 )
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_1 import (
     save_single_audit,

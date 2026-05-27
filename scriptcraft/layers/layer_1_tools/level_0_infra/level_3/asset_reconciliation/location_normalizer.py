@@ -2,14 +2,13 @@ import pandas as pd
 
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import DEBUG_LOCATION_PIPELINE
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_2 import (
-    normalize_whitespace,
-    normalize_building_codes,
-    strip_room_noise,
-    remove_hyphens,
-    normalize_off_campus,
     enforce_spacing,
+    normalize_building_codes,
+    normalize_off_campus,
+    normalize_whitespace,
+    remove_hyphens,
+    strip_room_noise,
 )
-
 
 _LOCATION_PIPELINE = [
     normalize_whitespace,
@@ -48,3 +47,4 @@ def normalize_location(series: pd.Series) -> pd.Series:
     _debug("FINAL", result)
 
     return result
+

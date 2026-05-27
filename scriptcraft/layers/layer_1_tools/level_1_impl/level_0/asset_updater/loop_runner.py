@@ -8,15 +8,19 @@ from typing import List
 
 from playwright.sync_api import Page
 
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_2 import (
-    set_business_unit,
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import (
+    EMPLOYEE_ID_ROW_KEYS,
+    LOCATION_CODE_ROW_KEYS,
+    TAG_NUMBER_ROW_KEYS,
+    TAG_PAD_WIDTH,
 )
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_3 import (
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_1 import (
     classify_update_row,
     tag_number_from_row,
 )
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_4 import (
     recover_to_asset_search,
+    set_business_unit,
 )
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_5 import (
     execute_asset_update_row,
@@ -43,12 +47,20 @@ def run_asset_update_loop(
     for idx, row in enumerate(dataset, start=1):
 
         try:
-            tag_number = tag_number_from_row(row)
+            tag_number = tag_number_from_row(
+                row,
+                TAG_NUMBER_ROW_KEYS,
+                pad_width=TAG_PAD_WIDTH,
+            )
         except KeyError:
             tag_number = "UNKNOWN"
 
         try:
-            update_kind = classify_update_row(row)
+            update_kind = classify_update_row(
+                row,
+                location_keys=LOCATION_CODE_ROW_KEYS,
+                employee_keys=EMPLOYEE_ID_ROW_KEYS,
+            )
         except Exception:
             update_kind = "unknown"
 

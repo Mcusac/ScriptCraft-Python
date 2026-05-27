@@ -1,6 +1,6 @@
 """CLI/pipeline entrypoint for the function auditor tool."""
 
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_6 import create_entrypoint_main
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_7 import create_entrypoint_main
 
 from scriptcraft.layers.layer_1_tools.level_1_impl.level_0 import FunctionAuditorTool
 

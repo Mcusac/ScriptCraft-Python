@@ -8,20 +8,18 @@ from scriptcraft.layers.layer_0_core.level_0 import MISSING_VALUE_STRINGS
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import log_and_print
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_2 import FlaggedValue, ColumnValidator, get_status_emoji
 
-# TODO: Problem Imports
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_5 import load_config # TODO: exists in two places
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_1 import load_config # TODO: exists in two places
-from scriptcraft.layers.layer_1_tools.level_1_impl.level_0 import register # TODO: Does not exist
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_1 import register_validator
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_5 import load_config
 
 # Load configuration
 config = load_config()
-date_config = config.checkers.dictionary_checker.date_validation
+date_config = config.dictionary_checker.get("date_validation", {})
 
 class DateValidationError(Exception):
     """Custom exception for date validation errors"""
     pass
 
-@registry.register("date")
+@register_validator("date")
 class DateValidator(ColumnValidator):
     """Plugin for date validation including format checking"""
 

@@ -1,8 +1,8 @@
 """Auto-generated package exports."""
 
 
-from .help_text import print_release_manager_help
+from .plugins import load_builtin_plugins
 
 __all__ = [
-    "print_release_manager_help",
+    "load_builtin_plugins",
 ]

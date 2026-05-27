@@ -1,11 +1,12 @@
 from pathlib import Path
 from typing import Any, Optional
 
+from scriptcraft.layers.layer_0_core.level_0 import InputPaths
+
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import (
-    InputPaths,
     OutlierMethod,
+    find_dictionary_file,
     log_and_print,
-    find_dictionary_file
 )
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_3 import (
     ensure_dataframe,

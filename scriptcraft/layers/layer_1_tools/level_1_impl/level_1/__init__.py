@@ -17,7 +17,7 @@ from . import (
     medvisit_integrity_validator,
     pypi_release_tool,
     release_manager,
-    release_manager_plugins,
+    rhq_form_autofiller,
     schema_detector,
 )
 
@@ -36,7 +36,7 @@ from .git_workspace_tool import *
 from .medvisit_integrity_validator import *
 from .pypi_release_tool import *
 from .release_manager import *
-from .release_manager_plugins import *
+from .rhq_form_autofiller import *
 from .schema_detector import *
 
 __all__ = (
@@ -55,6 +55,6 @@ __all__ = (
     + list(medvisit_integrity_validator.__all__)
     + list(pypi_release_tool.__all__)
     + list(release_manager.__all__)
-    + list(release_manager_plugins.__all__)
+    + list(rhq_form_autofiller.__all__)
     + list(schema_detector.__all__)
 )

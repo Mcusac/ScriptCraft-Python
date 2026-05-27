@@ -93,8 +93,10 @@ def get_tools_by_category() -> Dict[str, List[str]]:
     categories: Dict[str, List[str]] = {}
 
     for tool_name, metadata in all_metadata.items():
-        for tag in metadata.tags:
-            categories.setdefault(tag, []).append(tool_name)
+        labels = metadata.tags or [metadata.category]
+        for label in labels:
+            if label:
+                categories.setdefault(label, []).append(tool_name)
 
     return categories
 
