@@ -1,6 +1,6 @@
 """CLI/pipeline entrypoint for the date format standardizer tool."""
 
-from scriptcraft.layers.layer_1_tools.level_1_impl.level_0.main_common import create_entrypoint_main
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_7 import create_entrypoint_main
 
 from scriptcraft.layers.layer_1_tools.level_1_impl.level_0.date_format_standardizer.tool import DateFormatStandardizer
 

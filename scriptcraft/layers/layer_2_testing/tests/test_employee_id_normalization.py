@@ -2,12 +2,22 @@
 
 import unittest
 
-from scriptcraft.layers.layer_1_tools.level_1_impl.level_3.asset_updater import (
-    employee_id_from_row,
-    load_updater_dataset,
-    normalize_employee_id,
-    optional_employee_id_from_row,
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_3 import normalize_employee_id
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_3 import (
+    employee_id_from_row as _employee_id_from_row,
+    optional_employee_id_from_row as _optional_employee_id_from_row,
 )
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_0.asset_updater.constants import (
+    EMPLOYEE_ID_ROW_KEYS,
+)
+
+
+def employee_id_from_row(row: dict) -> str:
+    return _employee_id_from_row(row, EMPLOYEE_ID_ROW_KEYS)
+
+
+def optional_employee_id_from_row(row: dict) -> str | None:
+    return _optional_employee_id_from_row(row, EMPLOYEE_ID_ROW_KEYS)
 
 
 class TestNormalizeEmployeeId(unittest.TestCase):
@@ -29,10 +39,19 @@ class TestNormalizeEmployeeId(unittest.TestCase):
 
 class TestLoadUpdaterDatasetEmployeeIds(unittest.TestCase):
 
+    @unittest.skipUnless(
+        __import__("pathlib").Path(__file__).resolve().parents[5]
+        .joinpath("workspace", "input", "location_changes.csv").is_file(),
+        "workspace/input CSV fixtures required for integration test",
+    )
     def test_custodian_ids_loaded_without_float_suffix(self) -> None:
         from pathlib import Path
 
-        root = Path(__file__).resolve().parents[9]
+        from scriptcraft.layers.layer_1_tools.level_1_impl.level_3.asset_updater.dataset_loader import (
+            load_updater_dataset,
+        )
+
+        root = Path(__file__).resolve().parents[5]
         records = load_updater_dataset(
             root / "workspace/input/location_changes.csv",
             root / "workspace/input/custodian_changes.csv",

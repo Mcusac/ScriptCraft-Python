@@ -4,7 +4,28 @@ Low-level file operations: discovery, resolution, copy, and move.
 
 import shutil
 from pathlib import Path
-from typing import List, Optional, Union
+from typing import List, Optional, Sequence, Union
+
+_DATA_EXTENSIONS: Sequence[str] = (".csv", ".xlsx", ".xls")
+
+
+def find_first_data_file(
+    directory: Union[str, Path],
+    extensions: Sequence[str] = _DATA_EXTENSIONS,
+) -> Optional[Path]:
+    """
+    Return the first data file in *directory* matching common tabular extensions.
+    """
+    root = Path(directory)
+    if not root.is_dir():
+        return None
+
+    for extension in extensions:
+        matches = sorted(root.glob(f"*{extension}"))
+        if matches:
+            return matches[0]
+
+    return None
 
 
 def find_matching_file(

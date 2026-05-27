@@ -1,10 +1,11 @@
-"""Auto-generated aggregation exports."""
+"""Auto-generated mixed exports."""
 
 
 from . import (
     abstractions,
     cli,
     config,
+    constants,
     embeddings,
     errors,
     grid_search,
@@ -21,6 +22,7 @@ from . import (
 from .abstractions import *
 from .cli import *
 from .config import *
+from .constants import *
 from .embeddings import *
 from .errors import *
 from .grid_search import *
@@ -33,10 +35,27 @@ from .scoring import *
 from .training import *
 from .vision import *
 
+from .dataframe_diff import (
+    CoreDataFrameComparer,
+    DataFrameDiffResult,
+)
+
+from .dataframe_primitives import (
+    project_columns_available,
+    project_columns_required,
+    safe_eq,
+)
+
+from .schema_contracts import (
+    require_columns,
+    require_exact_columns,
+)
+
 __all__ = (
     list(abstractions.__all__)
     + list(cli.__all__)
     + list(config.__all__)
+    + list(constants.__all__)
     + list(embeddings.__all__)
     + list(errors.__all__)
     + list(grid_search.__all__)
@@ -48,4 +67,13 @@ __all__ = (
     + list(scoring.__all__)
     + list(training.__all__)
     + list(vision.__all__)
+    + [
+        "CoreDataFrameComparer",
+        "DataFrameDiffResult",
+        "project_columns_available",
+        "project_columns_required",
+        "require_columns",
+        "require_exact_columns",
+        "safe_eq",
+    ]
 )

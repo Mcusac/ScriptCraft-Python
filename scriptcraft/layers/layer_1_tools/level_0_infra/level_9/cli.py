@@ -9,7 +9,7 @@ from scriptcraft._version import get_version
 
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_2.root_schema import Config
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_2.pipeline_base import BasePipeline
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_2.pipeline_base import StepPipelineEngine
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_8.registry import unified_registry
 
 
@@ -138,7 +138,7 @@ def handle_direct_command(command_name: str) -> None:
         if hasattr(config, "pipelines") and command_name in config.pipelines:
             log_and_print(f"🚀 Running pipeline: {command_name}")
 
-            pipeline = BasePipeline(config, command_name)
+            pipeline = StepPipelineEngine(config, command_name)
             success = pipeline.run()
 
             if success:

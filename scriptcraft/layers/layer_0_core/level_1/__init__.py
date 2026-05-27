@@ -11,6 +11,7 @@ from . import (
     io,
     ontology,
     pipelines,
+    processing,
     protein,
     runtime,
     search,
@@ -26,6 +27,7 @@ from .guards import *
 from .io import *
 from .ontology import *
 from .pipelines import *
+from .processing import *
 from .protein import *
 from .runtime import *
 from .search import *
@@ -41,6 +43,7 @@ __all__ = (
     + list(io.__all__)
     + list(ontology.__all__)
     + list(pipelines.__all__)
+    + list(processing.__all__)
     + list(protein.__all__)
     + list(runtime.__all__)
     + list(search.__all__)

@@ -105,7 +105,9 @@ if scriptcraft_path.exists():
     sys.path.insert(0, str(scriptcraft_path))
 
 try:
-    from scriptcraft.tools.git_workspace_tool import GitWorkspaceTool
+    from scriptcraft.layers.layer_1_tools.level_1_impl.level_0.git_workspace_tool import (
+        GitWorkspaceTool,
+    )
     from scriptcraft.common.logging import log_and_print
     log_and_print("🚀 ScriptCraft tools loaded successfully!")
     

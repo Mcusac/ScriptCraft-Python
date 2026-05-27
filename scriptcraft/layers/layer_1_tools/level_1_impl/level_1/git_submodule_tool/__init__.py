@@ -1,18 +1,8 @@
 """Auto-generated package exports."""
 
 
-from .operations import (
-    SubmodulePrecheck,
-    pull_submodules,
-    push_submodules,
-    sync_submodules,
-    update_submodules,
-)
+from .cli import build_parser
 
 __all__ = [
-    "SubmodulePrecheck",
-    "pull_submodules",
-    "push_submodules",
-    "sync_submodules",
-    "update_submodules",
+    "build_parser",
 ]

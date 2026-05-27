@@ -135,7 +135,7 @@ class DataFrameComparer:
     # ==== Column Comparison ====
 
     @handle_comparison_errors
-    def compare_columns(self) -> ComparisonResult:
+    def compare_dataframe_columns(self) -> ComparisonResult:
 
         cols_a = (
             set(self.df1.columns)
@@ -354,7 +354,7 @@ class DataFrameComparer:
         ]
 
         column_results = (
-            self.compare_columns()
+            self.compare_dataframe_columns()
             if "columns" in steps
             else ComparisonResult(
                 common=set(),

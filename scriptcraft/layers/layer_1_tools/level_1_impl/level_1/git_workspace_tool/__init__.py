@@ -1,8 +1,8 @@
 """Auto-generated package exports."""
 
 
-from .tool import GitWorkspaceTool
+from .cli import build_parser
 
 __all__ = [
-    "GitWorkspaceTool",
+    "build_parser",
 ]

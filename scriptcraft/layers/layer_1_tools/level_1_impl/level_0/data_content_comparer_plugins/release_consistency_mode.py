@@ -2,14 +2,18 @@
 Pipeline orchestration layer.
 """
 
+from typing import Any
 import pandas as pd
 
 from pathlib import Path
 
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.release_consistency_mode.comparison_engine import build_pivot, diff_block, diff_filtered
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_1.release_consistency_mode.dataset_preparation import prepare_dataset
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_1.release_consistency_mode.dtype_alignment import align_dtypes
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_1.release_consistency_mode.reporting import write_csv, column_changes
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import build_pivot, diff_block, diff_filtered
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_1 import (
+    prepare_dataset,
+    align_dtypes,
+    column_changes,
+    write_csv,
+)
 
 
 def run_comparison(
@@ -20,9 +24,9 @@ def run_comparison(
     mode: str,
     old_label: str,
     new_label: str,
-    config=None,
-    debug=False,
-):
+    config: Any = None,
+    debug: bool = False,
+) -> None:
     df_old, df_new, missing = prepare_dataset(df_old, df_new, config, dataset)
 
     if debug:
@@ -35,6 +39,8 @@ def run_comparison(
 
     write_csv(result, output, dataset, f"{len(result)} rows written")
 
-    column_changes(set(df_old.columns) - set(df_new.columns),
-                   set(df_new.columns) - set(df_old.columns),
-                   dataset)
+    column_changes(
+        set(df_old.columns) - set(df_new.columns),
+        set(df_new.columns) - set(df_old.columns),
+        dataset,
+    )

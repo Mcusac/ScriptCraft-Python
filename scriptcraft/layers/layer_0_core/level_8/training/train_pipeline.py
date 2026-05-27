@@ -4,7 +4,7 @@ from pathlib import Path
 from typing import Any, Dict
 
 from scriptcraft.layers.layer_0_core.level_0 import ensure_dir, get_logger
-from scriptcraft.layers.layer_0_core.level_1 import BasePipeline, get_device, validate_config_section_exists
+from scriptcraft.layers.layer_0_core.level_1 import LifecyclePipelineBase, get_device, validate_config_section_exists
 from scriptcraft.layers.layer_0_core.level_2 import create_loss_function, create_optimizer, create_scheduler
 from scriptcraft.layers.layer_0_core.level_4 import create_dataloaders, create_vision_model, save_pickle
 from scriptcraft.layers.layer_0_core.level_5 import VisionTrainer
@@ -13,7 +13,7 @@ from scriptcraft.layers.layer_0_core.level_7 import create_tabular_model
 _logger = get_logger(__name__)
 
 
-class TrainPipeline(BasePipeline):
+class TrainPipeline(LifecyclePipelineBase):
     """
     Atomic pipeline for training models.
 

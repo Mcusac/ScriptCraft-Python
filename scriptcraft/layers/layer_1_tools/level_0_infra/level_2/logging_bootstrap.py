@@ -1,11 +1,13 @@
-import yaml
 import logging
+import yaml
 
 from pathlib import Path
 from typing import Optional
 
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.logging_primitives import LogConfig
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_1.paths import get_project_root, LOG_LEVEL
+from scriptcraft.layers.layer_0_core.level_0 import setup_logging
+
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import LogConfig
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_1.paths import LOG_LEVEL, get_project_root
 
 
 def _load_verbose_mode(config_file: Path, default: bool) -> Optional[bool]:
@@ -25,6 +27,7 @@ def build_log_config() -> LogConfig:
     """
     Central bootstrap for LogConfig (keeps precedence logic intact)
     """
+    setup_logging(level=LOG_LEVEL)
 
     config = LogConfig(
         log_level=getattr(logging, LOG_LEVEL.upper(), logging.INFO),

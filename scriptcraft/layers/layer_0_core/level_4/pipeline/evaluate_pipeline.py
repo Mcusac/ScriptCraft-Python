@@ -7,7 +7,7 @@ from typing import Dict, Any, Optional
 from pathlib import Path
 
 from scriptcraft.layers.layer_0_core.level_0 import ensure_dir, get_logger
-from scriptcraft.layers.layer_0_core.level_1 import BasePipeline, validate_config_section_exists
+from scriptcraft.layers.layer_0_core.level_1 import LifecyclePipelineBase, validate_config_section_exists
 from scriptcraft.layers.layer_0_core.level_3 import (
     calculate_f1,
     calculate_precision,
@@ -19,7 +19,7 @@ from scriptcraft.layers.layer_0_core.level_3 import (
 _logger = get_logger(__name__)
 
 
-class EvaluatePipeline(BasePipeline):
+class EvaluatePipeline(LifecyclePipelineBase):
     """
     Atomic pipeline for evaluating models.
     

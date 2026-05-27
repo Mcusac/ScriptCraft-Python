@@ -5,19 +5,15 @@ from . import dictionary_driven_checker_plugins
 
 from .dictionary_driven_checker_plugins import *
 
-from .pipeline_utils import (
-    add_supplement_steps,
-    list_pipelines,
-    make_step,
-    preview_pipeline,
-    run_global_tool,
-    run_pipeline,
-    run_pipeline_from_steps,
-    run_qc_for_each_domain,
-    run_qc_for_single_domain,
-    run_qc_single_step,
-    timed_pipeline,
-    validate_pipelines,
+from .custom_release_script import (
+    CustomReleaseManager,
+    logger,
+)
+
+from .development_usage import (
+    example_1_cli_approach,
+    example_2_pipeline_approach,
+    example_3_individual_tools,
 )
 
 from .setup_scriptcraft_in_project import (
@@ -32,23 +28,16 @@ from .setup_scriptcraft_in_project import (
 __all__ = (
     list(dictionary_driven_checker_plugins.__all__)
     + [
-        "add_supplement_steps",
+        "CustomReleaseManager",
         "check_pip_installation",
         "copy_scriptcraft_tools",
         "create_example_script",
+        "example_1_cli_approach",
+        "example_2_pipeline_approach",
+        "example_3_individual_tools",
         "install_via_pip",
-        "list_pipelines",
         "log",
-        "make_step",
-        "preview_pipeline",
-        "run_global_tool",
-        "run_pipeline",
-        "run_pipeline_from_steps",
-        "run_qc_for_each_domain",
-        "run_qc_for_single_domain",
-        "run_qc_single_step",
+        "logger",
         "setup_git_submodule",
-        "timed_pipeline",
-        "validate_pipelines",
     ]
 )

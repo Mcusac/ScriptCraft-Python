@@ -1,13 +1,14 @@
-# scripts/common/tool_runner.py
-
 import argparse
 
 from typing import Optional, Callable, List
 
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import  log_and_print
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_1.paths import get_project_root, resolve_path, get_legacy_config
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_3.logging_utils import setup_logging_with_timestamp
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_6.argument_parsers import ArgumentValidator
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import log_and_print
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_1 import get_project_root, resolve_path
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_2 import get_legacy_config
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_3.logging_utils import (
+    setup_logging_with_timestamp,
+)
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_6 import ArgumentValidator
 
 
 def run_tool(logic_func: Callable, args: Optional[List[str]] = None, **kwargs) -> None:

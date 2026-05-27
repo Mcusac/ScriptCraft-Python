@@ -3,11 +3,14 @@
 import unittest
 from unittest.mock import MagicMock, patch
 
-from scriptcraft.layers.layer_1_tools.level_1_impl.level_0 import (
-    browser_actions as ba,
-    constants as c,
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.browser.frame.probe import (
+    is_ptmod_frame,
 )
-from scriptcraft.layers.layer_1_tools.level_1_impl.level_1.asset_updater.loop_recovery_workflow import (
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_0 import (
+    constants as c,
+    is_open_lookup_modal_frame,
+)
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_4 import (
     is_on_asset_search_page,
     recover_to_asset_search,
     wait_for_asset_search_page,
@@ -20,15 +23,15 @@ class TestFrameHelpers(unittest.TestCase):
         frame = MagicMock()
         frame.name = "ptModFrame_0"
         frame.url = ""
-        self.assertTrue(ba._is_ptmod_frame(frame))
+        self.assertTrue(is_ptmod_frame(frame))
 
         frame.name = ""
         frame.url = "https://example.com/ptModFrame/iscript"
-        self.assertTrue(ba._is_ptmod_frame(frame))
+        self.assertTrue(is_ptmod_frame(frame))
 
         frame.name = "main"
         frame.url = "https://example.com/"
-        self.assertFalse(ba._is_ptmod_frame(frame))
+        self.assertFalse(is_ptmod_frame(frame))
 
     def test_open_lookup_modal_requires_ptmod_and_anchor(self) -> None:
         frame = MagicMock()
@@ -36,18 +39,18 @@ class TestFrameHelpers(unittest.TestCase):
         frame.url = ""
         frame.query_selector.return_value = MagicMock()
         self.assertTrue(
-            ba.is_open_lookup_modal_frame(frame),
+            is_open_lookup_modal_frame(frame),
         )
 
         frame.name = "main"
-        self.assertFalse(ba.is_open_lookup_modal_frame(frame))
+        self.assertFalse(is_open_lookup_modal_frame(frame))
 
 
 class TestIsOnAssetSearchPage(unittest.TestCase):
 
     @patch(
-        "scriptcraft.layers.layer_1_tools.level_1_impl.level_1."
-        "asset_updater.loop_recovery_workflow.ba.selector_exists"
+        "scriptcraft.layers.layer_1_tools.level_1_impl.level_4."
+        "asset_updater.loop_recovery_workflow.selector_exists"
     )
     def test_false_when_update_submit_visible(
         self,
@@ -62,8 +65,8 @@ class TestIsOnAssetSearchPage(unittest.TestCase):
         self.assertFalse(is_on_asset_search_page(page))
 
     @patch(
-        "scriptcraft.layers.layer_1_tools.level_1_impl.level_1."
-        "asset_updater.loop_recovery_workflow.ba.selector_exists"
+        "scriptcraft.layers.layer_1_tools.level_1_impl.level_4."
+        "asset_updater.loop_recovery_workflow.selector_exists"
     )
     def test_true_when_search_fields_present(
         self,
@@ -86,7 +89,7 @@ class TestIsOnAssetSearchPage(unittest.TestCase):
 class TestWaitForAssetSearchPage(unittest.TestCase):
 
     @patch(
-        "scriptcraft.layers.layer_1_tools.level_1_impl.level_1."
+        "scriptcraft.layers.layer_1_tools.level_1_impl.level_4."
         "asset_updater.loop_recovery_workflow.is_on_asset_search_page"
     )
     def test_polls_until_ready(
@@ -105,23 +108,23 @@ class TestWaitForAssetSearchPage(unittest.TestCase):
 class TestRecoverToAssetSearch(unittest.TestCase):
 
     @patch(
-        "scriptcraft.layers.layer_1_tools.level_1_impl.level_1."
+        "scriptcraft.layers.layer_1_tools.level_1_impl.level_4."
         "asset_updater.loop_recovery_workflow.prepare_search_for_next_row"
     )
     @patch(
-        "scriptcraft.layers.layer_1_tools.level_1_impl.level_1."
+        "scriptcraft.layers.layer_1_tools.level_1_impl.level_4."
         "asset_updater.loop_recovery_workflow.wait_for_asset_search_page"
     )
     @patch(
-        "scriptcraft.layers.layer_1_tools.level_1_impl.level_1."
-        "asset_updater.loop_recovery_workflow.ba.click_ok_if_present"
+        "scriptcraft.layers.layer_1_tools.level_1_impl.level_4."
+        "asset_updater.loop_recovery_workflow.click_ok_if_present"
     )
     @patch(
-        "scriptcraft.layers.layer_1_tools.level_1_impl.level_1."
-        "asset_updater.loop_recovery_workflow.ba.selector_exists"
+        "scriptcraft.layers.layer_1_tools.level_1_impl.level_4."
+        "asset_updater.loop_recovery_workflow.selector_exists"
     )
     @patch(
-        "scriptcraft.layers.layer_1_tools.level_1_impl.level_1."
+        "scriptcraft.layers.layer_1_tools.level_1_impl.level_4."
         "asset_updater.loop_recovery_workflow._dismiss_lookup_modals"
     )
     def test_returns_true_without_goto_when_poll_succeeds(
@@ -142,27 +145,27 @@ class TestRecoverToAssetSearch(unittest.TestCase):
         page.goto.assert_not_called()
 
     @patch(
-        "scriptcraft.layers.layer_1_tools.level_1_impl.level_1."
+        "scriptcraft.layers.layer_1_tools.level_1_impl.level_4."
         "asset_updater.loop_recovery_workflow._try_goto_asset_search"
     )
     @patch(
-        "scriptcraft.layers.layer_1_tools.level_1_impl.level_1."
+        "scriptcraft.layers.layer_1_tools.level_1_impl.level_4."
         "asset_updater.loop_recovery_workflow.wait_for_asset_search_page"
     )
     @patch(
-        "scriptcraft.layers.layer_1_tools.level_1_impl.level_1."
+        "scriptcraft.layers.layer_1_tools.level_1_impl.level_4."
         "asset_updater.loop_recovery_workflow.return_to_search_after_failure"
     )
     @patch(
-        "scriptcraft.layers.layer_1_tools.level_1_impl.level_1."
-        "asset_updater.loop_recovery_workflow.ba.click_ok_if_present"
+        "scriptcraft.layers.layer_1_tools.level_1_impl.level_4."
+        "asset_updater.loop_recovery_workflow.click_ok_if_present"
     )
     @patch(
-        "scriptcraft.layers.layer_1_tools.level_1_impl.level_1."
-        "asset_updater.loop_recovery_workflow.ba.selector_exists"
+        "scriptcraft.layers.layer_1_tools.level_1_impl.level_4."
+        "asset_updater.loop_recovery_workflow.selector_exists"
     )
     @patch(
-        "scriptcraft.layers.layer_1_tools.level_1_impl.level_1."
+        "scriptcraft.layers.layer_1_tools.level_1_impl.level_4."
         "asset_updater.loop_recovery_workflow._dismiss_lookup_modals"
     )
     def test_no_goto_when_return_button_still_visible(
@@ -185,27 +188,27 @@ class TestRecoverToAssetSearch(unittest.TestCase):
         page.goto.assert_not_called()
 
     @patch(
-        "scriptcraft.layers.layer_1_tools.level_1_impl.level_1."
+        "scriptcraft.layers.layer_1_tools.level_1_impl.level_4."
         "asset_updater.loop_recovery_workflow.prepare_search_for_next_row"
     )
     @patch(
-        "scriptcraft.layers.layer_1_tools.level_1_impl.level_1."
+        "scriptcraft.layers.layer_1_tools.level_1_impl.level_4."
         "asset_updater.loop_recovery_workflow.wait_for_asset_search_page"
     )
     @patch(
-        "scriptcraft.layers.layer_1_tools.level_1_impl.level_1."
+        "scriptcraft.layers.layer_1_tools.level_1_impl.level_4."
         "asset_updater.loop_recovery_workflow.return_to_search_after_failure"
     )
     @patch(
-        "scriptcraft.layers.layer_1_tools.level_1_impl.level_1."
-        "asset_updater.loop_recovery_workflow.ba.click_ok_if_present"
+        "scriptcraft.layers.layer_1_tools.level_1_impl.level_4."
+        "asset_updater.loop_recovery_workflow.click_ok_if_present"
     )
     @patch(
-        "scriptcraft.layers.layer_1_tools.level_1_impl.level_1."
-        "asset_updater.loop_recovery_workflow.ba.selector_exists"
+        "scriptcraft.layers.layer_1_tools.level_1_impl.level_4."
+        "asset_updater.loop_recovery_workflow.selector_exists"
     )
     @patch(
-        "scriptcraft.layers.layer_1_tools.level_1_impl.level_1."
+        "scriptcraft.layers.layer_1_tools.level_1_impl.level_4."
         "asset_updater.loop_recovery_workflow._dismiss_lookup_modals"
     )
     def test_uses_fast_return_to_search_path(

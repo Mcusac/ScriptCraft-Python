@@ -1,8 +1,9 @@
 from pathlib import Path
 from typing import Optional, Union
 
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_1.environment_resolver import EnvironmentResolver
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_6.argument_parsers import ArgumentValidator
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_1.environment_resolver import (
+    EnvironmentResolver,
+)
 
 
 class EnvironmentMixin:
@@ -18,6 +19,10 @@ class EnvironmentMixin:
         self,
         output_dir: Optional[Union[str, Path]] = None,
     ) -> Path:
+        from scriptcraft.layers.layer_1_tools.level_0_infra.level_6 import (
+            ArgumentValidator,
+        )
+
         path = EnvironmentResolver.resolve_output_directory(output_dir, self.config)
         ArgumentValidator.ensure_output_dir(path)
         return path

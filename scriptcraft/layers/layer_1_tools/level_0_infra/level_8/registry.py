@@ -1,14 +1,10 @@
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Type, Union
 
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.typed_plugin_store import get_typed_plugin
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_1.metadata import (
-    ToolMetadata,
-    PluginMetadata,
-)
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_7.base_tool import BaseTool
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_7.discovery import ToolDiscoveryEngine
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import log_and_print
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_1 import ToolMetadata
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_7 import BaseTool
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_7 import ToolDiscoveryEngine
 
 
 class UnifiedRegistry:
@@ -18,8 +14,7 @@ class UnifiedRegistry:
     Responsibilities:
     - Tool lifecycle (class + instance caching)
     - Tool discovery coordination
-    - Plugin registration/access
-    - Metadata storage
+    - Tool metadata storage
     """
 
     def __init__(self) -> None:
@@ -29,12 +24,6 @@ class UnifiedRegistry:
         self._tools: Dict[str, Type[BaseTool]] = {}
         self._tool_instances: Dict[str, BaseTool] = {}
         self._tool_metadata: Dict[str, ToolMetadata] = {}
-
-        # -------------------------
-        # PLUGIN REGISTRY
-        # -------------------------
-        self._plugins: Dict[str, Dict[str, Any]] = {}
-        self._plugin_metadata: Dict[str, PluginMetadata] = {}
 
         # -------------------------
         # DISCOVERY STATE
@@ -54,8 +43,8 @@ class UnifiedRegistry:
     ) -> Dict[str, Type[BaseTool]]:
 
         if paths is None:
-            base = Path(__file__).parent.parent.parent
-            paths = [base / "tools"]
+            impl_root = Path(__file__).resolve().parents[2] / "level_1_impl" / "level_0"
+            paths = [impl_root]
 
         self._discovery_paths = paths
         found = self._engine.discover_tools(paths)
@@ -139,50 +128,6 @@ class UnifiedRegistry:
 
         log_and_print(f"🔧 Registered tool: {name}")
 
-    def register_plugin(
-        self,
-        plugin_type: str,
-        name: str,
-        plugin_class: Type,
-        metadata: Optional[Dict[str, Any]] = None
-    ) -> None:
-
-        self._plugins.setdefault(plugin_type, {})[name] = plugin_class
-
-        if metadata:
-            self._plugin_metadata[name] = PluginMetadata(
-                name=name,
-                plugin_type=plugin_type,
-                description=metadata.get("description", ""),
-                version=metadata.get("version", "0.0.0"),
-                tags=metadata.get("tags", []),
-                metadata=metadata,
-            )
-
-        log_and_print(f"🔌 Registered plugin [{plugin_type}]: {name}")
-
-    # ============================================================
-    # PLUGIN ACCESS LAYER
-    # ============================================================
-
-    def get_plugin(self, plugin_type: str, name: str):
-        return get_typed_plugin(self._plugins, plugin_type, name)
-
-    def list_plugins(
-        self,
-        plugin_type: Optional[str] = None
-    ) -> Dict[str, List[str]]:
-
-        if plugin_type:
-            return {
-                plugin_type: list(self._plugins.get(plugin_type, {}).keys())
-            }
-
-        return {
-            pt: list(plugins.keys())
-            for pt, plugins in self._plugins.items()
-        }
-
     # ============================================================
     # LIFECYCLE CONTROL
     # ============================================================
@@ -201,3 +146,16 @@ class UnifiedRegistry:
 
         if self._auto_discover:
             self.discover_tools()
+
+    def get_available_tools(self) -> Dict[str, Type[BaseTool]]:
+        if not self._discovered and self._auto_discover:
+            self.discover_tools()
+        return dict(self._tools)
+
+
+unified_registry = UnifiedRegistry()
+
+
+def get_available_tools() -> Dict[str, Type[BaseTool]]:
+    """Module-level helper for barrels and tool_registry imports."""
+    return unified_registry.get_available_tools()

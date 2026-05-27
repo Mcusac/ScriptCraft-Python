@@ -8,7 +8,7 @@ Single responsibility:
 from typing import Any, Dict, Optional
 
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_2.root_schema import get_config
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_5.config import get_config
 
 
 def _root() -> Dict[str, Any]:

@@ -4,10 +4,12 @@
 from . import (
     integration,
     performance,
+    unit,
 )
 
 from .integration import *
 from .performance import *
+from .unit import *
 
 from .conftest import (
     PACKAGE_PATH,
@@ -44,6 +46,7 @@ from .validate_before_upload import (
 __all__ = (
     list(integration.__all__)
     + list(performance.__all__)
+    + list(unit.__all__)
     + [
         "PACKAGE_PATH",
         "TestRunner",

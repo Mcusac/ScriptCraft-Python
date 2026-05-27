@@ -13,8 +13,9 @@ from typing import Union, Tuple, List, Any, Optional
 from dataclasses import dataclass
 from abc import abstractmethod
 
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_1.plugin_registry import PluginBase
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import log_and_print
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_1 import PluginBase
+
 
 # ==== 🏷️ Validation Result Types ====
 
@@ -155,20 +156,3 @@ def auto_resolve_input_files(
     log_and_print(f"📂 Auto-resolved input files: {', '.join(str(f) for f in selected_files)}")
     return selected_files
 
-
-def validate_required_columns(df: pd.DataFrame, required_cols: List[str]) -> bool:
-    """
-    Check if DataFrame has all required columns.
-    
-    Args:
-        df: DataFrame to check
-        required_cols: List of required column names
-    
-    Returns:
-        True if all required columns present, False otherwise
-    """
-    missing = set(required_cols) - set(df.columns)
-    if missing:
-        log_and_print(f"❌ Missing required columns: {missing}", level="error")
-        return False
-    return True

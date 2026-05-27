@@ -1,22 +1,3 @@
-"""Auto-generated package exports."""
+"""Auto-generated package exports (empty)."""
 
-
-from .protocols import (
-    DomainLoopTool,
-    DomainProcessor,
-    InputValidation,
-    OutputResolver,
-    PathLike,
-    ProcessDomainTool,
-    ToolLifecycle,
-)
-
-__all__ = [
-    "DomainLoopTool",
-    "DomainProcessor",
-    "InputValidation",
-    "OutputResolver",
-    "PathLike",
-    "ProcessDomainTool",
-    "ToolLifecycle",
-]
+__all__: list[str] = []

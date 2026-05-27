@@ -18,6 +18,8 @@ from .named_registry import (
 
 from .pipeline_result import PipelineResult
 
+from .typed_plugin_store import get_typed_plugin
+
 __all__ = [
     "EnsemblingMethod",
     "GridSearchContext",
@@ -27,4 +29,5 @@ __all__ = [
     "NamedRegistry",
     "PipelineResult",
     "build_unknown_key_error",
+    "get_typed_plugin",
 ]

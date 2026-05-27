@@ -10,11 +10,11 @@ Design goals:
 - Minimal, testable surface area
 - Clear separation between queries (read) and commands (write)
 """
-import subprocess
-
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Optional, List
+from typing import List, Optional
+
+from scriptcraft.layers.layer_0_core.level_1 import run_command
 
 
 @dataclass(frozen=True)
@@ -39,17 +39,11 @@ class GitService:
     # ---------------------------------------------------------------------
 
     def _run(self, args: List[str]) -> GitResult:
-        result = subprocess.run(
-            args,
-            cwd=str(self.repo_root),
-            capture_output=True,
-            text=True,
-        )
-
+        result = run_command(args, check=False, cwd=self.repo_root)
         return GitResult(
-            returncode=result.returncode,
-            stdout=result.stdout or "",
-            stderr=result.stderr or "",
+            returncode=int(result["returncode"]),
+            stdout=result.get("stdout") or "",
+            stderr=result.get("stderr") or "",
         )
 
     def _run_git(self, command: str) -> GitResult:

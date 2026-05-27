@@ -2,10 +2,18 @@
 
 import unittest
 
-from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.level_3.row_executor import (
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_3 import (
     normalize_tag_number,
     tag_number_from_row,
 )
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_0.asset_updater.constants import (
+    TAG_NUMBER_ROW_KEYS,
+    TAG_PAD_WIDTH,
+)
+
+
+def _tag_from_row(row: dict) -> str:
+    return tag_number_from_row(row, TAG_NUMBER_ROW_KEYS, pad_width=TAG_PAD_WIDTH)
 
 
 class TestNormalizeTagNumber(unittest.TestCase):
@@ -27,19 +35,19 @@ class TestTagNumberFromRow(unittest.TestCase):
 
     def test_row_six_digit_tag(self) -> None:
         row = {"tag": "302382"}
-        self.assertEqual(tag_number_from_row(row), "302382")
+        self.assertEqual(_tag_from_row(row), "302382")
 
     def test_row_float_string_tag(self) -> None:
         row = {"tag": "302382.0"}
-        self.assertEqual(tag_number_from_row(row), "302382")
+        self.assertEqual(_tag_from_row(row), "302382")
 
     def test_row_eight_digit_tag(self) -> None:
         row = {"tag": "00041159"}
-        self.assertEqual(tag_number_from_row(row), "00041159")
+        self.assertEqual(_tag_from_row(row), "00041159")
 
     def test_row_short_tag(self) -> None:
         row = {"tag": "47072"}
-        self.assertEqual(tag_number_from_row(row), "00047072")
+        self.assertEqual(_tag_from_row(row), "00047072")
 
 
 if __name__ == "__main__":

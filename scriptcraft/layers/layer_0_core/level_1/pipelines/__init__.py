@@ -8,14 +8,12 @@ from .orchestration import (
 )
 
 from .pipeline_shells import (
-    BasePipeline,
     TwoStageValidateFirstPipelineResultShell,
     ValidateFirstPipelineResultShell,
     ValidateFirstRunner,
 )
 
 __all__ = [
-    "BasePipeline",
     "TwoStageValidateFirstPipelineResultShell",
     "ValidateFirstPipelineResultShell",
     "ValidateFirstRunner",

@@ -2,7 +2,7 @@
 
 import unittest
 
-from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.level_0.browser_actions import (
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import (
     format_location_for_lookup,
 )
 

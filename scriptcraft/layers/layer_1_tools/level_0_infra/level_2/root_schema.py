@@ -5,11 +5,14 @@ from typing import Any, Dict, List, Optional
 
 from scriptcraft._version import get_version
 
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.logging_config_model import LogConfig
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.paths_schema import PathConfig
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.workspace_schema import WorkspaceConfig
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.path_resolver import PathResolver
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_1.framework_schema import FrameworkConfig
+from scriptcraft.layers.layer_0_core.level_0 import LogConfigModel
+
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import (
+    PathResolver,
+    PathConfig,
+    WorkspaceConfig,
+)
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_1 import FrameworkConfig
 
 @dataclass
 class Config:
@@ -29,7 +32,7 @@ class Config:
     paths: PathConfig = field(default_factory=PathConfig, init=False)
     domains: List[str] = field(default_factory=list, init=False)
     dictionary_checker: Dict[str, Any] = field(default_factory=dict, init=False)
-    logging: LogConfig = field(default_factory=LogConfig, init=False)
+    logging: LogConfigModel = field(default_factory=LogConfigModel, init=False)
     template: Dict[str, Any] = field(default_factory=dict, init=False)
 
     project_name: str = "Release Workspace"
@@ -52,4 +55,4 @@ class Config:
             self.paths = PathConfig(**self.workspace.paths)
 
         if self.workspace.logging:
-            self.logging = LogConfig(**self.workspace.logging)
+            self.logging = LogConfigModel(**self.workspace.logging)

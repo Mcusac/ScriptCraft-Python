@@ -3,8 +3,10 @@ import sys
 
 from pathlib import Path
 
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_1.release_pipelines.utils import build_context
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import log_and_print
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import (
+    ReleasePipelineContext,
+)
 
 def build_docs(**kwargs) -> None:
     log_and_print("📚 Building documentation...")
@@ -28,7 +30,15 @@ def build_docs(**kwargs) -> None:
 
 
 def deploy_docs(**kwargs) -> None:
-    ctx = build_context(**kwargs)
+    ctx = ReleasePipelineContext(
+        version=kwargs.get("version", "0.0.0"),
+        dry_run=kwargs.get("dry_run", False),
+        repo_root=kwargs.get("repo_root"),
+        package_root=kwargs.get("package_root"),
+        docs_root=kwargs.get("docs_root"),
+        timestamp=kwargs.get("timestamp"),
+        extras=kwargs,
+    )
 
     log_and_print("🚀 Deploying documentation...")
 

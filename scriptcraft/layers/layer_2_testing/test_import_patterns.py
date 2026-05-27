@@ -37,9 +37,15 @@ def test_specific_imports():
 
 def test_tool_imports():
     """Test tool imports."""
-    from scriptcraft.tools.automated_labeler import AutomatedLabeler
-    from scriptcraft.tools.data_content_comparer import DataContentComparer
-    from scriptcraft.tools.rhq_form_autofiller import RHQFormAutofiller
+    from scriptcraft.layers.layer_1_tools.level_1_impl.level_0.automated_labeler import (
+        AutomatedLabeler,
+    )
+    from scriptcraft.layers.layer_1_tools.level_1_impl.level_0.data_content_comparer import (
+        DataContentComparer,
+    )
+    from scriptcraft.layers.layer_1_tools.level_1_impl.level_0.rhq_form_autofiller import (
+        RHQFormAutofiller,
+    )
     
     # Test instantiation
     labeler = AutomatedLabeler()
@@ -53,20 +59,26 @@ def test_tool_imports():
 
 def test_tool_discovery():
     """Test tool discovery."""
-    from scriptcraft.tools import get_available_tools, list_tools_by_category
-    
+    from scriptcraft.layers.layer_1_tools.level_0_infra.level_2 import (
+        get_tools_by_category,
+    )
+    from scriptcraft.layers.layer_1_tools.level_0_infra.level_8 import get_available_tools
+
     tools = get_available_tools()
     assert len(tools) > 0
-    
-    categories = list_tools_by_category()
+
+    categories = get_tools_by_category()
     assert len(categories) > 0
     
     print(f"✅ Tool discovery works - {len(tools)} tools found")
 
 def test_pipeline_imports():
     """Test pipeline imports."""
-    from scriptcraft.pipelines import BasePipeline, PipelineStep
-    assert BasePipeline is not None
+    from scriptcraft.layers.layer_1_tools.level_0_infra.level_2 import (
+        PipelineStep,
+        StepPipelineEngine,
+    )
+    assert StepPipelineEngine is not None
     assert PipelineStep is not None
     print("✅ Pipeline imports work")
 

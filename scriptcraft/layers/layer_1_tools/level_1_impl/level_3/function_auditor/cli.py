@@ -2,22 +2,26 @@
 import argparse
 import sys
 
-from scriptcraft.layers.layer_1_tools.level_1_impl.level_1.function_auditor.auditor import FunctionAuditor
-from scriptcraft.layers.layer_1_tools.level_1_impl.level_2.function_auditor.batch import BatchFunctionAuditor
+from pathlib import Path
+
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_6 import build_arg_parser, run_cli_and_exit
+
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_0 import (
+    FunctionAuditorTool,
+)
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(
+    parser = build_arg_parser(
         description="Function Usage Audit Tool",
-        formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  python -m scriptcraft.layers.layer_1_pypi.level_1_impl.level_0.function_auditor.cli file.gd
-  python -m scriptcraft.layers.layer_1_pypi.level_1_impl.level_0.function_auditor.cli --batch --all
-  python -m scriptcraft.layers.layer_1_pypi.level_1_impl.level_0.function_auditor.cli --batch --folder scripts/Managers
-  python -m scriptcraft.layers.layer_1_pypi.level_1_impl.level_0.function_auditor.cli --batch --pattern "**/*Manager*.gd"
-  python -m scriptcraft.layers.layer_1_pypi.level_1_impl.level_0.function_auditor.cli --batch --extension py --base-folder src
-  python -m scriptcraft.layers.layer_1_pypi.level_1_impl.level_0.function_auditor.cli --batch --all --detailed-unused
+  python -m scriptcraft.layers.layer_1_tools.level_1_impl.level_3.function_auditor.cli file.gd
+  python -m scriptcraft.layers.layer_1_tools.level_1_impl.level_3.function_auditor.cli --batch --all
+  python -m scriptcraft.layers.layer_1_tools.level_1_impl.level_3.function_auditor.cli --batch --folder scripts/Managers
+  python -m scriptcraft.layers.layer_1_tools.level_1_impl.level_3.function_auditor.cli --batch --pattern "**/*Manager*.gd"
+  python -m scriptcraft.layers.layer_1_tools.level_1_impl.level_3.function_auditor.cli --batch --extension py --base-folder src
+  python -m scriptcraft.layers.layer_1_tools.level_1_impl.level_3.function_auditor.cli --batch --all --detailed-unused
         """,
     )
 
@@ -43,53 +47,59 @@ Examples:
     return parser
 
 
+def resolve_batch_target(args: argparse.Namespace, batch_auditor) -> list[str]:
+    if args.all:
+        return batch_auditor.get_all_files()
+    if args.pattern:
+        return batch_auditor.get_files_by_pattern(args.pattern, args.base_folder)
+    if args.folder:
+        return batch_auditor.get_files_in_folder(args.folder)
+    if args.extension != "gd" or args.base_folder != "scripts":
+        return batch_auditor.get_files_by_extension(args.extension, args.base_folder)
+    if args.managers:
+        return batch_auditor.get_files_by_category("managers")
+    if args.ui:
+        return batch_auditor.get_files_by_category("ui")
+    if args.utils:
+        return batch_auditor.get_files_by_category("utils")
+    if args.factories:
+        return batch_auditor.get_files_by_category("factories")
+    if args.coordinators:
+        return batch_auditor.get_files_by_category("coordinators")
+    return []
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = build_parser()
     args = parser.parse_args(argv)
 
     try:
         if args.batch:
-            batch_auditor = BatchFunctionAuditor()
-
-            if args.all:
-                files = batch_auditor.get_all_files()
-            elif args.pattern:
-                files = batch_auditor.get_files_by_pattern(args.pattern, args.base_folder)
-            elif args.folder:
-                files = batch_auditor.get_files_in_folder(args.folder)
-            elif args.extension != "gd" or args.base_folder != "scripts":
-                files = batch_auditor.get_files_by_extension(args.extension, args.base_folder)
-            elif args.managers:
-                files = batch_auditor.get_files_by_category("managers")
-            elif args.ui:
-                files = batch_auditor.get_files_by_category("ui")
-            elif args.utils:
-                files = batch_auditor.get_files_by_category("utils")
-            elif args.factories:
-                files = batch_auditor.get_files_by_category("factories")
-            elif args.coordinators:
-                files = batch_auditor.get_files_by_category("coordinators")
-            else:
-                print("❌ No batch audit target specified")
-                print("💡 Use --folder, --pattern, --extension, or --all")
-                return 2
-
-            if not files:
-                print("❌ No files found to audit")
-                return 2
-
-            results = batch_auditor.audit_files(files, show_details=not args.summary, unused_only=args.unused_only)
-            batch_auditor.generate_batch_report(results)
-
-            if args.detailed_unused:
-                batch_auditor.generate_unused_functions_report(results)
-
+            tool = FunctionAuditorTool()
+            tool.run(
+                mode="batch",
+                input_paths=None,
+                output_dir=None,
+                folder=args.folder,
+                pattern=args.pattern,
+                extension=args.extension,
+                base_folder=args.base_folder,
+                summary_only=args.summary,
+                unused_only=args.unused_only,
+                detailed_unused=args.detailed_unused,
+            )
             return 0
 
         if args.file:
-            auditor = FunctionAuditor(args.file)
-            result = auditor.audit_functions()
-            auditor.generate_report(result)
+            tool = FunctionAuditorTool()
+            tool.run(
+                mode="single",
+                input_paths=[Path(args.file)],
+                output_dir=None,
+                summary_only=args.summary,
+                unused_only=args.unused_only,
+                detailed_unused=args.detailed_unused,
+            )
             return 0
 
         print("❌ No file specified. Use --help for options.")
@@ -105,5 +115,5 @@ def main(argv: list[str] | None = None) -> int:
 
 
 if __name__ == "__main__":
-    raise SystemExit(main(sys.argv[1:]))
+    run_cli_and_exit(main, sys.argv[1:])
 

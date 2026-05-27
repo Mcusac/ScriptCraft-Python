@@ -1,3 +1,15 @@
-"""Auto-generated package exports (empty)."""
+"""Auto-generated mixed exports."""
 
-__all__: list[str] = []
+
+from . import plugins
+
+from .plugins import *
+
+from .tool import ReleaseManager
+
+__all__ = (
+    list(plugins.__all__)
+    + [
+        "ReleaseManager",
+    ]
+)

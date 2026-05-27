@@ -4,11 +4,14 @@ Filesystem and project path utilities.
 Depends ONLY on config_loader (not raw globals).
 """
 
+import os
 from pathlib import Path
 from typing import Dict, Optional
 
+LOG_LEVEL = os.environ.get("LOG_LEVEL", "INFO")
+
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_1.config_loader import get_config
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.path_resolver import build_domain_paths
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import build_domain_paths
 
 
 def get_project_root() -> Path:

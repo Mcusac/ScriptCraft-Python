@@ -4,8 +4,12 @@ import logging
 from pathlib import Path
 from typing import Union
 
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.logging_config_model import LogConfigModel
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.structured_formatter import StructuredFormatter
+from scriptcraft.layers.layer_0_core.level_0 import (
+    LogConfigModel,
+    normalize_level,
+)
+
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import StructuredFormatter
 
 
 class LogController:
@@ -63,9 +67,7 @@ class LogController:
         self._apply_formatter()
 
     def set_log_level(self, level: Union[str, int]) -> None:
-        from .logging_config_model import _normalize_level
-
-        self.config.level = _normalize_level(level)
+        self.config.level = normalize_level(level)
         self._apply_log_level()
 
     def set_structured_logging(self, enabled: bool) -> None:

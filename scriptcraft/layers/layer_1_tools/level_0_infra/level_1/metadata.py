@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional
 
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.version import __version__
+from scriptcraft._version import __version__
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.core_types import ComponentType
 
 

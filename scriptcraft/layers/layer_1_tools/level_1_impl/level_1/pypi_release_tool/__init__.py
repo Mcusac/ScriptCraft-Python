@@ -1,12 +1,8 @@
 """Auto-generated package exports."""
 
 
-from .ops_upload import (
-    upload_pypi,
-    upload_testpypi,
-)
+from .cli import build_parser
 
 __all__ = [
-    "upload_pypi",
-    "upload_testpypi",
+    "build_parser",
 ]

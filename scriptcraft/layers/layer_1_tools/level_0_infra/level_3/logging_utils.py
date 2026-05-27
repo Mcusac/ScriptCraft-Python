@@ -4,7 +4,7 @@ from datetime import datetime
 from typing import Optional
 
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_1.logger_config import setup_logger
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_1.paths import LOG_LEVEL
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_1 import LOG_LEVEL
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_2.logging_bootstrap import build_log_config
 
 

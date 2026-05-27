@@ -5,7 +5,7 @@ Core pipeline classes and data structures.
 
 Provides:
 - PipelineStep: Validated dataclass for a single pipeline step
-- BasePipeline:  Execution engine that delegates path resolution to PathResolver
+- StepPipelineEngine: Execution engine that delegates path resolution to PathResolver
                  and logging to level_2 context managers.
 """
 
@@ -16,12 +16,12 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional
 
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.path_resolver import (
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import (
+    log_and_print,
     PathResolver,
     create_path_resolver,
 )
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_2.logging_context import (
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_2 import (
     qc_log_context,
     with_domain_logger,
 )
@@ -85,7 +85,7 @@ class PipelineStep:
 
 # ── Pipeline engine ───────────────────────────────────────────────────────────
 
-class BasePipeline:
+class StepPipelineEngine:
     """
     Execution engine for ordered PipelineStep sequences.
 
@@ -294,3 +294,9 @@ class BasePipeline:
             log_and_print(f"   ⏱️  {name}: {duration:.2f}s")
             total += duration
         log_and_print(f"\n⏱️  Total pipeline duration: {total:.2f}s")
+
+
+# Infra QC step engine — not core LifecyclePipelineBase (avoid name collision).
+QCPipelineEngine = StepPipelineEngine
+# Deprecated alias; prefer StepPipelineEngine or QCPipelineEngine.
+BasePipeline = StepPipelineEngine

@@ -6,7 +6,11 @@ from pathlib import Path
 from typing import Dict, List, Optional, Type
 
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_6.base_tool import BaseTool
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_7.base_tool import BaseTool
+
+_IMPL_TOOL_MODULE_PREFIX = (
+    "scriptcraft.layers.layer_1_tools.level_1_impl.level_0"
+)
 
 
 class ToolDiscoveryEngine:
@@ -27,16 +31,16 @@ class ToolDiscoveryEngine:
                 if not is_pkg or name.startswith("_"):
                     continue
 
-                tool_class = self._discover_tool_class(path, name)
+                tool_class = self._discover_tool_class(name)
                 if tool_class:
                     discovered[name] = tool_class
                     log_and_print(f"✅ Discovered tool: {name}")
 
         return discovered
 
-    def _discover_tool_class(self, path: Path, tool_name: str) -> Optional[Type[BaseTool]]:
+    def _discover_tool_class(self, tool_name: str) -> Optional[Type[BaseTool]]:
         try:
-            module_path = f"scriptcraft.{path.name}.{tool_name}"
+            module_path = f"{_IMPL_TOOL_MODULE_PREFIX}.{tool_name}"
             module = importlib.import_module(module_path)
 
             # 1. direct subclass

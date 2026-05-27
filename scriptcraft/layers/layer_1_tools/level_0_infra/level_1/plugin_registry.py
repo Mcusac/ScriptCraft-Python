@@ -8,8 +8,11 @@ It consolidates all plugin-related code from the old plugins system.
 from typing import Dict, List, Optional, Callable, Any, Type
 from abc import ABC, abstractmethod
 
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.typed_plugin_store import get_typed_plugin
+from scriptcraft.layers.layer_0_core.level_0 import (
+    get_typed_plugin,
+)
+
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import log_and_print
 
 
 class PluginBase(ABC):
@@ -29,7 +32,7 @@ class PluginRegistry:
     """
     Plugin registry for managing validator, tool, and pipeline plugins.
     
-    This is a simplified, focused plugin registry that works with the unified registry.
+    Typed plugin store for validator, tool, and pipeline_step plugins.
     """
     
     def __init__(self) -> None:
@@ -62,14 +65,7 @@ class PluginRegistry:
     def get_plugin(self, plugin_type: str, name: str) -> Optional[Type[PluginBase]]:
         """Get a registered plugin class."""
         return get_typed_plugin(self._plugins, plugin_type, name)
-    
-    def get_plugin_instance(self, plugin_type: str, name: str, **kwargs: Any) -> Optional[PluginBase]:
-        """Get an instance of a registered plugin."""
-        plugin_class = self.get_plugin(plugin_type, name)
-        if plugin_class:
-            return plugin_class(**kwargs)
-        return None
-    
+
     def get_all_plugins(self, plugin_type: Optional[str] = None) -> Dict[str, Dict[str, Type[PluginBase]]]:
         """Get all registered plugins, optionally filtered by type."""
         if plugin_type:
@@ -112,4 +108,4 @@ def register_pipeline_step(name: str, **metadata: Any) -> Callable[[Type[PluginB
     def decorator(plugin_class: Type[PluginBase]) -> Type[PluginBase]:
         plugin_registry.register_plugin('pipeline_step', name, plugin_class, metadata)
         return plugin_class
-    return decorator 
+    return decorator

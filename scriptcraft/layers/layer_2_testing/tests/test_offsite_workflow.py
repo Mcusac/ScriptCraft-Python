@@ -3,10 +3,10 @@
 import unittest
 from unittest.mock import MagicMock, patch
 
-from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.level_0 import (
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_0 import (
     constants as c,
 )
-from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.level_1.offsite_workflow import (
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_1 import (
     apply_offsite_and_authorization,
     is_offsite_location,
 )
@@ -28,16 +28,16 @@ class TestIsOffsiteLocation(unittest.TestCase):
 class TestApplyOffsiteAndAuthorization(unittest.TestCase):
 
     @patch(
-        "scriptcraft.layers.layer_1_tools.level_Z.asset_updater.level_1."
+        "scriptcraft.layers.layer_1_tools.level_1_impl.level_1.asset_updater."
         "offsite_workflow.load_authorizer_name"
     )
     @patch(
-        "scriptcraft.layers.layer_1_tools.level_Z.asset_updater.level_1."
-        "offsite_workflow.ba.fill_input"
+        "scriptcraft.layers.layer_1_tools.level_1_impl.level_1.asset_updater."
+        "offsite_workflow.fill_input"
     )
     @patch(
-        "scriptcraft.layers.layer_1_tools.level_Z.asset_updater.level_1."
-        "offsite_workflow.ba.set_checkbox_checked"
+        "scriptcraft.layers.layer_1_tools.level_1_impl.level_1.asset_updater."
+        "offsite_workflow.set_checkbox_checked"
     )
     def test_offsite_checked_for_pccfr_5fe(
         self,
@@ -62,16 +62,16 @@ class TestApplyOffsiteAndAuthorization(unittest.TestCase):
         )
 
     @patch(
-        "scriptcraft.layers.layer_1_tools.level_Z.asset_updater.level_1."
+        "scriptcraft.layers.layer_1_tools.level_1_impl.level_1.asset_updater."
         "offsite_workflow.load_authorizer_name"
     )
     @patch(
-        "scriptcraft.layers.layer_1_tools.level_Z.asset_updater.level_1."
-        "offsite_workflow.ba.fill_input"
+        "scriptcraft.layers.layer_1_tools.level_1_impl.level_1.asset_updater."
+        "offsite_workflow.fill_input"
     )
     @patch(
-        "scriptcraft.layers.layer_1_tools.level_Z.asset_updater.level_1."
-        "offsite_workflow.ba.set_checkbox_checked"
+        "scriptcraft.layers.layer_1_tools.level_1_impl.level_1.asset_updater."
+        "offsite_workflow.set_checkbox_checked"
     )
     def test_offsite_unchecked_for_on_campus(
         self,
@@ -91,16 +91,16 @@ class TestApplyOffsiteAndAuthorization(unittest.TestCase):
         )
 
     @patch(
-        "scriptcraft.layers.layer_1_tools.level_Z.asset_updater.level_1."
+        "scriptcraft.layers.layer_1_tools.level_1_impl.level_1.asset_updater."
         "offsite_workflow.load_authorizer_name"
     )
     @patch(
-        "scriptcraft.layers.layer_1_tools.level_Z.asset_updater.level_1."
-        "offsite_workflow.ba.fill_input"
+        "scriptcraft.layers.layer_1_tools.level_1_impl.level_1.asset_updater."
+        "offsite_workflow.fill_input"
     )
     @patch(
-        "scriptcraft.layers.layer_1_tools.level_Z.asset_updater.level_1."
-        "offsite_workflow.ba.set_checkbox_checked"
+        "scriptcraft.layers.layer_1_tools.level_1_impl.level_1.asset_updater."
+        "offsite_workflow.set_checkbox_checked"
     )
     def test_skips_name_fill_when_not_configured(
         self,

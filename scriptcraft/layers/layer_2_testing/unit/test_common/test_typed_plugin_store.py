@@ -7,6 +7,7 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
+from scriptcraft.layers.layer_0_core.level_0.abstractions.typed_plugin_store import get_typed_plugin  # noqa: E402
 
 def _prepend_layers_parent_to_syspath() -> None:
     here = Path(__file__).resolve()
@@ -19,7 +20,6 @@ def _prepend_layers_parent_to_syspath() -> None:
 
 _prepend_layers_parent_to_syspath()
 
-from scriptcraft.layers.layer_1_pypi.level_0_infra.level_0.typed_plugin_store import get_typed_plugin  # noqa: E402
 
 
 def test_get_typed_plugin_returns_match() -> None:

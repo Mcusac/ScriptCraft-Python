@@ -5,13 +5,13 @@ from pathlib import Path
 import shutil
 
 from scriptcraft.layers.layer_0_core.level_0 import ensure_dir, get_logger
-from scriptcraft.layers.layer_0_core.level_1 import BasePipeline, validate_config_section_exists
+from scriptcraft.layers.layer_0_core.level_1 import LifecyclePipelineBase, validate_config_section_exists
 from scriptcraft.layers.layer_0_core.level_4 import save_json
 
 _logger = get_logger(__name__)
 
 
-class ExportPipeline(BasePipeline):
+class ExportPipeline(LifecyclePipelineBase):
     """
     Atomic pipeline for exporting models.
     

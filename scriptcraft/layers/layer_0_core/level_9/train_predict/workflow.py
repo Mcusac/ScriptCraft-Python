@@ -3,14 +3,14 @@
 from typing import Any, Dict
 
 from scriptcraft.layers.layer_0_core.level_0 import get_logger
-from scriptcraft.layers.layer_0_core.level_1 import BasePipeline
+from scriptcraft.layers.layer_0_core.level_1 import LifecyclePipelineBase
 from scriptcraft.layers.layer_0_core.level_6 import PredictPipeline
 from scriptcraft.layers.layer_0_core.level_8 import TrainPipeline
 
 _logger = get_logger(__name__)
 
 
-class TrainPredictWorkflow(BasePipeline):
+class TrainPredictWorkflow(LifecyclePipelineBase):
     """
     Workflow that trains a model and then generates predictions.
 

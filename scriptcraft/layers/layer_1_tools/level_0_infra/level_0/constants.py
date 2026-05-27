@@ -20,7 +20,7 @@ NO I/O, NO environment detection, NO config loading.
 Safe to import anywhere.
 """
 
-from typing import Dict, FrozenSet, List
+from typing import Dict, List
 
 
 STANDARD_KEYS: Dict[str, str] = {
@@ -44,13 +44,5 @@ COLUMN_ALIASES: Dict[str, List[str]] = {
 }
 
 MISSING_VALUE_CODES: List[int] = [-9999, -8888, -777777]
-
-MISSING_VALUE_STRINGS: FrozenSet[str] = frozenset({
-    "-9999", "-9999.0",
-    "-8888", "-8888.0",
-    "-777777", "-777777.0",
-    "NAN", "NAT", "NONE", "", "MISSING",
-})
-
 DEFAULT_ENCODING: str = "utf-8"
 FALLBACK_ENCODING: str = "ISO-8859-1"

@@ -22,7 +22,7 @@ _LAYER_1_INFRA = _SCRIPTS_DIR / "layers" / "layer_1_competition" / "infra"
 if str(_SCRIPTS_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPTS_DIR))
 
-from path_bootstrap import prepend_framework_paths
+from scriptcraft.path_bootstrap import prepend_framework_paths
 
 prepend_framework_paths()
 

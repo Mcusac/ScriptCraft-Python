@@ -3,9 +3,6 @@ import pandas as pd
 from pathlib import Path
 from typing import Union
 
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_6.argument_parsers import ArgumentValidator
-
-
 class IOMixin:
     """Handles file loading/saving."""
 
@@ -26,6 +23,10 @@ class IOMixin:
         output_path: Union[str, Path],
         include_index: bool = False,
     ) -> Path:
+        from scriptcraft.layers.layer_1_tools.level_0_infra.level_6 import (
+            ArgumentValidator,
+        )
+
         output_path = Path(output_path)
         ArgumentValidator.ensure_output_dir(output_path.parent)
 

@@ -1,10 +1,10 @@
 from typing import Any, Dict
 
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_1.config_accessors import (
-    get_tool_config,
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_1 import (
     get_pipeline_step,
+    get_tool_config,
 )
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_5.config import load_config
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_5 import load_config
 
 
 class ConfigMixin:

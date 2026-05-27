@@ -1,8 +1,8 @@
 """Auto-generated package exports."""
 
 
-from .runner import run_dictionary_checker
+from .core import execute_dictionary_driven_check
 
 __all__ = [
-    "run_dictionary_checker",
+    "execute_dictionary_driven_check",
 ]

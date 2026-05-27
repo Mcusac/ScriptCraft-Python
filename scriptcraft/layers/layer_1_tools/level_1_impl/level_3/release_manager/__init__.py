@@ -1,8 +1,3 @@
-"""Auto-generated package exports."""
+"""Auto-generated package exports (empty)."""
 
-
-from .help_text import print_release_manager_help
-
-__all__ = [
-    "print_release_manager_help",
-]
+__all__: list[str] = []

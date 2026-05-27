@@ -9,6 +9,8 @@ import sys
 from typing import Optional, List, Callable
 from pathlib import Path
 
+from scriptcraft.layers.layer_0_core.level_0.cli import add_common_arguments
+
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_1.logger_config import setup_logger
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_5.config import get_config
 
@@ -19,8 +21,8 @@ class ArgumentGroups:
     @staticmethod
     def add_common_args(parser: argparse.ArgumentParser) -> None:
         """Add common arguments used across most tools and pipelines."""
-        parser.add_argument("--config", default="config.yaml", 
-                          help="Path to config file (default: config.yaml)")
+        add_common_arguments(parser)
+        parser.set_defaults(config="config.yaml")
         parser.add_argument("--workspace", default="development",
                           help="Workspace to use (default: development)")
         parser.add_argument("--debug", action="store_true", 

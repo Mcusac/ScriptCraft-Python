@@ -1,0 +1,3166 @@
+{
+  "schema": "layer_1_impl_phase1_keep_vs_drain_review.v1",
+  "generated": "2026-05-21",
+  "root": "C:\\Users\\mdc0431\\dev\\ScriptCraft-Workspace\\implementations\\python\\python-package\\scriptcraft\\layers\\layer_1_tools\\level_1_impl",
+  "summary": {
+    "total_files": 283,
+    "counts": {
+      "KEEP_IMPL": 151,
+      "MOVE_INFRA": 122,
+      "MANUAL_SPLIT": 9,
+      "TEMP_SHIM": 1
+    },
+    "target_end_state_stays_in_impl": 146,
+    "target_end_state_drain": 137,
+    "tools_reviewed": 28
+  },
+  "target_stays_in_impl_by_tool": {
+    "asset_reconciliation": [
+      "level_6/asset_reconciliation/orchestrator.py",
+      "level_7/asset_reconciliation/runner.py",
+      "level_8/asset_reconciliation/main.py"
+    ],
+    "asset_updater": [
+      "level_4/asset_updater/loop_recovery_workflow.py",
+      "level_4/asset_updater/row_executor.py",
+      "level_5/asset_updater/loop_runner.py",
+      "level_6/asset_updater/asset_update_api.py",
+      "level_7/asset_updater/main.py"
+    ],
+    "automated_labeler": [
+      "level_2/automated_labeler/tool.py",
+      "level_3/automated_labeler/entrypoint.py"
+    ],
+    "data_content_comparer": [
+      "level_1/data_content_comparer/tool.py",
+      "level_2/data_content_comparer/entrypoint.py"
+    ],
+    "data_content_comparer_plugins": [
+      "level_0/data_content_comparer_plugins/domain_old_vs_new_mode.py",
+      "level_0/data_content_comparer_plugins/release_consistency_mode.py",
+      "level_0/data_content_comparer_plugins/rhq_mode.py",
+      "level_0/data_content_comparer_plugins/standard_mode.py"
+    ],
+    "date_format_standardizer": [
+      "level_0/date_format_standardizer/tool.py",
+      "level_1/date_format_standardizer/entrypoint.py"
+    ],
+    "dictionary_cleaner": [
+      "level_4/dictionary_cleaner/cleaner.py",
+      "level_5/dictionary_cleaner/tool.py",
+      "level_6/dictionary_cleaner/entrypoint.py"
+    ],
+    "dictionary_driven_checker": [
+      "level_1/dictionary_driven_checker/runner.py",
+      "level_3/dictionary_driven_checker_validators.py",
+      "level_7/dictionary_driven_checker/core.py",
+      "level_8/dictionary_driven_checker/tool.py",
+      "level_Z/dictionary_driven_checker_plugins/date_plugin.py",
+      "level_Z/dictionary_driven_checker_plugins/numeric_plugin.py",
+      "level_Z/dictionary_driven_checker_plugins/text_plugin.py"
+    ],
+    "dictionary_validator": [
+      "level_1/dictionary_validator_main.py"
+    ],
+    "dictionary_workflow": [
+      "level_1/dictionary_workflow/tool.py",
+      "level_2/dictionary_workflow/entrypoint.py"
+    ],
+    "feature_change_checker": [
+      "level_1/feature_change_checker_main.py"
+    ],
+    "function_auditor": [
+      "level_3/function_auditor/cli.py",
+      "level_4/function_auditor/tool.py",
+      "level_5/function_auditor/entrypoint.py"
+    ],
+    "generic_release_tool": [
+      "level_2/generic_release_tool/tool.py",
+      "level_3/generic_release_tool/cli.py"
+    ],
+    "git_submodule_tool": [
+      "level_3/git_submodule_tool/tool.py",
+      "level_4/git_submodule_tool/cli.py"
+    ],
+    "git_workspace_tool": [
+      "level_1/git_workspace_tool/tool.py",
+      "level_3/git_workspace_tool/cli.py"
+    ],
+    "medvisit_integrity_validator": [
+      "level_1/medvisit_integrity_validator_main.py"
+    ],
+    "pypi_release_tool": [
+      "level_2/pypi_release_tool/tool.py",
+      "level_3/pypi_release_tool/cli.py"
+    ],
+    "release_manager": [
+      "level_2/release_manager/tool.py",
+      "level_4/release_manager/cli.py"
+    ],
+    "release_manager_plugins": [
+      "level_0/release_manager_plugins/pypi_plugin.py",
+      "level_0/release_manager_plugins/python_package_plugin.py",
+      "level_0/release_manager_plugins/workspace_sync_plugin.py",
+      "level_1/release_manager_plugins/workspace_plugin.py"
+    ],
+    "rhq_form_autofiller": [
+      "level_2/rhq_flow.py",
+      "level_3/rhq_form_autofiller_main.py"
+    ],
+    "schema_detector": [
+      "level_1/schema_detector/schema_detector_main.py",
+      "level_2/schema_detector/detector.py"
+    ],
+    "score_totals_checker": [
+      "level_1/score_totals_checker_main.py"
+    ]
+  },
+  "tool_entrypoint_chains_current": {
+    "asset_reconciliation": [
+      "level_8/asset_reconciliation/main.py",
+      "level_7/asset_reconciliation/runner.py",
+      "level_6/asset_reconciliation/orchestrator.py"
+    ],
+    "asset_updater": [
+      "level_7/asset_updater/main.py",
+      "level_6/asset_updater/asset_update_api.py",
+      "level_5/asset_updater/loop_runner.py"
+    ],
+    "dictionary_driven_checker": [
+      "level_8/dictionary_driven_checker/tool.py",
+      "level_7/dictionary_driven_checker/core.py",
+      "level_1/dictionary_driven_checker/runner.py"
+    ],
+    "dictionary_cleaner": [
+      "level_6/dictionary_cleaner/entrypoint.py",
+      "level_5/dictionary_cleaner/tool.py",
+      "level_4/dictionary_cleaner/cleaner.py"
+    ],
+    "function_auditor": [
+      "level_5/function_auditor/entrypoint.py",
+      "level_4/function_auditor/tool.py",
+      "level_3/function_auditor/batch_mode.py"
+    ],
+    "automated_labeler": [
+      "level_3/automated_labeler/entrypoint.py",
+      "level_2/automated_labeler/tool.py",
+      "level_0/automated_labeler/labeling.py"
+    ],
+    "data_content_comparer": [
+      "level_2/data_content_comparer/entrypoint.py",
+      "level_1/data_content_comparer/tool.py",
+      "level_0/data_content_comparer/compare.py"
+    ],
+    "dictionary_workflow": [
+      "level_2/dictionary_workflow/entrypoint.py",
+      "level_1/dictionary_workflow/tool.py",
+      "level_1/dictionary_workflow/workflow.py"
+    ],
+    "date_format_standardizer": [
+      "level_1/date_format_standardizer/entrypoint.py",
+      "level_0/date_format_standardizer/tool.py"
+    ],
+    "generic_release_tool": [
+      "level_3/generic_release_tool/cli.py",
+      "level_4/generic_release_tool/standalone.py",
+      "level_2/generic_release_tool/tool.py"
+    ],
+    "release_manager": [
+      "level_4/release_manager/cli.py",
+      "level_2/release_manager/tool.py",
+      "level_0/release_manager/argv_compat.py"
+    ],
+    "git_workspace_tool": [
+      "level_3/git_workspace_tool/cli.py",
+      "level_4/git_workspace_tool/standalone.py",
+      "level_1/git_workspace_tool/tool.py"
+    ],
+    "git_submodule_tool": [
+      "level_4/git_submodule_tool/cli.py",
+      "level_3/git_submodule_tool/tool.py",
+      "level_1/git_submodule_tool/operations.py"
+    ],
+    "pypi_release_tool": [
+      "level_3/pypi_release_tool/cli.py",
+      "level_2/pypi_release_tool/tool.py",
+      "level_0/pypi_release_tool/ops_upload.py"
+    ],
+    "schema_detector": [
+      "level_1/schema_detector/schema_detector_main.py",
+      "level_2/schema_detector/detector.py",
+      "level_1/schema_detector/schema_builder.py"
+    ],
+    "rhq_form_autofiller": [
+      "level_3/rhq_form_autofiller_main.py",
+      "level_2/rhq_flow.py",
+      "level_1/rhq_form_autolfiller/panel_filler.py"
+    ],
+    "score_totals_checker": [
+      "level_1/score_totals_checker_main.py",
+      "level_0/score_totals_checker/totals.py"
+    ],
+    "dictionary_validator": [
+      "level_1/dictionary_validator_main.py",
+      "level_1/compare_columns.py"
+    ],
+    "medvisit_integrity_validator": [
+      "level_1/medvisit_integrity_validator_main.py"
+    ],
+    "feature_change_checker": [
+      "level_1/feature_change_checker_main.py",
+      "level_0/feature_change_checker/between_visits.py"
+    ]
+  },
+  "tool_risks": {
+    "asset_reconciliation": [
+      "MERGED_DETECTORS registry (level_3/registry.py) wires detectors by import path",
+      "Facade star-imports across L5-L8 load many modules at import time",
+      "Moving detectors without registry update breaks pipeline"
+    ],
+    "asset_updater": [
+      "Playwright + credential order depends on rhq_form_autofiller_env",
+      "browser_context ties to asset_updater constants selector",
+      "loop_recovery_workflow is critical L4 piece beyond top-3 chain"
+    ],
+    "dictionary_driven_checker": [
+      "@register_validator and level_Z plugins require import-order side effects",
+      "Validators at L3 must stay importable before tool run"
+    ],
+    "data_content_comparer": [
+      "Dual plugin paths: infra get_plugin vs impl MODE_REGISTRY",
+      "Mode plugins in level_0/data_content_comparer_plugins are domain modes"
+    ],
+    "release_manager": [
+      "ReleaseWorkflowRegistry separate from infra plugin_registry",
+      "Cross-tool release_cli aggregates multiple CLIs"
+    ],
+    "generic_release_tool": [
+      "pipelines.py may still import drained git steps from impl level_0",
+      "steps_docs stub duplicates infra implementation"
+    ],
+    "git_workspace_tool": [
+      "operations.py overlaps infra git; stale import paths possible"
+    ],
+    "rhq_form_autofiller": [
+      "Typo package rhq_form_autolfiller affects imports",
+      "Split across level_0, level_1, level_2, level_3 loose files"
+    ],
+    "schema_detector": [
+      "Two BaseTool classes at L1 and L2; discovery could pick wrong class"
+    ],
+    "feature_change_checker": [
+      "No wired CLI via create_entrypoint_main; class-only export"
+    ],
+    "level_Z": [
+      "pipeline_utils has broken imports referencing deleted modules"
+    ],
+    "_global": [
+      "Auto-generated __init__.py __all__ chains must be regenerated after moves",
+      "UnifiedRegistry scans empty layer_1_tools/tools/",
+      "pyproject console_scripts may reference stale layer_1_pypi paths"
+    ]
+  },
+  "stays_in_impl_by_tool": {
+    "asset_reconciliation": [
+      "level_0/asset_reconciliation/__init__.py",
+      "level_1/asset_reconciliation/__init__.py",
+      "level_1/asset_reconciliation/detection/__init__.py",
+      "level_2/asset_reconciliation/__init__.py",
+      "level_3/asset_reconciliation/__init__.py",
+      "level_4/asset_reconciliation/__init__.py",
+      "level_5/asset_reconciliation/__init__.py",
+      "level_6/asset_reconciliation/__init__.py",
+      "level_6/asset_reconciliation/orchestrator.py",
+      "level_7/asset_reconciliation/__init__.py",
+      "level_7/asset_reconciliation/runner.py",
+      "level_8/asset_reconciliation/__init__.py",
+      "level_8/asset_reconciliation/main.py"
+    ],
+    "asset_updater": [
+      "level_0/asset_updater/__init__.py",
+      "level_1/asset_updater/__init__.py",
+      "level_2/asset_updater/__init__.py",
+      "level_3/asset_updater/__init__.py",
+      "level_4/asset_updater/__init__.py",
+      "level_4/asset_updater/loop_recovery_workflow.py",
+      "level_4/asset_updater/row_executor.py",
+      "level_5/asset_updater/__init__.py",
+      "level_5/asset_updater/loop_runner.py",
+      "level_6/asset_updater/__init__.py",
+      "level_6/asset_updater/asset_update_api.py",
+      "level_7/asset_updater/__init__.py",
+      "level_7/asset_updater/main.py"
+    ],
+    "automated_labeler": [
+      "level_0/automated_labeler/__init__.py",
+      "level_1/automated_labeler/__init__.py",
+      "level_2/automated_labeler/__init__.py",
+      "level_2/automated_labeler/tool.py",
+      "level_3/automated_labeler/__init__.py",
+      "level_3/automated_labeler/entrypoint.py"
+    ],
+    "compare_columns": [
+      "level_0/compare_columns/__init__.py",
+      "level_1/compare_columns.py"
+    ],
+    "data_content_comparer": [
+      "level_0/data_content_comparer/__init__.py",
+      "level_1/data_content_comparer/__init__.py",
+      "level_1/data_content_comparer/tool.py",
+      "level_2/data_content_comparer/__init__.py",
+      "level_2/data_content_comparer/entrypoint.py"
+    ],
+    "data_content_comparer_plugins": [
+      "level_0/data_content_comparer_plugins/__init__.py",
+      "level_0/data_content_comparer_plugins/domain_old_vs_new_mode.py",
+      "level_0/data_content_comparer_plugins/release_consistency_mode.py",
+      "level_0/data_content_comparer_plugins/rhq_mode.py",
+      "level_0/data_content_comparer_plugins/standard_mode.py"
+    ],
+    "date_format_standardizer": [
+      "level_0/date_format_standardizer/__init__.py",
+      "level_0/date_format_standardizer/tool.py",
+      "level_1/date_format_standardizer/__init__.py",
+      "level_1/date_format_standardizer/entrypoint.py"
+    ],
+    "dictionary_cleaner": [
+      "level_0/dictionary_cleaner/__init__.py",
+      "level_1/dictionary_cleaner/__init__.py",
+      "level_2/dictionary_cleaner/__init__.py",
+      "level_3/dictionary_cleaner/__init__.py",
+      "level_4/dictionary_cleaner/__init__.py",
+      "level_4/dictionary_cleaner/cleaner.py",
+      "level_5/dictionary_cleaner/__init__.py",
+      "level_5/dictionary_cleaner/tool.py",
+      "level_6/dictionary_cleaner/__init__.py",
+      "level_6/dictionary_cleaner/entrypoint.py"
+    ],
+    "dictionary_driven_checker": [
+      "level_0/dictionary_driven_checker/__init__.py",
+      "level_1/dictionary_driven_checker/__init__.py",
+      "level_1/dictionary_driven_checker/runner.py",
+      "level_6/dictionary_driven_checker/__init__.py",
+      "level_7/dictionary_driven_checker/__init__.py",
+      "level_7/dictionary_driven_checker/core.py",
+      "level_8/dictionary_driven_checker/__init__.py",
+      "level_8/dictionary_driven_checker/tool.py"
+    ],
+    "dictionary_driven_checker_plugins": [
+      "level_Z/dictionary_driven_checker_plugins/__init__.py",
+      "level_Z/dictionary_driven_checker_plugins/date_plugin.py",
+      "level_Z/dictionary_driven_checker_plugins/numeric_plugin.py",
+      "level_Z/dictionary_driven_checker_plugins/text_plugin.py"
+    ],
+    "dictionary_validator": [
+      "level_1/dictionary_validator_main.py"
+    ],
+    "dictionary_workflow": [
+      "level_0/dictionary_workflow/__init__.py",
+      "level_1/dictionary_workflow/__init__.py",
+      "level_1/dictionary_workflow/tool.py",
+      "level_2/dictionary_workflow/__init__.py",
+      "level_2/dictionary_workflow/entrypoint.py"
+    ],
+    "feature_change_checker": [
+      "level_0/feature_change_checker/__init__.py",
+      "level_1/feature_change_checker_main.py"
+    ],
+    "function_auditor": [
+      "level_0/function_auditor/__init__.py",
+      "level_1/function_auditor/__init__.py",
+      "level_2/function_auditor/__init__.py",
+      "level_3/function_auditor/__init__.py",
+      "level_3/function_auditor/cli.py",
+      "level_4/function_auditor/__init__.py",
+      "level_4/function_auditor/tool.py",
+      "level_5/function_auditor/__init__.py",
+      "level_5/function_auditor/entrypoint.py"
+    ],
+    "generic_release_tool": [
+      "level_0/generic_release_tool/__init__.py",
+      "level_1/generic_release_tool/__init__.py",
+      "level_2/generic_release_tool/__init__.py",
+      "level_2/generic_release_tool/tool.py",
+      "level_3/generic_release_tool/__init__.py",
+      "level_3/generic_release_tool/cli.py",
+      "level_4/generic_release_tool/__init__.py"
+    ],
+    "git_submodule_tool": [
+      "level_0/git_submodule_tool/__init__.py",
+      "level_1/git_submodule_tool/__init__.py",
+      "level_3/git_submodule_tool/__init__.py",
+      "level_3/git_submodule_tool/tool.py",
+      "level_4/git_submodule_tool/__init__.py",
+      "level_4/git_submodule_tool/cli.py"
+    ],
+    "git_workspace_tool": [
+      "level_0/git_workspace_tool/__init__.py",
+      "level_1/git_workspace_tool/__init__.py",
+      "level_1/git_workspace_tool/tool.py",
+      "level_3/git_workspace_tool/__init__.py",
+      "level_3/git_workspace_tool/cli.py",
+      "level_4/git_workspace_tool/__init__.py"
+    ],
+    "medvisit_integrity_validator": [
+      "level_1/medvisit_integrity_validator_main.py"
+    ],
+    "pypi_release_tool": [
+      "level_0/pypi_release_tool/__init__.py",
+      "level_2/pypi_release_tool/__init__.py",
+      "level_2/pypi_release_tool/tool.py",
+      "level_3/pypi_release_tool/__init__.py",
+      "level_3/pypi_release_tool/cli.py"
+    ],
+    "release_manager": [
+      "level_0/release_manager/__init__.py",
+      "level_1/release_manager/__init__.py",
+      "level_2/release_manager/__init__.py",
+      "level_2/release_manager/tool.py",
+      "level_3/release_manager/__init__.py",
+      "level_4/release_manager/__init__.py",
+      "level_4/release_manager/cli.py"
+    ],
+    "release_manager_plugins": [
+      "level_0/release_manager_plugins/__init__.py",
+      "level_0/release_manager_plugins/pypi_plugin.py",
+      "level_0/release_manager_plugins/python_package_plugin.py",
+      "level_0/release_manager_plugins/workspace_sync_plugin.py",
+      "level_1/release_manager_plugins/__init__.py",
+      "level_1/release_manager_plugins/workspace_plugin.py"
+    ],
+    "rhq": [
+      "level_0/rhq/__init__.py",
+      "level_0/rhq/credentials_io.py",
+      "level_1/rhq_login_actions.py",
+      "level_2/rhq_flow.py"
+    ],
+    "rhq_form_autofiller": [
+      "level_0/rhq_form_autofiller/__init__.py",
+      "level_3/rhq_form_autofiller_main.py"
+    ],
+    "rhq_form_autolfiller": [
+      "level_1/rhq_form_autolfiller/__init__.py",
+      "level_1/rhq_form_autolfiller/panel_filler.py"
+    ],
+    "schema_detector": [
+      "level_0/schema_detector/__init__.py",
+      "level_1/schema_detector/__init__.py",
+      "level_1/schema_detector/schema_detector_main.py",
+      "level_2/schema_detector/__init__.py",
+      "level_2/schema_detector/detector.py"
+    ],
+    "score_totals_checker": [
+      "level_0/score_totals_checker/__init__.py",
+      "level_1/score_totals_checker_main.py"
+    ]
+  },
+  "phase2_move_queue_low_risk": [
+    "level_0/browser_context.py",
+    "level_0/compare_columns/types.py",
+    "level_0/data_content_comparer/compare.py",
+    "level_0/data_content_comparer/datasets.py",
+    "level_0/data_content_comparer/inputs.py",
+    "level_0/data_content_comparer/logging_setup.py",
+    "level_0/data_content_comparer/reporting.py",
+    "level_0/dictionary_driven_checker/dictionary_validation.py",
+    "level_0/function_auditor/function_extractor.py",
+    "level_0/function_auditor/persistence.py",
+    "level_0/function_auditor/reporter.py",
+    "level_0/function_auditor/usage_searcher.py",
+    "level_0/generic_release_tool/steps_docs.py",
+    "level_0/git_workspace_tool/operations.py",
+    "level_0/plugins.py",
+    "level_0/rhq_form_autofiller/browser.py",
+    "level_0/rhq_form_autofiller_env.py",
+    "level_0/setup_basic_tool_environment.py",
+    "level_4/git_pipelines.py",
+    "level_5/development_usage.py",
+    "level_5/release_cli.py",
+    "level_Z/setup_scriptcraft_in_project.py"
+  ],
+  "phase2_move_queue": [
+    "level_0/asset_reconciliation/constants.py",
+    "level_0/asset_reconciliation/location_constants.py",
+    "level_0/asset_reconciliation/mappings.py",
+    "level_0/asset_reconciliation/schema.py",
+    "level_0/asset_reconciliation/tag_rules.py",
+    "level_0/asset_updater/constants.py",
+    "level_0/asset_updater/errors.py",
+    "level_0/asset_updater/page_waits.py",
+    "level_0/automated_labeler/docx_template.py",
+    "level_0/automated_labeler/labeling.py",
+    "level_0/automated_labeler/paths.py",
+    "level_0/automated_labeler/persistence.py",
+    "level_0/automated_labeler/types.py",
+    "level_0/browser_context.py",
+    "level_0/compare_columns/types.py",
+    "level_0/data_content_comparer/compare.py",
+    "level_0/data_content_comparer/datasets.py",
+    "level_0/data_content_comparer/inputs.py",
+    "level_0/data_content_comparer/logging_setup.py",
+    "level_0/data_content_comparer/reporting.py",
+    "level_0/dictionary_cleaner/fix_counts.py",
+    "level_0/dictionary_cleaner/types.py",
+    "level_0/dictionary_cleaner/value_types.py",
+    "level_0/dictionary_driven_checker/dictionary_driven_checker_env.py",
+    "level_0/dictionary_driven_checker/dictionary_finder.py",
+    "level_0/dictionary_driven_checker/dictionary_validation.py",
+    "level_0/dictionary_driven_checker/models.py",
+    "level_0/dictionary_driven_checker/types.py",
+    "level_0/dictionary_workflow/enhance.py",
+    "level_0/dictionary_workflow/summary.py",
+    "level_0/dictionary_workflow/supplements.py",
+    "level_0/feature_change_checker/between_visits.py",
+    "level_0/feature_change_checker/categorized.py",
+    "level_0/function_auditor/function_extractor.py",
+    "level_0/function_auditor/persistence.py",
+    "level_0/function_auditor/reporter.py",
+    "level_0/function_auditor/usage_searcher.py",
+    "level_0/generic_release_tool/steps_docs.py",
+    "level_0/git_workspace_tool/operations.py",
+    "level_0/plugins.py",
+    "level_0/pypi_release_tool/ops_upload.py",
+    "level_0/release_manager/argv_compat.py",
+    "level_0/rhq_form_autofiller/browser.py",
+    "level_0/rhq_form_autofiller/constants.py",
+    "level_0/rhq_form_autofiller/data.py",
+    "level_0/rhq_form_autofiller/language.py",
+    "level_0/rhq_form_autofiller_env.py",
+    "level_0/schema_detector/data_loader.py",
+    "level_0/schema_detector/models.py",
+    "level_0/schema_detector/privacy_classifier.py",
+    "level_0/schema_detector/type_inference.py",
+    "level_0/score_totals_checker/totals.py",
+    "level_0/setup_basic_tool_environment.py",
+    "level_1/asset_reconciliation/asset_filters.py",
+    "level_1/asset_reconciliation/contracts.py",
+    "level_1/asset_reconciliation/debug_print.py",
+    "level_1/asset_reconciliation/detection/duplicates.py",
+    "level_1/asset_reconciliation/detection/missing.py",
+    "level_1/asset_reconciliation/detection/off_campus.py",
+    "level_1/asset_reconciliation/form_debug.py",
+    "level_1/asset_reconciliation/form_utils.py",
+    "level_1/asset_reconciliation/location_primitives.py",
+    "level_1/asset_reconciliation/sanity_checks.py",
+    "level_1/asset_reconciliation/text_canonicalizer.py",
+    "level_1/asset_reconciliation/validators.py",
+    "level_1/asset_updater/asset_post_update_step.py",
+    "level_1/asset_updater/asset_search_step.py",
+    "level_1/asset_updater/asset_update_page_workflow.py",
+    "level_1/asset_updater/current_asset_details_workflow.py",
+    "level_1/asset_updater/login_workflow.py",
+    "level_1/asset_updater/lookup_modal_workflow.py",
+    "level_1/asset_updater/offsite_workflow.py",
+    "level_1/asset_updater/state_detector.py",
+    "level_1/automated_labeler/labeling_mode.py",
+    "level_1/automated_labeler/template_mode.py",
+    "level_1/dictionary_cleaner/numeric_keys.py",
+    "level_1/dictionary_workflow/workflow.py",
+    "level_1/function_auditor/auditor.py",
+    "level_1/generic_release_tool/version_resolver.py",
+    "level_1/git_submodule_tool/operations.py",
+    "level_1/schema_detector/column_analyzer.py",
+    "level_1/schema_detector/outputs.py",
+    "level_1/schema_detector/schema_builder.py",
+    "level_2/asset_reconciliation/change_detector.py",
+    "level_2/asset_reconciliation/debug_hooks.py",
+    "level_2/asset_reconciliation/form_reshape.py",
+    "level_2/asset_reconciliation/key_semantics.py",
+    "level_2/asset_reconciliation/location_transforms.py",
+    "level_2/asset_reconciliation/tag_pipeline.py",
+    "level_2/asset_reconciliation/transforms.py",
+    "level_2/asset_reconciliation/validation.py",
+    "level_2/asset_updater/custodian_lookup_workflow.py",
+    "level_2/asset_updater/diagnostics.py",
+    "level_2/asset_updater/location_lookup_workflow.py",
+    "level_2/dictionary_cleaner/language_blocks.py",
+    "level_2/function_auditor/batch.py",
+    "level_2/function_auditor/file_discovery.py",
+    "level_2/function_auditor/single_file_mode.py",
+    "level_3/asset_reconciliation/key_normalizer.py",
+    "level_3/asset_reconciliation/location_normalizer.py",
+    "level_3/asset_reconciliation/registry.py",
+    "level_3/asset_updater/asset_update_step.py",
+    "level_3/asset_updater/dataset_loader.py",
+    "level_3/dictionary_cleaner/expected_values.py",
+    "level_3/dictionary_cleaner/value_parser.py",
+    "level_3/function_auditor/batch_mode.py",
+    "level_3/function_auditor/examples.py",
+    "level_3/release_manager/help_text.py",
+    "level_4/asset_reconciliation/asset_normalizer.py",
+    "level_4/asset_reconciliation/form_transform.py",
+    "level_4/asset_reconciliation/merge_key_preparer.py",
+    "level_4/dictionary_cleaner/normalizer.py",
+    "level_4/generic_release_tool/standalone.py",
+    "level_4/git_pipelines.py",
+    "level_4/git_workspace_tool/standalone.py",
+    "level_5/asset_reconciliation/asset_pipeline.py",
+    "level_5/asset_reconciliation/form_pipeline.py",
+    "level_5/asset_reconciliation/merge_pipeline.py",
+    "level_5/development_usage.py",
+    "level_5/release_cli.py",
+    "level_6/dictionary_driven_checker/normalization.py",
+    "level_Z/pipeline_utils.py",
+    "level_Z/setup_scriptcraft_in_project.py"
+  ],
+  "phase2_manual_queue": [
+    "level_0/asset_updater/browser_actions.py",
+    "level_0/asset_updater/credentials.py",
+    "level_0/release_manager_plugins/registry.py",
+    "level_1/asset_updater/credentials_loader.py",
+    "level_1/data_content_comparer/plugins.py",
+    "level_1/generic_release_tool/pipelines.py",
+    "level_3/asset_updater/session_manager.py",
+    "level_3/custom_release_script.py",
+    "level_3/dictionary_driven_checker_validators.py"
+  ],
+  "files": [
+    {
+      "path": "__init__.py",
+      "tool": "_package",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_0/__init__.py",
+      "tool": "_package",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_0/asset_reconciliation/__init__.py",
+      "tool": "asset_reconciliation",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_0/asset_reconciliation/constants.py",
+      "tool": "asset_reconciliation",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/asset_reconciliation/location_constants.py",
+      "tool": "asset_reconciliation",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/asset_reconciliation/mappings.py",
+      "tool": "asset_reconciliation",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/asset_reconciliation/schema.py",
+      "tool": "asset_reconciliation",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/asset_reconciliation/tag_rules.py",
+      "tool": "asset_reconciliation",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/asset_updater/__init__.py",
+      "tool": "asset_updater",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_0/asset_updater/browser_actions.py",
+      "tool": "asset_updater",
+      "classification": "MANUAL_SPLIT",
+      "rationale": "Playwright actions mix domain selectors + browser primitives",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/asset_updater/constants.py",
+      "tool": "asset_updater",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/asset_updater/credentials.py",
+      "tool": "asset_updater",
+      "classification": "MANUAL_SPLIT",
+      "rationale": "Credential loading mixes RHQ env + updater domain",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/asset_updater/errors.py",
+      "tool": "asset_updater",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/asset_updater/page_waits.py",
+      "tool": "asset_updater",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/automated_labeler/__init__.py",
+      "tool": "automated_labeler",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_0/automated_labeler/docx_template.py",
+      "tool": "automated_labeler",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/automated_labeler/labeling.py",
+      "tool": "automated_labeler",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/automated_labeler/paths.py",
+      "tool": "automated_labeler",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/automated_labeler/persistence.py",
+      "tool": "automated_labeler",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/automated_labeler/types.py",
+      "tool": "automated_labeler",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/browser_context.py",
+      "tool": "_cross_cutting",
+      "classification": "MOVE_INFRA",
+      "rationale": "Thin frame shim; infra owns frame_context",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Cross-cutting: drain to infra"
+    },
+    {
+      "path": "level_0/compare_columns/__init__.py",
+      "tool": "compare_columns",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_0/compare_columns/types.py",
+      "tool": "compare_columns",
+      "classification": "MOVE_INFRA",
+      "rationale": "Generic comparison types",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Default drain candidate for tools without explicit target set"
+    },
+    {
+      "path": "level_0/data_content_comparer/__init__.py",
+      "tool": "data_content_comparer",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_0/data_content_comparer/compare.py",
+      "tool": "data_content_comparer",
+      "classification": "MOVE_INFRA",
+      "rationale": "Generic compare engine",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/data_content_comparer/datasets.py",
+      "tool": "data_content_comparer",
+      "classification": "MOVE_INFRA",
+      "rationale": "Generic dataset loading",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/data_content_comparer/inputs.py",
+      "tool": "data_content_comparer",
+      "classification": "MOVE_INFRA",
+      "rationale": "Generic input parsing",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/data_content_comparer/logging_setup.py",
+      "tool": "data_content_comparer",
+      "classification": "MOVE_INFRA",
+      "rationale": "Generic logging setup",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/data_content_comparer/reporting.py",
+      "tool": "data_content_comparer",
+      "classification": "MOVE_INFRA",
+      "rationale": "Generic reporting",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/data_content_comparer_plugins/__init__.py",
+      "tool": "data_content_comparer_plugins",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_0/data_content_comparer_plugins/domain_old_vs_new_mode.py",
+      "tool": "data_content_comparer_plugins",
+      "classification": "KEEP_IMPL",
+      "rationale": "Tool-specific plugin/mode registration",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_0/data_content_comparer_plugins/release_consistency_mode.py",
+      "tool": "data_content_comparer_plugins",
+      "classification": "KEEP_IMPL",
+      "rationale": "Tool-specific plugin/mode registration",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_0/data_content_comparer_plugins/rhq_mode.py",
+      "tool": "data_content_comparer_plugins",
+      "classification": "KEEP_IMPL",
+      "rationale": "Tool-specific plugin/mode registration",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_0/data_content_comparer_plugins/standard_mode.py",
+      "tool": "data_content_comparer_plugins",
+      "classification": "KEEP_IMPL",
+      "rationale": "Tool-specific plugin/mode registration",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_0/date_format_standardizer/__init__.py",
+      "tool": "date_format_standardizer",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_0/date_format_standardizer/tool.py",
+      "tool": "date_format_standardizer",
+      "classification": "KEEP_IMPL",
+      "rationale": "Entrypoint chain (target end-state)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_0/dictionary_cleaner/__init__.py",
+      "tool": "dictionary_cleaner",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_0/dictionary_cleaner/fix_counts.py",
+      "tool": "dictionary_cleaner",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/dictionary_cleaner/types.py",
+      "tool": "dictionary_cleaner",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/dictionary_cleaner/value_types.py",
+      "tool": "dictionary_cleaner",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/dictionary_driven_checker/__init__.py",
+      "tool": "dictionary_driven_checker",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_0/dictionary_driven_checker/dictionary_driven_checker_env.py",
+      "tool": "dictionary_driven_checker",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/dictionary_driven_checker/dictionary_finder.py",
+      "tool": "dictionary_driven_checker",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/dictionary_driven_checker/dictionary_validation.py",
+      "tool": "dictionary_driven_checker",
+      "classification": "MOVE_INFRA",
+      "rationale": "Generic validation primitives",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/dictionary_driven_checker/models.py",
+      "tool": "dictionary_driven_checker",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/dictionary_driven_checker/types.py",
+      "tool": "dictionary_driven_checker",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/dictionary_workflow/__init__.py",
+      "tool": "dictionary_workflow",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_0/dictionary_workflow/enhance.py",
+      "tool": "dictionary_workflow",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/dictionary_workflow/summary.py",
+      "tool": "dictionary_workflow",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/dictionary_workflow/supplements.py",
+      "tool": "dictionary_workflow",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/feature_change_checker/__init__.py",
+      "tool": "feature_change_checker",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_0/feature_change_checker/between_visits.py",
+      "tool": "feature_change_checker",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/feature_change_checker/categorized.py",
+      "tool": "feature_change_checker",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/function_auditor/__init__.py",
+      "tool": "function_auditor",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_0/function_auditor/function_extractor.py",
+      "tool": "function_auditor",
+      "classification": "MOVE_INFRA",
+      "rationale": "Partially duplicated in infra function_auditor",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/function_auditor/persistence.py",
+      "tool": "function_auditor",
+      "classification": "MOVE_INFRA",
+      "rationale": "Generic persistence pattern",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/function_auditor/reporter.py",
+      "tool": "function_auditor",
+      "classification": "MOVE_INFRA",
+      "rationale": "Generic report formatting",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/function_auditor/usage_searcher.py",
+      "tool": "function_auditor",
+      "classification": "MOVE_INFRA",
+      "rationale": "Generic usage search",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/generic_release_tool/__init__.py",
+      "tool": "generic_release_tool",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_0/generic_release_tool/steps_docs.py",
+      "tool": "generic_release_tool",
+      "classification": "MOVE_INFRA",
+      "rationale": "Duplicate stub; full impl in infra steps_docs",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/git_submodule_tool/__init__.py",
+      "tool": "git_submodule_tool",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_0/git_workspace_tool/__init__.py",
+      "tool": "git_workspace_tool",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_0/git_workspace_tool/operations.py",
+      "tool": "git_workspace_tool",
+      "classification": "MOVE_INFRA",
+      "rationale": "Git ops overlap infra GitService",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/plugins.py",
+      "tool": "_cross_cutting",
+      "classification": "MOVE_INFRA",
+      "rationale": "Cross-tool plugin bootstrap belongs in infra registry",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Cross-cutting: drain to infra"
+    },
+    {
+      "path": "level_0/pypi_release_tool/__init__.py",
+      "tool": "pypi_release_tool",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_0/pypi_release_tool/ops_upload.py",
+      "tool": "pypi_release_tool",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/release_manager/__init__.py",
+      "tool": "release_manager",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_0/release_manager/argv_compat.py",
+      "tool": "release_manager",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/release_manager_plugins/__init__.py",
+      "tool": "release_manager_plugins",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_0/release_manager_plugins/pypi_plugin.py",
+      "tool": "release_manager_plugins",
+      "classification": "KEEP_IMPL",
+      "rationale": "Tool-specific plugin/mode registration",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_0/release_manager_plugins/python_package_plugin.py",
+      "tool": "release_manager_plugins",
+      "classification": "KEEP_IMPL",
+      "rationale": "Tool-specific plugin/mode registration",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_0/release_manager_plugins/registry.py",
+      "tool": "release_manager_plugins",
+      "classification": "MANUAL_SPLIT",
+      "rationale": "Separate registry from infra plugin_registry",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/release_manager_plugins/workspace_sync_plugin.py",
+      "tool": "release_manager_plugins",
+      "classification": "KEEP_IMPL",
+      "rationale": "Tool-specific plugin/mode registration",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_0/rhq/__init__.py",
+      "tool": "rhq",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_0/rhq/credentials_io.py",
+      "tool": "rhq",
+      "classification": "KEEP_IMPL",
+      "rationale": "Tool-specific environment/bootstrap",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Default drain candidate for tools without explicit target set"
+    },
+    {
+      "path": "level_0/rhq_form_autofiller/__init__.py",
+      "tool": "rhq_form_autofiller",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_0/rhq_form_autofiller/browser.py",
+      "tool": "rhq_form_autofiller",
+      "classification": "MOVE_INFRA",
+      "rationale": "Re-export shim for selenium_launch",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/rhq_form_autofiller/constants.py",
+      "tool": "rhq_form_autofiller",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/rhq_form_autofiller/data.py",
+      "tool": "rhq_form_autofiller",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/rhq_form_autofiller/language.py",
+      "tool": "rhq_form_autofiller",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/rhq_form_autofiller_env.py",
+      "tool": "rhq_form_autofiller",
+      "classification": "TEMP_SHIM",
+      "rationale": "Env shim during browser/env drain",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/schema_detector/__init__.py",
+      "tool": "schema_detector",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_0/schema_detector/data_loader.py",
+      "tool": "schema_detector",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/schema_detector/models.py",
+      "tool": "schema_detector",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/schema_detector/privacy_classifier.py",
+      "tool": "schema_detector",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/schema_detector/type_inference.py",
+      "tool": "schema_detector",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/score_totals_checker/__init__.py",
+      "tool": "score_totals_checker",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_0/score_totals_checker/totals.py",
+      "tool": "score_totals_checker",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_0/setup_basic_tool_environment.py",
+      "tool": "_cross_cutting",
+      "classification": "MOVE_INFRA",
+      "rationale": "Generic env bootstrap",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Cross-cutting: drain to infra"
+    },
+    {
+      "path": "level_1/__init__.py",
+      "tool": "_package",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_1/asset_reconciliation/__init__.py",
+      "tool": "asset_reconciliation",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_1/asset_reconciliation/asset_filters.py",
+      "tool": "asset_reconciliation",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_1/asset_reconciliation/contracts.py",
+      "tool": "asset_reconciliation",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_1/asset_reconciliation/debug_print.py",
+      "tool": "asset_reconciliation",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_1/asset_reconciliation/detection/__init__.py",
+      "tool": "asset_reconciliation",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_1/asset_reconciliation/detection/duplicates.py",
+      "tool": "asset_reconciliation",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_1/asset_reconciliation/detection/missing.py",
+      "tool": "asset_reconciliation",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_1/asset_reconciliation/detection/off_campus.py",
+      "tool": "asset_reconciliation",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_1/asset_reconciliation/form_debug.py",
+      "tool": "asset_reconciliation",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_1/asset_reconciliation/form_utils.py",
+      "tool": "asset_reconciliation",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_1/asset_reconciliation/location_primitives.py",
+      "tool": "asset_reconciliation",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_1/asset_reconciliation/sanity_checks.py",
+      "tool": "asset_reconciliation",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_1/asset_reconciliation/text_canonicalizer.py",
+      "tool": "asset_reconciliation",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_1/asset_reconciliation/validators.py",
+      "tool": "asset_reconciliation",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_1/asset_updater/__init__.py",
+      "tool": "asset_updater",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_1/asset_updater/asset_post_update_step.py",
+      "tool": "asset_updater",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_1/asset_updater/asset_search_step.py",
+      "tool": "asset_updater",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_1/asset_updater/asset_update_page_workflow.py",
+      "tool": "asset_updater",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_1/asset_updater/credentials_loader.py",
+      "tool": "asset_updater",
+      "classification": "MANUAL_SPLIT",
+      "rationale": "Orchestrates credential flow; split mechanism vs domain",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_1/asset_updater/current_asset_details_workflow.py",
+      "tool": "asset_updater",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_1/asset_updater/login_workflow.py",
+      "tool": "asset_updater",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_1/asset_updater/lookup_modal_workflow.py",
+      "tool": "asset_updater",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_1/asset_updater/offsite_workflow.py",
+      "tool": "asset_updater",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_1/asset_updater/state_detector.py",
+      "tool": "asset_updater",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_1/automated_labeler/__init__.py",
+      "tool": "automated_labeler",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_1/automated_labeler/labeling_mode.py",
+      "tool": "automated_labeler",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_1/automated_labeler/template_mode.py",
+      "tool": "automated_labeler",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_1/compare_columns.py",
+      "tool": "compare_columns",
+      "classification": "KEEP_IMPL",
+      "rationale": "Entrypoint chain (target end-state)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Thin tool: entrypoint surface stays in impl"
+    },
+    {
+      "path": "level_1/data_content_comparer/__init__.py",
+      "tool": "data_content_comparer",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_1/data_content_comparer/plugins.py",
+      "tool": "data_content_comparer",
+      "classification": "MANUAL_SPLIT",
+      "rationale": "Dual registration with infra get_plugin vs local MODE_REGISTRY",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_1/data_content_comparer/tool.py",
+      "tool": "data_content_comparer",
+      "classification": "KEEP_IMPL",
+      "rationale": "Entrypoint chain (target end-state)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_1/date_format_standardizer/__init__.py",
+      "tool": "date_format_standardizer",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_1/date_format_standardizer/entrypoint.py",
+      "tool": "date_format_standardizer",
+      "classification": "KEEP_IMPL",
+      "rationale": "Entrypoint chain (target end-state)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_1/dictionary_cleaner/__init__.py",
+      "tool": "dictionary_cleaner",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_1/dictionary_cleaner/numeric_keys.py",
+      "tool": "dictionary_cleaner",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_1/dictionary_driven_checker/__init__.py",
+      "tool": "dictionary_driven_checker",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_1/dictionary_driven_checker/runner.py",
+      "tool": "dictionary_driven_checker",
+      "classification": "KEEP_IMPL",
+      "rationale": "Entrypoint chain (target end-state)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_1/dictionary_validator_main.py",
+      "tool": "dictionary_validator",
+      "classification": "KEEP_IMPL",
+      "rationale": "Entrypoint chain (target end-state)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_1/dictionary_workflow/__init__.py",
+      "tool": "dictionary_workflow",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_1/dictionary_workflow/tool.py",
+      "tool": "dictionary_workflow",
+      "classification": "KEEP_IMPL",
+      "rationale": "Entrypoint chain (target end-state)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_1/dictionary_workflow/workflow.py",
+      "tool": "dictionary_workflow",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_1/feature_change_checker_main.py",
+      "tool": "feature_change_checker",
+      "classification": "KEEP_IMPL",
+      "rationale": "Entrypoint chain (target end-state)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_1/function_auditor/__init__.py",
+      "tool": "function_auditor",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_1/function_auditor/auditor.py",
+      "tool": "function_auditor",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_1/generic_release_tool/__init__.py",
+      "tool": "generic_release_tool",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_1/generic_release_tool/pipelines.py",
+      "tool": "generic_release_tool",
+      "classification": "MANUAL_SPLIT",
+      "rationale": "Workflow keep; stale git step imports need rewire to infra",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_1/generic_release_tool/version_resolver.py",
+      "tool": "generic_release_tool",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_1/git_submodule_tool/__init__.py",
+      "tool": "git_submodule_tool",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_1/git_submodule_tool/operations.py",
+      "tool": "git_submodule_tool",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_1/git_workspace_tool/__init__.py",
+      "tool": "git_workspace_tool",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_1/git_workspace_tool/tool.py",
+      "tool": "git_workspace_tool",
+      "classification": "KEEP_IMPL",
+      "rationale": "Entrypoint chain (target end-state)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_1/medvisit_integrity_validator_main.py",
+      "tool": "medvisit_integrity_validator",
+      "classification": "KEEP_IMPL",
+      "rationale": "Entrypoint chain (target end-state)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_1/release_manager/__init__.py",
+      "tool": "release_manager",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_1/release_manager_plugins/__init__.py",
+      "tool": "release_manager_plugins",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_1/release_manager_plugins/workspace_plugin.py",
+      "tool": "release_manager_plugins",
+      "classification": "KEEP_IMPL",
+      "rationale": "Tool-specific plugin/mode registration",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_1/rhq_form_autolfiller/__init__.py",
+      "tool": "rhq_form_autolfiller",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_1/rhq_form_autolfiller/panel_filler.py",
+      "tool": "rhq_form_autolfiller",
+      "classification": "KEEP_IMPL",
+      "rationale": "Entrypoint chain (target end-state)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Thin tool: entrypoint surface stays in impl"
+    },
+    {
+      "path": "level_1/rhq_login_actions.py",
+      "tool": "rhq",
+      "classification": "KEEP_IMPL",
+      "rationale": "Domain semantics or tool workflow",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Default drain candidate for tools without explicit target set"
+    },
+    {
+      "path": "level_1/schema_detector/__init__.py",
+      "tool": "schema_detector",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_1/schema_detector/column_analyzer.py",
+      "tool": "schema_detector",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_1/schema_detector/outputs.py",
+      "tool": "schema_detector",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_1/schema_detector/schema_builder.py",
+      "tool": "schema_detector",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_1/schema_detector/schema_detector_main.py",
+      "tool": "schema_detector",
+      "classification": "KEEP_IMPL",
+      "rationale": "Entrypoint chain (target end-state)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_1/score_totals_checker_main.py",
+      "tool": "score_totals_checker",
+      "classification": "KEEP_IMPL",
+      "rationale": "Entrypoint chain (target end-state)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_2/__init__.py",
+      "tool": "_package",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_2/asset_reconciliation/__init__.py",
+      "tool": "asset_reconciliation",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_2/asset_reconciliation/change_detector.py",
+      "tool": "asset_reconciliation",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_2/asset_reconciliation/debug_hooks.py",
+      "tool": "asset_reconciliation",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_2/asset_reconciliation/form_reshape.py",
+      "tool": "asset_reconciliation",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_2/asset_reconciliation/key_semantics.py",
+      "tool": "asset_reconciliation",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_2/asset_reconciliation/location_transforms.py",
+      "tool": "asset_reconciliation",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_2/asset_reconciliation/tag_pipeline.py",
+      "tool": "asset_reconciliation",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_2/asset_reconciliation/transforms.py",
+      "tool": "asset_reconciliation",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_2/asset_reconciliation/validation.py",
+      "tool": "asset_reconciliation",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_2/asset_updater/__init__.py",
+      "tool": "asset_updater",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_2/asset_updater/custodian_lookup_workflow.py",
+      "tool": "asset_updater",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_2/asset_updater/diagnostics.py",
+      "tool": "asset_updater",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_2/asset_updater/location_lookup_workflow.py",
+      "tool": "asset_updater",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_2/automated_labeler/__init__.py",
+      "tool": "automated_labeler",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_2/automated_labeler/tool.py",
+      "tool": "automated_labeler",
+      "classification": "KEEP_IMPL",
+      "rationale": "Entrypoint chain (target end-state)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_2/data_content_comparer/__init__.py",
+      "tool": "data_content_comparer",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_2/data_content_comparer/entrypoint.py",
+      "tool": "data_content_comparer",
+      "classification": "KEEP_IMPL",
+      "rationale": "Entrypoint chain (target end-state)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_2/dictionary_cleaner/__init__.py",
+      "tool": "dictionary_cleaner",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_2/dictionary_cleaner/language_blocks.py",
+      "tool": "dictionary_cleaner",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_2/dictionary_workflow/__init__.py",
+      "tool": "dictionary_workflow",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_2/dictionary_workflow/entrypoint.py",
+      "tool": "dictionary_workflow",
+      "classification": "KEEP_IMPL",
+      "rationale": "Entrypoint chain (target end-state)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_2/function_auditor/__init__.py",
+      "tool": "function_auditor",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_2/function_auditor/batch.py",
+      "tool": "function_auditor",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_2/function_auditor/file_discovery.py",
+      "tool": "function_auditor",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_2/function_auditor/single_file_mode.py",
+      "tool": "function_auditor",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_2/generic_release_tool/__init__.py",
+      "tool": "generic_release_tool",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_2/generic_release_tool/tool.py",
+      "tool": "generic_release_tool",
+      "classification": "KEEP_IMPL",
+      "rationale": "Entrypoint chain (target end-state)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_2/pypi_release_tool/__init__.py",
+      "tool": "pypi_release_tool",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_2/pypi_release_tool/tool.py",
+      "tool": "pypi_release_tool",
+      "classification": "KEEP_IMPL",
+      "rationale": "Entrypoint chain (target end-state)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_2/release_manager/__init__.py",
+      "tool": "release_manager",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_2/release_manager/tool.py",
+      "tool": "release_manager",
+      "classification": "KEEP_IMPL",
+      "rationale": "Entrypoint chain (target end-state)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_2/rhq_flow.py",
+      "tool": "rhq",
+      "classification": "KEEP_IMPL",
+      "rationale": "Entrypoint chain (target end-state)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Thin tool: entrypoint surface stays in impl"
+    },
+    {
+      "path": "level_2/schema_detector/__init__.py",
+      "tool": "schema_detector",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_2/schema_detector/detector.py",
+      "tool": "schema_detector",
+      "classification": "KEEP_IMPL",
+      "rationale": "Entrypoint chain (target end-state)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_3/__init__.py",
+      "tool": "_package",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_3/asset_reconciliation/__init__.py",
+      "tool": "asset_reconciliation",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_3/asset_reconciliation/key_normalizer.py",
+      "tool": "asset_reconciliation",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_3/asset_reconciliation/location_normalizer.py",
+      "tool": "asset_reconciliation",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_3/asset_reconciliation/registry.py",
+      "tool": "asset_reconciliation",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_3/asset_updater/__init__.py",
+      "tool": "asset_updater",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_3/asset_updater/asset_update_step.py",
+      "tool": "asset_updater",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_3/asset_updater/dataset_loader.py",
+      "tool": "asset_updater",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_3/asset_updater/session_manager.py",
+      "tool": "asset_updater",
+      "classification": "MANUAL_SPLIT",
+      "rationale": "Session lifecycle mixes browser infra + updater flow",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_3/automated_labeler/__init__.py",
+      "tool": "automated_labeler",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_3/automated_labeler/entrypoint.py",
+      "tool": "automated_labeler",
+      "classification": "KEEP_IMPL",
+      "rationale": "Entrypoint chain (target end-state)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_3/custom_release_script.py",
+      "tool": "_cross_cutting",
+      "classification": "MANUAL_SPLIT",
+      "rationale": "Ad-hoc release script; classify after consumer audit",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Cross-cutting: drain to infra"
+    },
+    {
+      "path": "level_3/dictionary_cleaner/__init__.py",
+      "tool": "dictionary_cleaner",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_3/dictionary_cleaner/expected_values.py",
+      "tool": "dictionary_cleaner",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_3/dictionary_cleaner/value_parser.py",
+      "tool": "dictionary_cleaner",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_3/dictionary_driven_checker_validators.py",
+      "tool": "_cross_cutting",
+      "classification": "MANUAL_SPLIT",
+      "rationale": "Side-effect @register_validator imports",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Cross-cutting: drain to infra"
+    },
+    {
+      "path": "level_3/function_auditor/__init__.py",
+      "tool": "function_auditor",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_3/function_auditor/batch_mode.py",
+      "tool": "function_auditor",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_3/function_auditor/cli.py",
+      "tool": "function_auditor",
+      "classification": "KEEP_IMPL",
+      "rationale": "Entrypoint chain (target end-state)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_3/function_auditor/examples.py",
+      "tool": "function_auditor",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_3/generic_release_tool/__init__.py",
+      "tool": "generic_release_tool",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_3/generic_release_tool/cli.py",
+      "tool": "generic_release_tool",
+      "classification": "KEEP_IMPL",
+      "rationale": "Entrypoint chain (target end-state)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_3/git_submodule_tool/__init__.py",
+      "tool": "git_submodule_tool",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_3/git_submodule_tool/tool.py",
+      "tool": "git_submodule_tool",
+      "classification": "KEEP_IMPL",
+      "rationale": "Entrypoint chain (target end-state)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_3/git_workspace_tool/__init__.py",
+      "tool": "git_workspace_tool",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_3/git_workspace_tool/cli.py",
+      "tool": "git_workspace_tool",
+      "classification": "KEEP_IMPL",
+      "rationale": "Entrypoint chain (target end-state)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_3/pypi_release_tool/__init__.py",
+      "tool": "pypi_release_tool",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_3/pypi_release_tool/cli.py",
+      "tool": "pypi_release_tool",
+      "classification": "KEEP_IMPL",
+      "rationale": "Entrypoint chain (target end-state)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_3/release_manager/__init__.py",
+      "tool": "release_manager",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_3/release_manager/help_text.py",
+      "tool": "release_manager",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_3/rhq_form_autofiller_main.py",
+      "tool": "rhq_form_autofiller",
+      "classification": "KEEP_IMPL",
+      "rationale": "Entrypoint chain (target end-state)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_4/__init__.py",
+      "tool": "_package",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_4/asset_reconciliation/__init__.py",
+      "tool": "asset_reconciliation",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_4/asset_reconciliation/asset_normalizer.py",
+      "tool": "asset_reconciliation",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_4/asset_reconciliation/form_transform.py",
+      "tool": "asset_reconciliation",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_4/asset_reconciliation/merge_key_preparer.py",
+      "tool": "asset_reconciliation",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_4/asset_updater/__init__.py",
+      "tool": "asset_updater",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_4/asset_updater/loop_recovery_workflow.py",
+      "tool": "asset_updater",
+      "classification": "KEEP_IMPL",
+      "rationale": "Domain semantics or tool workflow",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_4/asset_updater/row_executor.py",
+      "tool": "asset_updater",
+      "classification": "KEEP_IMPL",
+      "rationale": "Domain semantics or tool workflow",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_4/dictionary_cleaner/__init__.py",
+      "tool": "dictionary_cleaner",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_4/dictionary_cleaner/cleaner.py",
+      "tool": "dictionary_cleaner",
+      "classification": "KEEP_IMPL",
+      "rationale": "Entrypoint chain (target end-state)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_4/dictionary_cleaner/normalizer.py",
+      "tool": "dictionary_cleaner",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_4/function_auditor/__init__.py",
+      "tool": "function_auditor",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_4/function_auditor/tool.py",
+      "tool": "function_auditor",
+      "classification": "KEEP_IMPL",
+      "rationale": "Entrypoint chain (target end-state)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_4/generic_release_tool/__init__.py",
+      "tool": "generic_release_tool",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_4/generic_release_tool/standalone.py",
+      "tool": "generic_release_tool",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_4/git_pipelines.py",
+      "tool": "release_cluster",
+      "classification": "MOVE_INFRA",
+      "rationale": "Cross-tool git pipeline factory",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Cross-cutting: drain to infra"
+    },
+    {
+      "path": "level_4/git_submodule_tool/__init__.py",
+      "tool": "git_submodule_tool",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_4/git_submodule_tool/cli.py",
+      "tool": "git_submodule_tool",
+      "classification": "KEEP_IMPL",
+      "rationale": "Entrypoint chain (target end-state)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_4/git_workspace_tool/__init__.py",
+      "tool": "git_workspace_tool",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_4/git_workspace_tool/standalone.py",
+      "tool": "git_workspace_tool",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_4/release_manager/__init__.py",
+      "tool": "release_manager",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_4/release_manager/cli.py",
+      "tool": "release_manager",
+      "classification": "KEEP_IMPL",
+      "rationale": "Entrypoint chain (target end-state)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_5/__init__.py",
+      "tool": "_package",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_5/asset_reconciliation/__init__.py",
+      "tool": "asset_reconciliation",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_5/asset_reconciliation/asset_pipeline.py",
+      "tool": "asset_reconciliation",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_5/asset_reconciliation/form_pipeline.py",
+      "tool": "asset_reconciliation",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_5/asset_reconciliation/merge_pipeline.py",
+      "tool": "asset_reconciliation",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_5/asset_updater/__init__.py",
+      "tool": "asset_updater",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_5/asset_updater/loop_runner.py",
+      "tool": "asset_updater",
+      "classification": "KEEP_IMPL",
+      "rationale": "Entrypoint chain (target end-state)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_5/development_usage.py",
+      "tool": "_cross_cutting",
+      "classification": "MOVE_INFRA",
+      "rationale": "Dev harness; not tool domain",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Cross-cutting: drain to infra"
+    },
+    {
+      "path": "level_5/dictionary_cleaner/__init__.py",
+      "tool": "dictionary_cleaner",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_5/dictionary_cleaner/tool.py",
+      "tool": "dictionary_cleaner",
+      "classification": "KEEP_IMPL",
+      "rationale": "Entrypoint chain (target end-state)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_5/function_auditor/__init__.py",
+      "tool": "function_auditor",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_5/function_auditor/entrypoint.py",
+      "tool": "function_auditor",
+      "classification": "KEEP_IMPL",
+      "rationale": "Entrypoint chain (target end-state)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_5/release_cli.py",
+      "tool": "release_cluster",
+      "classification": "MOVE_INFRA",
+      "rationale": "Multi-tool release CLI aggregator",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Cross-cutting: drain to infra"
+    },
+    {
+      "path": "level_6/__init__.py",
+      "tool": "_package",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_6/asset_reconciliation/__init__.py",
+      "tool": "asset_reconciliation",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_6/asset_reconciliation/orchestrator.py",
+      "tool": "asset_reconciliation",
+      "classification": "KEEP_IMPL",
+      "rationale": "Entrypoint chain (target end-state)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_6/asset_updater/__init__.py",
+      "tool": "asset_updater",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_6/asset_updater/asset_update_api.py",
+      "tool": "asset_updater",
+      "classification": "KEEP_IMPL",
+      "rationale": "Entrypoint chain (target end-state)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_6/dictionary_cleaner/__init__.py",
+      "tool": "dictionary_cleaner",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_6/dictionary_cleaner/entrypoint.py",
+      "tool": "dictionary_cleaner",
+      "classification": "KEEP_IMPL",
+      "rationale": "Entrypoint chain (target end-state)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_6/dictionary_driven_checker/__init__.py",
+      "tool": "dictionary_driven_checker",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_6/dictionary_driven_checker/normalization.py",
+      "tool": "dictionary_driven_checker",
+      "classification": "MOVE_INFRA",
+      "rationale": "Drain candidate: Proposed end-state: drain to level_0_infra (domain or mechanism module)",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Proposed end-state: drain to level_0_infra (domain or mechanism module)"
+    },
+    {
+      "path": "level_7/__init__.py",
+      "tool": "_package",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_7/asset_reconciliation/__init__.py",
+      "tool": "asset_reconciliation",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_7/asset_reconciliation/runner.py",
+      "tool": "asset_reconciliation",
+      "classification": "KEEP_IMPL",
+      "rationale": "Entrypoint chain (target end-state)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_7/asset_updater/__init__.py",
+      "tool": "asset_updater",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_7/asset_updater/main.py",
+      "tool": "asset_updater",
+      "classification": "KEEP_IMPL",
+      "rationale": "Entrypoint chain (target end-state)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_7/dictionary_driven_checker/__init__.py",
+      "tool": "dictionary_driven_checker",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_7/dictionary_driven_checker/core.py",
+      "tool": "dictionary_driven_checker",
+      "classification": "KEEP_IMPL",
+      "rationale": "Entrypoint chain (target end-state)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_8/__init__.py",
+      "tool": "_package",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_8/asset_reconciliation/__init__.py",
+      "tool": "asset_reconciliation",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_8/asset_reconciliation/main.py",
+      "tool": "asset_reconciliation",
+      "classification": "KEEP_IMPL",
+      "rationale": "Entrypoint chain (target end-state)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_8/dictionary_driven_checker/__init__.py",
+      "tool": "dictionary_driven_checker",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_8/dictionary_driven_checker/tool.py",
+      "tool": "dictionary_driven_checker",
+      "classification": "KEEP_IMPL",
+      "rationale": "Entrypoint chain (target end-state)",
+      "in_entrypoint_chain": true,
+      "target_stays_in_impl": true,
+      "end_state_note": "Proposed end-state: remains in level_1_impl"
+    },
+    {
+      "path": "level_Z/__init__.py",
+      "tool": "level_Z_meta",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_Z/dictionary_driven_checker_plugins/__init__.py",
+      "tool": "dictionary_driven_checker_plugins",
+      "classification": "KEEP_IMPL",
+      "rationale": "Package API aggregation; regenerate __all__ after child moves",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": true,
+      "end_state_note": "Package __init__ stays during transition; slim __all__ after drain"
+    },
+    {
+      "path": "level_Z/dictionary_driven_checker_plugins/date_plugin.py",
+      "tool": "dictionary_driven_checker_plugins",
+      "classification": "KEEP_IMPL",
+      "rationale": "Tool-specific plugin/mode registration",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Default drain candidate for tools without explicit target set"
+    },
+    {
+      "path": "level_Z/dictionary_driven_checker_plugins/numeric_plugin.py",
+      "tool": "dictionary_driven_checker_plugins",
+      "classification": "KEEP_IMPL",
+      "rationale": "Tool-specific plugin/mode registration",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Default drain candidate for tools without explicit target set"
+    },
+    {
+      "path": "level_Z/dictionary_driven_checker_plugins/text_plugin.py",
+      "tool": "dictionary_driven_checker_plugins",
+      "classification": "KEEP_IMPL",
+      "rationale": "Tool-specific plugin/mode registration",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Default drain candidate for tools without explicit target set"
+    },
+    {
+      "path": "level_Z/pipeline_utils.py",
+      "tool": "level_Z_meta",
+      "classification": "MOVE_INFRA",
+      "rationale": "Broken shared pipeline helpers; fix then move",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Cross-cutting: drain to infra"
+    },
+    {
+      "path": "level_Z/setup_scriptcraft_in_project.py",
+      "tool": "level_Z_meta",
+      "classification": "MOVE_INFRA",
+      "rationale": "Project setup utility; not tool impl",
+      "in_entrypoint_chain": false,
+      "target_stays_in_impl": false,
+      "end_state_note": "Cross-cutting: drain to infra"
+    }
+  ]
+}

@@ -56,6 +56,16 @@ class NamedRegistry(Generic[_T]):
     def contains(self, key: str) -> bool:
         return str(key) in self._items
 
+    def remove(self, key: str) -> bool:
+        k = str(key)
+        if k not in self._items:
+            return False
+        del self._items[k]
+        return True
+
+    def clear(self) -> None:
+        self._items.clear()
+
     def bulk_validate_known(self, keys: Iterable[str]) -> None:
         available = self.list_keys()
         available_set = set(available)

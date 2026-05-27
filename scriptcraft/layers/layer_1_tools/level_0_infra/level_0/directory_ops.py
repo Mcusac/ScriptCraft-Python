@@ -9,22 +9,6 @@ import shutil
 from pathlib import Path
 from typing import List, Union
 
-
-def ensure_dir(directory: Union[str, Path]) -> Path:
-    """
-    Create *directory* (and parents) if it does not exist.
-
-    Args:
-        directory: Target directory path.
-
-    Returns:
-        The resolved directory Path.
-    """
-    directory = Path(directory)
-    directory.mkdir(parents=True, exist_ok=True)
-    return directory
-
-
 def clean_directory(directory: Union[str, Path]) -> None:
     """
     Delete all contents of *directory* and re-create it as an empty directory.

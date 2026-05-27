@@ -1,8 +1,3 @@
-"""Auto-generated package exports."""
+"""Auto-generated package exports (empty)."""
 
-
-from .auditor import FunctionAuditor
-
-__all__ = [
-    "FunctionAuditor",
-]
+__all__: list[str] = []

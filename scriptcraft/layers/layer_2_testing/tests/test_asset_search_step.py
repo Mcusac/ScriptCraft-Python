@@ -3,23 +3,21 @@
 import unittest
 from unittest.mock import MagicMock, patch
 
-from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.level_0 import (
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_0 import (
+    AssetNotFoundError,
     constants as c,
 )
-from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.level_1.asset_search_step import (
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_1 import (
     is_on_asset_update_page,
     wait_for_asset_update_page,
-)
-from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.level_0.errors import (
-    AssetNotFoundError,
 )
 
 
 class TestIsOnAssetUpdatePage(unittest.TestCase):
 
     @patch(
-        "scriptcraft.layers.layer_1_tools.level_Z.asset_updater.level_1."
-        "asset_search_step.ba.selector_exists"
+        "scriptcraft.layers.layer_1_tools.level_1_impl.level_1.asset_updater."
+        "asset_search_step.selector_exists"
     )
     def test_true_when_date_field_present(
         self,
@@ -37,7 +35,7 @@ class TestIsOnAssetUpdatePage(unittest.TestCase):
 class TestWaitForAssetUpdatePage(unittest.TestCase):
 
     @patch(
-        "scriptcraft.layers.layer_1_tools.level_Z.asset_updater.level_1."
+        "scriptcraft.layers.layer_1_tools.level_1_impl.level_1.asset_updater."
         "asset_search_step.is_on_asset_update_page"
     )
     def test_raises_when_update_page_never_appears(
@@ -56,16 +54,16 @@ class TestWaitForAssetUpdatePage(unittest.TestCase):
 class TestPrepareSearchForNextRow(unittest.TestCase):
 
     @patch(
-        "scriptcraft.layers.layer_1_tools.level_Z.asset_updater.level_1."
-        "asset_update_page_workflow.ba.safe_wait"
+        "scriptcraft.layers.layer_1_tools.level_1_impl.level_1.asset_updater."
+        "asset_update_page_workflow.safe_wait"
     )
     @patch(
-        "scriptcraft.layers.layer_1_tools.level_Z.asset_updater.level_1."
-        "asset_update_page_workflow.ba.clear_field"
+        "scriptcraft.layers.layer_1_tools.level_1_impl.level_1.asset_updater."
+        "asset_update_page_workflow.clear_field"
     )
     @patch(
-        "scriptcraft.layers.layer_1_tools.level_Z.asset_updater.level_1."
-        "asset_update_page_workflow.ba.dismiss_message_modals"
+        "scriptcraft.layers.layer_1_tools.level_1_impl.level_1.asset_updater."
+        "asset_update_page_workflow.dismiss_message_modals"
     )
     def test_clears_tag_and_asset_id(
         self,
@@ -73,7 +71,7 @@ class TestPrepareSearchForNextRow(unittest.TestCase):
         mock_clear: MagicMock,
         _mock_wait: MagicMock,
     ) -> None:
-        from scriptcraft.layers.layer_1_tools.level_Z.asset_updater.level_1.asset_update_page_workflow import (
+        from scriptcraft.layers.layer_1_tools.level_1_impl.level_1 import (
             prepare_search_for_next_row,
         )
 

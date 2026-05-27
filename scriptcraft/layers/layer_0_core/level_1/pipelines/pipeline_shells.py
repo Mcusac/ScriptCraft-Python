@@ -1,22 +1,15 @@
 """Small, reusable orchestration shells for PipelineResult pipelines."""
 
 from dataclasses import dataclass
-from typing import Any, Callable, Generic, Optional, TypeVar
+from typing import Any, Callable, Optional, TypeVar
 
 from scriptcraft.layers.layer_0_core.level_0 import PipelineResult
 
 _T = TypeVar("_T")
 
 
-class BasePipeline(Generic[_T]):
-    """Minimal pipeline interface: a callable object with a single `run()`."""
-
-    def run(self) -> _T:  # pragma: no cover (interface)
-        raise NotImplementedError
-
-
 @dataclass(frozen=True)
-class ValidateFirstRunner(BasePipeline[_T]):
+class ValidateFirstRunner:
     """
     Validate-first shell for pipelines that signal failure via exceptions.
 
@@ -36,7 +29,7 @@ class ValidateFirstRunner(BasePipeline[_T]):
 
 
 @dataclass(frozen=True)
-class ValidateFirstPipelineResultShell(BasePipeline[PipelineResult]):
+class ValidateFirstPipelineResultShell:
     """Validate-first shell for PipelineResult-returning pipelines."""
 
     stage: str
@@ -61,7 +54,7 @@ class ValidateFirstPipelineResultShell(BasePipeline[PipelineResult]):
 
 
 @dataclass(frozen=True)
-class TwoStageValidateFirstPipelineResultShell(BasePipeline[PipelineResult]):
+class TwoStageValidateFirstPipelineResultShell:
     """Validate-first shell for two-stage PipelineResult composites."""
 
     stage: str
@@ -89,5 +82,4 @@ class TwoStageValidateFirstPipelineResultShell(BasePipeline[PipelineResult]):
             second_stage=str(self.second_stage),
             second_fn=self.second_fn,
         )
-
 

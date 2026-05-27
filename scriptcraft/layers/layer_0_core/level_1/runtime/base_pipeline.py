@@ -8,7 +8,7 @@ from scriptcraft.layers.layer_0_core.level_0 import get_logger
 _logger = get_logger(__name__)
 
 
-class BasePipeline(ABC):
+class LifecyclePipelineBase(ABC):
     """
     Abstract base class for all pipelines.
 
@@ -96,3 +96,7 @@ class BasePipeline(ABC):
             _logger.error("❌ Pipeline failed: %s", self.__class__.__name__)
             _logger.error("  Error: %s", str(e))
             raise
+
+
+# Backward compatibility during migration
+BasePipeline = LifecyclePipelineBase

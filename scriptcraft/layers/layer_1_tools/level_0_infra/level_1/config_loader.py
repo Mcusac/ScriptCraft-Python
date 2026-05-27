@@ -1,34 +1,27 @@
 """
-Configuration loader (single source of I/O).
+Configuration loader (dict surface for legacy callers).
 
-Responsibilities:
-- load config.yaml (if present)
-- fallback to env vars
-- fallback to defaults
-
-NO constants, NO path logic, NO filesystem utilities beyond config.
+Canonical typed config: level_5.config.load_config -> Config.
 """
 
 import os
 import yaml
+
 from pathlib import Path
 from typing import Any, Dict
 
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.environment import detect_environment
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import detect_environment
 
 _config_cache: Dict[str, Any] | None = None
 
 
-def load_config() -> Dict[str, Any]:
-    """
-    Lazy-load configuration once.
-    """
+def load_config_dict() -> Dict[str, Any]:
+    """Lazy-load configuration once as a plain dict (legacy API)."""
     global _config_cache
 
     if _config_cache is not None:
         return _config_cache
 
-    # 1. search for config.yaml
     search_paths = [
         Path(__file__).resolve().parents[i] / "config.yaml"
         for i in range(3, 6)
@@ -43,7 +36,6 @@ def load_config() -> Dict[str, Any]:
             except Exception:
                 continue
 
-    # 2. env-based production fallback
     if detect_environment() == "production":
         _config_cache = {
             "study_name": os.environ.get("STUDY_NAME", "DEFAULT_STUDY"),
@@ -55,7 +47,6 @@ def load_config() -> Dict[str, Any]:
         }
         return _config_cache
 
-    # 3. dev defaults
     _config_cache = {
         "study_name": "DEFAULT_STUDY",
         "id_columns": ["Med_ID", "Visit_ID"],
@@ -68,6 +59,11 @@ def load_config() -> Dict[str, Any]:
     return _config_cache
 
 
+def load_config() -> Dict[str, Any]:
+    """Backward-compatible alias for load_config_dict."""
+    return load_config_dict()
+
+
 def get_config(key: str | None = None, default: Any = None) -> Any:
-    cfg = load_config()
+    cfg = load_config_dict()
     return cfg if key is None else cfg.get(key, default)

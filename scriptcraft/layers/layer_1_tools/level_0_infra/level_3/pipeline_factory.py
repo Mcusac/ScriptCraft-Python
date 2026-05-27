@@ -10,7 +10,7 @@ from functools import partial
 
 from typing import Dict, List, Callable, Any, Optional
 
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_2.pipeline_base import BasePipeline, PipelineStep
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_2.pipeline_base import PipelineStep, StepPipelineEngine
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_2.root_schema import Config
 
 
@@ -87,9 +87,9 @@ class PipelineFactory:
             "pipeline_descriptions": getattr(config_obj, "pipeline_descriptions", {})
         }
         self.pipeline_defs = self.config.get("pipelines", {})
-        self.pipelines: Dict[str, BasePipeline] = {}
+        self.pipelines: Dict[str, StepPipelineEngine] = {}
 
-    def _build_pipeline(self, name: str, pipeline_config: Any) -> BasePipeline:
+    def _build_pipeline(self, name: str, pipeline_config: Any) -> StepPipelineEngine:
         """
         Build a pipeline from its configuration.
         """
@@ -102,7 +102,7 @@ class PipelineFactory:
             description = ""
             steps_or_refs = pipeline_config
 
-        pipeline = BasePipeline(config_obj, name=name, description=description)
+        pipeline = StepPipelineEngine(config_obj, name=name, description=description)
 
         for item in steps_or_refs:
             if isinstance(item, dict):
@@ -121,7 +121,7 @@ class PipelineFactory:
 
         return pipeline
 
-    def create_pipelines(self) -> Dict[str, BasePipeline]:
+    def create_pipelines(self) -> Dict[str, StepPipelineEngine]:
         """
         Create all pipelines defined in config.
         """

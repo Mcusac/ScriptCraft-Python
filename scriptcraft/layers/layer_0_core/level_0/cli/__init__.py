@@ -20,6 +20,8 @@ from .common_args import add_common_arguments
 
 from .dispatcher import dispatch_command
 
+from .kwargs_filter import filter_kwargs_for_callable
+
 __all__ = [
     "Command",
     "add_common_arguments",
@@ -28,6 +30,7 @@ __all__ = [
     "add_model_type_argument",
     "comma_separated_type",
     "dispatch_command",
+    "filter_kwargs_for_callable",
     "get_arg",
     "parse_comma_separated",
     "parse_key_value_pairs",

@@ -7,8 +7,11 @@ import logging
 from pathlib import Path
 from typing import Optional, Union
 
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.formatter import Utf8Formatter, DEFAULT_LOG_FORMAT
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.handlers import (
+from scriptcraft.layers.layer_0_core.level_0 import normalize_level
+
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import (
+    DEFAULT_LOG_FORMAT,
+    Utf8Formatter,
     build_file_handler,
     build_stream_handler,
     configure_handler,
@@ -18,12 +21,6 @@ from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.handlers import (
 
 def _get_logger(name: str) -> logging.Logger:
     return logging.getLogger() if name == "root" else logging.getLogger(name)
-
-
-def _normalize_level(level: Union[str, int]) -> int:
-    if isinstance(level, str):
-        return getattr(logging, level.upper(), logging.INFO)
-    return level
 
 
 def setup_logger(
@@ -37,7 +34,7 @@ def setup_logger(
 ) -> logging.Logger:
     logger = _get_logger(name)
 
-    level = _normalize_level(level)
+    level = normalize_level(level)
     logger.setLevel(level)
 
     if clear_handlers:

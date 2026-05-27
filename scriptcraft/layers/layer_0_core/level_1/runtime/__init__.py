@@ -9,7 +9,10 @@ from . import (
 from .config import *
 from .cuda import *
 
-from .base_pipeline import BasePipeline
+from .base_pipeline import (
+    BasePipeline,
+    LifecyclePipelineBase,
+)
 
 from .chunked_prediction import (
     predict_in_chunks,
@@ -22,9 +25,24 @@ from .device import (
     is_cuda_available,
 )
 
+from .domain_loops import (
+    run_domains,
+    run_process_domain_for_single_pair,
+    run_process_domain_over_input_paths,
+)
+
 from .lazy_imports import lazy_import
 
 from .metadata_paths import find_metadata_candidates
+
+from .mode_execution import (
+    ModeCallable,
+    ModeRegistry,
+    NamedRegistryWithMetadata,
+    execute_mode,
+    get_mode,
+    normalize_callable_result,
+)
 
 from .notebook_runner import safe_execute_cell
 
@@ -45,15 +63,38 @@ from .progress_config import (
     ProgressVerbosity,
 )
 
+from .retry import (
+    T,
+    retry_until_success,
+)
+
+from .run_context import (
+    RunContext,
+    build_run_context,
+)
+
 from .seed import set_seed
+
+from .tool_lifecycle import (
+    run_guarded_lifecycle,
+    run_with_validated_inputs,
+)
 
 __all__ = (
     list(config.__all__)
     + list(cuda.__all__)
     + [
         "BasePipeline",
+        "LifecyclePipelineBase",
+        "ModeCallable",
+        "ModeRegistry",
+        "NamedRegistryWithMetadata",
         "ProgressConfig",
         "ProgressVerbosity",
+        "RunContext",
+        "T",
+        "build_run_context",
+        "execute_mode",
         "find_metadata_candidates",
         "get_default_submission_csv_path",
         "get_device",
@@ -62,13 +103,21 @@ __all__ = (
         "get_environment_root",
         "get_environment_type",
         "get_kaggle_working_submission_csv_path",
+        "get_mode",
         "is_cuda_available",
         "lazy_import",
+        "normalize_callable_result",
         "predict_in_chunks",
         "predict_proteins_in_chunks",
         "resolve_environment_path",
         "resolve_path",
+        "retry_until_success",
         "run_command",
+        "run_domains",
+        "run_guarded_lifecycle",
+        "run_process_domain_for_single_pair",
+        "run_process_domain_over_input_paths",
+        "run_with_validated_inputs",
         "safe_execute_cell",
         "set_seed",
     ]

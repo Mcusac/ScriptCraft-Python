@@ -3,14 +3,14 @@
 from typing import Any, Dict, Optional
 
 from scriptcraft.layers.layer_0_core.level_0 import get_logger
-from scriptcraft.layers.layer_0_core.level_1 import BasePipeline
+from scriptcraft.layers.layer_0_core.level_1 import LifecyclePipelineBase
 from scriptcraft.layers.layer_0_core.level_5 import ExportPipeline
 from scriptcraft.layers.layer_0_core.level_8 import TrainPipeline
 
 _logger = get_logger(__name__)
 
 
-class TrainAndExportWorkflow(BasePipeline):
+class TrainAndExportWorkflow(LifecyclePipelineBase):
     """
     Workflow that trains a model and exports it for submission.
 

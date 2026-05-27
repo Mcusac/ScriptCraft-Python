@@ -9,7 +9,7 @@ import pandas as pd
 from typing import Dict, List, Optional, Union, Callable, Set, Any
 from pathlib import Path
 
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import log_and_print
 
 # ==== 📉 Missing Values Analysis ====
 
@@ -172,23 +172,6 @@ def get_common_columns(df1: pd.DataFrame, df2: pd.DataFrame) -> Set[str]:
         Set of common column names
     """
     return set(df1.columns) & set(df2.columns)
-
-def validate_required_columns(df: pd.DataFrame, required_cols: List[str]) -> bool:
-    """
-    Check if DataFrame has all required columns.
-    
-    Args:
-        df: DataFrame to check
-        required_cols: List of required column names
-    
-    Returns:
-        True if all required columns present, False otherwise
-    """
-    missing = set(required_cols) - set(df.columns)
-    if missing:
-        print(f"❌ Missing required columns: {missing}")
-        return False
-    return True
 
 def get_column_dtypes(df: pd.DataFrame) -> Dict[str, str]:
     """

@@ -5,7 +5,7 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional, Set
 
 from scriptcraft.layers.layer_0_core.level_0 import ensure_dir, get_logger
-from scriptcraft.layers.layer_0_core.level_1 import BasePipeline, execute_variants
+from scriptcraft.layers.layer_0_core.level_1 import LifecyclePipelineBase, execute_variants
 from scriptcraft.layers.layer_0_core.level_5 import (
     load_results,
     save_results,
@@ -30,7 +30,7 @@ def _filter_param_grid(
     return grid_config if isinstance(grid_config, dict) else {}
 
 
-class GridSearchBase(BasePipeline, ABC):
+class GridSearchBase(LifecyclePipelineBase, ABC):
     """
     Abstract base class for grid search pipelines.
 

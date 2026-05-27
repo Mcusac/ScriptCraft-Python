@@ -1,8 +1,3 @@
-"""Auto-generated package exports."""
+"""Auto-generated package exports (empty)."""
 
-
-from .detector import SchemaDetector
-
-__all__ = [
-    "SchemaDetector",
-]
+__all__: list[str] = []
