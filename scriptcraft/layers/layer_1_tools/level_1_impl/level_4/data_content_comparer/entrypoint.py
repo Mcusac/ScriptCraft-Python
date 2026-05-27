@@ -2,7 +2,7 @@
 
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_7 import create_entrypoint_main
 
-from scriptcraft.layers.layer_1_tools.level_1_impl.level_2 import DataContentComparer
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_3 import DataContentComparer
 
 
 def _detect_input_paths_required(argv: list[str]) -> bool:

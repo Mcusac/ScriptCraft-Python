@@ -19,7 +19,7 @@ from scriptcraft.layers.layer_1_tools.level_0_infra.level_5 import (
 )
 
 from scriptcraft.layers.layer_1_tools.level_1_impl.level_0 import (
-    run_comparison,
+    run_asset_form_comparison,
 )
 
 
@@ -52,7 +52,7 @@ def run(
     # --------------------------------------------------------
     # STEP 4 — PIPELINE EXECUTION
     # --------------------------------------------------------
-    results = run_comparison(
+    results = run_asset_form_comparison(
         asset_df,
         form_df,
         debug=debug,

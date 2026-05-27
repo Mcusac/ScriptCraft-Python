@@ -1,22 +1,21 @@
-"""
-Pipeline orchestration layer.
-"""
+"""Domain logic: compare two release DataFrames and write a diff report."""
 
 from typing import Any
+
 import pandas as pd
 
 from pathlib import Path
 
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import build_pivot, diff_block, diff_filtered
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_1 import (
-    prepare_dataset,
     align_dtypes,
     column_changes,
+    prepare_dataset,
     write_csv,
 )
 
 
-def run_comparison(
+def compare_release_dataframes(
     df_old: pd.DataFrame,
     df_new: pd.DataFrame,
     dataset: str,
@@ -27,6 +26,7 @@ def run_comparison(
     config: Any = None,
     debug: bool = False,
 ) -> None:
+    """Pivot two release frames, diff them, and write the result CSV."""
     df_old, df_new, missing = prepare_dataset(df_old, df_new, config, dataset)
 
     if debug:

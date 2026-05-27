@@ -1,8 +1,8 @@
 """Auto-generated package exports."""
 
 
-from .tool import ReleaseManager
+from .plugins import load_builtin_plugins
 
 __all__ = [
-    "ReleaseManager",
+    "load_builtin_plugins",
 ]

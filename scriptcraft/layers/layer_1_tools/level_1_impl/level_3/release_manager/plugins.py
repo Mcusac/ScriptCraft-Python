@@ -5,11 +5,13 @@ from typing import Any
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import log_and_print
 
 from scriptcraft.layers.layer_1_tools.level_1_impl.level_0 import (
-  pypi_upload_mode,
   workspace_release_mode,
   workspace_sync_mode,
 )
 from scriptcraft.layers.layer_1_tools.level_1_impl.level_1 import (
+  pypi_upload_mode,
+)
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_2 import (
   python_package_release_mode,
 )
 

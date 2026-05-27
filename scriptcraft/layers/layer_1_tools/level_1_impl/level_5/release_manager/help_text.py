@@ -1,8 +1,8 @@
-from scriptcraft.layers.layer_1_tools.level_1_impl.level_3 import ReleaseManager
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_4 import ReleaseManager
 
 
 _CLI_MODULE = (
-    "scriptcraft.layers.layer_1_tools.level_1_impl.level_5.release_manager.cli"
+    "scriptcraft.layers.layer_1_tools.level_1_impl.level_6.release_manager.cli"
 )
 
 

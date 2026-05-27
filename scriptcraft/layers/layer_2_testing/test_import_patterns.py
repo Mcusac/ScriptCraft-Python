@@ -48,7 +48,7 @@ def test_tool_imports():
         AutomatedLabeler,
         RHQFormAutofiller,
     )
-    from scriptcraft.layers.layer_1_tools.level_1_impl.level_2 import DataContentComparer
+    from scriptcraft.layers.layer_1_tools.level_1_impl.level_3 import DataContentComparer
     
     # Test instantiation
     labeler = AutomatedLabeler()

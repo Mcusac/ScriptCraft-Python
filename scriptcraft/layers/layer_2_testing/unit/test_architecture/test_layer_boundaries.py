@@ -73,7 +73,7 @@ def test_removed_shims_are_gone() -> None:
 
 
 def test_mode_registry_used_by_comparer_plugins() -> None:
-  plugins_path = _IMPL_ROOT / "level_1" / "data_content_comparer" / "plugins.py"
+  plugins_path = _IMPL_ROOT / "level_2" / "data_content_comparer" / "plugins.py"
   source = plugins_path.read_text(encoding="utf-8")
   assert "ModeRegistry" in source
   assert "MODE_REGISTRY = ModeRegistry()" in source

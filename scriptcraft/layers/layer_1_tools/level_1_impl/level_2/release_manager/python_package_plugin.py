@@ -31,9 +31,9 @@ from scriptcraft.layers.layer_1_tools.level_0_infra.level_2 import (
   submodule_update_remote,
 )
 
-from scriptcraft.layers.layer_1_tools.level_1_impl.level_0 import (
-    get_workspace_version_strategy,
-    upload_to_pypi,
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_1 import (
+  get_workspace_version_strategy,
+  upload_to_pypi,
 )
 
 

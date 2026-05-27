@@ -2,16 +2,16 @@
 """
 Standalone entrypoint for the Generic Release Tool.
 
-This exists to support running the tool directly from the repository without
-installing the package, while keeping `generic_release_tool_main.py` deleted.
+Supports running the tool directly from the repository without installing
+the package, while keeping legacy top-level script names removed.
 """
 
-from scriptcraft.layers.layer_1_tools.level_1_impl.level_3 import main as cli_main
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_1 import (
+    main as cli_main,
+)
 
 
 def main() -> None:
-    # When run by file path, `layers.*` imports require the `scriptcraft/` dir
-    # to be on `sys.path`.
     import sys
     from pathlib import Path
 
@@ -23,4 +23,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

@@ -1,4 +1,4 @@
-"""DataContentComparer tool implementation (level_2)."""
+"""DataContentComparer tool implementation (level_3)."""
 
 from pathlib import Path
 from typing import Any, Optional, Union
@@ -8,7 +8,7 @@ from scriptcraft.layers.layer_1_tools.level_0_infra.level_1 import run_mode_disp
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_4 import resolve_log_dir, setup_file_logging
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_7 import BaseTool
 
-from scriptcraft.layers.layer_1_tools.level_1_impl.level_1 import MODE_REGISTRY
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_2 import MODE_REGISTRY
 
 
 class DataContentComparer(BaseTool):

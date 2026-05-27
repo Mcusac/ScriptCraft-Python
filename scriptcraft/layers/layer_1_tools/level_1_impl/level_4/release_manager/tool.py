@@ -9,7 +9,7 @@ from scriptcraft.layers.layer_1_tools.level_1_impl.level_0 import (
     load_custom_plugins,
     ReleaseWorkflowRegistry,
 )
-from scriptcraft.layers.layer_1_tools.level_1_impl.level_2 import (
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_3 import (
     load_builtin_plugins,
 )
 

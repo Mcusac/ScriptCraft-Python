@@ -1,16 +1,11 @@
 """Auto-generated package exports."""
 
 
-from .pypi_plugin import (
+from .pypi_dist import (
     check_dist_directory,
-    pypi_upload_mode,
-    upload_to_pypi,
-    validate_package_files,
-)
-
-from .python_package_steps import (
-    get_workspace_version_strategy,
-    upload_to_pypi,
+    list_distribution_files,
+    upload_distribution_files,
+    validate_distribution_files,
 )
 
 from .registry import ReleaseWorkflowRegistry
@@ -38,12 +33,11 @@ __all__ = [
     "check_dist_directory",
     "get_current_workspace_version",
     "get_phase_name",
-    "get_workspace_version_strategy",
-    "pypi_upload_mode",
+    "list_distribution_files",
     "update_changelog",
     "update_version_file",
-    "upload_to_pypi",
-    "validate_package_files",
+    "upload_distribution_files",
+    "validate_distribution_files",
     "workspace_release_mode",
     "workspace_sync_mode",
 ]

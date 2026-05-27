@@ -1,8 +1,8 @@
 """Auto-generated package exports."""
 
 
-from .help_text import print_release_manager_help
+from .tool import ReleaseManager
 
 __all__ = [
-    "print_release_manager_help",
+    "ReleaseManager",
 ]

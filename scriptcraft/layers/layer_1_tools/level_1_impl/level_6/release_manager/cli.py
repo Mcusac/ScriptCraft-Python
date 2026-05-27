@@ -5,8 +5,8 @@ from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import (
     parse_release_manager_argv,
     run_cli_and_exit,
 )
-from scriptcraft.layers.layer_1_tools.level_1_impl.level_3 import ReleaseManager
-from scriptcraft.layers.layer_1_tools.level_1_impl.level_4 import print_release_manager_help
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_4 import ReleaseManager
+from scriptcraft.layers.layer_1_tools.level_1_impl.level_5 import print_release_manager_help
 
 
 def main(argv: Sequence[str] | None = None) -> int:
