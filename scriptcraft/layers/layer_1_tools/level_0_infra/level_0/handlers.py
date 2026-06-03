@@ -7,6 +7,7 @@ import sys
 import datetime
 
 from pathlib import Path
+from typing import Optional, Union
 
 
 def _rotate_log(log_file: Path) -> None:
@@ -35,6 +36,33 @@ def build_stream_handler() -> logging.Handler:
         return logging.StreamHandler(sys.stdout)
     except Exception:
         return logging.StreamHandler()
+
+
+def create_file_handler(
+    log_file: Union[str, Path],
+    level: int = logging.INFO,
+    formatter: Optional[logging.Formatter] = None,
+) -> logging.FileHandler:
+    handler = logging.FileHandler(log_file)
+    handler.setLevel(level)
+
+    if formatter:
+        handler.setFormatter(formatter)
+
+    return handler
+
+
+def create_console_handler(
+    level: int = logging.INFO,
+    formatter: Optional[logging.Formatter] = None,
+) -> logging.StreamHandler:
+    handler = logging.StreamHandler()
+    handler.setLevel(level)
+
+    if formatter:
+        handler.setFormatter(formatter)
+
+    return handler
 
 
 def configure_handler(

@@ -7,7 +7,6 @@ from . import (
     data_content_comparer,
     dictionary_driven_checker,
     feature_change_checker,
-    function_auditor,
     generic_release_tool,
     git_submodule_tool,
     git_workspace_tool,
@@ -21,7 +20,6 @@ from .asset_updater import *
 from .data_content_comparer import *
 from .dictionary_driven_checker import *
 from .feature_change_checker import *
-from .function_auditor import *
 from .generic_release_tool import *
 from .git_submodule_tool import *
 from .git_workspace_tool import *
@@ -35,7 +33,6 @@ __all__ = (
     + list(data_content_comparer.__all__)
     + list(dictionary_driven_checker.__all__)
     + list(feature_change_checker.__all__)
-    + list(function_auditor.__all__)
     + list(generic_release_tool.__all__)
     + list(git_submodule_tool.__all__)
     + list(git_workspace_tool.__all__)

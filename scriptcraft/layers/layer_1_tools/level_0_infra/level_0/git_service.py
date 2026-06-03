@@ -9,6 +9,8 @@ Design goals:
 - Consistent cwd handling
 - Minimal, testable surface area
 - Clear separation between queries (read) and commands (write)
+
+Subprocess execution delegates to core ``run_command`` (same as ``subprocess_ops.run``).
 """
 from dataclasses import dataclass
 from pathlib import Path

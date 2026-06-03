@@ -1,3 +1,4 @@
+"""Legacy file-based dictionary cleaning (CSV/XLSX columns)."""
 
 from pathlib import Path
 from typing import Optional
@@ -8,11 +9,19 @@ from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import (
     FixCounter,
     log_and_print,
 )
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_2 import log_fix_summary
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_3 import parse_missing_or_unit, parse_values
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_2.logging_context import log_fix_summary
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_3.dictionary_cleaner.value_parser import (
+    parse_missing_or_unit,
+    parse_values,
+)
 
 
-def clean_data(file_path: Path, output_folder: Path, *, counter: Optional[FixCounter] = None) -> FixCounter:
+def clean_data(
+    file_path: Path,
+    output_folder: Path,
+    *,
+    counter: Optional[FixCounter] = None,
+) -> FixCounter:
     counter = counter or FixCounter.fresh()
 
     df = load_data(file_path)
@@ -23,14 +32,18 @@ def clean_data(file_path: Path, output_folder: Path, *, counter: Optional[FixCou
         log_and_print("\n--- Unique Values in 'Value' Column (Before Cleaning) ---")
         log_and_print(df["Value"].dropna().unique())
 
-        df["Value"] = df["Value"].apply(lambda x: parse_values(x, filename=filename, counter=counter))
+        df["Value"] = df["Value"].apply(
+            lambda x: parse_values(x, filename=filename, counter=counter)
+        )
 
         log_and_print("\n--- Unique Values in 'Value' Column (After Cleaning) ---")
         log_and_print(df["Value"].dropna().unique())
     else:
         log_and_print("⚠️ No 'Value' column found — skipping value cleaning.")
 
-    columns_to_check = ["Missing", "Unit of Measurement"] if is_imaging else ["Missing/Unit of Measure"]
+    columns_to_check = (
+        ["Missing", "Unit of Measurement"] if is_imaging else ["Missing/Unit of Measure"]
+    )
     for col in columns_to_check:
         if col in df.columns:
             log_and_print(f"\n--- Unique Values in '{col}' Column (Before Cleaning) ---")
@@ -41,7 +54,11 @@ def clean_data(file_path: Path, output_folder: Path, *, counter: Optional[FixCou
             log_and_print(f"\n--- Unique Values in '{col}' Column (After Cleaning) ---")
             log_and_print(df[col].dropna().unique())
 
-    cleaned_filename = file_path.name if file_path.stem.endswith("_cleaned") else f"{file_path.stem}_cleaned{file_path.suffix}"
+    cleaned_filename = (
+        file_path.name
+        if file_path.stem.endswith("_cleaned")
+        else f"{file_path.stem}_cleaned{file_path.suffix}"
+    )
     cleaned_path = output_folder / cleaned_filename
 
     if file_path.suffix == ".csv":
@@ -53,4 +70,3 @@ def clean_data(file_path: Path, output_folder: Path, *, counter: Optional[FixCou
     log_fix_summary(counter.counts, label=f"Fix Summary for {file_path.name}")
 
     return counter
-

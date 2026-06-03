@@ -1,8 +1,8 @@
 # Layer drain execution status
 
-**Last updated:** 2026-06-03 (dependency-first pass)
+**Last updated:** 2026-06-03 (Phase 4 hygiene complete; drain plan closed)
 
-Layer drain moves `level_0_infra` **C** (domain) code into `level_1_impl` and promotes **A** (generic) code into `layer_0_core`, while keeping **B** (tool machinery) in infra. Waves 0–2 are largely complete; Wave 3 is ongoing.
+Layer drain moves `level_0_infra` **C** (domain) code into `level_1_impl` and promotes **A** (generic) code into `layer_0_core`, while keeping **B** (tool machinery) in infra. Phases 1–4 of the dependency-first drain plan are **complete**.
 
 **Plan reference:** Cursor plan `finish_drain_dependency-first_fdf1e85a` (supersedes `layer_drain_planning_155da675` for tier/import gates).
 
@@ -159,14 +159,14 @@ Moved all **31** infra C modules into impl L0–L7. Removed empty infra AR packa
 |------|--------|
 | `FlaggedValue` → core | Done |
 | Comparer roles documented / unified entrypoints | Done |
-| Handlers / `logging_handlers` merge with core | **Deferred** |
-| `subprocess_ops` / `git_service` consolidation | **Deferred** |
+| Handlers / `logging_handlers` merge | **Done** — `create_*` merged into `handlers.py`; `logging_handlers.py` removed |
+| `subprocess_ops` / `git_service` consolidation | **Done** — both delegate to core `run_command`; typed wrappers retained (`CommandResult`, `GitResult`) |
 
 ---
 
 ## Wave 3 — Infra → impl restructuring
 
-**Status:** In progress.
+**Status:** **Complete** (2026-06-03).
 
 ### `asset_reconciliation` / `asset_updater` (Phase 2.1)
 
@@ -195,9 +195,52 @@ Removed split impl modules (`loop_runner`, `asset_update_api`, L2 `main.py`). Do
 
 Remaining 2.2 work: tier worksheet on any new release C modules if added; no open mass-drain batch.
 
-### Greenfield families (Phase 3)
+### Greenfield families (Phase 3) — **Done** (2026-06-03)
 
-`browser`, `dictionary_cleaner`, `automated_labeler`, `function_auditor`, `rhq`, `schema_detector` — not started; smallest caller count first.
+Smallest caller count first; domain on infra, lean impl top (L0 tool/engine + L4 entrypoint unless noted).
+
+| Family | Infra | Impl | Notes |
+|--------|-------|------|-------|
+| `browser` | L0–L2 shared lib only | No tool package | Infra-only; no drain action |
+| `dictionary_cleaner` | `clean_data` → L3 `file_clean.py`; parsers/normalizer at L2–L3 | L0 `tool.py` + L4 `entrypoint.py` | Removed impl L0 `cleaner.py`; fixed circular import + tier (L3 imports L3 parsers directly) |
+| `schema_detector` | L0–L1 services | L0 `SchemaDetector` engine + L1 `SchemaDetectorTool` + L4 entrypoint | Engine no longer inherits `BaseTool` |
+| `function_auditor` | `resolve_batch_target` → L3 `batch_target_resolver.py` | L0 `tool.py` + L4 entrypoint | Deleted impl L1 `cli.py` shim |
+| `automated_labeler` | Domain on infra | L3 `tool.py` + L4 entrypoint | Already lean |
+| `rhq_form_autofiller` | Domain on infra | L0 `tool.py` + L4 entrypoint | Duplicate impl domain files absent |
+
+**Verification (2026-06-03):**
+
+```text
+test_layer_boundaries                   854 passed, 334 skipped
+test_phase3_infra_candidates            5 passed
+test_function_auditor_cli               3 passed
+test_phase3_greenfield_entrypoints_exist  (in layer_boundaries) passed
+```
+
+**Note:** `test_import_patterns` requires optional `torchvision` (core augmentation import chain); not a Phase 3 regression.
+
+---
+
+## Phase 4 — Deferred hygiene — **Done** (2026-06-03)
+
+| Item | Action | Status |
+|------|--------|--------|
+| `logging_handlers.py` | Merged `create_file_handler` / `create_console_handler` into `handlers.py` | Done |
+| `subprocess_ops` / `git_service` | Documented shared core `run_command` delegation; kept typed result wrappers | Done |
+| `level_10 copy/` | Stale duplicate tree | Already absent on disk |
+| `level_1/git/probes.py` | Superseded by `GitService` | Already removed |
+| Root infra barrel | L10–L12 not star-exported | Guard maintained |
+| Backlog doc refresh | `ARCHITECTURE_backlog.md` audit date + drain closeout | Done |
+
+**Optional follow-ups** (not blocking drain closeout): promote handler factories to core `setup_logging` path; Phase 2 impl entrypoint normalization for families listed in [`ARCHITECTURE_backlog.md`](ARCHITECTURE_backlog.md).
+
+**Verification (2026-06-03):**
+
+```text
+test_layer_boundaries                   854 passed, 334 skipped
+test_phase3_infra_candidates            5 passed
+test_phase8_backlog_closure             (architecture bundle)
+```
 
 ---
 

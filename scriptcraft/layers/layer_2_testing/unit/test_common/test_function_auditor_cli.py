@@ -73,16 +73,16 @@ def test_resolve_batch_target_precedence_folder_over_extension_over_categories()
 
 
 def _load_resolve_batch_target():
-  # Load the CLI module by file path to avoid triggering the heavy `level_1_impl` barrel.
   pkg_root = Path(__file__).resolve().parents[3]
-  cli_path = (
+  module_path = (
     pkg_root
-    / "level_1_impl"
+    / "layer_1_tools"
+    / "level_0_infra"
     / "level_3"
     / "function_auditor"
-    / "cli.py"
+    / "batch_target_resolver.py"
   )
-  spec = importlib.util.spec_from_file_location("function_auditor_cli", cli_path)
+  spec = importlib.util.spec_from_file_location("function_auditor_batch_target", module_path)
   module = importlib.util.module_from_spec(spec)
   assert spec.loader is not None
   spec.loader.exec_module(module)

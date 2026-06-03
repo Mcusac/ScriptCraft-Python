@@ -7,6 +7,8 @@ from scriptcraft.layers.layer_0_core.level_1 import run_command
 
 @dataclass(frozen=True)
 class CommandResult:
+    """Normalized subprocess result (shared by generic and git callers)."""
+
     returncode: int
     stdout: str
     stderr: str

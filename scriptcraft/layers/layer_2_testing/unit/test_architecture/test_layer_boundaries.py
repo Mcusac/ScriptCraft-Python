@@ -266,8 +266,21 @@ def test_phase2_normalized_tool_entrypoints_exist() -> None:
   for entry in expected:
     assert entry.is_file(), f"Missing normalized entrypoint: {entry}"
 
+
+def test_phase3_greenfield_entrypoints_exist() -> None:
+  expected = [
+    _IMPL_ROOT / "level_4" / "dictionary_cleaner" / "entrypoint.py",
+    _IMPL_ROOT / "level_4" / "automated_labeler" / "entrypoint.py",
+    _IMPL_ROOT / "level_4" / "function_auditor" / "entrypoint.py",
+    _IMPL_ROOT / "level_4" / "rhq_form_autofiller" / "entrypoint.py",
+    _IMPL_ROOT / "level_4" / "schema_detector" / "entrypoint.py",
+  ]
+  for entry in expected:
+    assert entry.is_file(), f"Missing Phase 3 entrypoint: {entry}"
+
   removed_shims = [
     _IMPL_ROOT / "level_4" / "asset_updater" / "entrypoint.py",
+    _IMPL_ROOT / "level_1" / "function_auditor" / "cli.py",
     _IMPL_ROOT / "level_1" / "rhq_form_autofiller" / "cli.py",
     _IMPL_ROOT / "level_0" / "dictionary_validator_main.py",
     _IMPL_ROOT / "level_0" / "feature_change_checker_main.py",

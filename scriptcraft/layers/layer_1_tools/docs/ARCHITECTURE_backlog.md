@@ -2,7 +2,7 @@
 
 What remains after the Layer Cleanup Migration Roadmap (Phases 1–8). For completed work, canonical patterns, and evidence, see [`ARCHITECTURE_phase8.md`](ARCHITECTURE_phase8.md).
 
-**Last audited:** 2026-06-01 (post-execution closeout)  
+**Last audited:** 2026-06-03 (dependency-first drain Phases 1–4 closed)  
 **Regression anchor (architecture gates):** 1400+ passed in the closeout bundle (see §Regression below).
 
 ---
@@ -35,6 +35,7 @@ The following plan workstreams were executed and verified in code/tests:
 - Phase 3 Batch A/B complete: plugin loading and generic workflow registry mechanics extracted.
 - Phase 2 follow-up normalization complete for touched families: dictionary validator, feature change checker, medvisit integrity validator, git workspace tool, and RHQ form autofiller entrypoint/shim cleanup.
 - Phase 8 deferred cleanup complete: `legacy_loader` removed, stale audit artifact removed, release pipeline test/doc naming updated.
+- **2026-06-03 drain closeout:** `logging_handlers.py` merged into `handlers.py`; `subprocess_ops`/`git_service` documented as core `run_command` delegates; greenfield families (Phase 3) and Wave 3 restructuring complete per [`DRAIN_EXECUTION_STATUS.md`](DRAIN_EXECUTION_STATUS.md).
 
 Remaining backlog is intentionally deferred:
 
@@ -128,8 +129,8 @@ Not blocking Phases 3–8. Migrate when touching each family.
 | `scores_totals_checker` | L0 `score_totals_checker_main.py` | L4 entrypoint |
 | `git_workspace_tool`, `git_submodule_tool`, `rhq_form_autofiller` | L0 `tool.py`, L1 `cli.py` if present | L3/L4 tool + L4 entrypoint |
 | `medvisit_integrity_validator` | L0 service + L1 tool | L3 tool + L4 entrypoint |
-| `asset_updater` | L2 `main.py` | L4 entrypoint aligned with L1 API |
-| `function_auditor` tool | L0 (numeric min L5 due to infra imports) | Move to L5 when refactored |
+| `asset_updater` | L0 `runner.py` + L1 `entrypoint.py` | **Done** (Phase 2.1 lean pattern) |
+| `function_auditor` tool | L0 tool + L4 entrypoint | **Done** (Phase 3); tier bump optional when refactored |
 
 **Workflow:** use level barrels; run `regenerate_package_inits --fix` after moves; do not hand-edit `__init__.py`.
 
@@ -142,6 +143,8 @@ Not blocking Phases 3–8. Migrate when touching each family.
 | **Legacy config loader** | `level_3/legacy_loader.py` + branch in `level_4/yaml_loader.py` | **Closed** — fallback removed; legacy shape handled in unified loader |
 | **Stale audit artifact** | `.cursor/audit-results/.../public_symbol_export_check_2026-05-21.json` | **Closed** — removed stale artifact |
 | **Release pipeline import doc drift** | Phase 8 §3 mentions submodule path | **Closed** — standardized on `level_3` barrel usage/tests |
+| **`logging_handlers.py`** | `level_0_infra/level_0/` | **Closed** — merged into `handlers.py` (2026-06-03 drain Phase 4) |
+| **`level_10 copy/`** | `level_0_infra/` | **Closed** — stale duplicate absent |
 
 ---
 

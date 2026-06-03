@@ -102,6 +102,8 @@ from .handlers import (
     build_file_handler,
     build_stream_handler,
     configure_handler,
+    create_console_handler,
+    create_file_handler,
     has_handler_type,
 )
 
@@ -109,11 +111,6 @@ from .impl_tool_roots import (
     DEFAULT_TOOL_DISCOVERY_PATH,
     DEFAULT_TOOL_MODULE_PREFIX,
     default_tool_discovery_paths,
-)
-
-from .logging_handlers import (
-    create_console_handler,
-    create_file_handler,
 )
 
 from .logging_primitives import LogConfig
