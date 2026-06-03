@@ -35,6 +35,8 @@ from .runtime_errors import (
     ProcessError,
 )
 
+from .safe_execution import swallow_errors
+
 __all__ = [
     "ConfigError",
     "ConfigLoadError",
@@ -55,4 +57,5 @@ __all__ = [
     "PipelineExecutionError",
     "PipelineSetupError",
     "ProcessError",
+    "swallow_errors",
 ]

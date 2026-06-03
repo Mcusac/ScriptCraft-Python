@@ -2,11 +2,11 @@
 
 import unittest
 
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_3 import (
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_1 import (
     normalize_tag_number,
     tag_number_from_row,
 )
-from scriptcraft.layers.layer_1_tools.level_1_impl.level_0.asset_updater.constants import (
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import (
     TAG_NUMBER_ROW_KEYS,
     TAG_PAD_WIDTH,
 )

@@ -9,9 +9,13 @@ Responsibilities:
 from typing import Dict, Optional, Type
 
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import log_and_print
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_1 import (
+    ensure_tools_discovered,
+)
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_2 import discover_tool_metadata
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_7 import BaseTool
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_8 import get_available_tools
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_8 import get_available_tools, unified_registry
+
 
 
 def _description_for(tool_name: str) -> str:
@@ -42,6 +46,7 @@ class ToolRegistry:
 
     def get_tool(self, tool_name: str) -> Optional[Type[BaseTool]]:
         try:
+            ensure_tools_discovered(unified_registry)
             tools = get_available_tools()
             return tools.get(tool_name)
         except Exception as e:
@@ -50,6 +55,7 @@ class ToolRegistry:
 
     def list_tools(self) -> Dict[str, str]:
         try:
+            ensure_tools_discovered(unified_registry)
             tools = get_available_tools()
             return {tool_name: _description_for(tool_name) for tool_name in tools}
         except Exception as e:

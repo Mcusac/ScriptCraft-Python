@@ -1,8 +1,9 @@
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
+from scriptcraft.layers.layer_0_core.level_0 import ProjectRootFinder
+
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import (
-    ProjectRootFinder,
     LanguageDetector,
     LanguageConfig,
     UsageSearcher,

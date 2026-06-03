@@ -10,8 +10,6 @@ from . import (
     dictionary_workflow,
     feature_change_checker,
     function_auditor,
-    generic_release_tool,
-    release_pipelines,
     rhq_form_autofiller,
 )
 
@@ -23,20 +21,14 @@ from .dictionary_driven_checker import *
 from .dictionary_workflow import *
 from .feature_change_checker import *
 from .function_auditor import *
-from .generic_release_tool import *
-from .release_pipelines import *
 from .rhq_form_autofiller import *
 
-from .comparison_executor import (
-    PathLike,
-    run_domain_discovery_comparison,
-    run_keyed_cell_comparison,
-    run_pairwise_comparison,
+from .dataframe_comparer import (
+    DataFrameComparer,
+    compare_dataframes,
 )
 
 from .env_loader import load_from_environment
-
-from .legacy_loader import load_legacy_config
 
 from .logging_utils import (
     clear_handlers,
@@ -47,14 +39,12 @@ from .logging_utils import (
     setup_secondary_log,
 )
 
-from .pipeline_factory import (
-    PipelineFactory,
-    build_step,
-    get_pipeline_steps,
-    import_function,
-)
+from .step_pipeline_engine import StepPipelineEngine
 
-from .unified_loader import load_unified_config
+from .unified_loader import (
+    load_legacy_shaped_config,
+    load_unified_config,
+)
 
 __all__ = (
     list(asset_reconciliation.__all__)
@@ -65,24 +55,17 @@ __all__ = (
     + list(dictionary_workflow.__all__)
     + list(feature_change_checker.__all__)
     + list(function_auditor.__all__)
-    + list(generic_release_tool.__all__)
-    + list(release_pipelines.__all__)
     + list(rhq_form_autofiller.__all__)
     + [
-        "PathLike",
-        "PipelineFactory",
-        "build_step",
+        "DataFrameComparer",
+        "StepPipelineEngine",
         "clear_handlers",
+        "compare_dataframes",
         "config",
-        "get_pipeline_steps",
-        "import_function",
         "load_from_environment",
-        "load_legacy_config",
+        "load_legacy_shaped_config",
         "load_unified_config",
         "log_message",
-        "run_domain_discovery_comparison",
-        "run_keyed_cell_comparison",
-        "run_pairwise_comparison",
         "setup_logging_with_config",
         "setup_logging_with_timestamp",
         "setup_secondary_log",

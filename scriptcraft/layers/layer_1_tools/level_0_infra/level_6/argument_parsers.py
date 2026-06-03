@@ -9,10 +9,10 @@ import sys
 from typing import Optional, List, Callable
 from pathlib import Path
 
-from scriptcraft.layers.layer_0_core.level_0.cli import add_common_arguments
+from scriptcraft.layers.layer_0_core.level_0 import add_common_arguments
 
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_1.logger_config import setup_logger
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_5.config import get_config
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_1 import setup_logger
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_5 import load_config
 
 
 class ArgumentGroups:
@@ -89,7 +89,7 @@ class ArgumentGroups:
         # Try to get config-based default output directory
         default_output_dir = "data/output"  # Default fallback
         try:
-            config = get_config()
+            config = load_config()
             if config:
                 workspace_config = config.get_workspace_config()
                 if workspace_config and hasattr(workspace_config, 'paths'):

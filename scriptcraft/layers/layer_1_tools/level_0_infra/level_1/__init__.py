@@ -8,7 +8,6 @@ from . import (
     browser,
     data_content_comparer,
     dictionary_cleaner,
-    dictionary_driven_checker,
     dictionary_workflow,
     function_auditor,
     generic_release_tool,
@@ -29,7 +28,6 @@ from .automated_labeler import *
 from .browser import *
 from .data_content_comparer import *
 from .dictionary_cleaner import *
-from .dictionary_driven_checker import *
 from .dictionary_workflow import *
 from .function_auditor import *
 from .generic_release_tool import *
@@ -45,6 +43,8 @@ from .versioning import *
 
 from .compare_columns import compare_column_sets
 
+from .comparison_errors import handle_comparison_errors
+
 from .config_accessors import (
     get_logging_config,
     get_path_resolver,
@@ -56,58 +56,27 @@ from .config_accessors import (
     validate_config,
 )
 
-from .config_loader import (
-    get_config,
-    load_config,
-    load_config_dict,
-)
-
 from .dataframe import (
     apply_safe_transform,
-    compare_column_dtypes,
-    describe_numeric,
     display_missing_values,
-    drop_empty_columns,
-    find_duplicate_rows,
-    find_non_numeric,
-    get_column_dtypes,
-    get_column_letter,
-    get_column_stats,
-    get_common_columns,
     normalize_column_names,
-    to_numeric_safe,
 )
 
 from .dataframe_cleaning import (
     clean_dataframe,
-    get_clean_numeric_series,
     parse_missing_unit,
     standardize_columns,
 )
 
-from .date_utils import (
-    DATE_FORMATS,
-    DEFAULT_DATE_FORMAT,
-    DEFAULT_SAMPLE_SIZE,
-    DateOutputType,
-    MIN_SAMPLE_SIZE,
-    is_date_column,
-    standardize_date_column,
-    standardize_dates_in_dataframe,
-)
-
-from .emoji_formatter import EmojiFormatter
+from .discovery_defaults import ensure_tools_discovered
 
 from .environment_resolver import EnvironmentResolver
 
 from .expected_values import (
     DATE_KEYWORDS,
     NOTES_COLUMN_NAMES,
-    RANGE_KEYWORDS,
-    VALUE_PATTERNS,
-    ValueType,
-    extract_expected_values,
     load_minmax_updated,
+    log_and_extract_expected_values,
 )
 
 from .framework_schema import FrameworkConfig
@@ -121,15 +90,6 @@ from .logger_config import (
     setup_logger,
 )
 
-from .logging_controller import LogController
-
-from .logging_formatters import (
-    PlainFormatter,
-    QCFormatter,
-    TimestampFormatter,
-    create_formatter,
-)
-
 from .logging_mixin import LoggingMixin
 
 from .merger import merge_workspace_config
@@ -139,6 +99,8 @@ from .metadata import (
     PluginMetadata,
     ToolMetadata,
 )
+
+from .numeric_series import get_clean_numeric_series
 
 from .paths import (
     LOG_LEVEL,
@@ -155,6 +117,14 @@ from .plugin_registry import (
     register_pipeline_step,
     register_tool_plugin,
     register_validator,
+)
+
+from .processing import (
+    merge_dataframes,
+    merge_with_key_column,
+    process_by_domains,
+    setup_tool_files,
+    split_dataframe_by_column,
 )
 
 from .processor import (
@@ -191,7 +161,6 @@ __all__ = (
     + list(browser.__all__)
     + list(data_content_comparer.__all__)
     + list(dictionary_cleaner.__all__)
-    + list(dictionary_driven_checker.__all__)
     + list(dictionary_workflow.__all__)
     + list(function_auditor.__all__)
     + list(generic_release_tool.__all__)
@@ -206,31 +175,18 @@ __all__ = (
     + list(versioning.__all__)
     + [
         "ComponentMetadata",
-        "DATE_FORMATS",
         "DATE_KEYWORDS",
-        "DEFAULT_DATE_FORMAT",
-        "DEFAULT_SAMPLE_SIZE",
         "DataProcessor",
-        "DateOutputType",
-        "EmojiFormatter",
         "EnvironmentResolver",
         "FrameworkConfig",
         "IOMixin",
         "LOG_LEVEL",
-        "LogController",
         "LoggingMixin",
-        "MIN_SAMPLE_SIZE",
         "NOTES_COLUMN_NAMES",
-        "PlainFormatter",
         "PluginBase",
         "PluginMetadata",
         "PluginRegistry",
-        "QCFormatter",
-        "RANGE_KEYWORDS",
-        "TimestampFormatter",
         "ToolMetadata",
-        "VALUE_PATTERNS",
-        "ValueType",
         "add_file_handler",
         "apply_safe_transform",
         "batch_process_files",
@@ -238,24 +194,13 @@ __all__ = (
         "clean_dataframe",
         "clean_python_build_artifacts",
         "clear_handlers",
-        "compare_column_dtypes",
         "compare_column_sets",
-        "create_formatter",
-        "describe_numeric",
         "discover_and_merge_tools",
         "dispatch_tool",
         "display_missing_values",
-        "drop_empty_columns",
         "ensure_sys_path",
-        "extract_expected_values",
-        "find_duplicate_rows",
-        "find_non_numeric",
+        "ensure_tools_discovered",
         "get_clean_numeric_series",
-        "get_column_dtypes",
-        "get_column_letter",
-        "get_column_stats",
-        "get_common_columns",
-        "get_config",
         "get_domain_output_path",
         "get_domain_paths",
         "get_logging_config",
@@ -266,15 +211,17 @@ __all__ = (
         "get_template_config",
         "get_tool_config",
         "get_workspace_root",
-        "is_date_column",
+        "handle_comparison_errors",
         "load_and_process_data",
-        "load_config",
-        "load_config_dict",
         "load_minmax_updated",
+        "log_and_extract_expected_values",
+        "merge_dataframes",
+        "merge_with_key_column",
         "merge_workspace_config",
         "normalize_column_names",
         "parse_missing_unit",
         "plugin_registry",
+        "process_by_domains",
         "register_pipeline_step",
         "register_tool_plugin",
         "register_validator",
@@ -284,10 +231,9 @@ __all__ = (
         "run_with_validated_inputs",
         "setup_import_paths_common",
         "setup_logger",
+        "setup_tool_files",
+        "split_dataframe_by_column",
         "standardize_columns",
-        "standardize_date_column",
-        "standardize_dates_in_dataframe",
-        "to_numeric_safe",
         "validate_and_transform_data",
         "validate_config",
     ]

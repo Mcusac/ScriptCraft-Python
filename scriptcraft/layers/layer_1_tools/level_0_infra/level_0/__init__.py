@@ -8,14 +8,12 @@ from . import (
     browser,
     compare_columns,
     dictionary_cleaner,
-    dictionary_driven_checker,
     env,
     function_auditor,
     release_consistency_mode,
     release_manager,
     release_pipelines,
     rhq_form_autofiller,
-    runtime,
     schema_detector,
 )
 
@@ -25,14 +23,12 @@ from .automated_labeler import *
 from .browser import *
 from .compare_columns import *
 from .dictionary_cleaner import *
-from .dictionary_driven_checker import *
 from .env import *
 from .function_auditor import *
 from .release_consistency_mode import *
 from .release_manager import *
 from .release_pipelines import *
 from .rhq_form_autofiller import *
-from .runtime import *
 from .schema_detector import *
 
 from .arg_mapping import build_run_kwargs_from_args
@@ -49,14 +45,13 @@ from .cli_wrappers import (
     run_cli_and_exit,
 )
 
-from .column_set_diff import compute_case_mismatches
+from .column_set_diff import CompareColumnsResult
 
 from .constants import (
     COLUMN_ALIASES,
     DEFAULT_ENCODING,
     FALLBACK_ENCODING,
     FILE_PATTERNS,
-    MISSING_VALUE_CODES,
     OutlierMethod,
     STANDARD_KEYS,
 )
@@ -65,20 +60,6 @@ from .core_types import (
     ComponentType,
     DistributionType,
     ToolMaturity,
-)
-
-from .dataframe_diagnostics import (
-    get_dataframe_summary,
-    get_merge_summary,
-)
-
-from .dataframe_merge import outer_merge_with_indicator
-
-from .dataframe_utils_mixin import DataFrameUtilsMixin
-
-from .directory_ops import (
-    clean_directory,
-    list_files,
 )
 
 from .emitter import (
@@ -98,19 +79,11 @@ from .expected_values import (
     clean_expected_values,
 )
 
-from .file_ops import (
-    copy_file,
-    find_first_data_file,
-    find_latest_file,
-    find_matching_file,
-    make_absolute,
-    move_file,
-    resolve_file,
-)
-
-from .formatter import (
-    DEFAULT_LOG_FORMAT,
-    Utf8Formatter,
+from .file_plugin_loader import (
+    PluginWorkflowRegistryProtocol,
+    extract_plugin_contract,
+    load_module_from_path,
+    load_plugins,
 )
 
 from .git_precheck import (
@@ -132,6 +105,12 @@ from .handlers import (
     has_handler_type,
 )
 
+from .impl_tool_roots import (
+    DEFAULT_TOOL_DISCOVERY_PATH,
+    DEFAULT_TOOL_MODULE_PREFIX,
+    default_tool_discovery_paths,
+)
+
 from .logging_handlers import (
     create_console_handler,
     create_file_handler,
@@ -143,12 +122,7 @@ from .messages import get_commit_message
 
 from .normalize_list import normalize_list
 
-from .path_resolver import (
-    PathResolver,
-    WorkspacePathResolver,
-    build_domain_paths,
-    create_path_resolver,
-)
+from .path_resolver import WorkspacePathResolver
 
 from .paths_schema import PathConfig
 
@@ -157,8 +131,6 @@ from .process_domain_mixins import (
     DomainMappedToolMixin,
     EngineWrapperToolMixin,
 )
-
-from .project_root import ProjectRootFinder
 
 from .scalar_normalization import (
     TagNormalizationMode,
@@ -177,8 +149,6 @@ from .shared_paths import (
     submodule_path,
 )
 
-from .structured_formatter import StructuredFormatter
-
 from .subprocess_ops import (
     CommandResult,
     python_file_args,
@@ -187,14 +157,9 @@ from .subprocess_ops import (
     stringify_args,
 )
 
-from .text_cleaning import (
-    clean_brace_formatting,
-    fix_numeric_dash_inside_braces,
-    fix_word_number_dash_inside_braces,
-    prevent_pipe_inside_braces,
-)
-
 from .validation_mixin import ValidationMixin
+
+from .workflow_registry import WorkflowRegistry
 
 from .workspace_schema import WorkspaceConfig
 
@@ -205,23 +170,22 @@ __all__ = (
     + list(browser.__all__)
     + list(compare_columns.__all__)
     + list(dictionary_cleaner.__all__)
-    + list(dictionary_driven_checker.__all__)
     + list(env.__all__)
     + list(function_auditor.__all__)
     + list(release_consistency_mode.__all__)
     + list(release_manager.__all__)
     + list(release_pipelines.__all__)
     + list(rhq_form_autofiller.__all__)
-    + list(runtime.__all__)
     + list(schema_detector.__all__)
     + [
         "COLUMN_ALIASES",
         "CommandResult",
+        "CompareColumnsResult",
         "ComponentType",
         "DEFAULT_ENCODING",
-        "DEFAULT_LOG_FORMAT",
+        "DEFAULT_TOOL_DISCOVERY_PATH",
+        "DEFAULT_TOOL_MODULE_PREFIX",
         "DEFAULT_VALUE_TYPE",
-        "DataFrameUtilsMixin",
         "DistributionType",
         "DomainFileToolMixin",
         "DomainMappedToolMixin",
@@ -233,69 +197,51 @@ __all__ = (
         "GitResult",
         "GitService",
         "LogConfig",
-        "MISSING_VALUE_CODES",
         "OutlierMethod",
         "ParserKind",
         "PathConfig",
-        "PathResolver",
-        "ProjectRootFinder",
+        "PluginWorkflowRegistryProtocol",
         "RunStyle",
         "STANDARD_KEYS",
         "SUBMODULE_REL",
-        "StructuredFormatter",
         "TParser",
         "TTool",
         "TagNormalizationMode",
         "ToolMaturity",
-        "Utf8Formatter",
         "VALUE_TYPE_MAP",
         "ValidationMixin",
+        "WorkflowRegistry",
         "WorkspaceConfig",
         "WorkspacePathResolver",
         "build_arg_parser",
-        "build_domain_paths",
         "build_file_handler",
         "build_run_kwargs_from_args",
         "build_stream_handler",
-        "clean_brace_formatting",
-        "clean_directory",
         "clean_expected_values",
-        "compute_case_mismatches",
         "configure_handler",
-        "copy_file",
         "create_console_handler",
         "create_file_handler",
-        "create_path_resolver",
+        "default_tool_discovery_paths",
         "detect_environment",
-        "find_first_data_file",
-        "find_latest_file",
-        "find_matching_file",
+        "extract_plugin_contract",
         "find_workspace_root",
-        "fix_numeric_dash_inside_braces",
-        "fix_word_number_dash_inside_braces",
         "get_commit_message",
-        "get_dataframe_summary",
         "get_handler_paths",
-        "get_merge_summary",
         "has_handler_type",
         "is_null",
         "is_text_null_reconciliation",
-        "list_files",
         "list_submodule_paths",
+        "load_module_from_path",
+        "load_plugins",
         "log",
         "log_and_print",
-        "make_absolute",
-        "move_file",
         "normalize_list",
         "normalize_null_reconciliation",
         "normalize_scalar_employee_id",
         "normalize_updater_tag_digits",
-        "outer_merge_with_indicator",
-        "prevent_pipe_inside_braces",
         "print_message",
         "python_file_args",
         "python_module_args",
-        "resolve_file",
         "resolve_python_package_paths",
         "run",
         "run_cli_and_exit",

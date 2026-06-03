@@ -4,8 +4,10 @@ This module provides basic path operations that don't depend on
 execution environment or application context.
 """
 
+import shutil
+
 from pathlib import Path
-from typing import Union
+from typing import List, Union
 
 
 def ensure_dir(dirpath: Union[str, Path]) -> Path:
@@ -93,3 +95,27 @@ def ensure_file_dir(filepath: Union[str, Path]) -> Path:
     filepath = Path(filepath)
     ensure_dir(filepath.parent)
     return filepath
+
+
+def clean_directory(directory: Union[str, Path]) -> None:
+    """Delete all contents of *directory* and re-create it as an empty directory."""
+    directory = Path(directory)
+
+    if directory.exists():
+        shutil.rmtree(directory)
+
+    directory.mkdir(parents=True)
+
+
+def list_files(
+    directory: Union[str, Path],
+    pattern: str = "*",
+    recursive: bool = False,
+) -> List[Path]:
+    """Return all files in *directory* matching *pattern*."""
+    directory = Path(directory)
+
+    if recursive:
+        return list(directory.rglob(pattern))
+
+    return list(directory.glob(pattern))

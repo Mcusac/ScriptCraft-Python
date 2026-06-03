@@ -2,12 +2,12 @@
 
 import unittest
 
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_3 import normalize_employee_id
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_3 import (
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_1 import normalize_employee_id
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_1 import (
     employee_id_from_row as _employee_id_from_row,
     optional_employee_id_from_row as _optional_employee_id_from_row,
 )
-from scriptcraft.layers.layer_1_tools.level_1_impl.level_0.asset_updater.constants import (
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import (
     EMPLOYEE_ID_ROW_KEYS,
 )
 
@@ -47,7 +47,7 @@ class TestLoadUpdaterDatasetEmployeeIds(unittest.TestCase):
     def test_custodian_ids_loaded_without_float_suffix(self) -> None:
         from pathlib import Path
 
-        from scriptcraft.layers.layer_1_tools.level_1_impl.level_3.asset_updater.dataset_loader import (
+        from scriptcraft.layers.layer_1_tools.level_0_infra.level_2 import (
             load_updater_dataset,
         )
 

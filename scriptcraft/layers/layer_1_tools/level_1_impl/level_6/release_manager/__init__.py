@@ -1,8 +1,3 @@
-"""Release manager CLI entrypoint (level_6)."""
+"""Auto-generated package exports (empty)."""
 
-
-from .cli import main
-
-__all__ = [
-    "main",
-]
+__all__: list[str] = []

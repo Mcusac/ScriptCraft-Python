@@ -81,7 +81,7 @@ Repository = "https://github.com/mcusac/ScriptCraft-Workspace"
 Issues = "https://github.com/mcusac/ScriptCraft-Workspace/issues"
 
 [project.scripts]
-scriptcraft = "scriptcraft.layers.layer_1_pypi.common.cli:main"
+scriptcraft = "scriptcraft.layers.layer_1_tools.level_0_infra.level_12.cli:main"
 rhq-autofiller = "scriptcraft.layers.layer_1_pypi.tools.rhq_form_autofiller.main:main"
 data-comparer = "scriptcraft.layers.layer_1_pypi.tools.data_content_comparer.main:main"
 auto-labeler = "scriptcraft.layers.layer_1_pypi.tools.automated_labeler.main:main"

@@ -1,8 +1,11 @@
 """Auto-generated package exports."""
 
 
-from .runner import run_dictionary_checker
+from .dictionary_finder import find_dictionary_file
+
+from .models import ValidationResult
 
 __all__ = [
-    "run_dictionary_checker",
+    "ValidationResult",
+    "find_dictionary_file",
 ]

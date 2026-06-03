@@ -1,0 +1,33 @@
+"""
+Thin L4 wrapper over L3 ``compare_dataframes``.
+
+Use ``comparison_executor`` for filesystem-backed pair loading and artifact writes;
+use ``dataframe_comparer.DataFrameComparer`` for workspace-aligned QC runs.
+"""
+import pandas as pd
+
+from typing import Any, Dict, Optional
+
+
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_3 import compare_dataframes
+
+
+def compare_datasets(
+    df1: pd.DataFrame,
+    df2: pd.DataFrame,
+    *,
+    comparison_type: str = "full",
+    domain: Optional[str] = None,
+) -> Dict[str, Any]:
+    """
+    Compare two datasets and return comparison results.
+
+    `comparison_type` is reserved for future behavior (currently uses a single comparer).
+    """
+    if domain:
+        df1 = df1[df1["Domain"] == domain].copy()
+        df2 = df2[df2["Domain"] == domain].copy()
+
+    _ = comparison_type  # extension point
+    return compare_dataframes(df1, df2)
+

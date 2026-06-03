@@ -1,8 +1,3 @@
-"""Data content comparer CLI entrypoint (level_4)."""
+"""Auto-generated package exports (empty)."""
 
-
-from .entrypoint import main
-
-__all__ = [
-    "main",
-]
+__all__: list[str] = []

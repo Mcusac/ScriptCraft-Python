@@ -6,35 +6,13 @@ scripts/common/input_validation.py
 Handles validation and resolution of input files, ensuring correct file counts 
 and formats before proceeding with data processing or comparisons.
 """
-import pandas as pd
 
 from pathlib import Path
 from typing import Union, Tuple, List, Any, Optional
-from dataclasses import dataclass
 from abc import abstractmethod
 
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import log_and_print
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_1 import PluginBase
-
-
-# ==== 🏷️ Validation Result Types ====
-
-@dataclass
-class FlaggedValue:
-    """Container for flagged validation values."""
-    row_index: int
-    column: str
-    value: Any
-    message: str
-
-    @staticmethod
-    def from_df_row(df: pd.DataFrame, idx: int, col: str, value: Any, message: str) -> "FlaggedValue":
-        return FlaggedValue(
-            row_index=idx,
-            column=col,
-            value=value,
-            message=message
-        )
 
 
 # ==== 🔍 Validation Base Classes ====

@@ -8,17 +8,21 @@ from typing import Dict, List, Optional, Type
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_7.base_tool import BaseTool
 
-_IMPL_TOOL_MODULE_PREFIX = (
-    "scriptcraft.layers.layer_1_tools.level_1_impl.level_0"
-)
-
 
 class ToolDiscoveryEngine:
     """
     Pure discovery layer (no registry state).
+
+    Callers supply filesystem roots and the Python module prefix used to import
+    each discovered tool package.
     """
 
-    def discover_tools(self, paths: List[Path]) -> Dict[str, Type[BaseTool]]:
+    def discover_tools(
+        self,
+        paths: List[Path],
+        *,
+        module_prefix: str,
+    ) -> Dict[str, Type[BaseTool]]:
         discovered: Dict[str, Type[BaseTool]] = {}
 
         for path in paths:
@@ -31,31 +35,32 @@ class ToolDiscoveryEngine:
                 if not is_pkg or name.startswith("_"):
                     continue
 
-                tool_class = self._discover_tool_class(name)
+                tool_class = self._discover_tool_class(name, module_prefix)
                 if tool_class:
                     discovered[name] = tool_class
                     log_and_print(f"✅ Discovered tool: {name}")
 
         return discovered
 
-    def _discover_tool_class(self, tool_name: str) -> Optional[Type[BaseTool]]:
+    def _discover_tool_class(
+        self,
+        tool_name: str,
+        module_prefix: str,
+    ) -> Optional[Type[BaseTool]]:
         try:
-            module_path = f"{_IMPL_TOOL_MODULE_PREFIX}.{tool_name}"
+            module_path = f"{module_prefix}.{tool_name}"
             module = importlib.import_module(module_path)
 
-            # 1. direct subclass
             for attr in dir(module):
                 obj = getattr(module, attr)
                 if inspect.isclass(obj) and issubclass(obj, BaseTool) and obj != BaseTool:
                     return obj
 
-            # 2. instance export
             for attr in dir(module):
                 obj = getattr(module, attr)
                 if isinstance(obj, BaseTool):
                     return type(obj)
 
-            # 3. naming fallback
             for candidate in [
                 tool_name.replace("_", "").title(),
                 tool_name.title().replace("_", ""),

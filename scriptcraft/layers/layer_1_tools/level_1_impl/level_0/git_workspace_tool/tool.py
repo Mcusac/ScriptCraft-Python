@@ -3,8 +3,6 @@ from typing import Callable
 
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import log_and_print
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_1 import (
-    is_git_repo,
-    porcelain_status_has_changes,
     check_status,
     commit_changes,
     create_tag,
@@ -24,26 +22,11 @@ class GitWorkspaceTool(BaseTool):
         )
 
         self._operations: dict[str, Callable[..., bool]] = {
-            "push": lambda **_: push_workspace(
-                is_git_repo=is_git_repo,
-                porcelain_status_has_changes=porcelain_status_has_changes,
-            ),
-            "pull": lambda **_: pull_workspace(
-                is_git_repo=is_git_repo,
-            ),
-            "status": lambda **_: check_status(
-                is_git_repo=is_git_repo,
-                porcelain_status_has_changes=porcelain_status_has_changes,
-            ),
-            "commit": lambda *, message=None, **__: commit_changes(
-                is_git_repo=is_git_repo,
-                porcelain_status_has_changes=porcelain_status_has_changes,
-                message=message,
-            ),
-            "tag": lambda *, version=None, **__: create_tag(
-                is_git_repo=is_git_repo,
-                version=version,
-            ),
+            "push": lambda **_: push_workspace(),
+            "pull": lambda **_: pull_workspace(),
+            "status": lambda **_: check_status(),
+            "commit": lambda *, message=None, **__: commit_changes(message=message),
+            "tag": lambda *, version=None, **__: create_tag(version=version),
         }
 
     def run(self, operation: str = "push", **kwargs) -> bool:

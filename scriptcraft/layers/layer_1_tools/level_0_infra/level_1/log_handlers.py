@@ -8,14 +8,15 @@ clear_handlers lives at level_1/logger_config.py — import from there, never re
 """
 
 import logging
+
 from pathlib import Path
 from typing import Union
 
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.formatter import (
+from scriptcraft.layers.layer_0_core.level_0 import (
     DEFAULT_LOG_FORMAT,
     Utf8Formatter,
 )
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.handlers import (
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import (
     build_file_handler,
     configure_handler,
 )

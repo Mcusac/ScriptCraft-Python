@@ -2,11 +2,13 @@ import yaml
 from pathlib import Path
 from typing import Union
 
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_2.root_schema import Config
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_3.legacy_loader import load_legacy_config
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_3.env_loader import load_from_environment
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_3.unified_loader import load_unified_config
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import log_and_print
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_2 import Config
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_3 import (
+    load_from_environment,
+    load_legacy_shaped_config,
+    load_unified_config,
+)
 
 
 def load_config_from_yaml(path: Union[str, Path]) -> "Config":
@@ -22,4 +24,4 @@ def load_config_from_yaml(path: Union[str, Path]) -> "Config":
     if "framework" in data:
         return load_unified_config(data, path)
     else:
-        return load_legacy_config(data, path)
+        return load_legacy_shaped_config(data, path)

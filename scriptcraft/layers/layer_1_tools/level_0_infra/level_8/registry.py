@@ -3,8 +3,7 @@ from typing import Any, Dict, List, Optional, Type, Union
 
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import log_and_print
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_1 import ToolMetadata
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_7 import BaseTool
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_7 import ToolDiscoveryEngine
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_7 import BaseTool, ToolDiscoveryEngine
 
 
 class UnifiedRegistry:
@@ -18,71 +17,74 @@ class UnifiedRegistry:
     """
 
     def __init__(self) -> None:
-        # -------------------------
-        # TOOL REGISTRY
-        # -------------------------
         self._tools: Dict[str, Type[BaseTool]] = {}
         self._tool_instances: Dict[str, BaseTool] = {}
         self._tool_metadata: Dict[str, ToolMetadata] = {}
 
-        # -------------------------
-        # DISCOVERY STATE
-        # -------------------------
         self._engine = ToolDiscoveryEngine()
         self._discovered: bool = False
         self._discovery_paths: List[Path] = []
-        self._auto_discover: bool = True
+        self._module_prefix: Optional[str] = None
+        self._auto_discover: bool = False
 
-    # ============================================================
-    # DISCOVERY
-    # ============================================================
+    def configure_discovery(
+        self,
+        paths: List[Path],
+        *,
+        module_prefix: str,
+        auto_discover: bool = True,
+    ) -> None:
+        """Set default discovery paths and import prefix for lazy discovery."""
+        self._discovery_paths = list(paths)
+        self._module_prefix = module_prefix
+        self._auto_discover = auto_discover
+
+    def is_discovered(self) -> bool:
+        return self._discovered
 
     def discover_tools(
         self,
-        paths: Optional[List[Path]] = None
+        paths: Optional[List[Path]] = None,
+        *,
+        module_prefix: Optional[str] = None,
     ) -> Dict[str, Type[BaseTool]]:
+        resolved_paths = paths if paths is not None else self._discovery_paths
+        prefix = module_prefix if module_prefix is not None else self._module_prefix
 
-        if paths is None:
-            impl_root = Path(__file__).resolve().parents[2] / "level_1_impl" / "level_0"
-            paths = [impl_root]
+        if not resolved_paths:
+            log_and_print("⚠️ No discovery paths configured; skipping tool discovery.")
+            return {}
 
-        self._discovery_paths = paths
-        found = self._engine.discover_tools(paths)
+        if not prefix:
+            raise ValueError(
+                "module_prefix is required for tool discovery. "
+                "Pass it to discover_tools() or call configure_discovery() first."
+            )
+
+        self._discovery_paths = list(resolved_paths)
+        self._module_prefix = prefix
+        found = self._engine.discover_tools(resolved_paths, module_prefix=prefix)
 
         self._tools.update(found)
         self._discovered = True
 
         return found
 
-    # ============================================================
-    # TOOL ACCESS LAYER
-    # ============================================================
-
     def get_tool(
         self,
         tool_name: str,
-        create_instance: bool = True
+        create_instance: bool = True,
     ) -> Optional[Union[Type[BaseTool], BaseTool]]:
-
         tool_class = self._tools.get(tool_name)
         if tool_class is None:
             return None
 
-        # --------------------------------------------------------
-        # Return CLASS
-        # --------------------------------------------------------
         if not create_instance:
             return tool_class
 
-        # --------------------------------------------------------
-        # Return CACHED INSTANCE if available
-        # --------------------------------------------------------
         if tool_name in self._tool_instances:
             return self._tool_instances[tool_name]
 
-        # --------------------------------------------------------
-        # Create + CACHE INSTANCE
-        # --------------------------------------------------------
         try:
             instance = tool_class()
             self._tool_instances[tool_name] = instance
@@ -103,24 +105,15 @@ class UnifiedRegistry:
 
         tool.run(**kwargs)
 
-    # ============================================================
-    # METADATA LAYER
-    # ============================================================
-
     def get_tool_metadata(self, tool_name: str) -> Optional[ToolMetadata]:
         return self._tool_metadata.get(tool_name)
-
-    # ============================================================
-    # REGISTRATION LAYER
-    # ============================================================
 
     def register_tool(
         self,
         name: str,
         tool_class: Type[BaseTool],
-        metadata: Optional[ToolMetadata] = None
+        metadata: Optional[ToolMetadata] = None,
     ) -> None:
-
         self._tools[name] = tool_class
 
         if metadata:
@@ -128,28 +121,20 @@ class UnifiedRegistry:
 
         log_and_print(f"🔧 Registered tool: {name}")
 
-    # ============================================================
-    # LIFECYCLE CONTROL
-    # ============================================================
-
     def refresh(self) -> None:
-        """
-        Hard reset registry state.
-        Keeps engine intact but clears runtime caches.
-        """
-
         self._tools.clear()
         self._tool_instances.clear()
         self._tool_metadata.clear()
 
         self._discovered = False
 
-        if self._auto_discover:
+        if self._auto_discover and self._discovery_paths and self._module_prefix:
             self.discover_tools()
 
     def get_available_tools(self) -> Dict[str, Type[BaseTool]]:
         if not self._discovered and self._auto_discover:
-            self.discover_tools()
+            if self._discovery_paths and self._module_prefix:
+                self.discover_tools()
         return dict(self._tools)
 
 

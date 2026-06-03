@@ -12,9 +12,6 @@ from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import (
 )
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_1 import setup_import_paths_common
 
-__all__ = ["setup_basic_tool_environment"]
-
-
 def setup_basic_tool_environment(
     *,
     file_path: str | Path,

@@ -1,0 +1,22 @@
+---
+description: Canonical level_1_impl tool layout (Phase 2 normalization)
+globs:
+  - scriptcraft/layers/layer_1_tools/level_1_impl/**/*
+---
+
+# Implementation layer patterns
+
+When adding or refactoring tools under `level_1_impl`, follow the documented canonical layout:
+
+- Doc: `scriptcraft/layers/layer_1_tools/docs/ARCHITECTURE_phase8.md` (§2 Implementation layer patterns)
+- Backlog: `scriptcraft/layers/layer_1_tools/docs/ARCHITECTURE_backlog.md`
+- Tools (`BaseTool`) at **L3** (or **L4** when imports require infra L3+)
+- CLI entrypoints at **L4** via `create_entrypoint_main` (`level_0_infra.level_7`)
+- **Exception:** `release_manager` CLI stays at **L6** (mode-first argv)
+
+Do not reintroduce `release_manager_plugins` packages or `level_Z` asset reconciliation as canonical paths.
+
+- Import tools from **level barrels** (e.g. `from ...level_0 import GenericReleaseTool`), not `...level_0.foo.tool`.
+- Do not hand-edit `__init__.py` under `level_1_impl`; run `regenerate_package_inits.py --root scriptcraft/layers/layer_1_tools/level_1_impl --fix` after moves.
+- `main` is excluded from generated `__init__.py` exports; run entrypoints via their module or thin scripts, not re-export shims.
+- Do not add no-op wiring modules (e.g. extra `plugins.py` that only imports `level_Z`); use lazy imports in the tool or rely on `level_Z` package load when appropriate.

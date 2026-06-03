@@ -4,12 +4,15 @@
 
 import pandas as pd
 
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_1 import (
+    standardize_columns,
+)
+
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import (
     FORM_BASE_COLUMN_MAP,
 )
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_1 import (
     debug_form,
-    standardize_columns,
 )
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_2 import (
     reshape_form_wide_to_long,

@@ -1,8 +1,12 @@
 """Auto-generated package exports."""
 
 
-from .asset_update_api import run_asset_update
+from .entrypoint import (
+    CUSTODIAN_CSV,
+    LOCATION_CSV,
+)
 
 __all__ = [
-    "run_asset_update",
+    "CUSTODIAN_CSV",
+    "LOCATION_CSV",
 ]

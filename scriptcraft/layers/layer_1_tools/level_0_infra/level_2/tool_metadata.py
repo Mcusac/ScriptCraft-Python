@@ -1,25 +1,24 @@
 """
-Tool metadata discovery from level_1_impl tool packages.
+Tool metadata discovery from impl tool packages.
 """
 
 import importlib
 import inspect
 import pkgutil
 
-from pathlib import Path
 from types import ModuleType
 from typing import Dict, List, Optional
 
 from scriptcraft._version import __version__
 
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import (
+    DEFAULT_TOOL_DISCOVERY_PATH,
+    DEFAULT_TOOL_MODULE_PREFIX,
+)
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_1 import ToolMetadata
 
-_IMPL_TOOL_MODULE_PREFIX = (
-    "scriptcraft.layers.layer_1_tools.level_1_impl.level_0"
-)
-_IMPL_LEVEL_0_DIR = (
-    Path(__file__).resolve().parents[2] / "level_1_impl" / "level_0"
-)
+_IMPL_TOOL_MODULE_PREFIX = DEFAULT_TOOL_MODULE_PREFIX
+_IMPL_LEVEL_0_DIR = DEFAULT_TOOL_DISCOVERY_PATH
 
 
 def _impl_tool_module(tool_name: str) -> str:
@@ -47,7 +46,7 @@ def _description_from_module(module: ModuleType, tool_name: str) -> str:
 
 
 def discover_tool_metadata(tool_name: str) -> Optional[ToolMetadata]:
-    """Discover metadata for a tool package under level_1_impl.level_0."""
+    """Discover metadata for a tool package under the default impl tool root."""
     try:
         module = importlib.import_module(_impl_tool_module(tool_name))
     except ImportError:
@@ -72,7 +71,7 @@ def discover_tool_metadata(tool_name: str) -> Optional[ToolMetadata]:
 
 
 def discover_all_tool_metadata() -> Dict[str, ToolMetadata]:
-    """Scan level_1_impl/level_0 packages for tool metadata."""
+    """Scan default impl tool packages for tool metadata."""
     tools_metadata: Dict[str, ToolMetadata] = {}
 
     if not _IMPL_LEVEL_0_DIR.exists():

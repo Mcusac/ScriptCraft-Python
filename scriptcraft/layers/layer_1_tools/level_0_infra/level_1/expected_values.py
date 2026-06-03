@@ -5,43 +5,29 @@ scripts/common/expected_values.py
 including handling numeric ranges, text values, categorical sets, and loading 
 min/max supplements from external files.
 """
-import re
 import pandas as pd
 
-from enum import Enum
 from pathlib import Path
 from typing import Union, Set, Tuple, List, Dict
 
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.emitter import log_and_print
+from scriptcraft.layers.layer_0_core.level_0 import parse_expected_values_with_messages
+
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import log_and_print
+
 
 # ==== 📚 Configuration & Constants ====
 
-class ValueType(Enum):
-    """Enum representing different parsed value types."""
-    NUMERIC = "numeric"
-    TEXT = "text"
-    DATE = "date"
-    RANGE_SET = "range_set"
-    SET = "set"
-    MIXED_SET = "mixed_set"
-    UNKNOWN = "unknown"
-
 NOTES_COLUMN_NAMES: List[str] = ["notes(numeric, integer only, text-don't want \"\", etc)", 'notes']
 DATE_KEYWORDS: List[str] = ['date', 'mm/yyyy', 'month/year']
-RANGE_KEYWORDS: List[str] = ['range']
-VALUE_PATTERNS: Dict[str, str] = {
-    'range': r'^\d+(\.\d+)?\s*-\s*\d+(\.\d+)?$',
-    'set_entry': r'\{(.*?)\}'
-}
 
 # ==== 📏 Value Parsing Utilities ====
 
-def extract_expected_values(
-    value_string: str, 
-    strict: bool = False
+def log_and_extract_expected_values(
+    value_string: str,
+    strict: bool = False,
 ) -> Tuple[str, Union[Set[str], List[Tuple[float, float]], Tuple[Set[str], List[Tuple[float, float]]]]]:
     """
-    Parse value column strings into expected types, numeric ranges, or sets.
+    Parse dictionary expected-value text and emit parse diagnostics via ``log_and_print``.
 
     Args:
         value_string: The raw value string to parse.
@@ -50,64 +36,12 @@ def extract_expected_values(
     Returns:
         Tuple containing (value_type, parsed_values).
     """
-    if pd.isna(value_string) or not str(value_string).strip():
-        log_and_print("⚠️ Empty or null value string")
-        return ValueType.UNKNOWN.value, set()
-
-    text = str(value_string).strip()
-    lowered = text.lower()
-
-    # Handle general types
-    if lowered == ValueType.NUMERIC.value:
-        return ValueType.NUMERIC.value, set()
-    if lowered == ValueType.TEXT.value:
-        return ValueType.TEXT.value, set()
-    if lowered == "mm/yyyy":
-        return ValueType.DATE.value, set()
-
-    try:
-        matches = re.findall(VALUE_PATTERNS['set_entry'], text)
-        if not matches:
-            if strict:
-                raise ValueError(f"No valid set entries found in: {text}")
-            return ValueType.UNKNOWN.value, set()
-
-        parsed: Set[str] = set()
-        ranges: List[Tuple[float, float]] = []
-
-        for entry in matches:
-            parts = [p.strip() for p in entry.split(",")]
-            key_part = parts[0]
-            label = parts[1].lower() if len(parts) > 1 else ""
-
-            if any(kw in label for kw in RANGE_KEYWORDS) or re.match(VALUE_PATTERNS['range'], key_part):
-                try:
-                    low, high = map(float, key_part.replace(" ", "").split("-"))
-                    ranges.append((low, high))
-                    log_and_print(f"📊 Parsed range: {low}-{high}")
-                except Exception as e:
-                    log_and_print(f"⚠️ Failed to parse range '{key_part}': {e}")
-                    if strict:
-                        raise
-                    parsed.add(key_part)
-            else:
-                try:
-                    key_numeric = float(key_part)
-                    parsed.add(str(int(key_numeric)) if key_numeric.is_integer() else str(key_numeric))
-                except ValueError:
-                    parsed.add(key_part)
-
-        if ranges and not parsed:
-            return ValueType.RANGE_SET.value, ranges
-        if parsed and not ranges:
-            return ValueType.SET.value, parsed
-        return ValueType.MIXED_SET.value, (parsed, ranges)
-
-    except Exception as e:
-        log_and_print(f"❌ Error parsing value string '{text}': {e}")
-        if strict:
-            raise
-        return ValueType.UNKNOWN.value, set()
+    value_type, parsed, messages = parse_expected_values_with_messages(
+        value_string, strict=strict
+    )
+    for message in messages:
+        log_and_print(message)
+    return value_type, parsed
 
 # ==== 📄 Min/Max Supplement Loading ====
 

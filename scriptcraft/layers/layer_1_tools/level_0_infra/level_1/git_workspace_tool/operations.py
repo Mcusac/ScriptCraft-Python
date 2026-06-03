@@ -41,11 +41,7 @@ def _run_with_precheck(*, operation_name: str, git: GitService, body) -> bool:
     )
 
 
-def push_workspace(
-    *,
-    is_git_repo=None,
-    porcelain_status_has_changes=None,
-) -> bool:
+def push_workspace() -> bool:
     git = _get_git()
 
     def _body() -> bool:
@@ -67,10 +63,7 @@ def push_workspace(
     return _run_with_precheck(operation_name="workspace push", git=git, body=_body)
 
 
-def pull_workspace(
-    *,
-    is_git_repo=None,
-) -> bool:
+def pull_workspace() -> bool:
     git = _get_git()
 
     def _body() -> bool:
@@ -84,11 +77,7 @@ def pull_workspace(
     return _run_with_precheck(operation_name="workspace pull", git=git, body=_body)
 
 
-def check_status(
-    *,
-    is_git_repo=None,
-    porcelain_status_has_changes=None,
-) -> bool:
+def check_status() -> bool:
     git = _get_git()
 
     def _body() -> bool:
@@ -105,8 +94,6 @@ def check_status(
 
 def commit_changes(
     *,
-    is_git_repo=None,
-    porcelain_status_has_changes=None,
     message: Optional[str] = None,
 ) -> bool:
     git = _get_git()
@@ -129,7 +116,6 @@ def commit_changes(
 
 def create_tag(
     *,
-    is_git_repo=None,
     version: Optional[str] = None,
 ) -> bool:
     git = _get_git()

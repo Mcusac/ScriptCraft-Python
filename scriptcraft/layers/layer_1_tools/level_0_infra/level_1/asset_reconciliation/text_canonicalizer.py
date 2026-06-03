@@ -1,4 +1,4 @@
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_0.scalar_normalization import (
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import (
     normalize_null_reconciliation,
 )
 

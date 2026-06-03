@@ -3,25 +3,22 @@ Domain-agnostic constants for level_0 consumers.
 
 This module holds enums and literal constants that do not belong to any
 single infrastructure concern (paths, logging, environment, etc.).
+
+Pure constants for the system.
+
+NO I/O, NO environment detection, NO config loading.
+
+Safe to import anywhere.
 """
 
 from enum import Enum
+from typing import Dict, List
 
 
 class OutlierMethod(Enum):
     """Statistical method used for outlier detection."""
     IQR = "IQR"
     STD = "STD"
-
-"""
-Pure constants for the system.
-
-NO I/O, NO environment detection, NO config loading.
-Safe to import anywhere.
-"""
-
-from typing import Dict, List
-
 
 STANDARD_KEYS: Dict[str, str] = {
     "input": "processed_data",
@@ -43,6 +40,5 @@ COLUMN_ALIASES: Dict[str, List[str]] = {
     "Visit_ID": ["Visit_ID", "Visit ID", "Visit", "Visit id", "Visit Id"],
 }
 
-MISSING_VALUE_CODES: List[int] = [-9999, -8888, -777777]
 DEFAULT_ENCODING: str = "utf-8"
 FALLBACK_ENCODING: str = "ISO-8859-1"

@@ -4,12 +4,13 @@ from typing import Union
 
 import pandas as pd
 
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import log_and_print
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import (
+from scriptcraft.layers.layer_0_core.level_0 import (
     fix_numeric_dash_inside_braces,
     fix_word_number_dash_inside_braces,
     prevent_pipe_inside_braces,
 )
+
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import log_and_print
 
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import FixCounter
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_1 import (

@@ -1,10 +1,10 @@
 """Infra row-value helpers for asset updater datasets."""
 
+import pandas as pd
+
 from typing import Any
 from typing import Iterable
 from typing import Literal
-
-import pandas as pd
 
 from scriptcraft.layers.layer_0_core.level_1 import is_missing_like
 

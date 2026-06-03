@@ -12,6 +12,12 @@ from .environment_setup import setup_environment
 
 from .execution_result import ExecutionResult
 
+from .formatters import (
+    DEFAULT_LOG_FORMAT,
+    StructuredFormatter,
+    Utf8Formatter,
+)
+
 from .import_resolution import import_module_dual
 
 from .log_configure import (
@@ -70,6 +76,7 @@ from .torch_guard import (
 
 __all__ = [
     "BaseCommandBuilder",
+    "DEFAULT_LOG_FORMAT",
     "DerivedCachePaths",
     "DeviceInfo",
     "DomainLoopTool",
@@ -83,9 +90,11 @@ __all__ = [
     "PathLike",
     "ProcessDomainTool",
     "ProcessResult",
+    "StructuredFormatter",
     "T",
     "ToolLifecycle",
     "TorchAbsentModule",
+    "Utf8Formatter",
     "derive_cache_paths",
     "get_isolated_logger",
     "get_logger",

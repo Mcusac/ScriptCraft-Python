@@ -7,11 +7,13 @@ import logging
 from pathlib import Path
 from typing import Optional, Union
 
-from scriptcraft.layers.layer_0_core.level_0 import normalize_level
-
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import (
+from scriptcraft.layers.layer_0_core.level_0 import (
+    normalize_level,
     DEFAULT_LOG_FORMAT,
     Utf8Formatter,
+)
+
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import (
     build_file_handler,
     build_stream_handler,
     configure_handler,

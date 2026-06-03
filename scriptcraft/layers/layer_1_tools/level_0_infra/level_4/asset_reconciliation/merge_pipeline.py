@@ -3,8 +3,11 @@
 # ============================================================
 import pandas as pd
 
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import (
+from scriptcraft.layers.layer_0_core.level_0 import (
     outer_merge_with_indicator,
+)
+
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import (
     ASSET_RAW,
     FORM_RAW,
     MERGED,

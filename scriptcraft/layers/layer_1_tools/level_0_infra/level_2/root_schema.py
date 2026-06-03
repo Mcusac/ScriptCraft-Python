@@ -6,9 +6,9 @@ from typing import Any, Dict, List, Optional
 from scriptcraft._version import get_version
 
 from scriptcraft.layers.layer_0_core.level_0 import LogConfigModel
+from scriptcraft.layers.layer_0_core.level_0.paths import PathResolver
 
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import (
-    PathResolver,
     PathConfig,
     WorkspaceConfig,
 )

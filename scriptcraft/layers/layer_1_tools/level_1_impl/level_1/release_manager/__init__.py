@@ -1,4 +1,4 @@
-"""Release manager domain plugins (PyPI upload and python-package steps)."""
+"""Auto-generated package exports."""
 
 
 from .pypi_plugin import (
@@ -8,16 +8,18 @@ from .pypi_plugin import (
     validate_package_files,
 )
 
-from .python_package_steps import (
-    get_workspace_version_strategy,
-    upload_to_pypi as upload_submodule_to_pypi,
+from .python_package_steps import upload_to_pypi
+
+from .workspace_release_pipeline import (
+    WorkspaceReleaseContext,
+    WorkspaceReleasePipeline,
 )
 
 __all__ = [
+    "WorkspaceReleaseContext",
+    "WorkspaceReleasePipeline",
     "check_dist_directory_at_cwd",
-    "get_workspace_version_strategy",
     "pypi_upload_mode",
-    "upload_submodule_to_pypi",
     "upload_to_pypi",
     "validate_package_files",
 ]

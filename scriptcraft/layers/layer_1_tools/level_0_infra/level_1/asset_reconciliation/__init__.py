@@ -14,9 +14,9 @@ from .contracts import (
     FORM_TO_MERGED_MAP,
 )
 
-from .debug_print import (
-    debug_merge,
-    debug_raw_inputs,
+from .debug_hooks import (
+    emit_input_debug,
+    emit_merge_debug,
 )
 
 from .form_debug import debug_form
@@ -66,8 +66,8 @@ __all__ = (
         "canonical_text",
         "collapse_whitespace",
         "debug_form",
-        "debug_merge",
-        "debug_raw_inputs",
+        "emit_input_debug",
+        "emit_merge_debug",
         "extract_device_columns",
         "filter_computers_only",
         "normalize_employee_id",

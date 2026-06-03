@@ -31,7 +31,18 @@ from .domain_loops import (
     run_process_domain_over_input_paths,
 )
 
+from .emoji_formatter import EmojiFormatter
+
 from .lazy_imports import lazy_import
+
+from .log_controller import LogController
+
+from .logging_formatters import (
+    PlainFormatter,
+    QCFormatter,
+    TimestampFormatter,
+    create_formatter,
+)
 
 from .metadata_paths import find_metadata_candidates
 
@@ -85,15 +96,21 @@ __all__ = (
     + list(cuda.__all__)
     + [
         "BasePipeline",
+        "EmojiFormatter",
         "LifecyclePipelineBase",
+        "LogController",
         "ModeCallable",
         "ModeRegistry",
         "NamedRegistryWithMetadata",
+        "PlainFormatter",
         "ProgressConfig",
         "ProgressVerbosity",
+        "QCFormatter",
         "RunContext",
         "T",
+        "TimestampFormatter",
         "build_run_context",
+        "create_formatter",
         "execute_mode",
         "find_metadata_candidates",
         "get_default_submission_csv_path",

@@ -1,5 +1,12 @@
 """
 Generic Release Tool core class.
+
+Canonical for standalone repo releases via infra pipeline factories
+(validate, build, upload, tag). Workspace-integrated python-package releases
+should use release_manager ``python_package`` mode (L2), which shares L0
+mechanics under ``level_0/release_manager/``.
+
+Tool placement: level_4 (imports infra level_4 pipeline factories).
 """
 
 from dataclasses import dataclass
@@ -12,7 +19,7 @@ from scriptcraft.layers.layer_1_tools.level_0_infra.level_2 import (
     detect_repo_root, 
     resolve_version,
 )
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_3 import (
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_4 import (
     create_docs_pipeline,
     create_full_pipeline,
     create_git_repo_pipeline,
@@ -33,7 +40,7 @@ PipelineFactory = Callable[[ReleaseContext], object]
 
 
 class GenericReleaseTool(BaseTool):
-    """Generic release tool that works anywhere."""
+    """Standalone release tool using infra pipeline factories (not workspace submodule sync)."""
 
     def __init__(self):
         super().__init__(

@@ -3,13 +3,16 @@
 import unittest
 from unittest.mock import MagicMock, patch
 
-from scriptcraft.layers.layer_1_tools.level_1_impl.level_0 import (
-    constants as c,
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import (
+    AUTHORIZED_BY_NAME_INPUT_SELECTOR,
+    OFFSITE_CHECKBOX_SELECTOR,
 )
-from scriptcraft.layers.layer_1_tools.level_1_impl.level_1 import (
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_2 import (
     apply_offsite_and_authorization,
     is_offsite_location,
 )
+
+_INFRA_L2 = "scriptcraft.layers.layer_1_tools.level_0_infra.level_2.asset_updater"
 
 
 class TestIsOffsiteLocation(unittest.TestCase):
@@ -28,15 +31,15 @@ class TestIsOffsiteLocation(unittest.TestCase):
 class TestApplyOffsiteAndAuthorization(unittest.TestCase):
 
     @patch(
-        "scriptcraft.layers.layer_1_tools.level_1_impl.level_1.asset_updater."
+        "scriptcraft.layers.layer_1_tools.level_0_infra.level_2.asset_updater."
         "offsite_workflow.load_authorizer_name"
     )
     @patch(
-        "scriptcraft.layers.layer_1_tools.level_1_impl.level_1.asset_updater."
+        "scriptcraft.layers.layer_1_tools.level_0_infra.level_2.asset_updater."
         "offsite_workflow.fill_input"
     )
     @patch(
-        "scriptcraft.layers.layer_1_tools.level_1_impl.level_1.asset_updater."
+        "scriptcraft.layers.layer_1_tools.level_0_infra.level_2.asset_updater."
         "offsite_workflow.set_checkbox_checked"
     )
     def test_offsite_checked_for_pccfr_5fe(
@@ -52,25 +55,25 @@ class TestApplyOffsiteAndAuthorization(unittest.TestCase):
 
         mock_checkbox.assert_called_once_with(
             page,
-            c.OFFSITE_CHECKBOX_SELECTOR,
+            OFFSITE_CHECKBOX_SELECTOR,
             True,
         )
         mock_fill.assert_called_once_with(
             page,
-            c.AUTHORIZED_BY_NAME_INPUT_SELECTOR,
+            AUTHORIZED_BY_NAME_INPUT_SELECTOR,
             "Jane Doe",
         )
 
     @patch(
-        "scriptcraft.layers.layer_1_tools.level_1_impl.level_1.asset_updater."
+        "scriptcraft.layers.layer_1_tools.level_0_infra.level_2.asset_updater."
         "offsite_workflow.load_authorizer_name"
     )
     @patch(
-        "scriptcraft.layers.layer_1_tools.level_1_impl.level_1.asset_updater."
+        "scriptcraft.layers.layer_1_tools.level_0_infra.level_2.asset_updater."
         "offsite_workflow.fill_input"
     )
     @patch(
-        "scriptcraft.layers.layer_1_tools.level_1_impl.level_1.asset_updater."
+        "scriptcraft.layers.layer_1_tools.level_0_infra.level_2.asset_updater."
         "offsite_workflow.set_checkbox_checked"
     )
     def test_offsite_unchecked_for_on_campus(
@@ -86,20 +89,20 @@ class TestApplyOffsiteAndAuthorization(unittest.TestCase):
 
         mock_checkbox.assert_called_once_with(
             page,
-            c.OFFSITE_CHECKBOX_SELECTOR,
+            OFFSITE_CHECKBOX_SELECTOR,
             False,
         )
 
     @patch(
-        "scriptcraft.layers.layer_1_tools.level_1_impl.level_1.asset_updater."
+        "scriptcraft.layers.layer_1_tools.level_0_infra.level_2.asset_updater."
         "offsite_workflow.load_authorizer_name"
     )
     @patch(
-        "scriptcraft.layers.layer_1_tools.level_1_impl.level_1.asset_updater."
+        "scriptcraft.layers.layer_1_tools.level_0_infra.level_2.asset_updater."
         "offsite_workflow.fill_input"
     )
     @patch(
-        "scriptcraft.layers.layer_1_tools.level_1_impl.level_1.asset_updater."
+        "scriptcraft.layers.layer_1_tools.level_0_infra.level_2.asset_updater."
         "offsite_workflow.set_checkbox_checked"
     )
     def test_skips_name_fill_when_not_configured(

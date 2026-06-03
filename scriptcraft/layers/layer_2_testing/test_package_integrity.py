@@ -145,28 +145,36 @@ class TestPackageIntegrity:
         print("✅ Package structure is correct")
 
 class TestToolFunctionality:
-    """Test basic tool functionality."""
-    
+    """Test basic tool functionality via layer_1_impl barrels."""
+
     def test_automated_labeler(self):
-        """Test automated labeler tool."""
-        from scriptcraft.tools.automated_labeler import AutomatedLabeler
+        from scriptcraft.layers.layer_1_tools.level_1_impl.level_3 import AutomatedLabeler
+
         tool = AutomatedLabeler()
         assert tool.name == "Automated Labeler"
         print("✅ AutomatedLabeler works")
-    
+
     def test_data_content_comparer(self):
-        """Test data content comparer tool."""
-        from scriptcraft.tools.data_content_comparer import DataContentComparer
+        from scriptcraft.layers.layer_1_tools.level_1_impl.level_3 import DataContentComparer
+
         tool = DataContentComparer()
         assert tool.name == "Data Content Comparer"
         print("✅ DataContentComparer works")
-    
+
     def test_rhq_form_autofiller(self):
-        """Test RHQ form autofiller tool."""
-        from scriptcraft.tools.rhq_form_autofiller import RHQFormAutofiller
+        from scriptcraft.layers.layer_1_tools.level_1_impl.level_0 import RHQFormAutofiller
+
         tool = RHQFormAutofiller()
         assert tool.name == "RHQ Form Autofiller"
         print("✅ RHQFormAutofiller works")
+
+    def test_release_manager(self):
+        from scriptcraft.layers.layer_1_tools.level_1_impl.level_4 import ReleaseManager
+
+        tool = ReleaseManager()
+        assert tool.name == "Release Manager"
+        assert len(tool.list_available_modes()) > 0
+        print("✅ ReleaseManager works")
 
 def run_integrity_tests():
     """Run all integrity tests."""

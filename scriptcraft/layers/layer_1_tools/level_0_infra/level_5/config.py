@@ -17,14 +17,11 @@ from scriptcraft.layers.layer_1_tools.level_0_infra.level_4.yaml_loader import l
 
 # ===== CONVENIENCE FUNCTIONS =====
 
+
 def load_config(path: Union[str, Path] = "config.yaml") -> Config:
     """Load configuration from YAML file with env fallback."""
     config = load_config_from_yaml(path)
     return finalize_config(config, Path(path))
-
-def get_config() -> Config:
-    """Get configuration with default path."""
-    return load_config()
 
 
 def finalize_config(config: Config, config_path: Path) -> Config:

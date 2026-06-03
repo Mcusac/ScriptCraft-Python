@@ -27,16 +27,7 @@ from .pypi_release_tool import *
 from .release_pipelines import *
 from .rhq_form_autofiller import *
 
-from .comparison import (
-    ComparisonResult,
-    DataFrameComparer,
-    compare_dataframes,
-    handle_comparison_errors,
-)
-
 from .environment_mixin import EnvironmentMixin
-
-from .legacy_api import get_legacy_config
 
 from .logging_bootstrap import build_log_config
 
@@ -48,24 +39,16 @@ from .logging_context import (
     with_domain_logger,
 )
 
-from .pipeline_base import (
-    BasePipeline,
-    PipelineStep,
-    QCPipelineEngine,
-    StepPipelineEngine,
-)
-
 from .plugins import initialize_plugins
 
-from .processing import (
-    create_tool_runner,
-    merge_dataframes,
-    merge_with_key_column,
-    process_by_domains,
-    setup_tool_files,
-    split_dataframe_by_column,
-    standardize_tool_execution,
+from .qc_pipeline_runners import (
+    dispatch_step,
+    execute_global_step,
+    run_domain_step,
+    run_global_step,
 )
+
+from .qc_pipeline_step import PipelineStep
 
 from .root_schema import Config
 
@@ -108,7 +91,6 @@ from .tool_metadata import (
 
 from .validation import (
     ColumnValidator,
-    FlaggedValue,
     STATUS_EMOJI,
     auto_resolve_input_files,
     get_status_emoji,
@@ -128,18 +110,12 @@ __all__ = (
     + list(release_pipelines.__all__)
     + list(rhq_form_autofiller.__all__)
     + [
-        "BasePipeline",
         "ColumnValidator",
-        "ComparisonResult",
         "Config",
-        "DataFrameComparer",
         "EnvironmentMixin",
-        "FlaggedValue",
         "PipelineStep",
         "QCLogContext",
-        "QCPipelineEngine",
         "STATUS_EMOJI",
-        "StepPipelineEngine",
         "T",
         "auto_resolve_input_files",
         "build_log_config",
@@ -148,37 +124,31 @@ __all__ = (
         "commit_and_push_submodule_changes",
         "commit_if_needed",
         "commit_workspace_submodule_ref",
-        "compare_dataframes",
         "compare_entity_changes_over_sequence",
         "create_standardized_supplement_row",
-        "create_tool_runner",
         "discover_all_tool_metadata",
         "discover_tool_metadata",
+        "dispatch_step",
         "ensure_tag",
+        "execute_global_step",
         "generate_metadata_summary",
         "get_distributable_tools",
-        "get_legacy_config",
         "get_status_emoji",
         "get_tools_by_category",
         "get_tools_by_maturity",
         "git_status_porcelain",
-        "handle_comparison_errors",
         "initialize_plugins",
         "log_fix_summary",
-        "merge_dataframes",
-        "merge_with_key_column",
-        "process_by_domains",
         "push_branch",
         "push_main_and_tag",
         "qc_log_context",
         "resolve_commit_message",
+        "run_domain_step",
+        "run_global_step",
         "setup_basic_tool_environment",
-        "setup_tool_files",
-        "split_dataframe_by_column",
         "stage_all",
         "stage_path",
         "standardize_supplement_columns",
-        "standardize_tool_execution",
         "submodule_update_remote",
         "update_tool_metadata",
         "validate_input_paths",

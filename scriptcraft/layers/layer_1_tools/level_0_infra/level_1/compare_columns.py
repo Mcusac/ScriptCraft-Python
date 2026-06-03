@@ -1,10 +1,9 @@
 
 from collections.abc import Iterable
 
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import (
-    compute_case_mismatches,
-    CompareColumnsResult,
-)
+from scriptcraft.layers.layer_0_core.level_0 import compute_case_mismatches
+
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import CompareColumnsResult
 
 
 def compare_column_sets(dataset_cols: Iterable[str], dictionary_cols: Iterable[str]) -> CompareColumnsResult:

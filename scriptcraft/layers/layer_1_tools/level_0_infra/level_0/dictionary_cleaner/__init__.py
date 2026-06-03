@@ -8,15 +8,11 @@ from .fix_counts import (
 
 from .types import OptionalStr
 
-from .value_types import (
-    VALUE_TYPE_MAP,
-    normalize_value_type,
-)
+from .value_types import normalize_value_type
 
 __all__ = [
     "DEFAULT_FIX_COUNTS",
     "FixCounter",
     "OptionalStr",
-    "VALUE_TYPE_MAP",
     "normalize_value_type",
 ]

@@ -44,29 +44,44 @@ def test_specific_imports():
 
 def test_tool_imports():
     """Test tool imports via level barrels."""
-    from scriptcraft.layers.layer_1_tools.level_1_impl.level_0 import (
+    from scriptcraft.layers.layer_1_tools.level_1_impl.level_0 import RHQFormAutofiller
+    from scriptcraft.layers.layer_1_tools.level_1_impl.level_3 import DictionaryDrivenChecker
+    from scriptcraft.layers.layer_1_tools.level_1_impl.level_3 import (
         AutomatedLabeler,
-        RHQFormAutofiller,
+        DataContentComparer,
     )
-    from scriptcraft.layers.layer_1_tools.level_1_impl.level_3 import DataContentComparer
-    
-    # Test instantiation
+    from scriptcraft.layers.layer_1_tools.level_1_impl.level_0 import GenericReleaseTool
+    from scriptcraft.layers.layer_1_tools.level_1_impl.level_4 import ReleaseManager
+    from scriptcraft.layers.layer_1_tools.level_1_impl.level_5 import print_release_manager_help
+
     labeler = AutomatedLabeler()
     comparer = DataContentComparer()
+    checker = DictionaryDrivenChecker()
     autofiller = RHQFormAutofiller()
-    
+    release_manager = ReleaseManager()
+    generic_release = GenericReleaseTool()
+
     assert labeler.name == "Automated Labeler"
     assert comparer.name == "Data Content Comparer"
+    assert checker.name == "Dictionary Driven Checker"
     assert autofiller.name == "RHQ Form Autofiller"
+    assert release_manager.name == "Release Manager"
+    assert generic_release.name == "Generic Release Tool"
+    assert callable(print_release_manager_help)
     print("✅ Tool imports work")
 
 def test_tool_discovery():
     """Test tool discovery."""
+    from scriptcraft.layers.layer_1_tools.level_0_infra.level_1 import ensure_tools_discovered
     from scriptcraft.layers.layer_1_tools.level_0_infra.level_2 import (
         get_tools_by_category,
     )
-    from scriptcraft.layers.layer_1_tools.level_0_infra.level_8 import get_available_tools
+    from scriptcraft.layers.layer_1_tools.level_0_infra.level_8 import (
+        get_available_tools,
+        unified_registry,
+    )
 
+    ensure_tools_discovered(unified_registry)
     tools = get_available_tools()
     assert len(tools) > 0
 
@@ -77,8 +92,8 @@ def test_tool_discovery():
 
 def test_pipeline_imports():
     """Test pipeline imports."""
-    from scriptcraft.layers.layer_1_tools.level_0_infra.level_2 import (
-        PipelineStep,
+    from scriptcraft.layers.layer_1_tools.level_0_infra.level_2 import PipelineStep
+    from scriptcraft.layers.layer_1_tools.level_0_infra.level_3 import (
         StepPipelineEngine,
     )
     assert StepPipelineEngine is not None

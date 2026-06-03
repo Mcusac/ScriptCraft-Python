@@ -3,6 +3,8 @@ import pandas as pd
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import (
     TagNormalizationMode,
     sanitize_scalar_tag,
+)
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import (
     apply_tag_rules,
 )
 

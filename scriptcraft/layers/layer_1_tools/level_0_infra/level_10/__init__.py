@@ -1,8 +1,12 @@
 """Auto-generated package exports."""
 
 
-from .tool_dispatch import dispatch_tool
+from .tool_lookup import (
+    InfraRegistryToolLookup,
+    ToolLookup,
+)
 
 __all__ = [
-    "dispatch_tool",
+    "InfraRegistryToolLookup",
+    "ToolLookup",
 ]

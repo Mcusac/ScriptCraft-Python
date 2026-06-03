@@ -2,12 +2,10 @@
 
 
 from . import (
-    composed,
     frame,
     primitives,
 )
 
-from .composed import *
 from .frame import *
 from .primitives import *
 
@@ -34,8 +32,7 @@ from .selenium_launch import launch_chrome
 from .selenium_waits import wait_until_url_excludes
 
 __all__ = (
-    list(composed.__all__)
-    + list(frame.__all__)
+    list(frame.__all__)
     + list(primitives.__all__)
     + [
         "clear_and_fill",

@@ -14,6 +14,7 @@ from .unit import *
 from .conftest import (
     PACKAGE_PATH,
     package_path,
+    pytest_configure,
     sample_comparison_files,
     sample_docx_template,
     sample_excel_file,
@@ -53,6 +54,7 @@ __all__ = (
         "UnifiedTestRunner",
         "package_path",
         "project_root",
+        "pytest_configure",
         "run_command",
         "sample_comparison_files",
         "sample_docx_template",

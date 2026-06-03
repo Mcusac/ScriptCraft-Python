@@ -8,11 +8,11 @@ Single responsibility:
 from typing import Any, Dict, Optional
 
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import log_and_print
-from scriptcraft.layers.layer_1_tools.level_0_infra.level_5 import get_config
+from scriptcraft.layers.layer_1_tools.level_0_infra.level_5 import load_config
 
 
 def _root() -> Dict[str, Any]:
-    return get_config().tool_configs.get("data_content_comparer", {})
+    return load_config().tool_configs.get("data_content_comparer", {})
 
 
 def get_domain_config(domain: str) -> Optional[Dict[str, Any]]:

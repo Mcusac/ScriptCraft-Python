@@ -37,6 +37,7 @@ Thumbs.db
 
 # Logs
 *.log
+data/logs/
 
 # Local UNT login secrets (asset updater)
 scriptcraft/layers/layer_1_tools/level_0_infra/level_0/asset_updater/credentials.py

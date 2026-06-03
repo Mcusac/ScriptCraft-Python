@@ -3,11 +3,10 @@
 import pandas as pd
 
 from pathlib import Path
-from typing import Any, Optional, Sequence, Tuple, Union
+from typing import Any, Optional, Sequence, Tuple
 
+from scriptcraft.layers.layer_0_core.level_0 import PathLike
 from scriptcraft.layers.layer_0_core.level_4 import load_csv_raw
-
-PathLike = Union[str, Path]
 
 
 def load_tabular(

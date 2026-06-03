@@ -7,8 +7,6 @@ import pandas as pd
 
 from typing import Dict
 
-from scriptcraft.layers.layer_0_core.level_1 import is_missing_like
-
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import log_and_print
 
 
@@ -79,23 +77,3 @@ def parse_missing_unit(value):
         return value
 
     return re.sub(r"=\s*", "= ", str(value))
-
-
-def get_clean_numeric_series(df: pd.DataFrame, col: str) -> pd.Series:
-    """
-    Extract numeric-only cleaned series from column.
-    """
-    if col not in df.columns:
-        return pd.Series(dtype=float)
-
-    series = df[col]
-
-    series = series[~series.apply(is_missing_like)]
-    numeric = pd.to_numeric(series, errors="coerce").dropna()
-
-    if len(series) != len(numeric):
-        log_and_print(
-            f"⚠️ Removed {len(series) - len(numeric)} non-numeric values from '{col}'"
-        )
-
-    return numeric

@@ -1,8 +1,3 @@
-"""Auto-generated package exports."""
+"""Auto-generated package exports (empty)."""
 
-
-from .cli import build_parser
-
-__all__ = [
-    "build_parser",
-]
+__all__: list[str] = []

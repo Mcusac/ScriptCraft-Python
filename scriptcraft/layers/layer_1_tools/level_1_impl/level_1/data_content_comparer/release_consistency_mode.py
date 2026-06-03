@@ -1,9 +1,10 @@
 """Orchestration for release-consistency comparison mode."""
 
-from typing import Any, Dict, List, Optional, Sequence, Union
+from typing import Any, Dict, List, Optional, Sequence
 
 from pathlib import Path
 
+from scriptcraft.layers.layer_0_core.level_0 import PathLike
 from scriptcraft.layers.layer_0_core.level_4 import load_csv_raw
 
 from scriptcraft.layers.layer_1_tools.level_0_infra.level_0 import (
@@ -20,8 +21,6 @@ from scriptcraft.layers.layer_1_tools.level_0_infra.level_6 import (
 from scriptcraft.layers.layer_1_tools.level_1_impl.level_0 import (
     compare_release_dataframes,
 )
-
-PathLike = Union[str, Path]
 
 
 def _resolve_diff_mode(kwargs: dict[str, Any]) -> str:

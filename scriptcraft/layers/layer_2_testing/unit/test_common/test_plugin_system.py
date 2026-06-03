@@ -5,6 +5,10 @@ This module tests plugin registration, discovery, and loading functionality.
 """
 
 import pytest
+
+pytestmark = pytest.mark.skip(
+    reason="Legacy scriptcraft.common.plugins; replaced by layer barrels (Phase 2+).",
+)
 from pathlib import Path
 from unittest.mock import patch, MagicMock
 
