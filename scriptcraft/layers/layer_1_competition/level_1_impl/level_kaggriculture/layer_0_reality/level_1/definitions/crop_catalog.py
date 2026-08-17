@@ -1,6 +1,6 @@
 from types import MappingProxyType
 
-from ...level_0.definitions.crops import CropDefinition, CropType, YieldType
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_kaggriculture.layer_0_reality.level_0.definitions.crops import CropDefinition, CropType, YieldType
 
 
 CROPS: MappingProxyType = MappingProxyType({

@@ -1,7 +1,7 @@
-from ...level_1.definitions.animals import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_kaggriculture.layer_0_reality.level_1.definitions.animals import (
     AnimalType,
 )
-from ...level_2.definitions.animal_catalog import animal_definition
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_kaggriculture.layer_0_reality.level_2.definitions.animal_catalog import animal_definition
 
 
 def produces_on_day(animal: AnimalType, age: int) -> bool:

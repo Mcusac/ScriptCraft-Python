@@ -6,8 +6,8 @@ Contains the static demand composition of each town shop.
 
 from types import MappingProxyType
 
-from ...level_0.definitions.objects import ObjectType
-from ...level_0.definitions.shops import TownShopType
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_kaggriculture.layer_0_reality.level_0.definitions.objects import ObjectType
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_kaggriculture.layer_0_reality.level_0.definitions.shops import TownShopType
 
 SHOP_DEMAND: MappingProxyType = MappingProxyType({
     TownShopType.BAKERY: MappingProxyType({

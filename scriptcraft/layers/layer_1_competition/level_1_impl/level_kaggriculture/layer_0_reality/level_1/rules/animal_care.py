@@ -7,7 +7,7 @@ and structure-compatibility rules.
 This module does not mutate animal state or orchestrate actions.
 """
 
-from ...level_0.definitions.game import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_kaggriculture.layer_0_reality.level_0.definitions.game import (
     ANIMAL_CARE_BONUS_INCREMENT,
     MAX_CONSECUTIVE_UNFED_DAYS,
 )

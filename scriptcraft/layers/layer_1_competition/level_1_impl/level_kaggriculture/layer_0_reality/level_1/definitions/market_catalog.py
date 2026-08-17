@@ -1,7 +1,7 @@
 from types import MappingProxyType
 
-from ...level_0.definitions.objects import ObjectType
-from ...level_0.definitions.market import MarketDefinition, PriceShape
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_kaggriculture.layer_0_reality.level_0.definitions.objects import ObjectType
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_kaggriculture.layer_0_reality.level_0.definitions.market import MarketDefinition, PriceShape
 
 
 MARKET: MappingProxyType = MappingProxyType({

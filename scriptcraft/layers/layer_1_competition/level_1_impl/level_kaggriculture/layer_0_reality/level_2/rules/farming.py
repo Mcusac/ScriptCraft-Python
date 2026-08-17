@@ -8,12 +8,12 @@ No farm state is stored or mutated here.
 """
 
 
-from ...level_0.definitions.game import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_kaggriculture.layer_0_reality.level_0.definitions.game import (
     LAND_PURCHASE_COSTS,
     SHED_CAPACITY,
     INITIAL_CONSECUTIVE_UNWATERED,
 )
-from ...level_1.rules.farm_geomety import QUADRANTS
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_kaggriculture.layer_0_reality.level_1.rules.farm_geomety import QUADRANTS
 
 
 def initial_consecutive_unwatered_days() -> int:

@@ -1,7 +1,7 @@
 from types import MappingProxyType
 
-from ...level_0.definitions.objects import ObjectType
-from ...level_1.definitions.animals import AnimalDefinition, AnimalType
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_kaggriculture.layer_0_reality.level_0.definitions.objects import ObjectType
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_kaggriculture.layer_0_reality.level_1.definitions.animals import AnimalDefinition, AnimalType
 
 ANIMALS: MappingProxyType = MappingProxyType({
     AnimalType.GOOSE: AnimalDefinition(

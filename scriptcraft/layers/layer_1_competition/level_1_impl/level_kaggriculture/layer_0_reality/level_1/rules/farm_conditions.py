@@ -1,4 +1,4 @@
-from ...level_0.definitions.game import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_kaggriculture.layer_0_reality.level_0.definitions.game import (
     MAX_CONSECUTIVE_UNFED_DAYS,
     MAX_CONSECUTIVE_UNWATERED_DAYS,
     WEED_SPAWN_CHANCE,

@@ -9,13 +9,13 @@ pricing algorithm remains separate from its static tuning parameters.
 
 import math
 
-from ...level_0.definitions.game import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_kaggriculture.layer_0_reality.level_0.definitions.game import (
     MAX_MARKET_ORDERS_PER_TURN,
     PRICE_FLOOR,
 )
-from ...level_0.definitions.objects import ObjectType
-from ...level_0.definitions.market import PriceShape
-from ...level_2.definitions.market_accessors import market_definition
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_kaggriculture.layer_0_reality.level_0.definitions.objects import ObjectType
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_kaggriculture.layer_0_reality.level_0.definitions.market import PriceShape
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_kaggriculture.layer_0_reality.level_2.definitions.market_accessors import market_definition
 
 
 BUYABLE_PRODUCTS = frozenset({

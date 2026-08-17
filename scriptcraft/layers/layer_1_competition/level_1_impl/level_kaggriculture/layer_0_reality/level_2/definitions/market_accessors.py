@@ -1,6 +1,6 @@
-from ...level_0.definitions.objects import ObjectType
-from ...level_0.definitions.market import MarketDefinition, PriceShape
-from ...level_1.definitions.market_catalog import MARKET
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_kaggriculture.layer_0_reality.level_0.definitions.objects import ObjectType
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_kaggriculture.layer_0_reality.level_0.definitions.market import MarketDefinition, PriceShape
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_kaggriculture.layer_0_reality.level_1.definitions.market_catalog import MARKET
 
 
 def market_definition(product: ObjectType) -> MarketDefinition:

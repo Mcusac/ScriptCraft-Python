@@ -5,9 +5,9 @@ Defines deterministic shop unlocking, demand access, and town-consumption
 behaviour.
 """
 
-from ...level_0.definitions.game import TOWN_SHOP_UNLOCK_INTERVAL
-from ...level_0.definitions.shops import TownShopType
-from ...level_1.definitions.shop_catalog import SHOP_DEMAND
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_kaggriculture.layer_0_reality.level_0.definitions.game import TOWN_SHOP_UNLOCK_INTERVAL
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_kaggriculture.layer_0_reality.level_0.definitions.shops import TownShopType
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_kaggriculture.layer_0_reality.level_1.definitions.shop_catalog import SHOP_DEMAND
 
 
 def shop_unlocks_on_day(day: int) -> bool:

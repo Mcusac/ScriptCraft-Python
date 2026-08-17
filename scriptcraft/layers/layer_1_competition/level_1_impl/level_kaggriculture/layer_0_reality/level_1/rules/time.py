@@ -8,7 +8,7 @@ These functions intentionally operate on explicit step/configuration values
 rather than storing any mutable clock state.
 """
 
-from ...level_0.definitions.game import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_kaggriculture.layer_0_reality.level_0.definitions.game import (
     DAYS_PER_SEASON,
     EPISODE_STEPS,
     TURNS_PER_DAY,

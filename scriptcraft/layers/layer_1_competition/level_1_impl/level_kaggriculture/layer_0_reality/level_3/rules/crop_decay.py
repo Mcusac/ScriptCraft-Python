@@ -1,11 +1,11 @@
-from ...level_0.definitions.game import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_kaggriculture.layer_0_reality.level_0.definitions.game import (
     CROP_DECAY_INTERVAL_TURNS,
 )
-from ...level_0.definitions.crops import (
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_kaggriculture.layer_0_reality.level_0.definitions.crops import (
     CropType,
 )
-from ...level_1.definitions.crop_catalog import crop_definition
-from ...level_2.rules.crop_production import is_one_time_crop, is_ongoing_crop
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_kaggriculture.layer_0_reality.level_1.definitions.crop_catalog import crop_definition
+from scriptcraft.layers.layer_1_competition.level_1_impl.level_kaggriculture.layer_0_reality.level_2.rules.crop_production import is_one_time_crop, is_ongoing_crop
 
 
 def one_time_decay_start_day(crop: CropType) -> int:
